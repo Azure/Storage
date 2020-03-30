@@ -1,0 +1,1 @@
+Solutions requiring consistent hybrid connectivity to Azure Storage require ample network capacity to support daily data transfers within the required transfer window without impacting Production applications. This section will outline the tools and techniques available to assess your network needs.
