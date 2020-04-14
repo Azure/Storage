@@ -11,7 +11,7 @@ How can you understand how much bandwidth you will need?
 ----------------------------
 
 1) Reports from your backup software. 
-  a. In each of the partner specific pages in the Backup and Archive workload section, we will highlight the reports available to help assess your change rate.
+  <br>a. In each of the partner specific pages in the Backup and Archive workload section, we will highlight the reports available to help assess your change rate.
 2) Backup software independent assessment and reporting tools like:
   <br>a. [MiTrend](https://mitrend.com/)
   <br>b. [Aptare](https://www.veritas.com/insights/aptare-it-analytics)
