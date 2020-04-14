@@ -11,7 +11,7 @@ ms.subservice:
 ---
 
 # Microsoft Partner Documentation for Partner X
-This article describes the storage options for partner. 
+This article describes the storage options for partners. 
 
 ## Support Matrix
 
