@@ -15,9 +15,9 @@ This article describes the storage options for partners.
 
 ## Support Matrix
 
-| GPv2<br>Storage | Cool<br>Tier | Archive<br>Tier | WORM<br>Support | Restore<br>on-<br>premises | Backup<br>Azure<br>VM's | Backup<br>Azure<br>Files | Backup<br>Azure<br>Files |
-|--------|--------|--------|--------|--------|--------|--------|--------|
-| X | X |   | X | X | X | X | X |
+| GPv2<br>Storage | Cool<br>Tier | Archive<br>Tier | WORM<br>Support | Required Azure<br>Resources | Restore<br>on-<br>premises | Backup<br>Azure<br>VM's | Backup<br>Azure<br>Files | Backup<br>Azure<br>Files |
+|--------|--------|--------|--------|--------|--------|--------|--------|--------|
+| X | X |   | X | X | X | X | X | X |
 
 ## Links to Marketplace Offerings
 Information related to the partner marketplace links goes here.
