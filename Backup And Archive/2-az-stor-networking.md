@@ -13,8 +13,8 @@ How can you understand how much bandwidth you will need?
 1) Reports from your backup software. 
   a. In each of the partner specific pages in the Backup and Archive workload section, we will highlight the reports available to help assess your change rate.
 2) Backup software independent assessment and reporting tools like:
-  a. [MiTrend](https://mitrend.com/)
-  b. [Aptare](https://www.veritas.com/insights/aptare-it-analytics)
+  <br>a. [MiTrend](https://mitrend.com/)
+  <br>b. [Aptare](https://www.veritas.com/insights/aptare-it-analytics)
 
 How will I know how much headroom I have with my current Internet connection?
 ----------------------------
@@ -22,7 +22,7 @@ How will I know how much headroom I have with my current Internet connection?
 1) Are you an existing Azure ExpressRoute customer? View your [circuit usage](https://docs.microsoft.com/en-us/azure/expressroute/expressroute-monitoring-metrics-alerts#circuits-metrics)
 2) You can Contact your ISP. They should have reports to share with you illustrating your existing daily and monthly utilization.
 3) There are several tools that can measure utilization by monitoring your network traffic at your router/switch level including:
-  a. [Solarwinds Bandwidth Analyzer Pack](https://www.solarwinds.com/network-bandwidth-analyzer-pack?CMP=ORG-BLG-DNS)
-  b. [Paessler PRTG](https://www.paessler.com/bandwidth_monitoring)
-  c. [Cisco Network Assistant](https://www.cisco.com/c/en/us/products/cloud-systems-management/network-assistant/index.html)
-  d. [WhatsUp Gold](https://www.whatsupgold.com/network-traffic-monitoring)
+  <br>a. [Solarwinds Bandwidth Analyzer Pack](https://www.solarwinds.com/network-bandwidth-analyzer-pack?CMP=ORG-BLG-DNS)
+  <br>b. [Paessler PRTG](https://www.paessler.com/bandwidth_monitoring)
+  <br>c. [Cisco Network Assistant](https://www.cisco.com/c/en/us/products/cloud-systems-management/network-assistant/index.html)
+  <br>d. [WhatsUp Gold](https://www.whatsupgold.com/network-traffic-monitoring)
