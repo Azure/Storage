@@ -73,4 +73,4 @@ For this scenario, the following issues/solutions were identified:
 
 ## Next steps
 
-Review [Link Title](http://google.com)
+Review [Link Title](http://microsoft.com)
