@@ -22,7 +22,7 @@ High level overview of the use case and or customer story
 Brief description about the customer or partner goes here.
 
 
-## The Challenge:
+## The Challenge or Problem statement
 
 Describe the problem or challenge that the customer or partner were trying to overcome.
 
