@@ -25,10 +25,17 @@ Information related to the partner marketplace links goes here.
 - [Azure Marketplace Offerings](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/commvault.commvault?tab=Overview)
 
 ## Links to relevant documentation
-Information related to the partner docs goes here.
+Specific pages covering Azure considerations, best practices, steps to implement
 
-- [Link 1](http://microsoft.com)
-- [Link 2](http://microsoft.com)
+- [Cloud Feature Support for Azure](https://documentation.commvault.com/commvault/v11/article?p=109795_1.htm)
+- [Commvault for Azure](https://www.commvault.com/supported-technologies/microsoft/azure)
+- [Commvault for Azure Stack](https://www.commvault.com/supported-technologies/microsoft/azurestack)
+- [Protecting SAP Hanna in Azure](https://azure.microsoft.com/en-us/resources/protecting-sap-hana-in-azure/)
+- [Moving Apps and Databases to Azure](https://www.commvault.com/resources/go-ahead-move-your-most-important-applications-and-databases-to-azure)
+- [Architecture Guide for Azure](https://www.commvault.com/resources/public-cloud-architecture-guide-for-microsoft-azure-v11-sp16)
+- [Solution brief: Rapid data migration for Azure Stack](https://www.commvault.com/resources/solution-brief-rapid-data-migration-for-azure)
+- [Commvault for Azure Datasheet](https://www.commvault.com/resources/solution-brief-rapid-data-migration-for-azure)
+
 
 ## Partner Reference Architectures
 
