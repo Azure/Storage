@@ -61,8 +61,6 @@ Worldwide Numbers<br>
 support@commvault.com<br>
 
 
-Information related to the fourth test goes here.
-
 ## Next steps
 
-Review [Link Title](http://microsoft.com)
+[Get Started](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/commvault.commvault?tab=Overview)
