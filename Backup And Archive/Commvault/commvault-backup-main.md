@@ -41,17 +41,25 @@ Specific pages covering Azure considerations, best practices, steps to implement
 
 ## Implementation Guide
 - A brief step-by-step of how to implement
-  - [Cloud Feature Support for Azure](https://documentation.commvault.com/commvault/v11/article?p=109795_1.htm)
   - [Protecting VM's in Azure with Commvault](https://documentation.commvault.com/commvault/v11/article?p=31252.htm)
+  - [Cloud Feature Support for Azure](https://documentation.commvault.com/commvault/v11/article?p=109795_1.htm)
+  - [Configuration and Management of Storage Tiers](https://documentation.commvault.com/commvault/v11/article?p=95147.htm)
+  - [Network and Storage Guidance](https://www.commvault.com/resources/public-cloud-architecture-guide-for-microsoft-azure-v11-sp16)
 
 ## Monitoring the Deployment going forward
-- Azure Performance Monitoring
-- Where can the customer go to view performance reports, job completion and befin basic troubleshooting
-- Links to user guide content on partner support site
+- [Configuring Settings for a Dashboard Alert](https://documentation.commvault.com/commvault/v11/article?p=100514_3.htm)
+- [Dashboards](https://documentation.commvault.com/commvault/v11/article?p=95306_1.htm)
+- [Reports Overview](https://documentation.commvault.com/commvault/v11/article?p=37684_1.htm)
 
 ## Partner Videos and Links
 
 ## How to Open Support Case
+https://www.commvault.com/support
+https://ma.commvault.com/support
+Toll Free: +1 877-780-3077
+Worldwide Numbers
+support@commvault.com
+
 
 Information related to the fourth test goes here.
 
