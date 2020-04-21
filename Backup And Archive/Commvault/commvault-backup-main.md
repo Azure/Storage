@@ -54,11 +54,11 @@ Specific pages covering Azure considerations, best practices, steps to implement
 ## Partner Videos and Links
 
 ## How to Open Support Case
-https://www.commvault.com/support
-https://ma.commvault.com/support
-Toll Free: +1 877-780-3077
-Worldwide Numbers
-support@commvault.com
+https://www.commvault.com/support<br>
+https://ma.commvault.com/support<br>
+Toll Free: +1 877-780-3077<br>
+Worldwide Numbers<br>
+support@commvault.com<br>
 
 
 Information related to the fourth test goes here.
