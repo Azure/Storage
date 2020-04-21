@@ -19,12 +19,12 @@ ms.subservice:
 | 11.5 | 11.5 | 11.10  | 11.12 | 11.5 | 11.5 | 11.6 | 11.6 |
 
 ## Links to Marketplace Offerings
-Information related to the partner marketplace links goes here.
+Commvault marketplace links:
 
 - [Azure Marketplace Offerings](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/commvault.commvault?tab=Overview)
 
 ## Links to relevant documentation
-Specific pages covering Azure considerations, best practices, steps to implement
+Specific pages covering Azure considerations, best practices and steps to implement
 
 - [Cloud Feature Support for Azure](https://documentation.commvault.com/commvault/v11/article?p=109795_1.htm)
 - [Commvault for Azure](https://www.commvault.com/supported-technologies/microsoft/azure)
