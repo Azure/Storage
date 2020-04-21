@@ -61,7 +61,6 @@ Specific pages covering Azure considerations, best practices, steps to implement
 https://www.commvault.com/support<br>
 https://ma.commvault.com/support<br>
 Toll Free: +1 877-780-3077<br>
-Worldwide Numbers<br>
 support@commvault.com<br>
 
 
