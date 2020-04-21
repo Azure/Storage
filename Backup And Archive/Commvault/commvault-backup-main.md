@@ -54,6 +54,8 @@ Specific pages covering Azure considerations, best practices, steps to implement
 ## Partner Videos and Links
 - [Demonstration – VMware to Azure data migration](https://www.commvault.com/resources/demonstration-vmware-to-azure-migrations-with-commvault)
 - [Protect and Recover Your SAP® Workloads in Azure](https://www.youtube.com/watch?v=4ZGGE53mGVI)
+- [Demonstration - Office 365 Data Protection with Commvault](https://www.youtube.com/watch?v=dl3nvAacxZU)
+- [theCube at Commvault GO 2019](https://www.youtube.com/watch?v=mzVWi2N6RpA)
 
 ## How to Open Support Case
 https://www.commvault.com/support<br>
