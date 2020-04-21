@@ -4,7 +4,7 @@ titleSuffix: Azure Blob Storage Docs
 description: Case Study
 keywords:
 author: Dave Toronto
-ms.date: 04/09/2020
+ms.date: 04/21/2020
 ms.topic: article
 ms.service: storage
 ms.subservice: 
@@ -14,7 +14,7 @@ Note: This template is based on this document: https://azure.microsoft.com/en-us
 
 # Title of the Use Case
 
-High level overview of the use case and or customer story 
+High level overview of the use case and or customer story.
 
 
 ## About the Customer or Partner
