@@ -52,6 +52,8 @@ Specific pages covering Azure considerations, best practices, steps to implement
 - [Reports Overview](https://documentation.commvault.com/commvault/v11/article?p=37684_1.htm)
 
 ## Partner Videos and Links
+- [Demonstration – VMware to Azure data migration](https://www.commvault.com/resources/demonstration-vmware-to-azure-migrations-with-commvault)
+- [Protect and Recover Your SAP® Workloads in Azure](https://www.youtube.com/watch?v=4ZGGE53mGVI)
 
 ## How to Open Support Case
 https://www.commvault.com/support<br>
