@@ -10,8 +10,8 @@ ms.service: Storage
 ms.subservice: 
 ---
 
-# Microsoft Partner Documentation for Partner X
-This article describes the storage options for partners. 
+# Microsoft Partner Documentation for Commvault
+This article describes the storage options for Commvault. 
 
 ## Support Matrix
 
