@@ -12,7 +12,7 @@ ms.subservice:
 
 Note: This template is based on this document: https://azure.microsoft.com/en-us/blog/big-compute-for-large-engineering-simulations/
 
-# Use Case Title
+# Title of the Use Case
 
 High level overview of the use case and or customer story 
 
@@ -43,6 +43,6 @@ Describe the solution to the customer or partner problem here.
 Outline and describe any lessons learned with this case study.
 
 
-## NeSummary
+## Summary
 
 Summarize the overall case study in a short paragraph.
