@@ -15,7 +15,7 @@ This article describes the storage options for Commvault.
 
 ## Support Matrix
 
-| GPv2<br>Storage | Cool<br>Tier | Archive<br>Tier | WORM<br>Support | Restore<br>on-premises | Backup<br>Azure VM's | Backup<br>Azure<br>Files | Backup<br>Azure Files |
+| GPv2<br>Storage | Cool<br>Tier | Archive<br>Tier | WORM<br>Support | Restore<br>on-premises | Backup<br>Azure VM's | Backup<br>Azure Files | Backup<br>Azure Blob |
 |--------|--------|--------|--------|--------|--------|--------|--------|
 | 11.5 | 11.5 | 11.10  | 11.12 | 11.5 | 11.5 | 11.6 | 11.6 |
 
