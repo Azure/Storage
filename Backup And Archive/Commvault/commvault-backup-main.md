@@ -39,11 +39,10 @@ Specific pages covering Azure considerations, best practices and steps to implem
 - [Architecture Guide for Azure](https://www.commvault.com/resources/public-cloud-architecture-guide-for-microsoft-azure-v11-sp16)
 
 ## Implementation Guide
-- A brief step-by-step of how to implement
-  - [Protecting VM's in Azure with Commvault](https://documentation.commvault.com/commvault/v11/article?p=31252.htm)
-  - [Cloud Feature Support for Azure](https://documentation.commvault.com/commvault/v11/article?p=109795_1.htm)
-  - [Configuration and Management of Storage Tiers](https://documentation.commvault.com/commvault/v11/article?p=95147.htm)
-  - [Network and Storage Guidance](https://www.commvault.com/resources/public-cloud-architecture-guide-for-microsoft-azure-v11-sp16)
+- [Protecting VM's in Azure with Commvault](https://documentation.commvault.com/commvault/v11/article?p=31252.htm)
+- [Cloud Feature Support for Azure](https://documentation.commvault.com/commvault/v11/article?p=109795_1.htm)
+- [Configuration and Management of Storage Tiers](https://documentation.commvault.com/commvault/v11/article?p=95147.htm)
+- [Network and Storage Guidance](https://www.commvault.com/resources/public-cloud-architecture-guide-for-microsoft-azure-v11-sp16)
 
 ## Monitoring the Deployment going forward
 - [Configuring Settings for a Dashboard Alert](https://documentation.commvault.com/commvault/v11/article?p=100514_3.htm)
