@@ -32,19 +32,17 @@ Specific pages covering Azure considerations, best practices, steps to implement
 - [Commvault for Azure Stack](https://www.commvault.com/supported-technologies/microsoft/azurestack)
 - [Protecting SAP Hanna in Azure](https://azure.microsoft.com/en-us/resources/protecting-sap-hana-in-azure/)
 - [Moving Apps and Databases to Azure](https://www.commvault.com/resources/go-ahead-move-your-most-important-applications-and-databases-to-azure)
-- [Architecture Guide for Azure](https://www.commvault.com/resources/public-cloud-architecture-guide-for-microsoft-azure-v11-sp16)
 - [Solution brief: Rapid data migration for Azure Stack](https://www.commvault.com/resources/solution-brief-rapid-data-migration-for-azure)
 - [Commvault for Azure Datasheet](https://www.commvault.com/resources/solution-brief-rapid-data-migration-for-azure)
 
 
-## Partner Reference Architectures
+## Reference Architecture for On-Premises -to-Azure and In-Azure deployments
+- [Architecture Guide for Azure](https://www.commvault.com/resources/public-cloud-architecture-guide-for-microsoft-azure-v11-sp16)
 
 ## Implementation Guide
-- Description of the implementation
-  - [Links](http://microsoft.com)
-  - Policy Configuration Guidance
-  - Network Bandwidth and storage account guidance
-  - Screenshots
+- A brief step-by-step of how to implement
+  - [Cloud Feature Support for Azure](https://documentation.commvault.com/commvault/v11/article?p=109795_1.htm)
+  - [Protecting VM's in Azure with Commvault](https://documentation.commvault.com/commvault/v11/article?p=31252.htm)
 
 ## Monitoring the Deployment going forward
 - Azure Performance Monitoring
