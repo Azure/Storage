@@ -54,6 +54,7 @@ Specific pages covering Azure considerations, best practices and steps to implem
 - [Protect and Recover Your SAP® Workloads in Azure](https://www.youtube.com/watch?v=4ZGGE53mGVI)
 - [Demonstration - Office 365 Data Protection with Commvault](https://www.youtube.com/watch?v=dl3nvAacxZU)
 - [theCube at Commvault GO 2019](https://www.youtube.com/watch?v=mzVWi2N6RpA)
+- [Keys to Fast and Secure Azure Migration](https://www.youtube.com/watch?v=FacUiOtMBiI)
 
 ## How to Open Support Case
 https://www.commvault.com/support<br>
