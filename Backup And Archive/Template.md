@@ -15,7 +15,7 @@ This article describes the storage options for partners.
 
 ## Support Matrix
 
-| GPv2<br>Storage | Cool<br>Tier | Archive<br>Tier | WORM<br>Support | Required Azure<br>Resources | Restore<br>on-<br>premises | Backup<br>Azure<br>VM's | Backup<br>Azure<br>Files | Backup<br>Azure<br>Files |
+| GPv2<br>Storage | Cool<br>Tier | Archive<br>Tier | WORM<br>Support | Required Azure<br>Resources | Restore<br>on-<br>premises | Backup<br>Azure VM's | Backup<br>Azure Files | Backup<br>Azure Blob |
 |--------|--------|--------|--------|--------|--------|--------|--------|--------|
 | X | X |   | X | X | X | X | X | X |
 
@@ -48,8 +48,6 @@ Information related to the partner docs goes here.
 ## Partner Videos and Links
 
 ## How to Open Support Case
-
-Information related to the fourth test goes here.
 
 ## Next steps
 
