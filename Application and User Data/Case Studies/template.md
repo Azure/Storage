@@ -16,7 +16,6 @@ Note: This template is based on this document: https://azure.microsoft.com/en-us
 
 High level overview of the use case and or customer story 
 
-Text for the Scenario here
 
 ## About the Customer or Partner
 
