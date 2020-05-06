@@ -1,5 +1,5 @@
 ---
-title: Azure Partner Backup Documentation - title
+title: Azure Partner Backup Documentation
 titleSuffix: Azure Blob Storage Docs
 description: Partner Documentation for Commvault
 keywords: commvault, backup, partner
