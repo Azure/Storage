@@ -39,6 +39,23 @@ Specific pages covering Azure considerations, best practices and steps to implem
 - [Architecture Guide for Azure](https://www.commvault.com/resources/public-cloud-architecture-guide-for-microsoft-azure-v11-sp16)
 
 ## Implementation Guide
+
+1.	After Commvault installs on in your Commvault VM, open the Commcell Console. From Start, select Commvault > Commvault Commcell Console.
+2.	Configure your backup repositories to use storage external to the Azure Stack Hub in the Commvault Commcell Console. In the CommCell Browser, select Storage Resources > Storage Pools. Right-click and select Add Storage Pool. Select Cloud.
+3.	Add the name of the Storage Pool. Select Next.
+4.	Select Create > Cloud Storage.
+5.	Select your cloud service provider. In this procedure, we will use a second Azure Stack Hub in a different location. Select Microsoft Azure Storage.
+6.	Select your Commvault VM as your MediaAgent.
+7.	Enter your access information for your storage account. You can find instruction on setting up an Azure Storage account here. Access information:
+o	Service host: Get the name of the URL from the Blob container properties in your resource. For example, my URL was https://backuptest.blob.westus.stackpoc.com/mybackups and I used, blob.westus.stackpoc.com in Service host.
+o	Account Name: Use the Storage account name. You can find this in the Access Keys blade in the storage resource.
+o	Access Key: Get the access key from the Access Keys blade in the storage resource.
+o	Container: The name of the container. In this case, mybackups.
+o	Storage Class: Leave as User container's default storage class.
+8.	Select the VMs or Physical Servers to protect and attach a backup policy.
+9.	Configure your backup schedule to match your RPO requirements for Recovery.
+10.	Perform the first backup that tiers to Azure.
+
 - [Protecting VM's in Azure with Commvault](https://documentation.commvault.com/commvault/v11/article?p=31252.htm)
 - [Cloud Feature Support for Azure](https://documentation.commvault.com/commvault/v11/article?p=109795_1.htm)
 - [Configuration and Management of Storage Tiers](https://documentation.commvault.com/commvault/v11/article?p=95147.htm)
