@@ -40,7 +40,7 @@ Specific pages covering Azure considerations, best practices and steps to implem
 
 ## Implementation Guide
 
-1.	After Commvault installs on in your Commvault VM, open the Commcell Console. From Start, select Commvault > Commvault Commcell Console.
+1.	After Commvault installs on in your Commvault VM, open the Commcell Console. From Start, select **Commvault** > Commvault Commcell Console.
 2.	Configure your backup repositories to use storage external to the Azure Stack Hub in the Commvault Commcell Console. In the CommCell Browser, select Storage Resources > Storage Pools. Right-click and select Add Storage Pool. Select Cloud.
 3.	Add the name of the Storage Pool. Select Next.
 4.	Select Create > Cloud Storage.
