@@ -4,7 +4,7 @@ titleSuffix: Azure Blob Storage Docs
 description: Description Here
 keywords:
 author: Dave Toronto
-ms.date: 04/14/2020
+ms.date: 05/06/2020
 ms.topic: article
 ms.service: Storage
 ms.subservice: 
