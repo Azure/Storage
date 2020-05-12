@@ -10,7 +10,7 @@ ms.service: Storage
 ms.subservice: 
 ---
 
-# Microsoft Partner Documentation for Veeam Backup and Replication minimum software version 9.5 u4
+# Microsoft Partner Documentation for Veeam Backup and Replication minimum software version 10
 This article describes the storage options for partners. 
 
 ## Support Matrix
@@ -22,22 +22,23 @@ This article describes the storage options for partners.
 ## Links to Marketplace Offerings
 Marketplace offering is an alternative to on premises installation, but not required.
 
-
 - https://azuremarketplace.microsoft.com/en-us/marketplace/apps/veeam.veeam-backup-replication?tab=Overview
 
 ## Links to relevant documentation
 Information related to the partner docs goes here.
 
-- [Link 1](http://microsoft.com)
-- [Link 2](http://microsoft.com)
+- [Restore to Microsoft Azure](https://helpcenter.veeam.com/docs/backup/vsphere/restore_azure.html?ver=100)
+- [How Restore to Microsoft Azure Works](https://helpcenter.veeam.com/docs/backup/vsphere/restore_azure_hiw.html?ver=100)
+- [Restore Workflow](https://helpcenter.veeam.com/docs/backup/vsphere/restore_azure_administration.html?ver=100)
 
 ## Partner Reference Architectures
 
-## Implementation Guide
+
+## Product Guides Guide
 - Description of the implementation
-  - [Links](http://microsoft.com)
+  - [User Guide for VMWARE vSphere](http://microsoft.com)
   - Policy Configuration Guidance
-  - Network Bandwidth and storage account guidance
+  - [Network Bandwidth and storage account guidance](http://rps.dewin.me/bandwidth/)
   - Screenshots
 
 ## Monitoring the Deployment going forward
@@ -48,7 +49,8 @@ Information related to the partner docs goes here.
 ## Partner Videos and Links
 
 ## How to Open Support Case
+https://www.veeam.com/support.html
 
 ## Next steps
 
-Review [Link Title](http://microsoft.com)
+Review [Get Started with Veeam](https://www.veeam.com/)
