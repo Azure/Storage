@@ -11,7 +11,9 @@ ms.subservice:
 ---
 
 # Microsoft Partner Documentation for Veeam Backup and Replication minimum software version 10
-This article describes the storage options for partners. 
+Together, Microsoft and Veeam® go beyond typical backup and recovery scenarios. Our joint solutions help customers manage data protection from multiple sources and with multiple potential backup targets. Customers can also extend on-premises data protection for virtual and physical workloads to the cloud with Veeam’s tight integration into Microsoft Azure, Azure Stack, and Office 365.
+
+Our strong partnership ensures data is always available, protected and actively working for our customers’ businesses. 
 
 ## Support Matrix
 
@@ -25,7 +27,7 @@ Marketplace offering is an alternative to on premises installation, but not requ
 - https://azuremarketplace.microsoft.com/en-us/marketplace/apps/veeam.veeam-backup-replication?tab=Overview
 
 ## Links to relevant documentation
-Information related to the partner docs goes here.
+.
 
 - [Restore to Microsoft Azure](https://helpcenter.veeam.com/docs/backup/vsphere/restore_azure.html?ver=100)
 - [How Restore to Microsoft Azure Works](https://helpcenter.veeam.com/docs/backup/vsphere/restore_azure_hiw.html?ver=100)
