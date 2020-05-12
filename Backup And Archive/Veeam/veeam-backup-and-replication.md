@@ -11,9 +11,7 @@ ms.subservice:
 ---
 
 # Microsoft Partner Documentation for Veeam Backup and Replication minimum software version 10
-Together, Microsoft and Veeam® go beyond typical backup and recovery scenarios. Our joint solutions help customers manage data protection from multiple sources and with multiple potential backup targets. Customers can also extend on-premises data protection for virtual and physical workloads to the cloud with Veeam’s tight integration into Microsoft Azure, Azure Stack, and Office 365.
-
-Our strong partnership ensures data is always available, protected and actively working for our customers’ businesses. 
+Together, Microsoft and Veeam® go beyond typical backup and recovery scenarios. Our joint solutions help customers manage data protection from multiple sources and with multiple potential backup targets. Customers can also extend on-premises data protection for virtual and physical workloads to the cloud with Veeam’s tight integration into Microsoft Azure, Azure Stack, and Office 365.  Our strong partnership ensures data is always available, protected and actively working for our customers’ businesses. 
 
 ## Support Matrix
 
