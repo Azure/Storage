@@ -20,9 +20,10 @@ This article describes the storage options for partners.
 | X | X |   |   | X | X | X | X |   |
 
 ## Links to Marketplace Offerings
-Information related to the partner marketplace links goes here.
+Marketplace offering is an alternative to on premises installation, but not required.
 
-- [Marketplace Offering] https://azuremarketplace.microsoft.com/en-us/marketplace/apps/veeam.veeam-backup-replication?tab=Overview
+
+- https://azuremarketplace.microsoft.com/en-us/marketplace/apps/veeam.veeam-backup-replication?tab=Overview
 
 ## Links to relevant documentation
 Information related to the partner docs goes here.
