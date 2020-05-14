@@ -4,7 +4,7 @@ titleSuffix: Azure Blob Storage Docs
 description: Partner Documentation for Commvault
 keywords: commvault, backup, partner
 author: Dave Toronto
-ms.date: 04/14/2020
+ms.date: 05/14/2020
 ms.topic: article
 ms.service: Storage
 ms.subservice: 
