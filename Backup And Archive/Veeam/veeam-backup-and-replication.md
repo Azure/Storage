@@ -25,32 +25,4 @@ Marketplace offering is an alternative to on premises installation, but not requ
 - https://azuremarketplace.microsoft.com/en-us/marketplace/apps/veeam.veeam-backup-replication?tab=Overview
 
 ## Links to relevant documentation
-.
-
-- [Restore to Microsoft Azure](https://helpcenter.veeam.com/docs/backup/vsphere/restore_azure.html?ver=100)
-- [How Restore to Microsoft Azure Works](https://helpcenter.veeam.com/docs/backup/vsphere/restore_azure_hiw.html?ver=100)
-- [Restore Workflow](https://helpcenter.veeam.com/docs/backup/vsphere/restore_azure_administration.html?ver=100)
-
-## Partner Reference Architectures
-
-
-## Product Guides Guide
-- Description of the implementation
-  - [User Guide for VMWARE vSphere](http://microsoft.com)
-  - Policy Configuration Guidance
-  - [Network Bandwidth and storage account guidance](http://rps.dewin.me/bandwidth/)
-  - Screenshots
-
-## Monitoring the Deployment going forward
-- Azure Performance Monitoring
-- Where can the customer go to view performance reports, job completion and befin basic troubleshooting
-- Links to user guide content on partner support site
-
-## Partner Videos and Links
-
-## How to Open Support Case
-https://www.veeam.com/support.html
-
-## Next steps
-
-Review [Get Started with Veeam](https://www.veeam.com/)
+- https://www.veeam.com/documentation-guides-datasheets.html
