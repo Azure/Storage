@@ -2,7 +2,7 @@
 title: Azure Partner Backup Documentation
 titleSuffix: Azure Blob Storage Docs
 description: Veritas Backup Doc - Backup Exec
-keywords:backupexec
+keywords: backupexec
 author: Dave Toronto
 ms.date: 05/06/2020
 ms.topic: article
