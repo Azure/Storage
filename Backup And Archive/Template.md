@@ -10,7 +10,7 @@ ms.service: Storage
 ms.subservice: 
 ---
 
-# Microsoft Partner Documentation for Partner X
+# Microsoft Partner Documentation for Partner Z
 This article describes the storage options for partners. 
 
 ## Support Matrix
