@@ -1,8 +1,8 @@
-# Azure Storage PM's Content Repository
+# Azure Storage Content Repository
 
-Welcome to the Azure Storage PM's Content Repository. In this repository we have compiled the content that we have found helpful on our engagements with customers. 
+Welcome to the Azure Storage Content Repository. In this repository we have compiled the content that we have found helpful on our engagements with customers.
 
-This repository is intended to be a supplement to the official [Azure Storage documentation](https://docs.microsoft.com/en-us/azure/storage/) with additional specialized content and links to non-Microsoft generated content. We encourage you to review the official documentation also. 
+This repository is intended to be a supplement to the official [Azure Storage documentation](https://docs.microsoft.com/en-us/azure/storage/) with additional specialized content and links to non-Microsoft generated content. We encourage you to review the official documentation also.
 
 This repository is organized into 5 pillars as follows, click on the pillar name to get more information about that pillar:
 
@@ -13,7 +13,6 @@ This repository is organized into 5 pillars as follows, click on the pillar name
 | [Backup And Archive](</Backup And Archive>) | TBD |
 | [HPC IoT and AI](</HPC IoT and AI>) | TBD |
 | [Tools and Utilities](<Tools and Utilities>) | Helpful 1st and 3rd party tools and utilities |
-
 
 ## Contributing
 
