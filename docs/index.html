@@ -1,0 +1,1197 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Azure Storage's static website hosted on blob storage for aka.ms/azurestorage material. Contains Azure Storage product information, documentation, and partner solutions.">
+    <meta name="author" content="Xin Huang, Program Manager: Azure Storage Team">
+    <link rel="icon" href="AzureIcon.png">
+
+    <title>Azure Storage Static Website</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="album.css" rel="stylesheet">
+  </head>
+
+  <body>
+
+    <header>
+      <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-b, box-shadow">
+        <h5 class="my-0 mr-md-auto font-weight-normal">Azure Storage</h5>
+        <nav class="my-2 my-md-0 mr-md-3">
+          <a class="p-2 text-dark" href="#About">About</a>
+          <a class="p-2 text-dark" href="#Sessions">Ignite Sessions</a>
+          <a class="p-2 text-dark" href="#Partners">Partners</a>
+        </nav>
+        <a class="btn btn-outline-primary" href="https://azure.microsoft.com/blog/topics/storage-backup-and-recovery/
+" target="_blank">Follow our Blog</a>
+      </div>
+    </header>
+
+    <main role="main">
+
+    <section class="jumbotron text-center" id="About">
+        <!-- <h1 class="jumbotron-heading"></h1> -->
+        <img src="AzureStorageLogo.png" class="responsive-image" alt="Azure Storage"></img>
+        <div class="row featurette">
+          <div class="col-md-4">
+            <h2>Blob Storage</h2><p class="lead text-muted">Massively-scalable object storage for unstructured data
+            <ul>
+              <li> Cost-effective for massive volume </li>
+              <li> Tiered storage options </li>
+              <li> Single infrastructure with global reach </li>
+            </ul>
+            </p>
+            <p class="info-button">
+              <a href="https://azure.microsoft.com/services/storage/blobs/" class="btn btn-primary my-2" target="_blank">Learn more</a>
+              <a href="https://azure.microsoft.com/pricing/details/storage/blobs/" class="btn btn-secondary my-2" target="_blank">Pricing</a>
+            </p>
+          </div>
+          <div class="col-md-4">
+            <h2>Azure Disks</h2><p class="lead text-muted">Persistent, high-performance disk storage for every workload
+            <ul>
+              <li> Low latency, high throughput </li>
+              <li> Industry-leading, single-instance service-level agreement </li>
+              <li> Enterprise-grade durability </li>
+            </ul>
+          </p>
+            <p class="info-button">
+              <a href="https://azure.microsoft.com/services/storage/disks/" class="btn btn-primary my-2" target="_blank">Learn more</a>
+              <a href="https://azure.microsoft.com/pricing/details/managed-disks/" class="btn btn-secondary my-2" target="_blank">Pricing</a>
+            </p>
+          </div>
+          <div class="col-md-4">
+            <h2>Azure Files</h2><p class="lead text-muted">Simple, distributed, cross-platform file system
+            <ul>
+              <li>Lift and shift migration</li>
+              <li>Simple and inexpensive</li>
+              <li>Move data to cloud with no coding</li>
+            </ul>
+            </p>
+            <p class="info-button">
+              <a href="https://azure.microsoft.com/services/storage/files/" class="btn btn-primary my-2" target="_blank">Learn more</a>
+              <a href="https://azure.microsoft.com/pricing/details/storage/files/" class="btn btn-secondary my-2" target="_blank">Pricing</a>
+            </p>
+          </div>
+
+          <div class="col-md-4 long-bullet-text">
+            <h2>Data Lake Storage</h2><p class="lead text-muted">Secure, massively scalable data lake storage.
+            <ul>
+              <li> High performance with massive scale optimized for analytics workloads </li>
+              <li> Enterprise grade security with AAD integration and fine-grained ACLs </li>
+              <li> Eliminates data silos with object storage and filesystem endpoints against the same data </li>
+            </ul>
+          </p>
+            <p class="info-button">
+              <a href="https://azure.microsoft.com/services/storage/data-lake-storage/" class="btn btn-primary my-2" target="_blank">Learn more</a>
+              <a href="https://azure.microsoft.com/pricing/details/storage/data-lake/" class="btn btn-secondary my-2" target="_blank">Pricing</a>
+            </p>
+          </div>
+          <div class="col-md-4 mid-box">
+            <h2>Azure Backup</h2><p class="lead text-muted">Secure and cost effective cloud backup
+            <ul>
+              <li> Native support for Azure workloads </li>
+              <li> Lower and predictable TCO </li>
+              <li> Rich management using zero-infrastructure solutions </li>
+            </ul>
+          </p>
+            <p class="info-button">
+              <a href="https://azure.microsoft.com/services/backup/" class="btn btn-primary my-2" target="_blank">Learn more</a>
+              <a href="https://azure.microsoft.com/pricing/details/backup/" class="btn btn-secondary my-2" target="_blank">Pricing</a>
+            </p>
+          </div>
+
+          <div class="col-md-4 long-bullet-text">
+            <h2>Azure Data Box</h2><p class="lead text-muted">Multiple offline and online solutions to move your data to Azure
+            <ul>
+              <li> Various offline capacity appliances when networking isn’t an option </li>
+              <li> Online appliances offer storage gateway and AI-enabled edge computing </li>
+              <li> All appliances secure and NIST compliant </li>
+            </ul>
+            </p>
+            <p class="info-button">
+              <a href="https://azure.microsoft.com/services/storage/databox/" class="btn btn-primary my-2" target="_blank">Learn more</a>
+              <a href="https://azure.microsoft.com/pricing/details/storage/databox/" class="btn btn-secondary my-2" target="_blank">Pricing</a>
+            </p>
+          </div>
+
+          <div class="col-md-4 mid-box">
+            <h2>Azure Queues</h2><p class="lead text-muted">Durably store messages for asynchronous processing
+            <ul>
+              <li> Separate communication functions for better durability </li>
+              <li> Scale for bursts to absorb unexpected traffic </li>
+              <li> Build in resilience to maintain integrity of your workload </li>
+            </ul>
+          </p>
+            <p class="info-button">
+              <a href="https://azure.microsoft.com/services/storage/queues/" class="btn btn-primary my-2" target="_blank">Learn more</a>
+              <a href="https://azure.microsoft.com/pricing/details/storage/queues/" class="btn btn-secondary my-2" target="_blank">Pricing</a>
+            </p>
+          </div>
+          <div class="col-md-4">
+            <h2>Azure NetApp Files</h2><p class="lead text-muted"> Powerful, hybrid Azure file shares powered by NetApp
+            <ul>
+              <li> Sophisticated enterprise-grade data management </li>
+              <li> Highly secure and compliant </li>
+              <li> Rich hybrid cloud experience </li>
+            </ul>
+          </p>
+            <p class="info-button">
+              <a href="https://azure.microsoft.com/services/storage/netapp/" class="btn btn-primary my-2" target="_blank">Learn more</a>
+              <a href="https://azure.microsoft.com/pricing/details/storage/netapp/" class="btn btn-secondary my-2" target="_blank">Pricing</a>
+            </p>
+          </div>
+          <div class="col-md-4">
+            <h2>Azure HPC Cache</h2><p class="lead text-muted"> Run high-performance computing (HPC) workloads in the cloud
+            <ul>
+              <li> Scalable, high-performance file caching  </li>
+              <li> Hybrid or all-in Azure HPC </li>
+              <li> Flexibility with multi-cloud, multi-protocol support </li>
+            </ul>
+          </p>
+            <p class="info-button">
+              <a href="https://azure.microsoft.com/services/hpc-cache/" class="btn btn-primary my-2" target="_blank">Learn more</a>
+              <a href="https://azure.microsoft.com/pricing/details/hpc-cache/" target="_blank">Pricing</a>
+            </p>
+          </div>
+        </div>
+    </section>
+
+  <section>
+    <!-- <hr class="featurette-divider"> -->
+    <div class="col-md-12" id="Sessions">
+      <h2 class="featurette-heading">Ignite 2019 Sessions<span class="text-muted"></span> </h2>
+      <div class="row featurette">
+        <div class="col-md-1"></div>
+        <div class="col-md-10">
+          <div class="table-responsive">
+            <table class="table table-striped table-hover">
+              <thead class=thead-dark>
+                <tr class="table-headers">
+                  <th scope="col" width="10%">Session Code</th>
+                  <th scope="col">Session Title</th>
+                  <th scope="col" width="25%">DateTime</th>
+                  <th scope="col" width="15%">Location</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row"> <a href="https://myignite.techcommunity.microsoft.com/sessions?q=THR2112" target="_blank"</a>THR2112</th>
+                  <td>Managing cloud native applications with Azure Blob Storage</td>
+                  <td>Monday, 11/04 @ 2:50 PM – 3:10 PM</td>
+                  <td>OCCC West Building Theater</td>
+                </tr>
+
+                <tr>
+                  <th scope="row"> <a href="https://myignite.techcommunity.microsoft.com/sessions?q=BRK2136" target="_blank"</a>BRK2136</th>
+                  <td>Microsoft Azure Data Box Edge overview</td>
+                  <td>Monday, 11/04 @ 3:15 PM - 4:00 PM</td>
+                  <td>OCCC W205</td>
+                </tr>
+
+                <tr>
+                  <th scope="row"> <a href="https://myignite.techcommunity.microsoft.com/sessions?q=THR3114" target="_blank"</a>THR3114</th>
+                  <td>Migrate and protect your production applications running on Azure Disks</td>
+                  <td>Monday, 11/04 @ 6:20 PM - 6:40 PM</td>
+                  <td>The HUB – Microsoft Showcase – Theater 5</td>
+                </tr>
+
+                <tr>
+                  <th scope="row"> <a href="https://myignite.techcommunity.microsoft.com/sessions?q=BRK2137" target="_blank"</a>BRK2137</th>
+                  <td>Use Azure’s edge infrastructure to make edge computing work for your business</td>
+                  <td>Tuesday, 11/05 @ 9:15 AM - 10:00 AM</td>
+                  <td>OCCC W308</td>
+                </tr>
+
+                <tr>
+                  <th scope="row"> <a href="https://myignite.techcommunity.microsoft.com/sessions?q=BRK2041" target="_blank"</a>BRK2041</th>
+                  <td>What's new in Azure Storage</td>
+                  <td>Tuesday, 11/05 @ 10:30 AM - 11:15 AM</td>
+                  <td>OCCC W304 A-D</td>
+                </tr>
+
+                <tr>
+                  <th scope="row"> <a href="https://myignite.techcommunity.microsoft.com/sessions?q=BRK3125" target="_blank"</a>BRK3125</th>
+                  <td>Building high-value integrated data center solutions for Microsoft Azure Stack</td>
+                  <td>Tuesday, 11/05 @ 10:30 AM - 11:15 AM</td>
+                  <td>OCCC W308</td>
+                </tr>
+
+                <tr>
+                  <th scope="row"> <a href="https://myignite.techcommunity.microsoft.com/sessions?q=BRK3115" target="_blank"</a>BRK3115</th>
+                  <td>Now is the time to modernize your datacenter and migrate your applications to Microsoft Azure Stack</td>
+                  <td>Tuesday, 11/05 @ 2:15 PM - 3:00 PM</td>
+                  <td>OCCC W311 A-D</td>
+                </tr>
+
+                <tr>
+                  <th scope="row"> <a href="https://myignite.techcommunity.microsoft.com/sessions?q=THR2115" target="_blank"</a>THR2115</th>
+                  <td>Migrate your NFS workloads to Azure Blob Storage</td>
+                  <td>Tuesday, 11/05 @ 2:30 PM - 2:50 PM</td>
+                  <td>The HUB – Microsoft Showcase – Theater 5</td>
+                </tr>
+
+                <tr>
+                  <th scope="row"> <a href="https://myignite.techcommunity.microsoft.com/sessions?q=BRK3167" target="_blank"</a>BRK3167</th>
+                  <td>Ultra Disk: Race into the future with fastest disk storage in the cloud</td>
+                  <td>Tuesday, 11/05 @ 3:30 PM - 4:15 PM</td>
+                  <td>OCCC W308</td>
+                </tr>
+
+                <tr>
+                  <th scope="row"> <a href="https://myignite.techcommunity.microsoft.com/sessions?q=THR2175" target="_blank"</a>THR2175</th>
+                  <td>Using HPC Cache to reduce latency</td>
+                  <td>Wednesday, 11/06 @ 2:30 PM – 2:50 PM</td>
+                  <td>The HUB – Microsoft Showcase – Theater 5</td>
+                </tr>
+
+                <tr>
+                  <th scope="row"> <a href="https://myignite.techcommunity.microsoft.com/sessions?q=MLS1049" target="_blank"</a>MLS1049</th>
+                  <td>AI on the edge with Azure Data Box Edge</td>
+                  <td>Wednesday, 11/06 @ 5:05 PM – 5:20 PM</td>
+                  <td>The HUB – Microsoft Ignite Live</td>
+                </tr>
+
+                <tr>
+                  <th scope="row"> <a href="https://myignite.techcommunity.microsoft.com/sessions?q=THR2230" target="_blank"</a>THR2230</th>
+                  <td>StorSimple end of support: what you need to know</td>
+                  <td>Wednesday, 11/06 @ 5:35 PM – 5:55 PM</td>
+                  <td>The HUB – Microsoft Showcase – Theater 5</td>
+                </tr>
+
+                <tr>
+                  <th scope="row"> <a href="https://myignite.techcommunity.microsoft.com/sessions?q=BRK3117" target="_blank"</a>BRK3117</th>
+                  <td>How to use and create AI solutions with Azure Data Box Edge and Azure Stack</td>
+                  <td>Thursday, 11/07 @ 9:15 AM - 10:00 AM</td>
+                  <td>OCCC W304 A-D</td>
+                </tr>
+
+                <tr>
+                  <th scope="row"> <a href="https://myignite.techcommunity.microsoft.com/sessions?q=BRK3180" target="_blank"</a>BRK3180</th>
+                  <td>Microsoft Azure Backup:  Deep dive into Azure’s built-in data protection solution</td>
+                  <td>Thursday, 11/07 @ 11:45 AM - 12:30 PM</td>
+                  <td>OCCC W331</td>
+                </tr>
+
+                <tr>
+                  <th scope="row"> <a href="https://myignite.techcommunity.microsoft.com/sessions?q=BRK3163" target="_blank"</a>BRK3163</th>
+                  <td>Run your most demanding enterprise file workloads with Azure NetApp Files</td>
+                  <td>Thursday, 11/07 @ 1:00 PM - 1:45 PM</td>
+                  <td>OCCC W304 A-D</td>
+                </tr>
+
+                <tr>
+                  <th scope="row"> <a href="https://myignite.techcommunity.microsoft.com/sessions?q=BRK3206" target="_blank"</a>BRK3206</th>
+                  <td>Do more with your data from edge to cloud using Data Box Edge</td>
+                  <td>Thursday, 11/07 @ 1:00 PM - 1:45 PM</td>
+                  <td>OCCC W308</td>
+                </tr>
+
+                <tr>
+                  <th scope="row"> <a href="https://myignite.techcommunity.microsoft.com/sessions?q=THR3119" target="_blank"</a>THR3119</th>
+                  <td>What’s new with Azure Data Lake Storage</td>
+                  <td>Thursday, 11/07 @ 2:30 PM - 2:50 PM</td>
+                  <td>The HUB – Microsoft Showcase – Theater 5</td>
+                </tr>
+
+                <tr>
+                  <th scope="row"> <a href="https://myignite.techcommunity.microsoft.com/sessions?q=BRK3116" target="_blank"</a>BRK3116</th>
+                  <td>Best practices and lessons learned from securely operating Microsoft Azure Stack</td>
+                  <td>Thursday, 11/07 @ 3:30 PM - 4:15 PM</td>
+                  <td>OCCC W304 A-D</td>
+                </tr>
+
+                <tr>
+                  <th scope="row"> <a href="https://myignite.techcommunity.microsoft.com/sessions?q=BRK3283" target="_blank"</a>BRK3283</th>
+                  <td>Optimize price-performance and lower TCO for your workloads with the next-gen Azure Disks</td>
+                  <td>Thursday, 11/07 @ 3:30 PM - 4:15 PM</td>
+                  <td>OCCC W308</td>
+                </tr>
+
+                <tr>
+                  <th scope="row"> <a href="https://myignite.techcommunity.microsoft.com/sessions?q=BRK4018" target="_blank"</a>BRK4018</th>
+                  <td>Best Practices to improve performance with Azure Disks</td>
+                  <td>Friday, 11/08 @ 9:15 AM - 10:00 AM</td>
+                  <td>OCCC W314</td>
+                </tr>
+
+                <tr>
+                  <th scope="row"> <a href="https://myignite.techcommunity.microsoft.com/sessions?q=BRK3047" target="_blank"</a>BRK3047</th>
+                  <td>Prepare for the next era of insights  using Azure Data Lake Storage</td>
+                  <td>Friday, 11/08 @ 11:45 AM - 12:30 PM</td>
+                  <td>OCCC W205</td>
+                </tr>
+
+                <tr>
+                  <th scope="row"> <a href="https://myignite.techcommunity.microsoft.com/sessions?q=BRK3120" target="_blank"</a>BRK3120</th>
+                  <td>Learn how to run network-attached storage workflows in Azure</td>
+                  <td>Friday, 11/08 @ 1:00 PM  – 1:45 PM</td>
+                  <td>OCCC W311 A-D</td>
+                </tr>
+
+                <tr>
+                  <th scope="row"> <a href="https://myignite.techcommunity.microsoft.com/sessions?q=BRK3241" target="_blank"</a>BRK3241</th>
+                  <td>Bringing file services into 2020s: Migrate SMB and NFS file shares to Azure Files</td>
+                  <td>Friday, 11/08 @ 1:00 PM - 1:45 PM</td>
+                  <td>OCCC W331</td>
+                </tr>
+
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="col-md-1"></div>
+      </div>
+    </div>
+    <hr class="featurette-divider">
+  </section>
+
+    <section>
+      <div class="album py-4 bg-light" id="Partners">
+        <div class="container">
+          <h2 class="featurette-heading storage-partners-header" align = "center"> Azure Storage Partners </h2>
+
+          <!-- Nav Bar Starts Here -->
+          <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+            <li class="nav-item">
+              <a class="nav-link active" id="pills-Archive-tab" data-toggle="pill" href="#pills-Archive" role="tab" aria-controls="pills-Archive" aria-selected="true">Archive</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="pills-Backup-tab" data-toggle="pill" href="#pills-Backup" role="tab" aria-controls="pills-Backup" aria-selected="false">Backup</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="pills-DR-tab" data-toggle="pill" href="#pills-DR" role="tab" aria-controls="pills-DR" aria-selected="false">Disaster Recovery</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="Partner4" data-toggle="pill" href="#pills-MultiProtocol" role="tab" aria-controls="pills-MultiProtocol" aria-selected="true">MultiProtocol</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="MultiSite Collaboration" data-toggle="pill" href="#pills-MultiSite Collaboration" role="tab" aria-controls="pills-MultiSite Collaboration" aria-selected="false">MultiSite Collaboration</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="Tiering" data-toggle="pill" href="#pills-Tiering" role="tab" aria-controls="pills-Tiering" aria-selected="false">Cloud Tiering</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="Tools" data-toggle="pill" href="#pills-Tools" role="tab" aria-controls="pills-Tools" aria-selected="true">Tools</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Verticals</a>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" id="Verticals/Automotive" data-toggle="pill" href="#pills-Verticals/Automotive" role="tab" aria-controls="pills-Verticals/Automotive" aria-selected="false">Automotive</a>
+                <a class="dropdown-item" id="Verticals/Financial Services" data-toggle="pill" href="#pills-Verticals/Financial Services" role="tab" aria-controls="pills-Verticals/Financial Services" aria-selected="false">Financial Services</a>
+                <a class="dropdown-item" id="Verticals/Healthcare" data-toggle="pill" href="#pills-Verticals/Healthcare" role="tab" aria-controls="pills-Verticals/Healthcare" aria-selected="false">Healthcare</a>
+                <a class="dropdown-item" id="Verticals/OilGas" data-toggle="pill" href="#pills-Verticals/OilGas" role="tab" aria-controls="pills-Verticals/OilGas" aria-selected="false">Oil & Gas</a>
+<!--                 <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">All Vertical Partners</a> -->
+              </div>
+            </li>
+<!--             <li class="nav-item">
+              <a class="nav-link" id="Partner11" data-toggle="pill" href="#pills-partner11" role="tab" aria-controls="pills-partner11" aria-selected="false">All Partners</a>
+            </li> -->
+          </ul>
+          <!-- Nav Bar Ends Here -->
+
+          <!-- Content Starts Here -->
+          <div class="tab-content" id="pills-tabContent">
+
+            <div class="tab-pane fade show active" id="pills-Archive" role="tabpanel" aria-labelledby="pills-Archive-tab">
+
+                <div class="row">
+                  <div class="col-md-4">
+                      <div class="card mb-4 box-shadow">
+                        <embed src="partners/Archive/Acronis-Azure.pdf" type="application/pdf" height="300px" width="100%" class="responsive" alt="Acronis-Azure">
+                        <div class="card-body">
+                          <p class="card-text">Acronis</p>
+                          <div class="d-flex justify-content-between align-items-center">
+                            <div class="btn-group">
+                              <a href="partners/Archive/Acronis-Azure.pdf" class="btn btn-sm btn-outline-secondary" target="_blank">Download</a>
+                            </div>
+                            <small class="text-muted">Azure Storage Partner</small>
+                          </div>
+                        </div>
+                      </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="card mb-4 box-shadow">
+                      <embed src="partners/Archive/Archive360-Azure.pdf" type="application/pdf" height="300px" width="100%" class="responsive" alt="Archive360-Azure">
+                      <div class="card-body">
+                        <p class="card-text">Archive360</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                          <div class="btn-group">
+                            <a href="partners/Archive/Archive360-Azure.pdf" class="btn btn-sm btn-outline-secondary" target="_blank">Download</a>
+                          </div>
+                          <small class="text-muted">Azure Storage Partner</small>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="card mb-4 box-shadow">
+                      <embed src="partners/Archive/Commvault-Azure.pdf" type="application/pdf" height="300px" width="100%" class="responsive" alt="Commvault-Azure">
+                      <div class="card-body">
+                        <p class="card-text">Commvault</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                          <div class="btn-group">
+                            <a href="partners/Archive/Commvault-Azure.pdf" class="btn btn-sm btn-outline-secondary" target="_blank">Download</a>
+                          </div>
+                          <small class="text-muted">Azure Storage Partner</small>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                      <div class="card mb-4 box-shadow">
+                        <embed src="partners/Archive/HubStor-Azure.pdf" type="application/pdf" height="300px" width="100%" class="responsive" alt="HubStor-Azure">
+                        <div class="card-body">
+                          <p class="card-text">HubStor</p>
+                          <div class="d-flex justify-content-between align-items-center">
+                            <div class="btn-group">
+                              <a href="partners/Archive/HubStor-Azure.pdf" class="btn btn-sm btn-outline-secondary" target="_blank">Download</a>
+                            </div>
+                            <small class="text-muted">Azure Storage Partner</small>
+                          </div>
+                        </div>
+                      </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="card mb-4 box-shadow">
+                      <embed src="partners/Archive/Igneous-Azure.pdf" type="application/pdf" height="300px" width="100%" class="responsive" alt="Igneous-Azure">
+                      <div class="card-body">
+                        <p class="card-text">Igneous</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                          <div class="btn-group">
+                            <a href="partners/Archive/Igneous-Azure.pdf" class="btn btn-sm btn-outline-secondary" target="_blank">Download</a>
+                          </div>
+                          <small class="text-muted">Azure Storage Partner</small>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="card mb-4 box-shadow">
+                      <embed src="partners/Archive/Veeam-Azure.pdf" type="application/pdf" height="300px" width="100%" class="responsive" alt="Veeam-Azure">
+                      <div class="card-body">
+                        <p class="card-text">Veeam</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                          <div class="btn-group">
+                            <a href="partners/Archive/Veeam-Azure.pdf" class="btn btn-sm btn-outline-secondary" target="_blank">Download</a>
+                          </div>
+                          <small class="text-muted">Azure Storage Partner</small>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="card mb-4 box-shadow">
+                      <embed src="partners/Archive/Veritas-Azure.pdf" type="application/pdf" height="300px" width="100%" class="responsive" alt="Veritas-Azure">
+                      <div class="card-body">
+                        <p class="card-text">Veritas</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                          <div class="btn-group">
+                            <a href="partners/Archive/Veritas-Azure.pdf" class="btn btn-sm btn-outline-secondary" target="_blank">Download</a>
+                          </div>
+                          <small class="text-muted">Azure Storage Partner</small>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+
+            <div class="tab-pane fade" id="pills-Backup" role="tabpanel" aria-labelledby="pills-Backup-tab">
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="card mb-4 box-shadow">
+                          <embed src="partners/Backup/Acronis-Azure.pdf" type="application/pdf" height="300px" width="100%" class="responsive" alt="Acronis-Azure">
+                          <div class="card-body">
+                            <p class="card-text">Acronis</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                              <div class="btn-group">
+                                <a href="partners/Backup/Acronis-Azure.pdf" class="btn btn-sm btn-outline-secondary" target="_blank">Download</a>
+                              </div>
+                              <small class="text-muted">Azure Storage Partner</small>
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="card mb-4 box-shadow">
+                        <embed src="partners/Backup/Actifio-Azure.pdf" type="application/pdf" height="300px" width="100%" class="responsive" alt="Actifio-Azure">
+                        <div class="card-body">
+                          <p class="card-text">Actifio</p>
+                          <div class="d-flex justify-content-between align-items-center">
+                            <div class="btn-group">
+                              <a href="partners/Backup/Actifio-Azure.pdf" class="btn btn-sm btn-outline-secondary" target="_blank">Download</a>
+                            </div>
+                            <small class="text-muted">Azure Storage Partner</small>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card mb-4 box-shadow">
+                          <embed src="partners/Backup/Carbonite-Azure.pdf" type="application/pdf" height="300px" width="100%" class="responsive" alt="Carbonite-Azure">
+                          <div class="card-body">
+                            <p class="card-text">Carbonite</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                              <div class="btn-group">
+                                <a href="partners/Backup/Carbonite-Azure.pdf" class="btn btn-sm btn-outline-secondary" target="_blank">Download</a>
+                              </div>
+                              <small class="text-muted">Azure Storage Partner</small>
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="card mb-4 box-shadow">
+                        <embed src="partners/Backup/Cloudberry-Azure.pdf" type="application/pdf" height="300px" width="100%" class="responsive" alt="Cloudberry-Azure">
+                        <div class="card-body">
+                          <p class="card-text">Cloudberry</p>
+                          <div class="d-flex justify-content-between align-items-center">
+                            <div class="btn-group">
+                              <a href="partners/Backup/Cloudberry-Azure.pdf" class="btn btn-sm btn-outline-secondary" target="_blank">Download</a>
+                            </div>
+                            <small class="text-muted">Azure Storage Partner</small>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="card mb-4 box-shadow">
+                        <embed src="partners/Backup/Commvault-Azure.pdf" type="application/pdf" height="300px" width="100%" class="responsive" alt="Commvault-Azure">
+                        <div class="card-body">
+                          <p class="card-text">Commvault</p>
+                          <div class="d-flex justify-content-between align-items-center">
+                            <div class="btn-group">
+                              <a href="partners/Backup/Commvault-Azure.pdf" class="btn btn-sm btn-outline-secondary" target="_blank">Download</a>
+                            </div>
+                            <small class="text-muted">Azure Storage Partner</small>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card mb-4 box-shadow">
+                          <embed src="partners/Backup/Igneous-Azure.pdf" type="application/pdf" height="300px" width="100%" class="responsive" alt="Igneous-Azure">
+                          <div class="card-body">
+                            <p class="card-text">Igneous</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                              <div class="btn-group">
+                                <a href="partners/Backup/Igneous-Azure.pdf" class="btn btn-sm btn-outline-secondary" target="_blank">Download</a>
+                              </div>
+                              <small class="text-muted">Azure Storage Partner</small>
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card mb-4 box-shadow">
+                          <embed src="partners/Backup/Rubrik-Azure.pdf" type="application/pdf" height="300px" width="100%" class="responsive" alt="Rubrik-Azure">
+                          <div class="card-body">
+                            <p class="card-text">Rubrik</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                              <div class="btn-group">
+                                <a href="partners/Backup/Rubrik-Azure.pdf" class="btn btn-sm btn-outline-secondary" target="_blank">Download</a>
+                              </div>
+                              <small class="text-muted">Azure Storage Partner</small>
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="card mb-4 box-shadow">
+                        <embed src="partners/Backup/Veeam-Azure.pdf" type="application/pdf" height="300px" width="100%" class="responsive" alt="Veeam-Azure">
+                        <div class="card-body">
+                          <p class="card-text">Veeam</p>
+                          <div class="d-flex justify-content-between align-items-center">
+                            <div class="btn-group">
+                              <a href="partners/Backup/Veeam-Azure.pdf" class="btn btn-sm btn-outline-secondary" target="_blank">Download</a>
+                            </div>
+                            <small class="text-muted">Azure Storage Partner</small>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="card mb-4 box-shadow">
+                        <embed src="partners/Backup/Veritas-Azure.pdf" type="application/pdf" height="300px" width="100%" class="responsive" alt="Veritas-Azure">
+                        <div class="card-body">
+                          <p class="card-text">Veritas</p>
+                          <div class="d-flex justify-content-between align-items-center">
+                            <div class="btn-group">
+                              <a href="partners/Backup/Veritas-Azure.pdf" class="btn btn-sm btn-outline-secondary" target="_blank">Download</a>
+                            </div>
+                            <small class="text-muted">Azure Storage Partner</small>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-pane fade" id="pills-DR" role="tabpanel" aria-labelledby="pills-DR-tab">
+
+              <div class="row">
+                  <div class="col-md-4">
+                      <div class="card mb-4 box-shadow">
+                        <embed src="partners/DisasterRecovery/Portworx-Azure.pdf" type="application/pdf" height="300px" width="100%" class="responsive" alt="Portworx-Azure">
+                        <div class="card-body">
+                          <p class="card-text">Portworx</p>
+                          <div class="d-flex justify-content-between align-items-center">
+                            <div class="btn-group">
+                              <a href="partners/DisasterRecovery/Portworx-Azure.pdf" class="btn btn-sm btn-outline-secondary" target="_blank">Download</a>
+                            </div>
+                            <small class="text-muted">Azure Storage Partner</small>
+                          </div>
+                        </div>
+                      </div>
+                  </div>
+                <div class="col-md-4">
+                      <div class="card mb-4 box-shadow">
+                        <embed src="partners/DisasterRecovery/StorageOS-Azure.pdf" type="application/pdf" height="300px" width="100%" class="responsive" alt="StorageOS-Azure">
+                        <div class="card-body">
+                          <p class="card-text">StorageOS</p>
+                          <div class="d-flex justify-content-between align-items-center">
+                            <div class="btn-group">
+                              <a href="partners/DisasterRecovery/StorageOS-Azure.pdf" class="btn btn-sm btn-outline-secondary" target="_blank">Download</a>
+                            </div>
+                            <small class="text-muted">Azure Storage Partner</small>
+                          </div>
+                        </div>
+                      </div>
+                  </div>
+                  <div class="col-md-4">
+                      <div class="card mb-4 box-shadow">
+                        <embed src="partners/DisasterRecovery/Zerto-Azure.pdf" type="application/pdf" height="300px" width="100%" class="responsive" alt="Zerto-Azure">
+                        <div class="card-body">
+                          <p class="card-text">Zerto</p>
+                          <div class="d-flex justify-content-between align-items-center">
+                            <div class="btn-group">
+                              <a href="partners/DisasterRecovery/Zerto-Azure.pdf" class="btn btn-sm btn-outline-secondary" target="_blank">Download</a>
+                            </div>
+                            <small class="text-muted">Azure Storage Partner</small>
+                          </div>
+                        </div>
+                      </div>
+                  </div>
+              </div>
+            </div>
+
+            <div class="tab-pane fade" id="pills-MultiProtocol" role="tabpanel" aria-labelledby="pills-MultiProtocol">
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="card mb-4 box-shadow">
+                          <embed src="partners/MultiProtocol/Caringo-Azure.pdf" type="application/pdf" height="300px" width="100%" class="responsive" alt="Caringo-Azure">
+                          <div class="card-body">
+                            <p class="card-text">Caringo</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                              <div class="btn-group">
+                                <a href="partners/MultiProtocol/Caringo-Azure.pdf" class="btn btn-sm btn-outline-secondary" target="_blank">Download</a>
+                              </div>
+                              <small class="text-muted">Azure Storage Partner</small>
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card mb-4 box-shadow">
+                          <embed src="partners/MultiProtocol/Cloudian-Azure.pdf" type="application/pdf" height="300px" width="100%" class="responsive" alt="Cloudian-Azure">
+                          <div class="card-body">
+                            <p class="card-text">Cloudian</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                              <div class="btn-group">
+                                <a href="partners/MultiProtocol/Cloudian-Azure.pdf" class="btn btn-sm btn-outline-secondary" target="_blank">Download</a>
+                              </div>
+                              <small class="text-muted">Azure Storage Partner</small>
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card mb-4 box-shadow">
+                          <embed src="partners/MultiProtocol/Minio-Azure.pdf" type="application/pdf" height="300px" width="100%" class="responsive" alt="Minio-Azure">
+                          <div class="card-body">
+                            <p class="card-text">Minio</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                              <div class="btn-group">
+                                <a href="partners/MultiProtocol/Minio-Azure.pdf" class="btn btn-sm btn-outline-secondary" target="_blank">Download</a>
+                              </div>
+                              <small class="text-muted">Azure Storage Partner</small>
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card mb-4 box-shadow">
+                          <embed src="partners/MultiProtocol/Scality-Azure.pdf" type="application/pdf" height="300px" width="100%" class="responsive" alt="Scality-Azure">
+                          <div class="card-body">
+                            <p class="card-text">Scality</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                              <div class="btn-group">
+                                <a href="partners/MultiProtocol/Scality-Azure.pdf" class="btn btn-sm btn-outline-secondary" target="_blank">Download</a>
+                              </div>
+                              <small class="text-muted">Azure Storage Partner</small>
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-pane fade" id="pills-MultiSite Collaboration" role="tabpanel" aria-labelledby="pills-necessary">
+
+              <div class="row">
+                <div class="col-md-4">
+                    <div class="card mb-4 box-shadow">
+                      <embed src="partners/MultiSite Collaboration/Nasuni-Azure.pdf" type="application/pdf" height="300px" width="100%" class="responsive" alt="Nasuni-Azure">
+                      <div class="card-body">
+                        <p class="card-text">Nasuni</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                          <div class="btn-group">
+                            <a href="partners/MultiSite Collaboration/Nasuni-Azure.pdf" class="btn btn-sm btn-outline-secondary" target="_blank">Download</a>
+                          </div>
+                          <small class="text-muted">Azure Storage Partner</small>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card mb-4 box-shadow">
+                      <embed src="partners/MultiSite Collaboration/Panzura-Azure.pdf" type="application/pdf" height="300px" width="100%" class="responsive" alt="Panzura-Azure">
+                      <div class="card-body">
+                        <p class="card-text">Panzura</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                          <div class="btn-group">
+                            <a href="partners/MultiSite Collaboration/Panzura-Azure.pdf" class="btn btn-sm btn-outline-secondary" target="_blank">Download</a>
+                          </div>
+                          <small class="text-muted">Azure Storage Partner</small>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card mb-4 box-shadow">
+                      <embed src="partners/MultiSite Collaboration/Talon-Azure.pdf" type="application/pdf" height="300px" width="100%" class="responsive" alt="Talon-Azure">
+                      <div class="card-body">
+                        <p class="card-text">Talon</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                          <div class="btn-group">
+                            <a href="partners/MultiSite Collaboration/Talon-Azure.pdf" class="btn btn-sm btn-outline-secondary" target="_blank">Download</a>
+                          </div>
+                          <small class="text-muted">Azure Storage Partner</small>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="tab-pane fade" id="pills-Tiering" role="tabpanel" aria-labelledby="pills-necessary">
+
+              <div class="row">
+                <div class="col-md-4">
+                    <div class="card mb-4 box-shadow">
+                      <embed src="partners/Tiering/Komprise-Azure.pdf" type="application/pdf" height="300px" width="100%" class="responsive" alt="Komprise-Azure">
+                      <div class="card-body">
+                        <p class="card-text">Komprise</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                          <div class="btn-group">
+                            <a href="partners/Tiering/Komprise-Azure.pdf" class="btn btn-sm btn-outline-secondary" target="_blank">Download</a>
+                          </div>
+                          <small class="text-muted">Azure Storage Partner</small>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card mb-4 box-shadow">
+                      <embed src="partners/Tiering/Moonwalk-Azure.pdf" type="application/pdf" height="300px" width="100%" class="responsive" alt="Moonwalk-Azure">
+                      <div class="card-body">
+                        <p class="card-text">Moonwalk</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                          <div class="btn-group">
+                            <a href="partners/Tiering/Moonwalk-Azure.pdf" class="btn btn-sm btn-outline-secondary" target="_blank">Download</a>
+                          </div>
+                          <small class="text-muted">Azure Storage Partner</small>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card mb-4 box-shadow">
+                      <embed src="partners/Tiering/PeerSoftware-Azure.pdf" type="application/pdf" height="300px" width="100%" class="responsive" alt="PeerSoftware-Azure">
+                      <div class="card-body">
+                        <p class="card-text">PeerSoftware</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                          <div class="btn-group">
+                            <a href="partners/Tiering/PeerSoftware-Azure.pdf" class="btn btn-sm btn-outline-secondary" target="_blank">Download</a>
+                          </div>
+                          <small class="text-muted">Azure Storage Partner</small>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+                  <div class="col-md-4">
+                    <div class="card mb-4 box-shadow">
+                      <embed src="partners/Tiering/PureStorage-Azure.pdf" type="application/pdf" height="300px" width="100%" class="responsive" alt="PureStorage-Azure">
+                      <div class="card-body">
+                        <p class="card-text">Pure Storage</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                          <div class="btn-group">
+                            <a href="partners/Tiering/PureStorage-Azure.pdf" class="btn btn-sm btn-outline-secondary" target="_blank">Download</a>
+                          </div>
+                          <small class="text-muted">Azure Storage Partner</small>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card mb-4 box-shadow">
+                      <embed src="partners/Tiering/Quantum-Azure.pdf" type="application/pdf" height="300px" width="100%" class="responsive" alt="Quantum-Azure">
+                      <div class="card-body">
+                        <p class="card-text">Quantum</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                          <div class="btn-group">
+                            <a href="partners/Tiering/Quantum-Azure.pdf" class="btn btn-sm btn-outline-secondary" target="_blank">Download</a>
+                          </div>
+                          <small class="text-muted">Azure Storage Partner</small>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="tab-pane fade" id="pills-Tools" role="tabpanel" aria-labelledby="pills-necessary">
+
+              <div class="row">
+                <div class="col-md-4">
+                    <div class="card mb-4 box-shadow">
+                      <embed src="partners/Tools/Cloudberry-Azure.pdf" type="application/pdf" height="300px" width="100%" class="responsive" alt="Cloudberry-Azure">
+                      <div class="card-body">
+                        <p class="card-text">Cloudberry</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                          <div class="btn-group">
+                            <a href="partners/Tools/Cloudberry-Azure.pdf" class="btn btn-sm btn-outline-secondary" target="_blank">Download</a>
+                          </div>
+                          <small class="text-muted">Azure Storage Partner</small>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card mb-4 box-shadow">
+                      <embed src="partners/Tools/Komprise-Azure.pdf" type="application/pdf" height="300px" width="100%" class="responsive" alt="Komprise-Azure">
+                      <div class="card-body">
+                        <p class="card-text">Komprise</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                          <div class="btn-group">
+                            <a href="partners/Tools/Komprise-Azure.pdf" class="btn btn-sm btn-outline-secondary" target="_blank">Download</a>
+                          </div>
+                          <small class="text-muted">Azure Storage Partner</small>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="tab-pane fade" id="pills-Verticals/Automotive" role="tabpanel" aria-labelledby="pills-necessary">
+
+              <div class="row">
+                <div class="col-md-4">
+                    <div class="card mb-4 box-shadow">
+                      <embed src="partners/Verticals/Automotive/Cognata-Azure.pdf" type="application/pdf" height="300px" width="100%" class="responsive" alt="Cognata-Azure">
+                      <div class="card-body">
+                        <p class="card-text">Cognata</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                          <div class="btn-group">
+                            <a href="partners/Verticals/Automotive/Cognata-Azure.pdf" class="btn btn-sm btn-outline-secondary" target="_blank">Download</a>
+                          </div>
+                          <small class="text-muted">Azure Storage Partner</small>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card mb-4 box-shadow">
+                      <embed src="partners/Verticals/Automotive/Elektrobit-Azure.pdf" type="application/pdf" height="300px" width="100%" class="responsive" alt="Elektrobit-Azure">
+                      <div class="card-body">
+                        <p class="card-text">Elektrobit</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                          <div class="btn-group">
+                            <a href="partners/Verticals/Automotive/Elektrobit-Azure.pdf" class="btn btn-sm btn-outline-secondary" target="_blank">Download</a>
+                          </div>
+                          <small class="text-muted">Azure Storage Partner</small>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card mb-4 box-shadow">
+                      <embed src="partners/Verticals/Automotive/LinkerNetworks-Azure.pdf" type="application/pdf" height="300px" width="100%" class="responsive" alt="LinkerNetworks-Azure">
+                      <div class="card-body">
+                        <p class="card-text">LinkerNetworks</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                          <div class="btn-group">
+                            <a href="partners/Verticals/Automotive/LinkerNetworks-Azure.pdf" class="btn btn-sm btn-outline-secondary" target="_blank">Download</a>
+                          </div>
+                          <small class="text-muted">Azure Storage Partner</small>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="tab-pane fade" id="pills-Verticals/Financial Services" role="tabpanel" aria-labelledby="pills-necessary">
+
+              <div class="row">
+                <div class="col-md-4">
+                    <div class="card mb-4 box-shadow">
+                      <embed src="partners/Verticals/Financial Services/17a-4-Azure.pdf" type="application/pdf" height="300px" width="100%" class="responsive" alt="17a-4-Azure">
+                      <div class="card-body">
+                        <p class="card-text">17a-4</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                          <div class="btn-group">
+                            <a href="partners/Verticals/Financial Services/17a-4-Azure.pdf" class="btn btn-sm btn-outline-secondary" target="_blank">Download</a>
+                          </div>
+                          <small class="text-muted">Azure Storage Partner</small>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card mb-4 box-shadow">
+                      <embed src="partners/Verticals/Financial Services/Archive360-Azure.pdf" type="application/pdf" height="300px" width="100%" class="responsive" alt="Archive360-Azure">
+                      <div class="card-body">
+                        <p class="card-text">Archive360</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                          <div class="btn-group">
+                            <a href="partners/Verticals/Financial Services/Archive360-Azure.pdf" class="btn btn-sm btn-outline-secondary" target="_blank">Download</a>
+                          </div>
+                          <small class="text-muted">Azure Storage Partner</small>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card mb-4 box-shadow">
+                      <embed src="partners/Verticals/Financial Services/HubStor-Azure.pdf" type="application/pdf" height="300px" width="100%" class="responsive" alt="HubStor-Azure">
+                      <div class="card-body">
+                        <p class="card-text">HubStor</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                          <div class="btn-group">
+                            <a href="partners/Verticals/Financial Services/HubStor-Azure.pdf" class="btn btn-sm btn-outline-secondary" target="_blank">Download</a>
+                          </div>
+                          <small class="text-muted">Azure Storage Partner</small>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card mb-4 box-shadow">
+                      <embed src="partners/Verticals/Financial Services/XenData-Azure.pdf" type="application/pdf" height="300px" width="100%" class="responsive" alt="XenData-Azure">
+                      <div class="card-body">
+                        <p class="card-text">XenData</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                          <div class="btn-group">
+                            <a href="partners/Verticals/Financial Services/XenData-Azure.pdf" class="btn btn-sm btn-outline-secondary" target="_blank">Download</a>
+                          </div>
+                          <small class="text-muted">Azure Storage Partner</small>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="tab-pane fade" id="pills-Verticals/Healthcare" role="tabpanel" aria-labelledby="pills-necessary">
+
+              <div class="row">
+                <div class="col-md-4">
+                    <div class="card mb-4 box-shadow">
+                      <embed src="partners/Verticals/Healthcare/DNAnexus-Azure.pdf" type="application/pdf" height="300px" width="100%" class="responsive" alt="DNAnexus-Azure">
+                      <div class="card-body">
+                        <p class="card-text">DNAnexus</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                          <div class="btn-group">
+                            <a href="partners/Verticals/Healthcare/DNAnexus-Azure.pdf" class="btn btn-sm btn-outline-secondary" target="_blank">Download</a>
+                          </div>
+                          <small class="text-muted">Azure Storage Partner</small>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card mb-4 box-shadow">
+                      <embed src="partners/Verticals/Healthcare/NucleusHealth-Azure.pdf" type="application/pdf" height="300px" width="100%" class="responsive" alt="NucleusHealth-Azure">
+                      <div class="card-body">
+                        <p class="card-text">NucleusHealth</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                          <div class="btn-group">
+                            <a href="partners/Verticals/Healthcare/NucleusHealth-Azure.pdf" class="btn btn-sm btn-outline-secondary" target="_blank">Download</a>
+                          </div>
+                          <small class="text-muted">Azure Storage Partner</small>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="tab-pane fade" id="pills-Verticals/OilGas" role="tabpanel" aria-labelledby="pills-necessary">
+
+              <div class="row">
+                <div class="col-md-4">
+                    <div class="card mb-4 box-shadow">
+                      <embed src="partners/Verticals/OilGas/Cegal-Azure.pdf" type="application/pdf" height="300px" width="100%" class="responsive" alt="Cegal-Azure">
+                      <div class="card-body">
+                        <p class="card-text">Cegal</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                          <div class="btn-group">
+                            <a href="partners/Verticals/OilGas/Cegal-Azure.pdf" class="btn btn-sm btn-outline-secondary" target="_blank">Download</a>
+                          </div>
+                          <small class="text-muted">Azure Storage Partner</small>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card mb-4 box-shadow">
+                      <embed src="partners/Verticals/OilGas/Interica-Azure.pdf" type="application/pdf" height="300px" width="100%" class="responsive" alt="Interica-Azure">
+                      <div class="card-body">
+                        <p class="card-text">Interica</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                          <div class="btn-group">
+                            <a href="partners/Verticals/OilGas/Interica-Azure.pdf" class="btn btn-sm btn-outline-secondary" target="_blank">Download</a>
+                          </div>
+                          <small class="text-muted">Azure Storage Partner</small>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card mb-4 box-shadow">
+                      <embed src="partners/Verticals/OilGas/PixStor-Azure.pdf" type="application/pdf" height="300px" width="100%" class="responsive" alt="PixStor-Azure">
+                      <div class="card-body">
+                        <p class="card-text">PixStor</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                          <div class="btn-group">
+                            <a href="partners/Verticals/OilGas/PixStor-Azure.pdf" class="btn btn-sm btn-outline-secondary" target="_blank">Download</a>
+                          </div>
+                          <small class="text-muted">Azure Storage Partner</small>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card mb-4 box-shadow">
+                      <embed src="partners/Verticals/OilGas/TigerTech-Azure.pdf" type="application/pdf" height="300px" width="100%" class="responsive" alt="TigerTech-Azure">
+                      <div class="card-body">
+                        <p class="card-text">TigerTech</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                          <div class="btn-group">
+                            <a href="partners/Verticals/OilGas/TigerTech-Azure.pdf" class="btn btn-sm btn-outline-secondary" target="_blank">Download</a>
+                          </div>
+                          <small class="text-muted">Azure Storage Partner</small>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card mb-4 box-shadow">
+                      <embed src="partners/Verticals/OilGas/XenData-Azure.pdf" type="application/pdf" height="300px" width="100%" class="responsive" alt="XenData-Azure">
+                      <div class="card-body">
+                        <p class="card-text">XenData</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                          <div class="btn-group">
+                            <a href="partners/Verticals/OilGas/XenData-Azure.pdf" class="btn btn-sm btn-outline-secondary" target="_blank">Download</a>
+                          </div>
+                          <small class="text-muted">Azure Storage Partner</small>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="tab-pane fade" id="pills-partner11" role="tabpanel" aria-labelledby="pills-necessary">
+              <table class="table table-striped">
+                <thead class="thead-dark">
+                  <tr>
+                    <th scope="col">Azure Storage Partner</th>
+                    <th scope="col">Solution Category</th>
+                    <th scope="col">View</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>test</td>
+                    <td>test</td>
+                    <td><a href="partners/" class="btn btn-sm btn-outline-secondary" target="_blank">Download</a></td>
+                  </tr>
+                  <tr>
+                    <td>test</td>
+                    <td>test</td>
+                    <td><a href="partners/" class="btn btn-sm btn-outline-secondary" target="_blank">Download</a></td>
+                  </tr>
+                  <tr>
+                    <td>test</td>
+                    <td>test</td>
+                    <td><a href="partners/" class="btn btn-sm btn-outline-secondary" target="_blank">Download</a></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    </main>
+
+    <footer class="text-muted">
+      <div class="container">
+        <p class="float-right">
+          <a href="#">Back to top</a>
+        </p>
+        <p>
+            Azure Storage &#9400;<script type="text/javascript">document.write(new Date().getFullYear())</script>
+            <p class="float-right">
+                Contact us: <a href="mailto:azurestoragefeedback@microsoft.com">azurestoragefeedback@microsoft.com</a>
+            </p>
+        </p>
+        <p>
+            <a href="https://azure.microsoft.com/services/storage/">Visit the Azure Storage homepage</a> or read our <a href="
+          https://docs.microsoft.com/azure/storage/">getting started guide.</a>
+        </p>
+      </div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="js/vendor/jquery-slim.min.js"><\/script>')</script>
+    <script src="js/vendor/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/vendor/holder.min.js"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-126461658-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-126461658-1');
+    </script>
+  </body>
+</html>
