@@ -1,0 +1,8 @@
+baseURL = 'https://azure.github.io/Storage/'
+languageCode = "en-us"
+title = "Azure Storage"
+theme = "book"
+publishdir = "../docs/"
+
+[params]
+BookLogo = "/images/azure-icon.png"

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Backup and Archive on Azure Storage</title>
+    <link>https://azure.github.io/Storage/docs/backup-and-archive/</link>
+    <description>Recent content in Backup and Archive on Azure Storage</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="https://azure.github.io/Storage/docs/backup-and-archive/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Azure Partner Backup Documentation</title>
+      <link>https://azure.github.io/Storage/docs/backup-and-archive/commvault/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://azure.github.io/Storage/docs/backup-and-archive/commvault/</guid>
+      <description>Microsoft Partner Documentation for Commvault for Azure#https://documentation.commvault.com/commvault/v11/article?p=31252.htm</description>
+    </item>
+    
+    <item>
+      <title>Azure Partner Backup Documentation</title>
+      <link>https://azure.github.io/Storage/docs/backup-and-archive/veritas/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://azure.github.io/Storage/docs/backup-and-archive/veritas/</guid>
+      <description>Microsoft Partner Documentation for Partner X#This article describes the storage options for partners.
+Support Matrix#   GPv2Storage CoolTier ArchiveTier WORMSupport Required AzureResources Restoreon-premises BackupAzure VM&amp;rsquo;s BackupAzure Files BackupAzure Blob     X X  X X X X X X    Links to Marketplace Offerings#Information related to the partner marketplace links goes here.
+ Link 1 Link 2  Links to relevant documentation#Information related to the partner docs goes here.</description>
+    </item>
+    
+    <item>
+      <title>Azure Partner Backup Documentation - title</title>
+      <link>https://azure.github.io/Storage/docs/backup-and-archive/rubrik/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://azure.github.io/Storage/docs/backup-and-archive/rubrik/</guid>
+      <description>Microsoft Partner Documentation for Partner X#This article describes the storage options for partners.
+Support Matrix#   GPv2Storage CoolTier ArchiveTier WORMSupport Required AzureResources Restoreon-premises BackupAzure VM&amp;rsquo;s BackupAzure Files BackupAzure Blob     X X  X X X X X X    Links to Marketplace Offerings#Information related to the partner marketplace links goes here.
+ Link 1 Link 2  Links to relevant documentation#Information related to the partner docs goes here.</description>
+    </item>
+    
+    <item>
+      <title>Azure Partner Backup Documentation - title</title>
+      <link>https://azure.github.io/Storage/docs/backup-and-archive/veeam/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://azure.github.io/Storage/docs/backup-and-archive/veeam/</guid>
+      <description>Links to relevant documentation# https://www.veeam.com/documentation-guides-datasheets.html  </description>
+    </item>
+    
+  </channel>
+</rss>

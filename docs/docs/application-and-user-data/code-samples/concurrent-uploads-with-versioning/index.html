@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en" dir=>
+
+<head>
+  <meta name="generator" content="Hugo 0.80.0" />
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Managing concurrent uploads in Azure blob storage with blob versioning#When you are building applications that need to have multiple clients uploading to the same object in Azure blob storage, there are several options to help you manage concurrency depending on your strategy. Concurrency strategies include:
+ Optimistic concurrency: An application performing an update will, as part of its update, determine whether the data has changed since the application last read that data.">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Managing concurrent uploads in Azure blob storage with blob versioning" />
+<meta property="og:description" content="Managing concurrent uploads in Azure blob storage with blob versioning#When you are building applications that need to have multiple clients uploading to the same object in Azure blob storage, there are several options to help you manage concurrency depending on your strategy. Concurrency strategies include:
+ Optimistic concurrency: An application performing an update will, as part of its update, determine whether the data has changed since the application last read that data." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://azure.github.io/Storage/docs/application-and-user-data/code-samples/concurrent-uploads-with-versioning/" />
+
+<title>Managing concurrent uploads in Azure blob storage with blob versioning | Azure Storage</title>
+<link rel="manifest" href="/Storage/manifest.json">
+<link rel="icon" href="/Storage/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/Storage/book.min.6c7c6446dfdee7c8c933e9bbc6e80ee3ed6c913b2a59519f2092c3c6a9d63e55.css" integrity="sha256-bHxkRt/e58jJM&#43;m7xugO4&#43;1skTsqWVGfIJLDxqnWPlU=">
+<script defer src="/Storage/en.search.min.e3c811d780a09e785595e36be4217a7ab952f46ef2f08e5fc30d042f67c46bf2.js" integrity="sha256-48gR14CgnnhVleNr5CF6erlS9G7y8I5fww0EL2fEa/I="></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body dir=>
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a href="/Storage"><img src="/Storage/images/azure-icon.png" alt="Logo" /><span>Azure Storage</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://azure.github.io/Storage/docs/analytics/" class="">Analytics</a>
+  
+
+          
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://azure.github.io/Storage/docs/application-and-user-data/" class="">Application and User Data</a>
+  
+
+          
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://azure.github.io/Storage/docs/backup-and-archive/" class="">Backup and Archive</a>
+  
+
+          
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://azure.github.io/Storage/docs/hpc-iot-and-ai/" class="">HPC IoT and AI</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://azure.github.io/Storage/docs/storage-partners/" class="">Storage Partners</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://azure.github.io/Storage/docs/tools-and-utilities/" class="">Tools and Utilities</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/Storage/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Managing concurrent uploads in Azure blob storage with blob versioning</strong>
+
+  <label for="toc-control">
+    
+    <img src="/Storage/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#references">References</a></li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h1 id="managing-concurrent-uploads-in-azure-blob-storage-with-blob-versioning">
+  Managing concurrent uploads in Azure blob storage with blob versioning
+  <a class="anchor" href="#managing-concurrent-uploads-in-azure-blob-storage-with-blob-versioning">#</a>
+</h1>
+<p>When you are building applications that need to have multiple clients uploading to the same object in Azure blob storage, there are several options to help you manage concurrency depending on your strategy. Concurrency strategies include:</p>
+<ul>
+<li><strong><a href="https://docs.microsoft.com/azure/storage/blobs/concurrency-manage#optimistic-concurrency">Optimistic concurrency</a></strong>: An application performing an update will, as part of its update, determine whether the data has changed since the application last read that data. For example, if two users viewing a wiki page make an update to that page, then the wiki platform must ensure that the second update does not overwrite the first update. It must also ensure that both users understand whether their update was successful. This strategy is most often used in web applications.</li>
+<li><strong><a href="https://docs.microsoft.com/azure/storage/blobs/concurrency-manage#pessimistic-concurrency-for-blobs">Pessimistic concurrency</a></strong>: An application looking to perform an update will take a lock on an object preventing other users from updating the data until the lock is released. For example, in a primary/secondary data replication scenario in which only the primary performs updates, the primary typically holds an exclusive lock on the data for an extended period to ensure no one else can update it.</li>
+<li><strong>Last writer wins</strong>: An approach that allows update operations to proceed without first determining whether another application has updated the data since it was read. This approach is typically used when data is partitioned in such a way that multiple users will not access the same data at the same time. It can also be useful where short-lived data streams are being processed.</li>
+</ul>
+<p>Azure Storage supports all three strategies, although it is distinctive in its ability to provide full support for optimistic and pessimistic concurrency. Azure Storage was designed to embrace a strong consistency model that guarantees that after the service performs an insert or update operation, subsequent read operations return the latest update. With <a href="https://docs.microsoft.com/rest/api/storageservices/specifying-conditional-headers-for-blob-service-operations">conditional headers</a> present in the <a href="https://docs.microsoft.com/rest/api/storageservices/blob-service-rest-api">blob service REST API</a> you can control all this logic in your applications, using headers such as <code>If-Match</code> and <code>If-None-Match</code>.</p>
+<p>To understand how <a href="https://docs.microsoft.com/azure/storage/blobs/versioning-overview">blob versioning</a> can help with managing concurrent uploads, imagine the following scenario which requires an optimistic concurrency strategy:</p>
+<blockquote>
+<p>Proseware, Inc. is developing a new mobile application which will allow customers manage photos on their devices such as memes and GIFs. To ensure customers can access their libraries from multiple devices, customers will be able to backup the contents of their libraries to the cloud. Customers will also be able to browse a existing marketplace of memes and GIFs and sync them to their library or publish their own unique memes to the marketplace. This means that multiple customers will need access to the same files, and Proseware, Inc. will implement de-duplication logic in the application to make sure that only one copy of a file exists at time in cloud storage, regardless of the number of customers who have that file in their library.</p>
+<p>If User A and User B both have the same animated GIF on their device, when the clients upload their backups to cloud storage only one copy should remain. Proseware, Inc. cannot control when clients will upload and has determined that they will always attempt to upload the file. If it is a new file, it should be stored in the service in a manner that if another use attempts to upload the same file, only 1 copy will be retained over time. If the file already exists, only one copy is needed, and the upload can be discarded.</p>
+</blockquote>
+<p>Blob versioning allows for the automatic retention of previous versions, with a new version created on each successful call to <a href="https://docs.microsoft.com/rest/api/storageservices/put-blob">Put Blob</a> or <a href="https://docs.microsoft.com/rest/api/storageservices/put-block-list">Put Block List</a>. When combined with lifecycle management in blob storage, <a href="https://docs.microsoft.com/azure/storage/blobs/storage-lifecycle-management-concepts?tabs=azure-portal#manage-versions">versions older than a specified number of days</a> can be automatically deleted or moved to a different tier of storage (e.g., from hot to cool). With blob versioning, the application can be built in a way that allows for every client to always attempt their upload. If the file already exists, the upload will succeed, adding a new version which can they be safely deleted with lifecycle management after the specified retention period has passed. This removes the complexities of having to manage conditional headers and allows the application to meet its goals with out-of-the-box features of Azure blob storage that are easily configurable through the Azure portal.</p>
+<p>Now that we understand the scenario and have seen how blob versioning can help, let’s look at a sample upload of the same file by four mobile clients.</p>
+<ol>
+<li>
+<p>Client 1 and Client 2 (BlockId QkJC) upload <code>awesomestmemeever.gif</code> simultaneously.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rest" data-lang="rest">PUT https://prosewarememestorage.blob.core.windows.netbackups/awesomestmemeever.gif?comp=block&amp;blockid=QkJC&amp;sv=2019-12-12&amp;ss=bfqt&amp;srt=sco&amp;sp=rwdlacuptfx&amp;se=2021-01-16T04:18:47Z&amp;st=2021-01-08T20:18:47Z&amp;spr=https&amp;sig=XXXXXXXXXXXX<span style="color:#960050;background-color:#1e0010">
+</span></code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rest" data-lang="rest">PUT https://prosewarememestorage.blob.core.windows.netbackups/awesomestmemeever.gif?comp=block&amp;blockid=QUFB&amp;sv=2019-12-12&amp;ss=bfqt&amp;srt=sco&amp;sp=rwdlacuptfx&amp;se=2021-01-16T04:18:47Z&amp;st=2021-01-08T20:18:47Z&amp;spr=https&amp;sig=XXXXXXXXXXXX<span style="color:#960050;background-color:#1e0010">
+</span></code></pre></div></li>
+<li>
+<p>Client 2’s upload finishes with a successful call to Put Block List before Client 1. <code>awesomestmemeever.gif</code> is saved with VersionId 2021-01-08T20:38:09.3842765Z. The committed block list can be retrieved.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rest" data-lang="rest">GET https://prosewarememestorage.blob.core.windows.netbackups/awesomestmemeever.gif?comp=blocklist&amp;blocklisttype=all&amp;sv=2019-12-12&amp;ss=bfqt&amp;srt=sco&amp;sp=rwdlacuptfx&amp;se=2021-01-16T04:18:47Z&amp;st=2021-01-08T20:18:47Z&amp;spr=https&amp;sig=XXXXXXXXXXXX <span style="color:#960050;background-color:#1e0010">
+</span></code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; encoding=&#34;utf-8&#34;?&gt;</span>
+<span style="color:#f92672">&lt;BlockList&gt;</span>
+    <span style="color:#f92672">&lt;CommittedBlocks&gt;</span>
+        <span style="color:#f92672">&lt;Block&gt;</span>
+            <span style="color:#f92672">&lt;Name&gt;</span>QkJC<span style="color:#f92672">&lt;/Name&gt;</span>
+            <span style="color:#f92672">&lt;Size&gt;</span>2495317<span style="color:#f92672">&lt;/Size&gt;</span>
+        <span style="color:#f92672">&lt;/Block&gt;</span>
+    <span style="color:#f92672">&lt;/CommittedBlocks&gt;</span>
+    <span style="color:#f92672">&lt;UncommittedBlocks</span> <span style="color:#f92672">/&gt;</span>
+<span style="color:#f92672">&lt;/BlockList&gt;</span>
+</code></pre></div></li>
+<li>
+<p>Client 1’s upload finishes but cannot be committed as the block list has been purged when Client 2 saved. Client 1 will receive a <code>HTTP 400 InvalidBlockList</code> exception. Client 1 issues a <code>HEAD</code> request to see if the file exists as it may have been uploaded by another client.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rest" data-lang="rest">HEAD https://prosewarememestorage.blob.core.windows.netbackups/awesomestmemeever.gif?sv=2019-12-12&amp;ss=bfqt&amp;srt=sco&amp;sp=rwdlacuptfx&amp;se=2021-01-16T04:18:47Z&amp;st=2021-01-08T20:18:47Z&amp;spr=https&amp;sig=XXXXXXXXXXXX<span style="color:#960050;background-color:#1e0010">
+</span></code></pre></div><p>If the blob has been successfully committed by another client, Client 1 can disregard the error or if the blob was not present for any other reason, the upload can be repeated.</p>
+</li>
+<li>
+<p>Client 3 attempts to upload the same file but experiences a transient network error, leaving uncommitted blocks as Put Block List is not called successfully due to missing blocks in the uncommitted block list. The uncommitted blocks are retained in the current version (last successful upload from Client 2).</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rest" data-lang="rest">GET https://prosewarememestorage.blob.core.windows.netbackups/awesomestmemeever.gif?comp=blocklist&amp;blocklisttype=all&amp;sv=2019-12-12&amp;ss=bfqt&amp;srt=sco&amp;sp=rwdlacuptfx&amp;se=2021-01-16T04:18:47Z&amp;st=2021-01-08T20:18:47Z&amp;spr=https&amp;sig=XXXXXXXXXXXX <span style="color:#960050;background-color:#1e0010">
+</span></code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; encoding=&#34;utf-8&#34;?&gt;</span>
+<span style="color:#f92672">&lt;BlockList&gt;</span>
+    <span style="color:#f92672">&lt;CommittedBlocks&gt;</span>
+        <span style="color:#f92672">&lt;Block&gt;</span>
+            <span style="color:#f92672">&lt;Name&gt;</span>QkJC<span style="color:#f92672">&lt;/Name&gt;</span>
+            <span style="color:#f92672">&lt;Size&gt;</span>2495317<span style="color:#f92672">&lt;/Size&gt;</span>
+        <span style="color:#f92672">&lt;/Block&gt;</span>
+    <span style="color:#f92672">&lt;/CommittedBlocks&gt;</span>
+    <span style="color:#f92672">&lt;UncommittedBlocks&gt;</span>
+        <span style="color:#f92672">&lt;Block&gt;</span>
+            <span style="color:#f92672">&lt;Name&gt;</span>Q0ND<span style="color:#f92672">&lt;/Name&gt;</span>
+            <span style="color:#f92672">&lt;Size&gt;</span>2495317<span style="color:#f92672">&lt;/Size&gt;</span>
+        <span style="color:#f92672">&lt;/Block&gt;</span>
+    <span style="color:#f92672">&lt;/UncommittedBlocks&gt;</span>
+<span style="color:#f92672">&lt;/BlockList&gt;</span>
+</code></pre></div></li>
+<li>
+<p>Client 4 uploads the same file and is successful. The uncommitted blocks from Client 3’s request are purged, and a new version is created, VersionId 2021-01-08T20:54:36.7150246Z.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rest" data-lang="rest">GET https://prosewarememestorage.blob.core.windows.netbackups/awesomestmemeever.gif?comp=blocklist&amp;blocklisttype=all&amp;sv=2019-12-12&amp;ss=bfqt&amp;srt=sco&amp;sp=rwdlacuptfx&amp;se=2021-01-16T04:18:47Z&amp;st=2021-01-08T20:18:47Z&amp;spr=https&amp;sig=XXXXXXXXXXXX <span style="color:#960050;background-color:#1e0010">
+</span></code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; encoding=&#34;utf-8&#34;?&gt;</span>
+<span style="color:#f92672">&lt;BlockList&gt;</span>
+    <span style="color:#f92672">&lt;CommittedBlocks&gt;</span>
+        <span style="color:#f92672">&lt;Block&gt;</span>
+            <span style="color:#f92672">&lt;Name&gt;</span>RERE<span style="color:#f92672">&lt;/Name&gt;</span>
+            <span style="color:#f92672">&lt;Size&gt;</span>2495317<span style="color:#f92672">&lt;/Size&gt;</span>
+        <span style="color:#f92672">&lt;/Block&gt;</span>
+    <span style="color:#f92672">&lt;/CommittedBlocks&gt;</span>
+    <span style="color:#f92672">&lt;UncommittedBlocks</span> <span style="color:#f92672">/&gt;</span>
+<span style="color:#f92672">&lt;/BlockList&gt;</span>
+</code></pre></div></li>
+<li>
+<p>After one day, the versions from the previous day are deleted and only the base blob remains.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rest" data-lang="rest">HEAD https://prosewarememestorage.blob.core.windows.netbackups/awesomestmemeever.gif?sv=2019-12-12&amp;ss=bfqt&amp;srt=sco&amp;sp=rwdlacuptfx&amp;se=2021-01-16T04:18:47Z&amp;st=2021-01-08T20:18:47Z&amp;spr=https&amp;sig=XXXXXXXXXXXX<span style="color:#960050;background-color:#1e0010">
+</span></code></pre></div><p><img src="blobproperties.png" alt="A screenshot of blob properties from the Azure portal." /></p>
+</li>
+</ol>
+<p>Note that in this approach, there is no need for the <code>If-None-Match:*</code> conditional header. Clients can simultaneously upload to the same blob and a new version will be created for each successful call to Put Block List or Put Blob. For Get Blob requests, if a <code>versionid</code> is not specified in the parameters, the latest version of the blob will be retrieved, or the calling application can also provide a valid <code>versionid</code> to retrieve a previous version before it is deleted through the lifecycle management rule. If needed, the current versions can be retrieved using List Blobs.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rest" data-lang="rest">GET https://prosewarememestorage.blob.core.windows.net/test?restype=container&amp;comp=list&amp;include=versions&amp;sv=2019-12-12&amp;ss=bfqt&amp;srt=sco&amp;sp=rwdlacuptfx&amp;se=2021-01-16T04:18:47Z&amp;st=2021-01-08T20:18:47Z&amp;spr=https&amp;sig=XXXXXXXXXXXX&amp;prefix=awesomestmemeever.gif <span style="color:#960050;background-color:#1e0010">
+</span></code></pre></div><p>The following is a sample lifecycle management rule which is filtered to only blob versions and deletes versions older than 1 day:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+  <span style="color:#f92672">&#34;rules&#34;</span>: [
+    {
+      <span style="color:#f92672">&#34;enabled&#34;</span>: <span style="color:#66d9ef">true</span>,
+      <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;DeleteVersionsOlderThan1Day&#34;</span>,
+      <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;Lifecycle&#34;</span>,
+      <span style="color:#f92672">&#34;definition&#34;</span>: {
+        <span style="color:#f92672">&#34;actions&#34;</span>: {
+          <span style="color:#f92672">&#34;version&#34;</span>: {
+            <span style="color:#f92672">&#34;delete&#34;</span>: {
+              <span style="color:#f92672">&#34;daysAfterCreationGreaterThan&#34;</span>: <span style="color:#ae81ff">1</span>
+            }
+          }
+        },
+        <span style="color:#f92672">&#34;filters&#34;</span>: {
+          <span style="color:#f92672">&#34;blobTypes&#34;</span>: [
+            <span style="color:#e6db74">&#34;blockBlob&#34;</span>
+          ]
+        }
+      }
+    }
+  ]
+}
+</code></pre></div><p>In conclusion, blob versioning allows for both multiple uploads from clients and automated deletion of data that is now longer required while retaining the base blob. Only committed data is retained and there is no need for the use of conditional headers.</p>
+<h2 id="references">
+  References
+  <a class="anchor" href="#references">#</a>
+</h2>
+<ul>
+<li><a href="https://docs.microsoft.com/azure/storage/blobs/concurrency-manage">Managing Concurrency in Blob storage</a></li>
+<li><a href="https://docs.microsoft.com/rest/api/storageservices/blob-service-rest-api">Blob service REST API</a>
+<ul>
+<li><a href="https://docs.microsoft.com/rest/api/storageservices/specifying-conditional-headers-for-blob-service-operations">Specifying conditional headers for Blob service operations</a></li>
+<li><a href="https://docs.microsoft.com/rest/api/storageservices/get-blob">Get Blob</a></li>
+<li><a href="https://docs.microsoft.com/rest/api/storageservices/list-blobs">List Blobs</a></li>
+<li><a href="https://docs.microsoft.com/rest/api/storageservices/put-blob">Put Blob</a></li>
+<li><a href="https://docs.microsoft.com/rest/api/storageservices/put-block-list">Put Block List</a></li>
+</ul>
+</li>
+<li><a href="https://docs.microsoft.com/azure/storage/blobs/storage-lifecycle-management-concepts">Optimize costs by automating Azure Blob Storage access tiers</a></li>
+</ul>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+ 
+        <hr />
+Azure Storage &copy;2021 <br />
+Visit the <a href="https://azure.microsoft.com/services/storage/">Azure Storage homepage</a> or read our <a href="https://docs.microsoft.com/azure/storage/">getting started guide</a>. <br />
+Contact us: <a href="mailto:azurestoragefeedback@microsoft.com?subject=AzureStorage.com%20Feedback">azurestoragefeedback@microsoft.com</a>
+
+<script type="text/javascript">
+    !function(T,l,y){var S=T.location,u="script",k="instrumentationKey",D="ingestionendpoint",C="disableExceptionTracking",E="ai.device.",I="toLowerCase",b="crossOrigin",w="POST",e="appInsightsSDK",t=y.name||"appInsights";(y.name||T[e])&&(T[e]=t);var n=T[t]||function(d){var g=!1,f=!1,m={initialize:!0,queue:[],sv:"4",version:2,config:d};function v(e,t){var n={},a="Browser";return n[E+"id"]=a[I](),n[E+"type"]=a,n["ai.operation.name"]=S&&S.pathname||"_unknown_",n["ai.internal.sdkVersion"]="javascript:snippet_"+(m.sv||m.version),{time:function(){var e=new Date;function t(e){var t=""+e;return 1===t.length&&(t="0"+t),t}return e.getUTCFullYear()+"-"+t(1+e.getUTCMonth())+"-"+t(e.getUTCDate())+"T"+t(e.getUTCHours())+":"+t(e.getUTCMinutes())+":"+t(e.getUTCSeconds())+"."+((e.getUTCMilliseconds()/1e3).toFixed(3)+"").slice(2,5)+"Z"}(),iKey:e,name:"Microsoft.ApplicationInsights."+e.replace(/-/g,"")+"."+t,sampleRate:100,tags:n,data:{baseData:{ver:2}}}}var h=d.url||y.src;if(h){function a(e){var t,n,a,i,r,o,s,c,p,l,u;g=!0,m.queue=[],f||(f=!0,t=h,s=function(){var e={},t=d.connectionString;if(t)for(var n=t.split(";"),a=0;a<n.length;a++){var i=n[a].split("=");2===i.length&&(e[i[0][I]()]=i[1])}if(!e[D]){var r=e.endpointsuffix,o=r?e.location:null;e[D]="https://"+(o?o+".":"")+"dc."+(r||"services.visualstudio.com")}return e}(),c=s[k]||d[k]||"",p=s[D],l=p?p+"/v2/track":config.endpointUrl,(u=[]).push((n="SDK LOAD Failure: Failed to load Application Insights SDK script (See stack for details)",a=t,i=l,(o=(r=v(c,"Exception")).data).baseType="ExceptionData",o.baseData.exceptions=[{typeName:"SDKLoadFailed",message:n.replace(/\./g,"-"),hasFullStack:!1,stack:n+"\nSnippet failed to load ["+a+"] -- Telemetry is disabled\nHelp Link: https://go.microsoft.com/fwlink/?linkid=2128109\nHost: "+(S&&S.pathname||"_unknown_")+"\nEndpoint: "+i,parsedStack:[]}],r)),u.push(function(e,t,n,a){var i=v(c,"Message"),r=i.data;r.baseType="MessageData";var o=r.baseData;return o.message='AI (Internal): 99 message:"'+("SDK LOAD Failure: Failed to load Application Insights SDK script (See stack for details) ("+n+")").replace(/\"/g,"")+'"',o.properties={endpoint:a},i}(0,0,t,l)),function(e,t){if(JSON){var n=T.fetch;if(n&&!y.useXhr)n(t,{method:w,body:JSON.stringify(e),mode:"cors"});else if(XMLHttpRequest){var a=new XMLHttpRequest;a.open(w,t),a.setRequestHeader("Content-type","application/json"),a.send(JSON.stringify(e))}}}(u,l))}function i(e,t){f||setTimeout(function(){!t&&m.core||a()},500)}var e=function(){var n=l.createElement(u);n.src=h;var e=y[b];return!e&&""!==e||"undefined"==n[b]||(n[b]=e),n.onload=i,n.onerror=a,n.onreadystatechange=function(e,t){"loaded"!==n.readyState&&"complete"!==n.readyState||i(0,t)},n}();y.ld<0?l.getElementsByTagName("head")[0].appendChild(e):setTimeout(function(){l.getElementsByTagName(u)[0].parentNode.appendChild(e)},y.ld||0)}try{m.cookie=l.cookie}catch(p){}function t(e){for(;e.length;)!function(t){m[t]=function(){var e=arguments;g||m.queue.push(function(){m[t].apply(m,e)})}}(e.pop())}var n="track",r="TrackPage",o="TrackEvent";t([n+"Event",n+"PageView",n+"Exception",n+"Trace",n+"DependencyData",n+"Metric",n+"PageViewPerformance","start"+r,"stop"+r,"start"+o,"stop"+o,"addTelemetryInitializer","setAuthenticatedUserContext","clearAuthenticatedUserContext","flush"]),m.SeverityLevel={Verbose:0,Information:1,Warning:2,Error:3,Critical:4};var s=(d.extensionConfig||{}).ApplicationInsightsAnalytics||{};if(!0!==d[C]&&!0!==s[C]){method="onerror",t(["_"+method]);var c=T[method];T[method]=function(e,t,n,a,i){var r=c&&c(e,t,n,a,i);return!0!==r&&m["_"+method]({message:e,url:t,lineNumber:n,columnNumber:a,error:i}),r},d.autoExceptionInstrumented=!0}return m}(y.cfg);(T[t]=n).queue&&0===n.queue.length&&n.trackPageView({})}(window,document,{
+    src: "https://az416426.vo.msecnd.net/scripts/b/ai.2.min.js", 
+    
+    
+    
+    
+    cfg: { 
+        instrumentationKey: "0600b273-5440-42cc-9fe4-51924c721ce0"
+         
+    }});
+</script>
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#references">References</a></li>
+  </ul>
+</nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Application and User Data on Azure Storage</title>
+    <link>https://azure.github.io/Storage/docs/application-and-user-data/code-samples/</link>
+    <description>Recent content in Application and User Data on Azure Storage</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="https://azure.github.io/Storage/docs/application-and-user-data/code-samples/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Azure blob storage data management and retention</title>
+      <link>https://azure.github.io/Storage/docs/application-and-user-data/code-samples/data-retention/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://azure.github.io/Storage/docs/application-and-user-data/code-samples/data-retention/</guid>
+      <description>Azure blob storage data management and retention#When you store your data in blob storage, there are a number of policies which govern how your data is managed and retained in the event of deletion. Data management is strictly governed and Microsoft® is committed to ensuring that your data remains your data, without exception. When you delete your data - either through an API or due to a subscription being removed - there are varying policies which dictate the length of time for which your data may be retained in the event you would need to recover it.</description>
+    </item>
+    
+    <item>
+      <title>Azure Storage Supported Character Scrubber</title>
+      <link>https://azure.github.io/Storage/docs/application-and-user-data/code-samples/supported-character-scrubber/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://azure.github.io/Storage/docs/application-and-user-data/code-samples/supported-character-scrubber/</guid>
+      <description>Azure Storage Supported Character Scrubber#Azure Storage supports a wide variety of Unicode characters across containers, blobs, metadata, and snapshots. When you are migrating from another storage system to Azure, you may find that some characters supported in your source system (e.g., AWS S3) are not supported by Azure and will require an object to be renamed.
+The PowerShell script AzureStorageSupportedCharacterScrubber.ps1 provides a turnkey solution to discovering unsupported characters in your file names with a simple CSV input.</description>
+    </item>
+    
+    <item>
+      <title>Estimating Pricing for Azure Block Blob Deployments</title>
+      <link>https://azure.github.io/Storage/docs/application-and-user-data/code-samples/estimate-block-blob/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://azure.github.io/Storage/docs/application-and-user-data/code-samples/estimate-block-blob/</guid>
+      <description>Estimating Pricing for Azure Block Blob Deployments#We have several tools to help you price Azure Block Blob Storage, however figuring out what questions you need to answer to produce an estimate can sometimes be overwhelming. To that end we have put together this simple template. You can use the template as-is or modify it to fit your workload. Once you have the template populated you will have some estimates you can input into the Azure Pricing Calculator to get a cost estimate.</description>
+    </item>
+    
+    <item>
+      <title>Managing concurrent uploads in Azure blob storage with blob versioning</title>
+      <link>https://azure.github.io/Storage/docs/application-and-user-data/code-samples/concurrent-uploads-with-versioning/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://azure.github.io/Storage/docs/application-and-user-data/code-samples/concurrent-uploads-with-versioning/</guid>
+      <description>Managing concurrent uploads in Azure blob storage with blob versioning#When you are building applications that need to have multiple clients uploading to the same object in Azure blob storage, there are several options to help you manage concurrency depending on your strategy. Concurrency strategies include:
+ Optimistic concurrency: An application performing an update will, as part of its update, determine whether the data has changed since the application last read that data.</description>
+    </item>
+    
+  </channel>
+</rss>

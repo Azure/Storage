@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en" dir=>
+
+<head>
+  <meta name="generator" content="Hugo 0.80.0" />
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Azure blob storage data management and retention#When you store your data in blob storage, there are a number of policies which govern how your data is managed and retained in the event of deletion. Data management is strictly governed and Microsoft® is committed to ensuring that your data remains your data, without exception. When you delete your data - either through an API or due to a subscription being removed - there are varying policies which dictate the length of time for which your data may be retained in the event you would need to recover it.">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Azure blob storage data management and retention" />
+<meta property="og:description" content="Azure blob storage data management and retention#When you store your data in blob storage, there are a number of policies which govern how your data is managed and retained in the event of deletion. Data management is strictly governed and Microsoft® is committed to ensuring that your data remains your data, without exception. When you delete your data - either through an API or due to a subscription being removed - there are varying policies which dictate the length of time for which your data may be retained in the event you would need to recover it." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://azure.github.io/Storage/docs/application-and-user-data/code-samples/data-retention/" />
+
+<title>Azure blob storage data management and retention | Azure Storage</title>
+<link rel="manifest" href="/Storage/manifest.json">
+<link rel="icon" href="/Storage/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/Storage/book.min.6c7c6446dfdee7c8c933e9bbc6e80ee3ed6c913b2a59519f2092c3c6a9d63e55.css" integrity="sha256-bHxkRt/e58jJM&#43;m7xugO4&#43;1skTsqWVGfIJLDxqnWPlU=">
+<script defer src="/Storage/en.search.min.e3c811d780a09e785595e36be4217a7ab952f46ef2f08e5fc30d042f67c46bf2.js" integrity="sha256-48gR14CgnnhVleNr5CF6erlS9G7y8I5fww0EL2fEa/I="></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body dir=>
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a href="/Storage"><img src="/Storage/images/azure-icon.png" alt="Logo" /><span>Azure Storage</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://azure.github.io/Storage/docs/analytics/" class="">Analytics</a>
+  
+
+          
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://azure.github.io/Storage/docs/application-and-user-data/" class="">Application and User Data</a>
+  
+
+          
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://azure.github.io/Storage/docs/backup-and-archive/" class="">Backup and Archive</a>
+  
+
+          
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://azure.github.io/Storage/docs/hpc-iot-and-ai/" class="">HPC IoT and AI</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://azure.github.io/Storage/docs/storage-partners/" class="">Storage Partners</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://azure.github.io/Storage/docs/tools-and-utilities/" class="">Tools and Utilities</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/Storage/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Azure blob storage data management and retention</strong>
+
+  <label for="toc-control">
+    
+    <img src="/Storage/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#encryption">Encryption</a></li>
+    <li><a href="#prevent-accidental-deletion">Prevent accidental deletion</a></li>
+    <li><a href="#references">References</a></li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h1 id="azure-blob-storage-data-management-and-retention">
+  Azure blob storage data management and retention
+  <a class="anchor" href="#azure-blob-storage-data-management-and-retention">#</a>
+</h1>
+<p>When you store your data in blob storage, there are a number of policies which govern how your data is managed and retained in the event of deletion. Data management is strictly governed and Microsoft® is committed to ensuring that your data remains your data, without exception. When you delete your data - either through an API or due to a subscription being removed - there are varying policies which dictate the length of time for which your data may be retained in the event you would need to recover it.</p>
+<p>A good place to start with understanding how your data is protected in Azure is <a href="https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data">Azure customer data protection</a>. This article provides details on data protection, customer data ownership, records management, and electronic discovery (e-discovery).</p>
+<p>The definitive source for understanding how your data is managed and retained in Azure and other Microsoft® services is the Online Service Terms (OST). When you subscribe to an Online Service through a Microsoft Volume Licensing program, the terms for how you can use the service are defined in the Volume Licensing Online Services Terms (OST) document and program agreement. There are also additional data processing and security terms which you should become familiar with that are defined in the Microsoft Online Services Data Protection Addendum (DPA). The DPA is an addendum to the OST. Links to the current OST and DPA in multiple languages are available on the <a href="https://www.microsoft.com/licensing/product-licensing/products?rtc=1">Licensing Terms</a> page. You can also find links to <a href="https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&amp;DocumentTypeId=46&amp;ShowArchived=true">archived editions of the OST</a> and <a href="https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&amp;DocumentTypeId=67">archived editions of the DPA</a> if you would like to understand how these terms have evolved over time.</p>
+<p><strong>Quick links:</strong></p>
+<ul>
+<li>Microsoft Online Services Terms (<a href="https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&amp;DocumentTypeId=46">English</a>)</li>
+<li>Online Services DPA (<a href="https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&amp;DocumentTypeId=67">English</a>)</li>
+</ul>
+<p>The whitepaper <a href="https://go.microsoft.com/fwlink/p/?LinkID=2114156&amp;clcid=0x409&amp;culture=en-us&amp;country=US">Protecting Data in Microsoft Azure</a> includes several statements which can help you understand what happens when you issue a delete request through the storage APIs (for example <a href="https://docs.microsoft.com/rest/api/storageservices/delete-blob">Delete Blob</a>):</p>
+<blockquote>
+<p>Where appropriate, confidentiality should persist beyond the useful lifecycle of data. The Azure Storage subsystem makes customer data unavailable once delete operations are performed. All storage operations including delete are designed to be instantly consistent. Successful execution of a delete operation removes all references to the associated data item and it cannot be accessed via the Azure storage APIs. Also, Azure Storage interfaces do not permit the reading of uninitialized data, thus mitigating the same or another customer from reading deleted data before it is overwritten. All copies of deleted data are then garbage-collected. The physical bits are overwritten when the associated storage block is reused for storing other data, as is typical with standard computer hard drives.</p>
+</blockquote>
+<p>If you are interested in a deeper dive on the Azure storage subsystem, the whitepaper <a href="https://sigops.org/s/conferences/sosp/2011/current/2011-Cascais/printable/11-calder.pdf">Windows Azure Storage: A Highly Available Cloud Storage Service with Strong Consistency</a> details the architecture of the system and includes details on garbage collection. There is also a <a href="https://www.youtube.com/watch?v=QnYdbQO0yj4">video</a> and <a href="https://sigops.org/sosp/sosp11/current/2011-Cascais/11-calder.pptx">presentation</a> which provide a condensed view of the whitepaper.</p>
+<p>The destruction of physical media is addressed in the <a href="https://www.microsoft.com/trust-center/privacy">Microsoft Trust Center</a>:</p>
+<blockquote>
+<p>If a disk drive used for storage suffers a hardware failure, it is securely erased or destroyed before Microsoft returns it to the manufacturer for replacement or repair. The data on the drive is completely overwritten to ensure the data cannot be recovered by any means.</p>
+<p>When such devices are decommissioned, they are purged or destroyed according to <a href="https://go.microsoft.com/fwlink/p/?linkid=2114410">NIST 800-88 Guidelines for Media Sanitation</a>.</p>
+</blockquote>
+<h2 id="encryption">
+  Encryption
+  <a class="anchor" href="#encryption">#</a>
+</h2>
+<p>Encryption of customer data is also addressed in public documentation, including additional controls that you can implement such as customer-managed encryption keys. <a href="https://docs.microsoft.com/azure/storage/common/storage-service-encryption">Azure Storage encryption for data at rest</a> states:</p>
+<blockquote>
+<p>Data in Azure Storage is encrypted and decrypted transparently using 256-bit <a href="https://en.wikipedia.org/wiki/Advanced_Encryption_Standard">AES encryption</a>, one of the strongest block ciphers available, and is FIPS 140-2 compliant. Azure Storage encryption is similar to BitLocker encryption on Windows.</p>
+<p>Azure Storage encryption is enabled for all storage accounts, including both Resource Manager and classic storage accounts. Azure Storage encryption cannot be disabled. Because your data is secured by default, you don&rsquo;t need to modify your code or applications to take advantage of Azure Storage encryption.</p>
+<p>Data in a storage account is encrypted regardless of performance tier (standard or premium), access tier (hot or cool), or deployment model (Azure Resource Manager or classic). All blobs in the archive tier are also encrypted. All Azure Storage redundancy options support encryption, and all data in both the primary and secondary regions is encrypted when geo-replication is enabled. All Azure Storage resources are encrypted, including blobs, disks, files, queues, and tables. All object metadata is also encrypted. There is no additional cost for Azure Storage encryption.</p>
+</blockquote>
+<p>Data can also be encrypted with a <a href="https://docs.microsoft.com/azure/storage/common/customer-managed-keys-overview">customer-managed key</a> when used in combination with Azure Key Vault. <a href="https://docs.microsoft.com/azure/storage/common/customer-managed-keys-overview#revoke-access-to-customer-managed-keys">Revocation of a customer-managed key</a> can be performed at any time and upon revocation client calls to the Storage APIs will fail for operations including the retrieval of blobs, updates to existing blobs.</p>
+<h2 id="prevent-accidental-deletion">
+  Prevent accidental deletion
+  <a class="anchor" href="#prevent-accidental-deletion">#</a>
+</h2>
+<p>There are also customer controls available which allow you to manage the lifecycle of your data and prevent the accidental deletion of critical information, including <a href="https://docs.microsoft.com/azure/storage/blobs/soft-delete-blob-overview">soft delete for blobs</a> and <a href="https://docs.microsoft.com/azure/storage/blobs/soft-delete-container-overview">containers</a>. It is also possible to implement <a href="https://docs.microsoft.com/azure/azure-resource-manager/management/lock-resources">resource locks</a> to prevent the accidental deletion of your storage account and the resource group it resides in. Finally, you can also recover a deleted storage account in some cases within 14 day by <a href="https://docs.microsoft.com/azure/storage/common/storage-account-recover">utilizing storage account recovery</a>.</p>
+<h2 id="references">
+  References
+  <a class="anchor" href="#references">#</a>
+</h2>
+<ul>
+<li><a href="https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data">Azure customer data protection</a></li>
+<li><a href="https://www.microsoft.com/licensing/product-licensing/products?rtc=1">Microsoft Licensing Terms</a></li>
+<li>Microsoft Online Services Terms (<a href="https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&amp;DocumentTypeId=46">English</a>)</li>
+<li>Online Services DPA (<a href="https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&amp;DocumentTypeId=67">English</a>)</li>
+<li><a href="https://sigops.org/s/conferences/sosp/2011/current/2011-Cascais/printable/11-calder.pdf">Windows Azure Storage: A Highly Available Cloud Storage Service with Strong Consistency</a></li>
+<li><a href="https://www.microsoft.com/trust-center/privacy">Microsoft Trust Center</a></li>
+<li><a href="https://go.microsoft.com/fwlink/p/?linkid=2114410">NIST 800-88 Guidelines for Media Sanitation</a></li>
+<li><a href="https://docs.microsoft.com/azure/storage/common/storage-service-encryption">Azure Storage encryption for data at rest</a></li>
+<li><a href="https://docs.microsoft.com/azure/storage/common/customer-managed-keys-overview">Customer-managed keys for Azure Storage encryption</a></li>
+<li><a href="https://docs.microsoft.com/en-us/archive/blogs/walterm/microsoft-azure-data-security-data-cleansing-and-leakage">Microsoft Azure Data Security (Data Cleansing and Leakage)</a></li>
+<li><a href="https://docs.microsoft.com/en-us/azure/storage/blobs/soft-delete-blob-overview">Soft delete for blobs</a></li>
+<li><a href="https://docs.microsoft.com/azure/storage/blobs/soft-delete-container-overview">Soft delete for containers</a></li>
+<li><a href="https://docs.microsoft.com/azure/azure-resource-manager/management/lock-resources">Lock resources to prevent unexpected changes</a></li>
+<li><a href="https://docs.microsoft.com/azure/storage/common/storage-account-recover">Recover a deleted storage account</a></li>
+</ul>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+ 
+        <hr />
+Azure Storage &copy;2021 <br />
+Visit the <a href="https://azure.microsoft.com/services/storage/">Azure Storage homepage</a> or read our <a href="https://docs.microsoft.com/azure/storage/">getting started guide</a>. <br />
+Contact us: <a href="mailto:azurestoragefeedback@microsoft.com?subject=AzureStorage.com%20Feedback">azurestoragefeedback@microsoft.com</a>
+
+<script type="text/javascript">
+    !function(T,l,y){var S=T.location,u="script",k="instrumentationKey",D="ingestionendpoint",C="disableExceptionTracking",E="ai.device.",I="toLowerCase",b="crossOrigin",w="POST",e="appInsightsSDK",t=y.name||"appInsights";(y.name||T[e])&&(T[e]=t);var n=T[t]||function(d){var g=!1,f=!1,m={initialize:!0,queue:[],sv:"4",version:2,config:d};function v(e,t){var n={},a="Browser";return n[E+"id"]=a[I](),n[E+"type"]=a,n["ai.operation.name"]=S&&S.pathname||"_unknown_",n["ai.internal.sdkVersion"]="javascript:snippet_"+(m.sv||m.version),{time:function(){var e=new Date;function t(e){var t=""+e;return 1===t.length&&(t="0"+t),t}return e.getUTCFullYear()+"-"+t(1+e.getUTCMonth())+"-"+t(e.getUTCDate())+"T"+t(e.getUTCHours())+":"+t(e.getUTCMinutes())+":"+t(e.getUTCSeconds())+"."+((e.getUTCMilliseconds()/1e3).toFixed(3)+"").slice(2,5)+"Z"}(),iKey:e,name:"Microsoft.ApplicationInsights."+e.replace(/-/g,"")+"."+t,sampleRate:100,tags:n,data:{baseData:{ver:2}}}}var h=d.url||y.src;if(h){function a(e){var t,n,a,i,r,o,s,c,p,l,u;g=!0,m.queue=[],f||(f=!0,t=h,s=function(){var e={},t=d.connectionString;if(t)for(var n=t.split(";"),a=0;a<n.length;a++){var i=n[a].split("=");2===i.length&&(e[i[0][I]()]=i[1])}if(!e[D]){var r=e.endpointsuffix,o=r?e.location:null;e[D]="https://"+(o?o+".":"")+"dc."+(r||"services.visualstudio.com")}return e}(),c=s[k]||d[k]||"",p=s[D],l=p?p+"/v2/track":config.endpointUrl,(u=[]).push((n="SDK LOAD Failure: Failed to load Application Insights SDK script (See stack for details)",a=t,i=l,(o=(r=v(c,"Exception")).data).baseType="ExceptionData",o.baseData.exceptions=[{typeName:"SDKLoadFailed",message:n.replace(/\./g,"-"),hasFullStack:!1,stack:n+"\nSnippet failed to load ["+a+"] -- Telemetry is disabled\nHelp Link: https://go.microsoft.com/fwlink/?linkid=2128109\nHost: "+(S&&S.pathname||"_unknown_")+"\nEndpoint: "+i,parsedStack:[]}],r)),u.push(function(e,t,n,a){var i=v(c,"Message"),r=i.data;r.baseType="MessageData";var o=r.baseData;return o.message='AI (Internal): 99 message:"'+("SDK LOAD Failure: Failed to load Application Insights SDK script (See stack for details) ("+n+")").replace(/\"/g,"")+'"',o.properties={endpoint:a},i}(0,0,t,l)),function(e,t){if(JSON){var n=T.fetch;if(n&&!y.useXhr)n(t,{method:w,body:JSON.stringify(e),mode:"cors"});else if(XMLHttpRequest){var a=new XMLHttpRequest;a.open(w,t),a.setRequestHeader("Content-type","application/json"),a.send(JSON.stringify(e))}}}(u,l))}function i(e,t){f||setTimeout(function(){!t&&m.core||a()},500)}var e=function(){var n=l.createElement(u);n.src=h;var e=y[b];return!e&&""!==e||"undefined"==n[b]||(n[b]=e),n.onload=i,n.onerror=a,n.onreadystatechange=function(e,t){"loaded"!==n.readyState&&"complete"!==n.readyState||i(0,t)},n}();y.ld<0?l.getElementsByTagName("head")[0].appendChild(e):setTimeout(function(){l.getElementsByTagName(u)[0].parentNode.appendChild(e)},y.ld||0)}try{m.cookie=l.cookie}catch(p){}function t(e){for(;e.length;)!function(t){m[t]=function(){var e=arguments;g||m.queue.push(function(){m[t].apply(m,e)})}}(e.pop())}var n="track",r="TrackPage",o="TrackEvent";t([n+"Event",n+"PageView",n+"Exception",n+"Trace",n+"DependencyData",n+"Metric",n+"PageViewPerformance","start"+r,"stop"+r,"start"+o,"stop"+o,"addTelemetryInitializer","setAuthenticatedUserContext","clearAuthenticatedUserContext","flush"]),m.SeverityLevel={Verbose:0,Information:1,Warning:2,Error:3,Critical:4};var s=(d.extensionConfig||{}).ApplicationInsightsAnalytics||{};if(!0!==d[C]&&!0!==s[C]){method="onerror",t(["_"+method]);var c=T[method];T[method]=function(e,t,n,a,i){var r=c&&c(e,t,n,a,i);return!0!==r&&m["_"+method]({message:e,url:t,lineNumber:n,columnNumber:a,error:i}),r},d.autoExceptionInstrumented=!0}return m}(y.cfg);(T[t]=n).queue&&0===n.queue.length&&n.trackPageView({})}(window,document,{
+    src: "https://az416426.vo.msecnd.net/scripts/b/ai.2.min.js", 
+    
+    
+    
+    
+    cfg: { 
+        instrumentationKey: "0600b273-5440-42cc-9fe4-51924c721ce0"
+         
+    }});
+</script>
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#encryption">Encryption</a></li>
+    <li><a href="#prevent-accidental-deletion">Prevent accidental deletion</a></li>
+    <li><a href="#references">References</a></li>
+  </ul>
+</nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
