@@ -5,10 +5,10 @@
   <meta name="generator" content="Hugo 0.80.0" />
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="The Hitchhiker&#39;s Guide to the Data Lake#A comprehensive guide on key considerations involved in building your enterprise data lake
+<meta name="description" content="The Hitchhiker&#39;s Guide to the Data Lake #  A comprehensive guide on key considerations involved in building your enterprise data lake
  The Hitchhiker&#39;s Guide to the Data Lake  When is ADLS Gen2 the right choice for your data lake? Key considerations in designing your data lake Terminology Organizing and managing data in your data lake  Do I want a centralized or a federated data lake implementation? How do I organize my data?">
 <meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="The Hitchhiker&#39;s Guide to the Data Lake" />
-<meta property="og:description" content="The Hitchhiker&#39;s Guide to the Data Lake#A comprehensive guide on key considerations involved in building your enterprise data lake
+<meta property="og:description" content="The Hitchhiker&#39;s Guide to the Data Lake #  A comprehensive guide on key considerations involved in building your enterprise data lake
  The Hitchhiker&#39;s Guide to the Data Lake  When is ADLS Gen2 the right choice for your data lake? Key considerations in designing your data lake Terminology Organizing and managing data in your data lake  Do I want a centralized or a federated data lake implementation? How do I organize my data?" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://azure.github.io/Storage/docs/analytics/hitchhikers-guide-to-the-datalake/" />
@@ -17,7 +17,7 @@
 <link rel="manifest" href="/Storage/manifest.json">
 <link rel="icon" href="/Storage/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/Storage/book.min.6c7c6446dfdee7c8c933e9bbc6e80ee3ed6c913b2a59519f2092c3c6a9d63e55.css" integrity="sha256-bHxkRt/e58jJM&#43;m7xugO4&#43;1skTsqWVGfIJLDxqnWPlU=">
-<script defer src="/Storage/en.search.min.e3c811d780a09e785595e36be4217a7ab952f46ef2f08e5fc30d042f67c46bf2.js" integrity="sha256-48gR14CgnnhVleNr5CF6erlS9G7y8I5fww0EL2fEa/I="></script>
+<script defer src="/Storage/en.search.min.61b55b4541bc4c90e042fdb1f7deab6f1c0c90d694b30ab36fc5e6e471c61a3f.js" integrity="sha256-YbVbRUG8TJDgQv2x996rbxwMkNaUswqzb8Xm5HHGGj8="></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -704,7 +704,7 @@ Hadoop has a set of file formats it supports for optimized storage and processin
 <li>Option 2 - <code>/&lt;datetime&gt;/&lt;sensorid&gt;/&lt;temperature&gt;, /&lt;datetime&gt;/&lt;sensorid&gt;/&lt;pressure&gt;, /datetime&gt;/&lt;sensorid&gt;/&lt;humidity&gt;</code></li>
 <li>Option 3 - <code>&lt;temperature&gt;/&lt;datetime&gt;/&lt;sensorid&gt;, &lt;pressure&gt;/&lt;datetime&gt;/&lt;sensorid&gt;, &lt;humidity&gt;/&lt;datetime&gt;/&lt;sensorid&gt;</code></li>
 </ul>
-<p>If a high priority scenario is to understand the health of the sensors based on the values they send to ensure the sensors are working fine, then you would have analytics pipelines running every hour or so to triangulate data from a specific sensor with data from other sensors to ensure they are working fine. In this case, Option 2 would be the optimal way for organizing the data. 
+<p>If a high priority scenario is to understand the health of the sensors based on the values they send to ensure the sensors are working fine, then you would have analytics pipelines running every hour or so to triangulate data from a specific sensor with data from other sensors to ensure they are working fine. In this case, Option 2 would be the optimal way for organizing the data.
 If instead your high priority scenario is to understand the weather patterns in the area based on the sensor data to ensure what remedial action you need to take, you would have analytics pipelines running periodically to assess the weather based on the sensor data from the area. In this case, you would want to optimize for the organization by date and attribute over the sensorID.</p>
 <p>Open source computing frameworks such as Apache Spark provide native support for partitioning schemes that you can leverage in your big data application.</p>
 <h3 id="use-query-acceleration">

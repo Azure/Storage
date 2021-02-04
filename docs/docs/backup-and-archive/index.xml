@@ -12,7 +12,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://azure.github.io/Storage/docs/backup-and-archive/commvault/</guid>
-      <description>Microsoft Partner Documentation for Commvault for Azure#https://documentation.commvault.com/commvault/v11/article?p=31252.htm</description>
+      <description>Microsoft Partner Documentation for Commvault for Azure #  https://documentation.commvault.com/commvault/v11/article?p=31252.htm</description>
     </item>
     
     <item>
@@ -21,9 +21,9 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://azure.github.io/Storage/docs/backup-and-archive/veritas/</guid>
-      <description>Microsoft Partner Documentation for Partner X#This article describes the storage options for partners.
-Support Matrix#   GPv2Storage CoolTier ArchiveTier WORMSupport Required AzureResources Restoreon-premises BackupAzure VM&amp;rsquo;s BackupAzure Files BackupAzure Blob     X X  X X X X X X    Links to Marketplace Offerings#Information related to the partner marketplace links goes here.
- Link 1 Link 2  Links to relevant documentation#Information related to the partner docs goes here.</description>
+      <description>Microsoft Partner Documentation for Partner X #  This article describes the storage options for partners.
+Support Matrix #     GPv2Storage CoolTier ArchiveTier WORMSupport Required AzureResources Restoreon-premises BackupAzure VM&amp;rsquo;s BackupAzure Files BackupAzure Blob     X X  X X X X X X    Links to Marketplace Offerings #  Information related to the partner marketplace links goes here.
+ Link 1 Link 2  Links to relevant documentation #  Information related to the partner docs goes here.</description>
     </item>
     
     <item>
@@ -32,9 +32,9 @@ Support Matrix#   GPv2Storage CoolTier ArchiveTier WORMSupport Required Azure
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://azure.github.io/Storage/docs/backup-and-archive/rubrik/</guid>
-      <description>Microsoft Partner Documentation for Partner X#This article describes the storage options for partners.
-Support Matrix#   GPv2Storage CoolTier ArchiveTier WORMSupport Required AzureResources Restoreon-premises BackupAzure VM&amp;rsquo;s BackupAzure Files BackupAzure Blob     X X  X X X X X X    Links to Marketplace Offerings#Information related to the partner marketplace links goes here.
- Link 1 Link 2  Links to relevant documentation#Information related to the partner docs goes here.</description>
+      <description>Microsoft Partner Documentation for Partner X #  This article describes the storage options for partners.
+Support Matrix #     GPv2Storage CoolTier ArchiveTier WORMSupport Required AzureResources Restoreon-premises BackupAzure VM&amp;rsquo;s BackupAzure Files BackupAzure Blob     X X  X X X X X X    Links to Marketplace Offerings #  Information related to the partner marketplace links goes here.
+ Link 1 Link 2  Links to relevant documentation #  Information related to the partner docs goes here.</description>
     </item>
     
     <item>
@@ -43,7 +43,7 @@ Support Matrix#   GPv2Storage CoolTier ArchiveTier WORMSupport Required Azure
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://azure.github.io/Storage/docs/backup-and-archive/veeam/</guid>
-      <description>Links to relevant documentation# https://www.veeam.com/documentation-guides-datasheets.html  </description>
+      <description>Links to relevant documentation #   https://www.veeam.com/documentation-guides-datasheets.html  </description>
     </item>
     
   </channel>
