@@ -2,34 +2,34 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Docs on Azure Storage</title>
-    <link>https://azure.github.io/Storage/docs/</link>
+    <link>https://azurestorage.com/docs/</link>
     <description>Recent content in Docs on Azure Storage</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="https://azure.github.io/Storage/docs/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language><atom:link href="https://azurestorage.com/docs/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>HPC IoT and AI</title>
-      <link>https://azure.github.io/Storage/docs/hpc-iot-and-ai/</link>
+      <link>https://azurestorage.com/docs/hpc-iot-and-ai/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://azure.github.io/Storage/docs/hpc-iot-and-ai/</guid>
+      <guid>https://azurestorage.com/docs/hpc-iot-and-ai/</guid>
       <description>HPC IoT and AI #  Coming Soon. . .</description>
     </item>
     
     <item>
       <title>Storage Partners</title>
-      <link>https://azure.github.io/Storage/docs/storage-partners/</link>
+      <link>https://azurestorage.com/docs/storage-partners/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://azure.github.io/Storage/docs/storage-partners/</guid>
+      <guid>https://azurestorage.com/docs/storage-partners/</guid>
       <description>Storage Partners #  Archive #   Acronis Archive360 Commvault HubStor Igneous Veeam Veritas  Backup #   Acronis Actifio Carbonite Cloudberry Cohesity Commvault Igneous Rubrik Veeam Veritas  Disaster Recovery #   Portworx StorageOS Zerto  MultiProtocol #   Caringo Cloudian Minio Scality  MultiSite collaboration #   Nasuni Panzura Talon  Tiering #   Komprise Moonwalk Peer Software Pure Storage Quantum  Tools #   Cloudberry Komprise  Verticals #  Automotive #   Cognata Elektrobit Linker Networks  Financial Services #   Archive360 Data Parser HubStor XenData  Healthcare #   DNA Nexus Nucleus Health  Oil &amp;amp; Gas #   Cegal Interica PixStor Tiger Tech Xen Data  </description>
     </item>
     
     <item>
       <title>Tools and Utilities</title>
-      <link>https://azure.github.io/Storage/docs/tools-and-utilities/</link>
+      <link>https://azurestorage.com/docs/tools-and-utilities/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://azure.github.io/Storage/docs/tools-and-utilities/</guid>
+      <guid>https://azurestorage.com/docs/tools-and-utilities/</guid>
       <description>Tools and Utilities #   AzCopy is a command-line utility that you can use to copy blobs or files to or from a storage account. AzReplicate is a sample application designed to help Azure Storage customers perform very large, multi-petabyte data migrations to Azure Blob Storage. AzDataMaker is a sample .NET Core app that runs in a Linux Azure Container Instance that generates files and uploads them to Azure Blob Storage.</description>
     </item>
     

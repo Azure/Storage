@@ -2,9 +2,9 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on Azure Storage</title>
-    <link>https://azure.github.io/Storage/categories/</link>
+    <link>https://azurestorage.com/categories/</link>
     <description>Recent content in Categories on Azure Storage</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="https://azure.github.io/Storage/categories/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language><atom:link href="https://azurestorage.com/categories/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

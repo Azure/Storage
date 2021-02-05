@@ -2,9 +2,9 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Application and User Data on Azure Storage</title>
-    <link>https://azure.github.io/Storage/docs/application-and-user-data/</link>
+    <link>https://azurestorage.com/docs/application-and-user-data/</link>
     <description>Recent content in Application and User Data on Azure Storage</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="https://azure.github.io/Storage/docs/application-and-user-data/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language><atom:link href="https://azurestorage.com/docs/application-and-user-data/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
