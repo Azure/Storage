@@ -5,15 +5,15 @@
   <meta name="generator" content="Hugo 0.80.0" />
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Azure Blob Storage data protection features #   Enterprises, partners, and IT professionals store business-critical data in Azure Blob Storage. We are committed to providing the best-in-class data protection and recovery capabilities to keep your applications running. In this video, learn more about the Azure Blob Storage data protection features.
- Learn more about Data Protection &amp; Security Azure Defender for Storage Immutable Blob storage  ">
-<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Azure Blob Storage data protection features" />
-<meta property="og:description" content="Azure Blob Storage data protection features #   Enterprises, partners, and IT professionals store business-critical data in Azure Blob Storage. We are committed to providing the best-in-class data protection and recovery capabilities to keep your applications running. In this video, learn more about the Azure Blob Storage data protection features.
- Learn more about Data Protection &amp; Security Azure Defender for Storage Immutable Blob storage  " />
+<meta name="description" content="Azure Blob Storage Upload API&rsquo;s #  Customers typically use existing applications such as AzCopy, Azure Storage Explorer, etc. or the Azure Storage SDK&rsquo;s when building custom apps to access the Azure Storage API&rsquo;s. However, a good understanding of the API&rsquo;s is critical when tuning your uploads for high performance. This document provides an overview of the different upload API&rsquo;s to help you compare the differences between them.
+Put Blob #   Source: You provide the bytes Size: Blob must be smaller than 256 MiB.">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Azure Blob Storage Upload API&#39;s" />
+<meta property="og:description" content="Azure Blob Storage Upload API&rsquo;s #  Customers typically use existing applications such as AzCopy, Azure Storage Explorer, etc. or the Azure Storage SDK&rsquo;s when building custom apps to access the Azure Storage API&rsquo;s. However, a good understanding of the API&rsquo;s is critical when tuning your uploads for high performance. This document provides an overview of the different upload API&rsquo;s to help you compare the differences between them.
+Put Blob #   Source: You provide the bytes Size: Blob must be smaller than 256 MiB." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://azurestorage.com/docs/application-and-user-data/basics/azure-blob-storage-data-protection-features/" />
+<meta property="og:url" content="https://azurestorage.com/docs/application-and-user-data/basics/azure-blob-storage-upload-apis/" />
 
-<title>Azure Blob Storage data protection features | Azure Storage</title>
+<title>Azure Blob Storage Upload API&#39;s | Azure Storage</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.6c7c6446dfdee7c8c933e9bbc6e80ee3ed6c913b2a59519f2092c3c6a9d63e55.css" integrity="sha256-bHxkRt/e58jJM&#43;m7xugO4&#43;1skTsqWVGfIJLDxqnWPlU=">
@@ -180,7 +180,7 @@ https://github.com/alex-shpak/hugo-book
     <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
   </label>
 
-  <strong>Azure Blob Storage data protection features</strong>
+  <strong>Azure Blob Storage Upload API&#39;s</strong>
 
   <label for="toc-control">
     
@@ -194,7 +194,17 @@ https://github.com/alex-shpak/hugo-book
   <aside class="hidden clearfix">
     
   
-<nav id="TableOfContents"></nav>
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#put-blob">Put Blob</a></li>
+    <li><a href="#put-blob-from-url">Put Blob From URL</a></li>
+    <li><a href="#copy-blob">Copy Blob</a></li>
+    <li><a href="#copy-blob-from-url">Copy Blob From URL</a></li>
+    <li><a href="#put-block">Put Block</a></li>
+    <li><a href="#put-block-from-url">Put Block From URL</a></li>
+    <li><a href="#put-block-list">Put Block List</a></li>
+  </ul>
+</nav>
 
 
 
@@ -205,16 +215,81 @@ https://github.com/alex-shpak/hugo-book
 
       
       
-  <article class="markdown"><h1 id="azure-blob-storage-data-protection-features">
-  Azure Blob Storage data protection features
-  <a class="anchor" href="#azure-blob-storage-data-protection-features">#</a>
+  <article class="markdown"><h1 id="azure-blob-storage-upload-apis">
+  Azure Blob Storage Upload API&rsquo;s
+  <a class="anchor" href="#azure-blob-storage-upload-apis">#</a>
 </h1>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/K2nr8LTRttk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-<p>Enterprises, partners, and IT professionals store business-critical data in Azure Blob Storage. We are committed to providing the best-in-class data protection and recovery capabilities to keep your applications running. In this video, learn more about the Azure Blob Storage data protection features.</p>
+<p>Customers typically use existing applications such as <a href="http://aka.ms/azcopy">AzCopy</a>, <a href="https://azure.microsoft.com/features/storage-explorer/">Azure Storage Explorer</a>, etc. or the Azure Storage SDK&rsquo;s when building custom apps to access the <a href="https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction#about-blob-storage">Azure Storage API&rsquo;s</a>. However, a good understanding of the API&rsquo;s is critical when tuning your uploads for high performance. This document provides an overview of the different upload API&rsquo;s to help you compare the differences between them.</p>
+<h2 id="put-blob">
+  Put Blob
+  <a class="anchor" href="#put-blob">#</a>
+</h2>
 <ul>
-<li><a href="https://docs.microsoft.com/azure/storage/blobs/security-recommendations">Learn more about Data Protection &amp; Security</a></li>
-<li><a href="https://docs.microsoft.com/azure/security-center/defender-for-storage-introduction">Azure Defender for Storage</a></li>
-<li><a href="https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutable-storage">Immutable Blob storage</a></li>
+<li>Source: You provide the bytes</li>
+<li>Size: Blob must be smaller than 256 MiB. (Limit increasing to 5 GiB, currently in preview)</li>
+<li><a href="https://docs.microsoft.com/rest/api/storageservices/put-blob">Official Docs</a></li>
+</ul>
+<h2 id="put-blob-from-url">
+  Put Blob From URL
+  <a class="anchor" href="#put-blob-from-url">#</a>
+</h2>
+<ul>
+<li>Source: Any object retrievable via a standard GET HTTP request on the given URL (e.g. public access or pre-signed URL) can be used. This includes any accessible object, inside or outside of Azure.</li>
+<li>Destination: A block blob</li>
+<li>Size: Blob must be smaller than 256 MiB. (Limit increasing to 5 GiB, currently in preview)</li>
+<li>Performance: Completes synchronously.</li>
+<li>Prefer this API when ingesting Block Blobs to a storage account from any external source. Choose this over Copy Blob from URL when you have larger objects, when you don&rsquo;t care about preserving the block list if the source is an Azure Blob, want to set HTTP Content Properties, or want to take advantage of advance features like <a href="https://docs.microsoft.com/azure/storage/blobs/encryption-scope-overview">Encryption Scopes</a>, or <a href="https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers#blob-level-tiering">Put to Tier</a>, etc.</li>
+<li><a href="https://docs.microsoft.com/rest/api/storageservices/put-blob-from-url">Official Docs</a></li>
+</ul>
+<h2 id="copy-blob">
+  Copy Blob
+  <a class="anchor" href="#copy-blob">#</a>
+</h2>
+<ul>
+<li>Source: The source blob for a copy operation may be a block blob, an append blob, or a page blob, a snapshot, or a file in the Azure File service.</li>
+<li>Destination: The same object type as the source</li>
+<li>Size: Each blob must be smaller than 4.75 TiB. (Limit increasing to 190.7 TiB, currently in preview). More Info: <a href="https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-blob-storage-limits">Maximum size of a block blob</a></li>
+<li>Performance: Completes asynchronously.</li>
+<li><a href="https://docs.microsoft.com/rest/api/storageservices/copy-blob">Official Docs</a></li>
+</ul>
+<h2 id="copy-blob-from-url">
+  Copy Blob From URL
+  <a class="anchor" href="#copy-blob-from-url">#</a>
+</h2>
+<ul>
+<li>Source: Any object retrievable via a standard GET HTTP request on the given URL (e.g. public access or pre-signed URL) can be used. This includes any accessible object, inside or outside of Azure.  If the object is an Azure source, it must be a block blob (i.e. Page Blobs are not supported).</li>
+<li>Destination: A block blob</li>
+<li>Size: Blob must be smaller than 256 MiB.</li>
+<li>Performance: Completes synchronously.</li>
+<li>Choose this over Put Blob from URL when compatibility with the Copy Blob API is required or when you want the committed block list to be preserved during the copy.</li>
+<li><a href="https://docs.microsoft.com/rest/api/storageservices/copy-blob-from-url">Official Docs</a></li>
+</ul>
+<h2 id="put-block">
+  Put Block
+  <a class="anchor" href="#put-block">#</a>
+</h2>
+<ul>
+<li>Source: You provide the bytes</li>
+<li>Size: Each block must be smaller than 100 MiB. (Limit increasing to 4 GiB, currently in preview). More Info: <a href="https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-blob-storage-limits">Maximum size of a block in a block blob</a></li>
+<li><a href="https://docs.microsoft.com/rest/api/storageservices/put-block">Official Docs</a></li>
+</ul>
+<h2 id="put-block-from-url">
+  Put Block From URL
+  <a class="anchor" href="#put-block-from-url">#</a>
+</h2>
+<ul>
+<li>Source: Any object range retrievable via a standard GET HTTP request on the given URL (e.g. public access or pre-signed URL) can be used. This includes any accessible object, inside or outside of Azure.</li>
+<li>Size: Each block must be smaller than 100 MiB. (Limit increasing to 4 GiB, currently in preview). More Info: <a href="https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-blob-storage-limits">Maximum size of a block in a block blob</a></li>
+<li>Performance: Completes synchronously.</li>
+<li><a href="https://docs.microsoft.com/rest/api/storageservices/put-block-from-url">Official Docs</a></li>
+</ul>
+<h2 id="put-block-list">
+  Put Block List
+  <a class="anchor" href="#put-block-list">#</a>
+</h2>
+<ul>
+<li>Called after all the blocks are written. This API commits a blob by specifying the list of block IDs that make up the blob.</li>
+<li><a href="https://docs.microsoft.com/rest/api/storageservices/put-block-list">Official Docs</a></li>
 </ul>
 </article>
  
@@ -254,7 +329,17 @@ Generated on Fri, Feb 05 2021 20:15:27 UTC
       <div class="book-toc-content">
         
   
-<nav id="TableOfContents"></nav>
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#put-blob">Put Blob</a></li>
+    <li><a href="#put-blob-from-url">Put Blob From URL</a></li>
+    <li><a href="#copy-blob">Copy Blob</a></li>
+    <li><a href="#copy-blob-from-url">Copy Blob From URL</a></li>
+    <li><a href="#put-block">Put Block</a></li>
+    <li><a href="#put-block-from-url">Put Block From URL</a></li>
+    <li><a href="#put-block-list">Put Block List</a></li>
+  </ul>
+</nav>
 
 
  
