@@ -21,6 +21,6 @@ Coming soon . . .
 
 ## Basics
 
-- [Azure Blob Storage data protection features](https://youtu.be/K2nr8LTRttk) short video discussing the basics of the redundancy, accidental data protection, access and security, and immutability of Azure Storage.
-- [Optimize your costs with Azure Blob Storage](https://youtu.be/9_N-mPxywwo) short video discussing the basics of optimizing your costs using reserved instances, lifecycle management, transactions, redundancy, and internet routing.
-- [NFS 3.0 support for Azure Blob Storage](https://youtu.be/nxVRBccx7gc) short video talking about using NFS on Azure Blob Storage.
+- [Azure Blob Storage data protection features](./basics/azure-blob-storage-data-protection-features) Enterprises, partners, and IT professionals store business-critical data in Azure Blob Storage. We are committed to providing the best-in-class data protection and recovery capabilities to keep your applications running. In this video, learn more about the Azure Blob Storage data protection features.
+- [Optimize your costs with Azure Blob Storage](./basics/optimize-your-costs-with-azure-blob-storage) In this video, learn about the Azure Blob Storage features that help you save cost and keep your Total Cost of Ownership (TCO) low.
+- [NFS 3.0 support for Azure Blob Storage](./basics/nfs-3-support-for-azure-blob-storage) In this video, we introduce Azure Blob NFS 3.0 support, the only public cloud object storage offering native file system compatibility. Learn about NFS support and how to accelerate your workload migration from on premise datacenters to Azure.

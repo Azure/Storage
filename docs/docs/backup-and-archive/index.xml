@@ -22,8 +22,17 @@
       
       <guid>https://azurestorage.com/docs/backup-and-archive/veritas/</guid>
       <description>Microsoft Partner Documentation for Partner X #  This article describes the storage options for partners.
-Support Matrix #     GPv2Storage CoolTier ArchiveTier WORMSupport Required AzureResources Restoreon-premises BackupAzure VM&amp;rsquo;s BackupAzure Files BackupAzure Blob     X X  X X X X X X    Links to Marketplace Offerings #  Information related to the partner marketplace links goes here.
- Link 1 Link 2  Links to relevant documentation #  Information related to the partner docs goes here.</description>
+Support Matrix #     GPv2
+Storage Cool
+Tier Archive
+Tier WORM
+Support Required Azure
+Resources Restore
+on-
+premises Backup
+Azure VM&amp;rsquo;s Backup
+Azure Files Backup
+Azure Blob     X X  X X X X X X    Links to Marketplace Offerings #  Information related to the partner marketplace links goes here.</description>
     </item>
     
     <item>
@@ -33,8 +42,17 @@ Support Matrix #     GPv2Storage CoolTier ArchiveTier WORMSupport Required Azure
       
       <guid>https://azurestorage.com/docs/backup-and-archive/rubrik/</guid>
       <description>Microsoft Partner Documentation for Partner X #  This article describes the storage options for partners.
-Support Matrix #     GPv2Storage CoolTier ArchiveTier WORMSupport Required AzureResources Restoreon-premises BackupAzure VM&amp;rsquo;s BackupAzure Files BackupAzure Blob     X X  X X X X X X    Links to Marketplace Offerings #  Information related to the partner marketplace links goes here.
- Link 1 Link 2  Links to relevant documentation #  Information related to the partner docs goes here.</description>
+Support Matrix #     GPv2
+Storage Cool
+Tier Archive
+Tier WORM
+Support Required Azure
+Resources Restore
+on-
+premises Backup
+Azure VM&amp;rsquo;s Backup
+Azure Files Backup
+Azure Blob     X X  X X X X X X    Links to Marketplace Offerings #  Information related to the partner marketplace links goes here.</description>
     </item>
     
     <item>

@@ -19,6 +19,10 @@
   </url>
   
   <url>
+    <loc>https://azurestorage.com/docs/application-and-user-data/basics/azure-blob-storage-data-protection-features/</loc>
+  </url>
+  
+  <url>
     <loc>https://azurestorage.com/docs/backup-and-archive/commvault/</loc>
   </url>
   
@@ -64,6 +68,14 @@
   
   <url>
     <loc>https://azurestorage.com/docs/application-and-user-data/code-samples/concurrent-uploads-with-versioning/</loc>
+  </url>
+  
+  <url>
+    <loc>https://azurestorage.com/docs/application-and-user-data/basics/nfs-3-support-for-azure-blob-storage/</loc>
+  </url>
+  
+  <url>
+    <loc>https://azurestorage.com/docs/application-and-user-data/basics/optimize-your-costs-with-azure-blob-storage/</loc>
   </url>
   
   <url>

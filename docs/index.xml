@@ -16,6 +16,16 @@
     </item>
     
     <item>
+      <title>Azure Blob Storage data protection features</title>
+      <link>https://azurestorage.com/docs/application-and-user-data/basics/azure-blob-storage-data-protection-features/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://azurestorage.com/docs/application-and-user-data/basics/azure-blob-storage-data-protection-features/</guid>
+      <description>Azure Blob Storage data protection features #   Enterprises, partners, and IT professionals store business-critical data in Azure Blob Storage. We are committed to providing the best-in-class data protection and recovery capabilities to keep your applications running. In this video, learn more about the Azure Blob Storage data protection features.
+ Learn more about Data Protection &amp;amp; Security Azure Defender for Storage Immutable Blob storage  </description>
+    </item>
+    
+    <item>
       <title>Azure Partner Backup Documentation</title>
       <link>https://azurestorage.com/docs/backup-and-archive/commvault/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -31,8 +41,17 @@
       
       <guid>https://azurestorage.com/docs/backup-and-archive/veritas/</guid>
       <description>Microsoft Partner Documentation for Partner X #  This article describes the storage options for partners.
-Support Matrix #     GPv2Storage CoolTier ArchiveTier WORMSupport Required AzureResources Restoreon-premises BackupAzure VM&amp;rsquo;s BackupAzure Files BackupAzure Blob     X X  X X X X X X    Links to Marketplace Offerings #  Information related to the partner marketplace links goes here.
- Link 1 Link 2  Links to relevant documentation #  Information related to the partner docs goes here.</description>
+Support Matrix #     GPv2
+Storage Cool
+Tier Archive
+Tier WORM
+Support Required Azure
+Resources Restore
+on-
+premises Backup
+Azure VM&amp;rsquo;s Backup
+Azure Files Backup
+Azure Blob     X X  X X X X X X    Links to Marketplace Offerings #  Information related to the partner marketplace links goes here.</description>
     </item>
     
     <item>
@@ -42,8 +61,17 @@ Support Matrix #     GPv2Storage CoolTier ArchiveTier WORMSupport Required Azure
       
       <guid>https://azurestorage.com/docs/backup-and-archive/rubrik/</guid>
       <description>Microsoft Partner Documentation for Partner X #  This article describes the storage options for partners.
-Support Matrix #     GPv2Storage CoolTier ArchiveTier WORMSupport Required AzureResources Restoreon-premises BackupAzure VM&amp;rsquo;s BackupAzure Files BackupAzure Blob     X X  X X X X X X    Links to Marketplace Offerings #  Information related to the partner marketplace links goes here.
- Link 1 Link 2  Links to relevant documentation #  Information related to the partner docs goes here.</description>
+Support Matrix #     GPv2
+Storage Cool
+Tier Archive
+Tier WORM
+Support Required Azure
+Resources Restore
+on-
+premises Backup
+Azure VM&amp;rsquo;s Backup
+Azure Files Backup
+Azure Blob     X X  X X X X X X    Links to Marketplace Offerings #  Information related to the partner marketplace links goes here.</description>
     </item>
     
     <item>
@@ -91,6 +119,26 @@ The PowerShell script AzureStorageSupportedCharacterScrubber.ps1 provides a turn
       <guid>https://azurestorage.com/docs/application-and-user-data/code-samples/concurrent-uploads-with-versioning/</guid>
       <description>Managing concurrent uploads in Azure blob storage with blob versioning #  When you are building applications that need to have multiple clients uploading to the same object in Azure blob storage, there are several options to help you manage concurrency depending on your strategy. Concurrency strategies include:
  Optimistic concurrency: An application performing an update will, as part of its update, determine whether the data has changed since the application last read that data.</description>
+    </item>
+    
+    <item>
+      <title>NFS 3.0 support for Azure Blob Storage</title>
+      <link>https://azurestorage.com/docs/application-and-user-data/basics/nfs-3-support-for-azure-blob-storage/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://azurestorage.com/docs/application-and-user-data/basics/nfs-3-support-for-azure-blob-storage/</guid>
+      <description>NFS 3.0 support for Azure Blob Storage #   In this video, we introduce Azure Blob NFS 3.0 support, the only public cloud object storage offering native file system compatibility. Learn about NFS support and how to accelerate your workload migration from on premise datacenters to Azure.
+ Learn more Step by step guide Contact us: BlobNFSFeedback@microsoft.com  </description>
+    </item>
+    
+    <item>
+      <title>Optimize your costs with Azure Blob Storage</title>
+      <link>https://azurestorage.com/docs/application-and-user-data/basics/optimize-your-costs-with-azure-blob-storage/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://azurestorage.com/docs/application-and-user-data/basics/optimize-your-costs-with-azure-blob-storage/</guid>
+      <description>Optimize your costs with Azure Blob Storage #   In this video, learn about the Azure Blob Storage features that help you save cost and keep your Total Cost of Ownership (TCO) low.
+ Learn more about Azure Storage redundancy Tiers and lifecycle Reservations Network routing preference  </description>
     </item>
     
     <item>

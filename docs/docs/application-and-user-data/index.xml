@@ -6,5 +6,35 @@
     <description>Recent content in Application and User Data on Azure Storage</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language><atom:link href="https://azurestorage.com/docs/application-and-user-data/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Azure Blob Storage data protection features</title>
+      <link>https://azurestorage.com/docs/application-and-user-data/basics/azure-blob-storage-data-protection-features/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://azurestorage.com/docs/application-and-user-data/basics/azure-blob-storage-data-protection-features/</guid>
+      <description>Azure Blob Storage data protection features #   Enterprises, partners, and IT professionals store business-critical data in Azure Blob Storage. We are committed to providing the best-in-class data protection and recovery capabilities to keep your applications running. In this video, learn more about the Azure Blob Storage data protection features.
+ Learn more about Data Protection &amp;amp; Security Azure Defender for Storage Immutable Blob storage  </description>
+    </item>
+    
+    <item>
+      <title>NFS 3.0 support for Azure Blob Storage</title>
+      <link>https://azurestorage.com/docs/application-and-user-data/basics/nfs-3-support-for-azure-blob-storage/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://azurestorage.com/docs/application-and-user-data/basics/nfs-3-support-for-azure-blob-storage/</guid>
+      <description>NFS 3.0 support for Azure Blob Storage #   In this video, we introduce Azure Blob NFS 3.0 support, the only public cloud object storage offering native file system compatibility. Learn about NFS support and how to accelerate your workload migration from on premise datacenters to Azure.
+ Learn more Step by step guide Contact us: BlobNFSFeedback@microsoft.com  </description>
+    </item>
+    
+    <item>
+      <title>Optimize your costs with Azure Blob Storage</title>
+      <link>https://azurestorage.com/docs/application-and-user-data/basics/optimize-your-costs-with-azure-blob-storage/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://azurestorage.com/docs/application-and-user-data/basics/optimize-your-costs-with-azure-blob-storage/</guid>
+      <description>Optimize your costs with Azure Blob Storage #   In this video, learn about the Azure Blob Storage features that help you save cost and keep your Total Cost of Ownership (TCO) low.
+ Learn more about Azure Storage redundancy Tiers and lifecycle Reservations Network routing preference  </description>
+    </item>
+    
   </channel>
 </rss>
