@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en" dir=>
+
+<head>
+  <meta name="generator" content="Hugo 0.80.0" />
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Lift and Shift Copy Pattern Guide: A quick start template #  Overview #  The purpose of this document is to provide a manual in form of step by step guide for the lift and shift copy pattern from Gen1 to Gen2 storage using Azure Data Factory and PowerShell. As such it provides the directions, references, sample code examples of the PowerShell functions been used.
+This guide covers the following tasks:">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Lift and Shift Copy Pattern Guide: A quick start template" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://azurestorage.com/docs/analytics/adls-gen1-to-gen2-migration/lift-and-shift/" />
+
+<title>Lift and Shift Copy Pattern Guide: A quick start template | Azure Storage</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.6c7c6446dfdee7c8c933e9bbc6e80ee3ed6c913b2a59519f2092c3c6a9d63e55.css" integrity="sha256-bHxkRt/e58jJM&#43;m7xugO4&#43;1skTsqWVGfIJLDxqnWPlU=">
+<script defer src="/en.search.min.a092390ed9ca69153376eaacab4624d67749500866440e4365296f3fa207eb56.js" integrity="sha256-oJI5DtnKaRUzduqsq0Yk1ndJUAhmRA5DZSlvP6IH61Y="></script>
+<link rel="alternate" type="application/rss+xml" href="https://azurestorage.com/docs/analytics/adls-gen1-to-gen2-migration/lift-and-shift/index.xml" title="Azure Storage" />
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body dir=>
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a href="/"><img src="/images/azure-icon.png" alt="Logo" /><span>Azure Storage</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://azurestorage.com/docs/analytics/" class="">Analytics</a>
+  
+
+          
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://azurestorage.com/docs/application-and-user-data/" class="">Application and User Data</a>
+  
+
+          
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://azurestorage.com/docs/backup-and-archive/" class="">Backup and Archive</a>
+  
+
+          
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://azurestorage.com/docs/hpc-iot-and-ai/" class="">HPC IoT and AI</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://azurestorage.com/docs/storage-partners/" class="">Storage Partners</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://azurestorage.com/docs/tools-and-utilities/" class="">Tools and Utilities</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Lift and Shift Copy Pattern Guide: A quick start template</strong>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#overview">Overview</a></li>
+    <li><a href="#prerequisites">Prerequisites</a></li>
+    <li><a href="#limitations">Limitations</a></li>
+    <li><a href="#migration-framework-setup">Migration Framework Setup</a>
+      <ul>
+        <li><a href="#get-started">Get Started</a></li>
+        <li><a href="#how-to-set-up-configuration-file">How to Set up Configuration file</a></li>
+        <li><a href="#azure-data-factory-pipeline-creation-and-execution">Azure data factory pipeline creation and execution</a></li>
+        <li><a href="#azure-data-factory-pipeline-monitoring">Azure Data factory pipeline monitoring</a></li>
+      </ul>
+    </li>
+    <li><a href="#data-validation">Data Validation</a>
+      <ul>
+        <li><a href="#data-comparison-report">Data Comparison Report</a></li>
+      </ul>
+    </li>
+    <li><a href="#application-update">Application update</a></li>
+    <li><a href="#references">References</a></li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h1 id="lift-and-shift-copy-pattern-guide-a-quick-start-template">
+  Lift and Shift Copy Pattern Guide: A quick start template
+  <a class="anchor" href="#lift-and-shift-copy-pattern-guide-a-quick-start-template">#</a>
+</h1>
+<h2 id="overview">
+  Overview
+  <a class="anchor" href="#overview">#</a>
+</h2>
+<p>The purpose of this document is to provide a manual in form of step by step guide for the lift and shift copy pattern from Gen1 to Gen2 storage using Azure Data Factory and PowerShell. As such it provides the directions, references, sample code examples of the PowerShell functions been used.</p>
+<p>This guide covers the following tasks:</p>
+<ul>
+<li>Set up kit for lift and shift copy pattern from Gen1 to Gen2</li>
+<li>Data Validation between Gen1 and Gen2 post migration</li>
+<li>Application update for the workloads</li>
+</ul>
+<p>Considerations for using the lift and shift pattern</p>
+<ul>
+<li>Cutover from Gen1 to Gen2 for all workloads at the same time.</li>
+<li>Expect downtime during the migration and the cutover period.</li>
+<li>Ideal for pipelines that can afford downtime and all apps can be upgraded at one time.</li>
+</ul>
+<h2 id="prerequisites">
+  Prerequisites
+  <a class="anchor" href="#prerequisites">#</a>
+</h2>
+<ul>
+<li>
+<p><strong>Active Azure Subscription</strong></p>
+</li>
+<li>
+<p><strong>Azure Data Lake Storage Gen1</strong></p>
+</li>
+<li>
+<p><strong>Azure Data Lake Storage Gen2</strong>. For more details please refer to <a href="https://docs.microsoft.com/azure/storage/common/storage-account-create?tabs=azure-portal">create azure storage account</a></p>
+</li>
+<li>
+<p><strong>Azure Key Vault</strong>. Required keys and secrets to be configured here.</p>
+</li>
+<li>
+<p><strong>Service principal</strong> with read, write and execute permission to the resource group, key vault, data lake store Gen1 and data lake store Gen2. To learn more, see <a href="https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal">create service principal account</a> and to provide SPN access to Gen1 refer to <a href="https://docs.microsoft.com/azure/data-lake-store/data-lake-store-service-to-service-authenticate-using-active-directory">SPN access to Gen1</a></p>
+</li>
+<li>
+<p><strong>Windows PowerShell ISE</strong>.</p>
+<p><strong>Note</strong> : Run as administrator</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">//Run below code to enable running PS files
+Set-ExecutionPolicy Unrestricted
+
+//Check <span style="color:#66d9ef">for</span> the below modules <span style="color:#66d9ef">in</span> PowerShell . <span style="color:#66d9ef">If</span> not existing, install one by one<span style="color:#960050;background-color:#1e0010">:</span>
+Install-Module Az.Accounts -AllowClobber -Force 
+Install-Module Az.DataFactory -AllowClobber -Force
+Install-Module Az.KeyVault -AllowClobber -Force    
+Install-Module Az.DataLakeStore -AllowClobber -Force
+Install-Module PowerShellGet <span style="color:#960050;background-color:#1e0010">–</span>Repository PSGallery <span style="color:#960050;background-color:#1e0010">–</span>Force
+
+//Close the PowerShell ISE and Reopen as administrator. Run the below module
+Install-Module az.storage -RequiredVersion 1.13.3-preview -Repository PSGallery -AllowClobber -AllowPrerelease -Force
+</code></pre></div></li>
+</ul>
+<h2 id="limitations">
+  Limitations
+  <a class="anchor" href="#limitations">#</a>
+</h2>
+<p>This version of code will have below limitations:</p>
+<ul>
+<li>Gen1 &amp; Gen2 should be in same subscription</li>
+<li>Supports only for single Gen1 source and Gen2 destination</li>
+<li>Code Developed and Supported only in Windows PowerShell ISE</li>
+</ul>
+<h2 id="migration-framework-setup">
+  Migration Framework Setup
+  <a class="anchor" href="#migration-framework-setup">#</a>
+</h2>
+<p>This section will help you with the steps needed to set up the framework and get started with the migration process.</p>
+<h3 id="get-started">
+  Get Started
+  <a class="anchor" href="#get-started">#</a>
+</h3>
+<p><strong>Download the migration source code located <a href="./lift-and-shift.zip">here</a> to your local machine</strong>:</p>
+<blockquote>
+<p>Note: To avoid security warning error &ndash;&gt; Right click on the zip folder downloaded &ndash;&gt; Go to &ndash;&gt; Properties &ndash;&gt; General &ndash;&gt; Check unblock option under security section. Unzip and extract the folder.</p>
+</blockquote>
+<p>The download will contain below listed contents:</p>
+<ul>
+<li>
+<p><strong>Application</strong>: This folder will have sample code for Mount path configuration.</p>
+</li>
+<li>
+<p><strong>Configuration</strong>: This folder will have the configuration file <code>FullLoadConfig.json</code> and all the required details of resource group and subscription along with source and destination path of ADLS Gen1 and Gen2.</p>
+</li>
+<li>
+<p><strong>Migration</strong>: Contains the templates to create dynamic data factory pipeline and copy the data from Gen1 to Gen2.</p>
+</li>
+<li>
+<p><strong>Validation</strong>: Contains the PowerShell scripts which will read the Gen1 and Gen2 data and write the comparison report post migration.</p>
+</li>
+<li>
+<p><strong>StartFullLoadMigrationAndValidation.ps1</strong>: Script to invoke the full load Migration and Validation process to compare the data between Gen1 and Gen2 post migration and generate summary report.</p>
+</li>
+</ul>
+<h3 id="how-to-set-up-configuration-file">
+  How to Set up Configuration file
+  <a class="anchor" href="#how-to-set-up-configuration-file">#</a>
+</h3>
+<p><strong>Important Prerequisite</strong>:</p>
+<ul>
+<li>
+<p>Provide Service principal access to configure key vault as below:</p>
+<p><img src="../images/79594064-3e2d7080-8091-11ea-872e-d69052da0ff7.png" alt="image" /></p>
+</li>
+<li>
+<p>Make an entry of Gen2 Access key in the key vault as shown below :</p>
+<p><img src="../images/78953831-f1dda180-7a8e-11ea-82e9-07aa66fd2856.png" alt="image" /></p>
+<p><strong>Below is the code snapshot for setting the configuration file to connect to azure data factory</strong>:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#e6db74">&#34;gen1SourceRootPath&#34;</span> <span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#e6db74">&#34;https://&lt;&lt;Enter the Gen1 source root path&gt;&gt;.azuredatalakestore.net/webhdfs/v1&#34;</span>, 
+<span style="color:#e6db74">&#34;gen2DestinationRootPath&#34;</span> <span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#e6db74">&#34;https://&lt;&lt;Enter the Gen2 destination root path&gt;&gt;.dfs.core.windows.net&#34;</span>, 
+<span style="color:#e6db74">&#34;tenantId&#34;</span> <span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#e6db74">&#34;&lt;&lt;Enter the tenantId&gt;&gt;&#34;</span>, 
+<span style="color:#e6db74">&#34;subscriptionId&#34;</span> <span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#e6db74">&#34;&lt;&lt;Enter the subscriptionId&gt;&gt;&#34;</span>, 
+<span style="color:#e6db74">&#34;servicePrincipleId&#34;</span> <span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#e6db74">&#34;&lt;&lt;Enter the servicePrincipleId&gt;&gt;&#34;</span>, 
+<span style="color:#e6db74">&#34;servicePrincipleSecret&#34;</span> <span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#e6db74">&#34;&lt;&lt;Enter the servicePrincipleSecret Key&gt;&gt;&#34;</span>, 
+<span style="color:#e6db74">&#34;keyVaultName&#34;</span> <span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#e6db74">&#34;&lt;&lt;Enter the keyVaultName&gt;&gt;&#34;</span>,
+<span style="color:#e6db74">&#34;factoryName&#34;</span> <span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#e6db74">&#34;&lt;&lt;Enter the factoryName&gt;&gt;&#34;</span>, 
+<span style="color:#e6db74">&#34;resourceGroupName&#34;</span> <span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#e6db74">&#34;&lt;&lt;Enter the resourceGroupName under which the azure data factory pipeline will be created&gt;&gt;&#34;</span>,
+<span style="color:#e6db74">&#34;location&#34;</span> <span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#e6db74">&#34;&lt;&lt;Enter the location&gt;&gt;&#34;</span>, 
+<span style="color:#e6db74">&#34;overwrite&#34;</span> <span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#e6db74">&#34;Enter the value&#34;</span> //  True = It will overwrite the existing data factory ,False = It will skip creating data factory
+</code></pre></div><p><strong>Setting up the factory pipeline for lift and shift copy pattern</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#e6db74">&#34;pipelineId&#34;</span><span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#e6db74">&#34;&lt;&lt;Enter the pipeline number. For example: 1,2&#34;</span>
+<span style="color:#e6db74">&#34;fullLoad&#34;</span><span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#e6db74">&#34;true&#34;</span>
+
+// Activity 1
+<span style="color:#e6db74">&#34;sourcePath&#34;</span> <span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#e6db74">&#34;Enter the Gen1 full path. For example: /path-name&#34;</span>,
+<span style="color:#e6db74">&#34;destinationPath&#34;</span> <span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#e6db74">&#34;Enter the Gen2 full path. For example: path-name&#34;</span>,
+<span style="color:#e6db74">&#34;destinationContainer&#34;</span> <span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#e6db74">&#34;Enter the Gen2 container name&#34;</span>
+
+// Activity 2
+<span style="color:#e6db74">&#34;sourcePath&#34;</span> <span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#e6db74">&#34;Enter the Gen1 full path. For example: /path-name&#34;</span>,
+<span style="color:#e6db74">&#34;destinationPath&#34;</span> <span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#e6db74">&#34;Enter the Gen2 full path. For example: path-name&#34;</span>,
+<span style="color:#e6db74">&#34;destinationContainer&#34;</span> <span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#e6db74">&#34;Enter the Gen2 container name&#34;</span>
+</code></pre></div></li>
+</ul>
+<blockquote>
+<p>NOTE: The <strong>destinationPath</strong> string will not be having Gen2 container name. It will have the file path same as Gen1. See the <code>FullLoadConfig.json</code> script for more reference.</p>
+</blockquote>
+<h3 id="azure-data-factory-pipeline-creation-and-execution">
+  Azure data factory pipeline creation and execution
+  <a class="anchor" href="#azure-data-factory-pipeline-creation-and-execution">#</a>
+</h3>
+<p>Run the script <code>StartFullLoadMigrationAndValidation.ps1</code> which will trigger the migration and validation process. This step will create the data factory as per the configuration file.</p>
+<p><img src="../images/83554216-4adf1a00-a4c1-11ea-9ea4-ae9284e678c0.png" alt="image" /></p>
+<h3 id="azure-data-factory-pipeline-monitoring">
+  Azure Data factory pipeline monitoring
+  <a class="anchor" href="#azure-data-factory-pipeline-monitoring">#</a>
+</h3>
+<p>The pipeline is created in Azure data factory and can be monitored in below way:</p>
+<p><img src="../images/83555204-c8eff080-a4c2-11ea-8162-a8f86b5e9e9e.png" alt="image" /></p>
+<h2 id="data-validation">
+  Data Validation
+  <a class="anchor" href="#data-validation">#</a>
+</h2>
+<p>The <code>StartFullLoadMigrationAndValidation.ps1</code> script triggers the data validation process between Gen1 and Gen2 once the <strong>migration is completed</strong> in above step.</p>
+<p>To monitor the execution details for each copy activity, select the Details link (eyeglasses image) under Actions in the activity monitoring view. You can monitor details like the volume of data copied from the source to the sink, data throughput, execution steps with corresponding duration, and used configurations.</p>
+<p><img src="../images/83807252-9fbc9500-a667-11ea-9f0c-8deeefa742e7.png" alt="image" /></p>
+<p><strong>Verify that the data is copied into your Azure Data Lake Storage Gen2 account</strong>.</p>
+<h3 id="data-comparison-report">
+  Data Comparison Report
+  <a class="anchor" href="#data-comparison-report">#</a>
+</h3>
+<p>Once the Gen1 and Gen2 data is compared and validated, the result is generated in CSV file into the <strong>Output</strong> folder as below:</p>
+<p><img src="../images/83555444-26843d00-a4c3-11ea-9fac-5bd0760aca0b.png" alt="image" /></p>
+<p>The CSV file will show the matched and unmatched records with file path, file size, Permission for Gen1 and Gen2 records and Ismatching status.</p>
+<p><img src="../images/83555536-44ea3880-a4c3-11ea-90d0-ccae337fb531.png" alt="image" /></p>
+<blockquote>
+<p>Note: IsMatching status = Yes (For matched records) and No (For Unmatched records)</p>
+</blockquote>
+<h2 id="application-update">
+  Application update
+  <a class="anchor" href="#application-update">#</a>
+</h2>
+<p>This step will configure the path in the workloads to Gen2 endpoint.</p>
+<p>Refer to <a href="../application-update">Application and Workload Update</a> on how to plan and migrate workloads and applications to Gen2.</p>
+<h2 id="references">
+  References
+  <a class="anchor" href="#references">#</a>
+</h2>
+<ul>
+<li><a href="https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-migrate-gen1-to-gen2">Migrate Azure Data Lake Storage from Gen1 to Gen2</a></li>
+</ul>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+ 
+        <hr />
+Azure Storage &copy;2021 <br />
+Visit the <a href="https://azure.microsoft.com/services/storage/">Azure Storage homepage</a> or read our <a href="https://docs.microsoft.com/azure/storage/">getting started guide</a> or the <a href="https://azure.microsoft.com/blog/topics/storage-backup-and-recovery/">Azure Storage Blog</a>. <br />
+Contact us: <a href="mailto:azurestoragefeedback@microsoft.com?subject=AzureStorage.com%20Feedback">azurestoragefeedback@microsoft.com</a>.<br />
+Generated on Mon, Feb 08 2021 23:18:57 UTC
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#overview">Overview</a></li>
+    <li><a href="#prerequisites">Prerequisites</a></li>
+    <li><a href="#limitations">Limitations</a></li>
+    <li><a href="#migration-framework-setup">Migration Framework Setup</a>
+      <ul>
+        <li><a href="#get-started">Get Started</a></li>
+        <li><a href="#how-to-set-up-configuration-file">How to Set up Configuration file</a></li>
+        <li><a href="#azure-data-factory-pipeline-creation-and-execution">Azure data factory pipeline creation and execution</a></li>
+        <li><a href="#azure-data-factory-pipeline-monitoring">Azure Data factory pipeline monitoring</a></li>
+      </ul>
+    </li>
+    <li><a href="#data-validation">Data Validation</a>
+      <ul>
+        <li><a href="#data-comparison-report">Data Comparison Report</a></li>
+      </ul>
+    </li>
+    <li><a href="#application-update">Application update</a></li>
+    <li><a href="#references">References</a></li>
+  </ul>
+</nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
+
+<script>
+    $('a[href^="http://"], a[href^="https://"]').not('a[href*="'+location.hostname+'"]').attr('target','_blank');
+</script>
+
+<script type="text/javascript">
+    !function(T,l,y){var S=T.location,u="script",k="instrumentationKey",D="ingestionendpoint",C="disableExceptionTracking",E="ai.device.",I="toLowerCase",b="crossOrigin",w="POST",e="appInsightsSDK",t=y.name||"appInsights";(y.name||T[e])&&(T[e]=t);var n=T[t]||function(d){var g=!1,f=!1,m={initialize:!0,queue:[],sv:"4",version:2,config:d};function v(e,t){var n={},a="Browser";return n[E+"id"]=a[I](),n[E+"type"]=a,n["ai.operation.name"]=S&&S.pathname||"_unknown_",n["ai.internal.sdkVersion"]="javascript:snippet_"+(m.sv||m.version),{time:function(){var e=new Date;function t(e){var t=""+e;return 1===t.length&&(t="0"+t),t}return e.getUTCFullYear()+"-"+t(1+e.getUTCMonth())+"-"+t(e.getUTCDate())+"T"+t(e.getUTCHours())+":"+t(e.getUTCMinutes())+":"+t(e.getUTCSeconds())+"."+((e.getUTCMilliseconds()/1e3).toFixed(3)+"").slice(2,5)+"Z"}(),iKey:e,name:"Microsoft.ApplicationInsights."+e.replace(/-/g,"")+"."+t,sampleRate:100,tags:n,data:{baseData:{ver:2}}}}var h=d.url||y.src;if(h){function a(e){var t,n,a,i,r,o,s,c,p,l,u;g=!0,m.queue=[],f||(f=!0,t=h,s=function(){var e={},t=d.connectionString;if(t)for(var n=t.split(";"),a=0;a<n.length;a++){var i=n[a].split("=");2===i.length&&(e[i[0][I]()]=i[1])}if(!e[D]){var r=e.endpointsuffix,o=r?e.location:null;e[D]="https://"+(o?o+".":"")+"dc."+(r||"services.visualstudio.com")}return e}(),c=s[k]||d[k]||"",p=s[D],l=p?p+"/v2/track":config.endpointUrl,(u=[]).push((n="SDK LOAD Failure: Failed to load Application Insights SDK script (See stack for details)",a=t,i=l,(o=(r=v(c,"Exception")).data).baseType="ExceptionData",o.baseData.exceptions=[{typeName:"SDKLoadFailed",message:n.replace(/\./g,"-"),hasFullStack:!1,stack:n+"\nSnippet failed to load ["+a+"] -- Telemetry is disabled\nHelp Link: https://go.microsoft.com/fwlink/?linkid=2128109\nHost: "+(S&&S.pathname||"_unknown_")+"\nEndpoint: "+i,parsedStack:[]}],r)),u.push(function(e,t,n,a){var i=v(c,"Message"),r=i.data;r.baseType="MessageData";var o=r.baseData;return o.message='AI (Internal): 99 message:"'+("SDK LOAD Failure: Failed to load Application Insights SDK script (See stack for details) ("+n+")").replace(/\"/g,"")+'"',o.properties={endpoint:a},i}(0,0,t,l)),function(e,t){if(JSON){var n=T.fetch;if(n&&!y.useXhr)n(t,{method:w,body:JSON.stringify(e),mode:"cors"});else if(XMLHttpRequest){var a=new XMLHttpRequest;a.open(w,t),a.setRequestHeader("Content-type","application/json"),a.send(JSON.stringify(e))}}}(u,l))}function i(e,t){f||setTimeout(function(){!t&&m.core||a()},500)}var e=function(){var n=l.createElement(u);n.src=h;var e=y[b];return!e&&""!==e||"undefined"==n[b]||(n[b]=e),n.onload=i,n.onerror=a,n.onreadystatechange=function(e,t){"loaded"!==n.readyState&&"complete"!==n.readyState||i(0,t)},n}();y.ld<0?l.getElementsByTagName("head")[0].appendChild(e):setTimeout(function(){l.getElementsByTagName(u)[0].parentNode.appendChild(e)},y.ld||0)}try{m.cookie=l.cookie}catch(p){}function t(e){for(;e.length;)!function(t){m[t]=function(){var e=arguments;g||m.queue.push(function(){m[t].apply(m,e)})}}(e.pop())}var n="track",r="TrackPage",o="TrackEvent";t([n+"Event",n+"PageView",n+"Exception",n+"Trace",n+"DependencyData",n+"Metric",n+"PageViewPerformance","start"+r,"stop"+r,"start"+o,"stop"+o,"addTelemetryInitializer","setAuthenticatedUserContext","clearAuthenticatedUserContext","flush"]),m.SeverityLevel={Verbose:0,Information:1,Warning:2,Error:3,Critical:4};var s=(d.extensionConfig||{}).ApplicationInsightsAnalytics||{};if(!0!==d[C]&&!0!==s[C]){method="onerror",t(["_"+method]);var c=T[method];T[method]=function(e,t,n,a,i){var r=c&&c(e,t,n,a,i);return!0!==r&&m["_"+method]({message:e,url:t,lineNumber:n,columnNumber:a,error:i}),r},d.autoExceptionInstrumented=!0}return m}(y.cfg);(T[t]=n).queue&&0===n.queue.length&&n.trackPageView({})}(window,document,{
+    src: "https://az416426.vo.msecnd.net/scripts/b/ai.2.min.js", 
+    
+    
+    
+    
+    cfg: { 
+        instrumentationKey: "0600b273-5440-42cc-9fe4-51924c721ce0"
+         
+    }});
+</script>
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

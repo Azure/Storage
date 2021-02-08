@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Bi-directional sync pattern Guide: A quick start template on Azure Storage</title>
+    <link>https://azurestorage.com/docs/analytics/adls-gen1-to-gen2-migration/bi-directional/</link>
+    <description>Recent content in Bi-directional sync pattern Guide: A quick start template on Azure Storage</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="https://azurestorage.com/docs/analytics/adls-gen1-to-gen2-migration/bi-directional/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>WANdisco Fusion Set up and Installation Guide</title>
+      <link>https://azurestorage.com/docs/analytics/adls-gen1-to-gen2-migration/bi-directional/wandisco-set-up-and-installation/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://azurestorage.com/docs/analytics/adls-gen1-to-gen2-migration/bi-directional/wandisco-set-up-and-installation/</guid>
+      <description>WANdisco Fusion Set up and Installation Guide #  Overview #  This quickstart will help in setting up the Azure Linux Virtual Machine (VM) suitable for the WANdisco Fusion installation. Below will be covered:
+  Azure Linux Virtual Machine (VM) creation using Azure Portal
+  Configuration set up and Installation guide for WANdisco Fusion
+  Prerequisites #    Active Azure Subscription
+  Azure Data Lake Storage Gen1</description>
+    </item>
+    
+  </channel>
+</rss>

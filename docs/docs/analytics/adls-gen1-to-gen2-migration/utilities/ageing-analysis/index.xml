@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ageing Analysis Guide: A quick start template on Azure Storage</title>
+    <link>https://azurestorage.com/docs/analytics/adls-gen1-to-gen2-migration/utilities/ageing-analysis/</link>
+    <description>Recent content in Ageing Analysis Guide: A quick start template on Azure Storage</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="https://azurestorage.com/docs/analytics/adls-gen1-to-gen2-migration/utilities/ageing-analysis/index.xml" rel="self" type="application/rss+xml" />
+  </channel>
+</rss>

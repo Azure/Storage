@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en" dir=>
+
+<head>
+  <meta name="generator" content="Hugo 0.80.0" />
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Gen1 and Gen2 ACL Behavior Analysis #  Overview #  Azure Data Lake Storage is Microsoft&rsquo;s optimized storage solution for big data analytics workloads. ADLS Gen2 is the combination of the current ADLS Gen1 and Blob storage.
+Azure Data Lake Storage Gen2 is built on Azure Blob storage and provides a set of capabilities dedicated to big data analytics. Data Lake Storage Gen2 combines features from Azure Data Lake Storage Gen1, such as file system semantics, directory, and file level security and low cost scalability, tiered storage, high availability/disaster recovery capabilities from Azure Blob storage.">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Gen1 and Gen2 ACL Behavior Analysis" />
+<meta property="og:description" content="Gen1 and Gen2 ACL Behavior Analysis #  Overview #  Azure Data Lake Storage is Microsoft&rsquo;s optimized storage solution for big data analytics workloads. ADLS Gen2 is the combination of the current ADLS Gen1 and Blob storage.
+Azure Data Lake Storage Gen2 is built on Azure Blob storage and provides a set of capabilities dedicated to big data analytics. Data Lake Storage Gen2 combines features from Azure Data Lake Storage Gen1, such as file system semantics, directory, and file level security and low cost scalability, tiered storage, high availability/disaster recovery capabilities from Azure Blob storage." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://azurestorage.com/docs/analytics/adls-gen1-to-gen2-migration/adls-gen1-and-gen2-acl-behavior/" />
+
+<title>Gen1 and Gen2 ACL Behavior Analysis | Azure Storage</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.6c7c6446dfdee7c8c933e9bbc6e80ee3ed6c913b2a59519f2092c3c6a9d63e55.css" integrity="sha256-bHxkRt/e58jJM&#43;m7xugO4&#43;1skTsqWVGfIJLDxqnWPlU=">
+<script defer src="/en.search.min.a092390ed9ca69153376eaacab4624d67749500866440e4365296f3fa207eb56.js" integrity="sha256-oJI5DtnKaRUzduqsq0Yk1ndJUAhmRA5DZSlvP6IH61Y="></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body dir=>
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a href="/"><img src="/images/azure-icon.png" alt="Logo" /><span>Azure Storage</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://azurestorage.com/docs/analytics/" class="">Analytics</a>
+  
+
+          
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://azurestorage.com/docs/application-and-user-data/" class="">Application and User Data</a>
+  
+
+          
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://azurestorage.com/docs/backup-and-archive/" class="">Backup and Archive</a>
+  
+
+          
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://azurestorage.com/docs/hpc-iot-and-ai/" class="">HPC IoT and AI</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://azurestorage.com/docs/storage-partners/" class="">Storage Partners</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://azurestorage.com/docs/tools-and-utilities/" class="">Tools and Utilities</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Gen1 and Gen2 ACL Behavior Analysis</strong>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#overview">Overview</a></li>
+    <li><a href="#prerequisites">Prerequisites</a></li>
+    <li><a href="#acl-behavior-in-adls-gen1-and-gen2">ACL Behavior in ADLS Gen1 and Gen2</a>
+      <ul>
+        <li><a href="#account-root-permissions">Account Root Permissions</a></li>
+        <li><a href="#oid-upn-conversion">OID-UPN Conversion</a></li>
+        <li><a href="#rbac-user-role-significance">RBAC User Role Significance</a></li>
+        <li><a href="#store-default-permission">Store Default Permission</a></li>
+        <li><a href="#user-provided-permission-on-filedirectory-creation">User Provided Permission on File/Directory Creation</a></li>
+        <li><a href="#set-permission-with-no-permission-provided">Set Permission with No Permission Provided</a></li>
+        <li><a href="#nested-file-or-directory-creation-for-non-owner-user">Nested File or Directory Creation For Non-Owner User</a></li>
+        <li><a href="#umask-support">Umask Support</a></li>
+      </ul>
+    </li>
+    <li><a href="#references">References</a></li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h1 id="gen1-and-gen2-acl-behavior-analysis">
+  Gen1 and Gen2 ACL Behavior Analysis
+  <a class="anchor" href="#gen1-and-gen2-acl-behavior-analysis">#</a>
+</h1>
+<h2 id="overview">
+  Overview
+  <a class="anchor" href="#overview">#</a>
+</h2>
+<p>Azure Data Lake Storage is Microsoft&rsquo;s optimized storage solution for big data analytics workloads. ADLS Gen2 is the combination of the current ADLS Gen1 and Blob storage.<br>
+Azure Data Lake Storage Gen2 is built on Azure Blob storage and provides a set of capabilities dedicated to big data analytics. Data Lake Storage Gen2 combines features from Azure Data Lake Storage Gen1, such as file system semantics, directory, and file level security and low cost scalability, tiered storage, high availability/disaster recovery capabilities from Azure Blob storage. Azure Data Lake Storage Gen1 implements an access control model that derives from HDFS, which in turn derives from the POSIX access control model. Azure Data Lake Storage Gen2 implements an access control model that supports both Azure role-based access control (Azure RBAC) and POSIX-like access control lists (ACLs).</p>
+<p>This article summarizes the behavioral differences of the access control models for Data Lake Storage Gen1 and Gen2.</p>
+<h2 id="prerequisites">
+  Prerequisites
+  <a class="anchor" href="#prerequisites">#</a>
+</h2>
+<ul>
+<li><strong>Active Azure Subscription</strong></li>
+<li><strong>Azure Data Lake Storage Gen1 and Gen2</strong></li>
+<li><strong>Azure Key Vault</strong>. Required keys and secrets to be configured here.</li>
+<li><strong>Service principal</strong> with read, write and execute permission to the resource group, key vault, data lake store Gen1 and data lake store Gen2. To learn more, see <a href="https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal">create service principal account</a> and to provide SPN access to Gen1 refer to <a href="https://docs.microsoft.com/azure/data-lake-store/data-lake-store-service-to-service-authenticate-using-active-directory">SPN access to Gen1</a></li>
+<li><strong>Java Development Kit (JDK 7 or higher, using Java version 1.7 or higher)</strong> for Filesystem operations on Azure Data Lake Storage Gen1 and Gen2</li>
+</ul>
+<h2 id="acl-behavior-in-adls-gen1-and-gen2">
+  ACL Behavior in ADLS Gen1 and Gen2
+  <a class="anchor" href="#acl-behavior-in-adls-gen1-and-gen2">#</a>
+</h2>
+<h3 id="account-root-permissions">
+  Account Root Permissions
+  <a class="anchor" href="#account-root-permissions">#</a>
+</h3>
+<p>Check GetFileStatus and GetAclStatus APIs with or without permissions on root Account path</p>
+<ul>
+<li><strong>GEN1 Behavior</strong>: Permission required on Account root- RX(minimum) or  RWX , to get an account root content view</li>
+<li><strong>GEN2 Behavior</strong>: A user with or without permissions on container root can view account root content</li>
+</ul>
+<h3 id="oid-upn-conversion">
+  OID-UPN Conversion
+  <a class="anchor" href="#oid-upn-conversion">#</a>
+</h3>
+<p>Check the identity inputs for UPN format APIs  (Eg:GetAclStatus, Liststatus ,GetFileStatus) and OID format APIs (Eg:SetAcl, ModifyAclEntries, RemoveAclEntries)</p>
+<ul>
+<li><strong>GEN1 Behavior</strong>: OID &lt;-&gt; UPN conversion is supported for Users, Service principals and groups
+<blockquote>
+<p>Note: For groups, as there is no UPN, conversion is done to Display name property</p>
+</blockquote>
+</li>
+<li><strong>GEN2 Behavior</strong>: Supports only User OID-UPN conversion.
+<blockquote>
+<p>Note:  For service principal or group ,as UPN or Display Name is not unique, the derived OID could end up being an unintended identity</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="rbac-user-role-significance">
+  RBAC User Role Significance
+  <a class="anchor" href="#rbac-user-role-significance">#</a>
+</h3>
+<p>RBAC roles and access control</p>
+<ul>
+<li><strong>GEN1 Behavior</strong>: All users in RBAC Owner role are superusers. All other users (non-superusers),need to have permission that abides by File Folder ACL. Refer <a href="https://docs.microsoft.com/azure/data-lake-store/data-lake-store-access-control">here</a> for more details</li>
+<li><strong>GEN2 Behavior</strong>: All users in ‘RBAC -Storage blob data owner’ role are superusers. All other users can be provided different roles(contributor, reader etc.) that govern their read, write and delete permissions, this takes precedence to the ACLs sent on individual file or folder. Refer <a href="https://docs.microsoft.com/azure/data-lake-store/data-lake-store-access-control">here</a> for more details</li>
+</ul>
+<h3 id="store-default-permission">
+  Store Default Permission
+  <a class="anchor" href="#store-default-permission">#</a>
+</h3>
+<p>Check if default permission is considered during file and directory creation</p>
+<ul>
+<li><strong>GEN1 Behavior</strong>: Permissions for an item(file/directory) cannot be inherited from the parent items. Refer <a href="https://docs.microsoft.com/azure/data-lake-store/data-lake-store-access-control">here</a></li>
+<li><strong>GEN2 Behavior</strong>: Permissions are only inherited if default permissions have been set on the parent items before the child items have been created. Refer <a href="https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control">here</a></li>
+</ul>
+<h3 id="user-provided-permission-on-filedirectory-creation">
+  User Provided Permission on File/Directory Creation
+  <a class="anchor" href="#user-provided-permission-on-filedirectory-creation">#</a>
+</h3>
+<p>Create a file/directory with explicit permission</p>
+<ul>
+<li><strong>GEN1 Behavior</strong>: File/Directory is created, and the final permission will be same as the user provided permission</li>
+<li><strong>GEN2 Behavior</strong>: File/Directory is created, and the final permission will be computed as [user provided permission ^ umask (currently 027 in code)]</li>
+</ul>
+<h3 id="set-permission-with-no-permission-provided">
+  Set Permission with No Permission Provided
+  <a class="anchor" href="#set-permission-with-no-permission-provided">#</a>
+</h3>
+<p>Set permission Api is called with permission = null/space and permission parameter not present</p>
+<ul>
+<li><strong>GEN1 Behavior</strong>: A default value of 770 is set for both file and directory</li>
+<li><strong>GEN2 Behavior</strong>: Gen2 will return bad request as permission parameter is mandatory</li>
+</ul>
+<h3 id="nested-file-or-directory-creation-for-non-owner-user">
+  Nested File or Directory Creation For Non-Owner User
+  <a class="anchor" href="#nested-file-or-directory-creation-for-non-owner-user">#</a>
+</h3>
+<p>Check if wx permission on parent is copied to nested file/directory when non-owner creates it. (i.e. dir1 exists and user desires to create dir2/dir3/a.txt or dir2/dir3/dir4)</p>
+<ul>
+<li><strong>GEN1 Behavior</strong>: Adds wx permissions for owner in the sub directory</li>
+<li><strong>GEN2 Behavior</strong>: Doesn&rsquo;t add wx permissions in the sub directory</li>
+</ul>
+<h3 id="umask-support">
+  Umask Support
+  <a class="anchor" href="#umask-support">#</a>
+</h3>
+<p>Permissions of file/directory can be controlled by applying UMASK on it.</p>
+<ul>
+<li><strong>GEN1 Behavior</strong>: Client needs to apply umask on the permission on new file/directory before sending the request to server.
+<blockquote>
+<p>Note: Server doesn&rsquo;t provide explicit support in accepting umask as an input</p>
+</blockquote>
+</li>
+<li><strong>GEN2 Behavior</strong>: Clients can provide umask as request query params during file and directory creations. If client does not pass umask parameter, default umask 027 will be applied on file/directory</li>
+</ul>
+<h2 id="references">
+  References
+  <a class="anchor" href="#references">#</a>
+</h2>
+<ul>
+<li><a href="https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control">ACL in ADLS Gen2</a></li>
+<li><a href="https://docs.microsoft.com/azure/data-lake-store/data-lake-store-access-control">ACL in ADLS Gen1</a></li>
+<li><a href="https://docs.microsoft.com/azure/data-lake-store/data-lake-store-secure-data">Securing data stored in Azure Data Lake Storage Gen1</a></li>
+</ul>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+ 
+        <hr />
+Azure Storage &copy;2021 <br />
+Visit the <a href="https://azure.microsoft.com/services/storage/">Azure Storage homepage</a> or read our <a href="https://docs.microsoft.com/azure/storage/">getting started guide</a> or the <a href="https://azure.microsoft.com/blog/topics/storage-backup-and-recovery/">Azure Storage Blog</a>. <br />
+Contact us: <a href="mailto:azurestoragefeedback@microsoft.com?subject=AzureStorage.com%20Feedback">azurestoragefeedback@microsoft.com</a>.<br />
+Generated on Mon, Feb 08 2021 23:18:57 UTC
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#overview">Overview</a></li>
+    <li><a href="#prerequisites">Prerequisites</a></li>
+    <li><a href="#acl-behavior-in-adls-gen1-and-gen2">ACL Behavior in ADLS Gen1 and Gen2</a>
+      <ul>
+        <li><a href="#account-root-permissions">Account Root Permissions</a></li>
+        <li><a href="#oid-upn-conversion">OID-UPN Conversion</a></li>
+        <li><a href="#rbac-user-role-significance">RBAC User Role Significance</a></li>
+        <li><a href="#store-default-permission">Store Default Permission</a></li>
+        <li><a href="#user-provided-permission-on-filedirectory-creation">User Provided Permission on File/Directory Creation</a></li>
+        <li><a href="#set-permission-with-no-permission-provided">Set Permission with No Permission Provided</a></li>
+        <li><a href="#nested-file-or-directory-creation-for-non-owner-user">Nested File or Directory Creation For Non-Owner User</a></li>
+        <li><a href="#umask-support">Umask Support</a></li>
+      </ul>
+    </li>
+    <li><a href="#references">References</a></li>
+  </ul>
+</nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
+
+<script>
+    $('a[href^="http://"], a[href^="https://"]').not('a[href*="'+location.hostname+'"]').attr('target','_blank');
+</script>
+
+<script type="text/javascript">
+    !function(T,l,y){var S=T.location,u="script",k="instrumentationKey",D="ingestionendpoint",C="disableExceptionTracking",E="ai.device.",I="toLowerCase",b="crossOrigin",w="POST",e="appInsightsSDK",t=y.name||"appInsights";(y.name||T[e])&&(T[e]=t);var n=T[t]||function(d){var g=!1,f=!1,m={initialize:!0,queue:[],sv:"4",version:2,config:d};function v(e,t){var n={},a="Browser";return n[E+"id"]=a[I](),n[E+"type"]=a,n["ai.operation.name"]=S&&S.pathname||"_unknown_",n["ai.internal.sdkVersion"]="javascript:snippet_"+(m.sv||m.version),{time:function(){var e=new Date;function t(e){var t=""+e;return 1===t.length&&(t="0"+t),t}return e.getUTCFullYear()+"-"+t(1+e.getUTCMonth())+"-"+t(e.getUTCDate())+"T"+t(e.getUTCHours())+":"+t(e.getUTCMinutes())+":"+t(e.getUTCSeconds())+"."+((e.getUTCMilliseconds()/1e3).toFixed(3)+"").slice(2,5)+"Z"}(),iKey:e,name:"Microsoft.ApplicationInsights."+e.replace(/-/g,"")+"."+t,sampleRate:100,tags:n,data:{baseData:{ver:2}}}}var h=d.url||y.src;if(h){function a(e){var t,n,a,i,r,o,s,c,p,l,u;g=!0,m.queue=[],f||(f=!0,t=h,s=function(){var e={},t=d.connectionString;if(t)for(var n=t.split(";"),a=0;a<n.length;a++){var i=n[a].split("=");2===i.length&&(e[i[0][I]()]=i[1])}if(!e[D]){var r=e.endpointsuffix,o=r?e.location:null;e[D]="https://"+(o?o+".":"")+"dc."+(r||"services.visualstudio.com")}return e}(),c=s[k]||d[k]||"",p=s[D],l=p?p+"/v2/track":config.endpointUrl,(u=[]).push((n="SDK LOAD Failure: Failed to load Application Insights SDK script (See stack for details)",a=t,i=l,(o=(r=v(c,"Exception")).data).baseType="ExceptionData",o.baseData.exceptions=[{typeName:"SDKLoadFailed",message:n.replace(/\./g,"-"),hasFullStack:!1,stack:n+"\nSnippet failed to load ["+a+"] -- Telemetry is disabled\nHelp Link: https://go.microsoft.com/fwlink/?linkid=2128109\nHost: "+(S&&S.pathname||"_unknown_")+"\nEndpoint: "+i,parsedStack:[]}],r)),u.push(function(e,t,n,a){var i=v(c,"Message"),r=i.data;r.baseType="MessageData";var o=r.baseData;return o.message='AI (Internal): 99 message:"'+("SDK LOAD Failure: Failed to load Application Insights SDK script (See stack for details) ("+n+")").replace(/\"/g,"")+'"',o.properties={endpoint:a},i}(0,0,t,l)),function(e,t){if(JSON){var n=T.fetch;if(n&&!y.useXhr)n(t,{method:w,body:JSON.stringify(e),mode:"cors"});else if(XMLHttpRequest){var a=new XMLHttpRequest;a.open(w,t),a.setRequestHeader("Content-type","application/json"),a.send(JSON.stringify(e))}}}(u,l))}function i(e,t){f||setTimeout(function(){!t&&m.core||a()},500)}var e=function(){var n=l.createElement(u);n.src=h;var e=y[b];return!e&&""!==e||"undefined"==n[b]||(n[b]=e),n.onload=i,n.onerror=a,n.onreadystatechange=function(e,t){"loaded"!==n.readyState&&"complete"!==n.readyState||i(0,t)},n}();y.ld<0?l.getElementsByTagName("head")[0].appendChild(e):setTimeout(function(){l.getElementsByTagName(u)[0].parentNode.appendChild(e)},y.ld||0)}try{m.cookie=l.cookie}catch(p){}function t(e){for(;e.length;)!function(t){m[t]=function(){var e=arguments;g||m.queue.push(function(){m[t].apply(m,e)})}}(e.pop())}var n="track",r="TrackPage",o="TrackEvent";t([n+"Event",n+"PageView",n+"Exception",n+"Trace",n+"DependencyData",n+"Metric",n+"PageViewPerformance","start"+r,"stop"+r,"start"+o,"stop"+o,"addTelemetryInitializer","setAuthenticatedUserContext","clearAuthenticatedUserContext","flush"]),m.SeverityLevel={Verbose:0,Information:1,Warning:2,Error:3,Critical:4};var s=(d.extensionConfig||{}).ApplicationInsightsAnalytics||{};if(!0!==d[C]&&!0!==s[C]){method="onerror",t(["_"+method]);var c=T[method];T[method]=function(e,t,n,a,i){var r=c&&c(e,t,n,a,i);return!0!==r&&m["_"+method]({message:e,url:t,lineNumber:n,columnNumber:a,error:i}),r},d.autoExceptionInstrumented=!0}return m}(y.cfg);(T[t]=n).queue&&0===n.queue.length&&n.trackPageView({})}(window,document,{
+    src: "https://az416426.vo.msecnd.net/scripts/b/ai.2.min.js", 
+    
+    
+    
+    
+    cfg: { 
+        instrumentationKey: "0600b273-5440-42cc-9fe4-51924c721ce0"
+         
+    }});
+</script>
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

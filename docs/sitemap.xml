@@ -3,6 +3,10 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://azurestorage.com/docs/analytics/adls-gen1-to-gen2-migration/utilities/ageing-analysis/</loc>
+  </url>
+  
+  <url>
     <loc>https://azurestorage.com/docs/analytics/</loc>
   </url>
   
@@ -15,6 +19,10 @@
   </url>
   
   <url>
+    <loc>https://azurestorage.com/docs/analytics/adls-gen1-to-gen2-migration/application-update/</loc>
+  </url>
+  
+  <url>
     <loc>https://azurestorage.com/docs/application-and-user-data/code-samples/data-retention/</loc>
   </url>
   
@@ -24,6 +32,10 @@
   
   <url>
     <loc>https://azurestorage.com/docs/application-and-user-data/basics/azure-blob-storage-upload-apis/</loc>
+  </url>
+  
+  <url>
+    <loc>https://azurestorage.com/docs/analytics/adls-gen1-to-gen2-migration/</loc>
   </url>
   
   <url>
@@ -51,6 +63,10 @@
   </url>
   
   <url>
+    <loc>https://azurestorage.com/docs/analytics/adls-gen1-to-gen2-migration/bi-directional/</loc>
+  </url>
+  
+  <url>
     <loc>https://azurestorage.com/categories/</loc>
   </url>
   
@@ -59,7 +75,15 @@
   </url>
   
   <url>
+    <loc>https://azurestorage.com/docs/analytics/adls-gen1-to-gen2-migration/dual-pipeline/</loc>
+  </url>
+  
+  <url>
     <loc>https://azurestorage.com/docs/application-and-user-data/code-samples/estimate-block-blob/</loc>
+  </url>
+  
+  <url>
+    <loc>https://azurestorage.com/docs/analytics/adls-gen1-to-gen2-migration/adls-gen1-and-gen2-acl-behavior/</loc>
   </url>
   
   <url>
@@ -68,6 +92,14 @@
   
   <url>
     <loc>https://azurestorage.com/docs/hpc-iot-and-ai/</loc>
+  </url>
+  
+  <url>
+    <loc>https://azurestorage.com/docs/analytics/adls-gen1-to-gen2-migration/incremental/</loc>
+  </url>
+  
+  <url>
+    <loc>https://azurestorage.com/docs/analytics/adls-gen1-to-gen2-migration/lift-and-shift/</loc>
   </url>
   
   <url>
@@ -96,6 +128,10 @@
   
   <url>
     <loc>https://azurestorage.com/docs/tools-and-utilities/</loc>
+  </url>
+  
+  <url>
+    <loc>https://azurestorage.com/docs/analytics/adls-gen1-to-gen2-migration/bi-directional/wandisco-set-up-and-installation/</loc>
   </url>
   
 </urlset>

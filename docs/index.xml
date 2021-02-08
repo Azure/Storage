@@ -7,6 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language><atom:link href="https://azurestorage.com/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Application and Workload Update</title>
+      <link>https://azurestorage.com/docs/analytics/adls-gen1-to-gen2-migration/application-update/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://azurestorage.com/docs/analytics/adls-gen1-to-gen2-migration/application-update/</guid>
+      <description>Application and Workload Update #  Overview #  The purpose of this document is to provide steps and ways to migrate the workloads and applications from Gen1 to Gen2 after data migration is completed.
+This can be applicable for below migration patterns:
+  Incremental Copy pattern
+  Lift and Shift copy pattern
+  Dual Pipeline pattern
+  As part of this, we will configure services in workloads used and update the applications to point to Gen2 mount.</description>
+    </item>
+    
+    <item>
       <title>Azure blob storage data management and retention</title>
       <link>https://azurestorage.com/docs/application-and-user-data/code-samples/data-retention/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -104,12 +118,31 @@ The PowerShell script AzureStorageSupportedCharacterScrubber.ps1 provides a turn
     </item>
     
     <item>
+      <title>Dual Pipeline Pattern Guide: A quick start template</title>
+      <link>https://azurestorage.com/docs/analytics/adls-gen1-to-gen2-migration/dual-pipeline/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://azurestorage.com/docs/analytics/adls-gen1-to-gen2-migration/dual-pipeline/</guid>
+      <description>Dual Pipeline Pattern Guide: A quick start template #  Overview #  The purpose of this document is to provide a manual for the use of Dual pipeline pattern for migration of data from Gen1 to Gen2. This provides the directions, references and approach how to set up the Dual pipeline, do migration of existing data from Gen1 to Gen2 and set up the workloads to run at Gen2 endpoint.</description>
+    </item>
+    
+    <item>
       <title>Estimating Pricing for Azure Block Blob Deployments</title>
       <link>https://azurestorage.com/docs/application-and-user-data/code-samples/estimate-block-blob/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://azurestorage.com/docs/application-and-user-data/code-samples/estimate-block-blob/</guid>
       <description>Estimating Pricing for Azure Block Blob Deployments #  We have several tools to help you price Azure Block Blob Storage, however figuring out what questions you need to answer to produce an estimate can sometimes be overwhelming. To that end we have put together this simple template. You can use the template as-is or modify it to fit your workload. Once you have the template populated you will have some estimates you can input into the Azure Pricing Calculator to get a cost estimate.</description>
+    </item>
+    
+    <item>
+      <title>Gen1 and Gen2 ACL Behavior Analysis</title>
+      <link>https://azurestorage.com/docs/analytics/adls-gen1-to-gen2-migration/adls-gen1-and-gen2-acl-behavior/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://azurestorage.com/docs/analytics/adls-gen1-to-gen2-migration/adls-gen1-and-gen2-acl-behavior/</guid>
+      <description>Gen1 and Gen2 ACL Behavior Analysis #  Overview #  Azure Data Lake Storage is Microsoft&amp;rsquo;s optimized storage solution for big data analytics workloads. ADLS Gen2 is the combination of the current ADLS Gen1 and Blob storage.
+Azure Data Lake Storage Gen2 is built on Azure Blob storage and provides a set of capabilities dedicated to big data analytics. Data Lake Storage Gen2 combines features from Azure Data Lake Storage Gen1, such as file system semantics, directory, and file level security and low cost scalability, tiered storage, high availability/disaster recovery capabilities from Azure Blob storage.</description>
     </item>
     
     <item>
@@ -177,6 +210,19 @@ The PowerShell script AzureStorageSupportedCharacterScrubber.ps1 provides a turn
       
       <guid>https://azurestorage.com/docs/tools-and-utilities/</guid>
       <description>Tools and Utilities #   AzCopy is a command-line utility that you can use to copy blobs or files to or from a storage account. AzReplicate is a sample application designed to help Azure Storage customers perform very large, multi-petabyte data migrations to Azure Blob Storage. AzDataMaker is a sample .NET Core app that runs in a Linux Azure Container Instance that generates files and uploads them to Azure Blob Storage.</description>
+    </item>
+    
+    <item>
+      <title>WANdisco Fusion Set up and Installation Guide</title>
+      <link>https://azurestorage.com/docs/analytics/adls-gen1-to-gen2-migration/bi-directional/wandisco-set-up-and-installation/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://azurestorage.com/docs/analytics/adls-gen1-to-gen2-migration/bi-directional/wandisco-set-up-and-installation/</guid>
+      <description>WANdisco Fusion Set up and Installation Guide #  Overview #  This quickstart will help in setting up the Azure Linux Virtual Machine (VM) suitable for the WANdisco Fusion installation. Below will be covered:
+  Azure Linux Virtual Machine (VM) creation using Azure Portal
+  Configuration set up and Installation guide for WANdisco Fusion
+  Prerequisites #    Active Azure Subscription
+  Azure Data Lake Storage Gen1</description>
     </item>
     
   </channel>

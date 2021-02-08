@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en" dir=>
+
+<head>
+  <meta name="generator" content="Hugo 0.80.0" />
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Dual Pipeline Pattern Guide: A quick start template #  Overview #  The purpose of this document is to provide a manual for the use of Dual pipeline pattern for migration of data from Gen1 to Gen2. This provides the directions, references and approach how to set up the Dual pipeline, do migration of existing data from Gen1 to Gen2 and set up the workloads to run at Gen2 endpoint.">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Dual Pipeline Pattern Guide: A quick start template" />
+<meta property="og:description" content="Dual Pipeline Pattern Guide: A quick start template #  Overview #  The purpose of this document is to provide a manual for the use of Dual pipeline pattern for migration of data from Gen1 to Gen2. This provides the directions, references and approach how to set up the Dual pipeline, do migration of existing data from Gen1 to Gen2 and set up the workloads to run at Gen2 endpoint." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://azurestorage.com/docs/analytics/adls-gen1-to-gen2-migration/dual-pipeline/" />
+
+<title>Dual Pipeline Pattern Guide: A quick start template | Azure Storage</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.6c7c6446dfdee7c8c933e9bbc6e80ee3ed6c913b2a59519f2092c3c6a9d63e55.css" integrity="sha256-bHxkRt/e58jJM&#43;m7xugO4&#43;1skTsqWVGfIJLDxqnWPlU=">
+<script defer src="/en.search.min.a092390ed9ca69153376eaacab4624d67749500866440e4365296f3fa207eb56.js" integrity="sha256-oJI5DtnKaRUzduqsq0Yk1ndJUAhmRA5DZSlvP6IH61Y="></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body dir=>
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a href="/"><img src="/images/azure-icon.png" alt="Logo" /><span>Azure Storage</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://azurestorage.com/docs/analytics/" class="">Analytics</a>
+  
+
+          
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://azurestorage.com/docs/application-and-user-data/" class="">Application and User Data</a>
+  
+
+          
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://azurestorage.com/docs/backup-and-archive/" class="">Backup and Archive</a>
+  
+
+          
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://azurestorage.com/docs/hpc-iot-and-ai/" class="">HPC IoT and AI</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://azurestorage.com/docs/storage-partners/" class="">Storage Partners</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://azurestorage.com/docs/tools-and-utilities/" class="">Tools and Utilities</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Dual Pipeline Pattern Guide: A quick start template</strong>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#overview">Overview</a></li>
+    <li><a href="#prerequisites">Prerequisites</a></li>
+    <li><a href="#data-pipeline-set-up-for-gen1-and-gen2">Data pipeline set up for Gen1 and Gen2</a>
+      <ul>
+        <li><a href="#creation-of-linked-service-for-gen1-and-gen2-in-adf">Creation of linked service for Gen1 and Gen2 in ADF</a></li>
+        <li><a href="#how-to-set-up-gen1-data-pipeline">How to set up Gen1 data pipeline</a></li>
+        <li><a href="#how-to-set-up-gen2-data-pipeline">How to set up Gen2 data pipeline</a></li>
+      </ul>
+    </li>
+    <li><a href="#steps-to-be-followed">Steps to be followed</a>
+      <ul>
+        <li><a href="#migrate-data-from-gen1-to-gen2">Migrate data from Gen1 to Gen2</a></li>
+        <li><a href="#data-ingestion-to-gen1-and-gen2">Data ingestion to Gen1 and Gen2</a></li>
+        <li><a href="#run-workloads-at-gen2">Run workloads at Gen2</a></li>
+        <li><a href="#cutover-from-gen1-to-gen2">Cutover from Gen1 to Gen2</a></li>
+      </ul>
+    </li>
+    <li><a href="#references">References</a></li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h1 id="dual-pipeline-pattern-guide-a-quick-start-template">
+  Dual Pipeline Pattern Guide: A quick start template
+  <a class="anchor" href="#dual-pipeline-pattern-guide-a-quick-start-template">#</a>
+</h1>
+<h2 id="overview">
+  Overview
+  <a class="anchor" href="#overview">#</a>
+</h2>
+<p>The purpose of this document is to provide a manual for the use of Dual pipeline pattern for migration of data from Gen1 to Gen2. This provides the directions, references and approach how to set up the Dual pipeline, do migration of existing data from Gen1 to Gen2 and set up the workloads to run at Gen2 endpoint.</p>
+<p>Considerations for using the dual pipeline pattern:</p>
+<ul>
+<li>Gen1 and Gen2 pipelines run side-by-side.</li>
+<li>Supports zero downtime.</li>
+<li>Ideal in situations where your workloads and applications can&rsquo;t afford any downtime, and you can ingest into both storage accounts.</li>
+</ul>
+<h2 id="prerequisites">
+  Prerequisites
+  <a class="anchor" href="#prerequisites">#</a>
+</h2>
+<ul>
+<li>
+<p><strong>Active Azure Subscription</strong></p>
+</li>
+<li>
+<p><strong>Azure Data Lake Storage Gen1</strong></p>
+</li>
+<li>
+<p><strong>Azure Data Lake Storage Gen2</strong>. For more details please refer to <a href="https://docs.microsoft.com/azure/storage/common/storage-account-create?tabs=azure-portal">create azure storage account</a></p>
+</li>
+<li>
+<p><strong>Azure Key Vault</strong>. Required keys and secrets to be configured here.</p>
+</li>
+<li>
+<p><strong>Service principal</strong> with read, write and execute permission to the resource group, key vault, data lake store Gen1 and data lake store Gen2. To learn more, see <a href="https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal">create service principal account</a> and to provide SPN access to Gen1 refer to <a href="https://docs.microsoft.com/azure/data-lake-store/data-lake-store-service-to-service-authenticate-using-active-directory">SPN access to Gen1</a></p>
+</li>
+</ul>
+<h2 id="data-pipeline-set-up-for-gen1-and-gen2">
+  Data pipeline set up for Gen1 and Gen2
+  <a class="anchor" href="#data-pipeline-set-up-for-gen1-and-gen2">#</a>
+</h2>
+<p>As part of this pattern, Gen1 and Gen2 pipelines will run side by side.</p>
+<p>Below is the sample pipeline set up for Gen1 and Gen2 using Azure Databricks for data ingestion, HDInsight for data processing and Azure SQL DW for storing the processed data for analytics.</p>
+<p><img src="../images/83429980-c2417a80-a3e9-11ea-9ab6-4d08b02b51b1.png" alt="image" /></p>
+<p><img src="../images/83563507-16bf2580-a4d0-11ea-9707-ae659f87eb3d.png" alt="image" /></p>
+<p><strong>Prerequisite</strong></p>
+<ul>
+<li>
+<p>Create <strong>HDInsight cluster</strong> for Gen1. Refer <a href="https://docs.microsoft.com/azure/data-lake-store/data-lake-store-hdinsight-hadoop-use-portal">here</a> for more details.</p>
+</li>
+<li>
+<p>Create <strong>HDInsight cluster</strong> for Gen2. Refer <a href="https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2">here</a> for more details.</p>
+</li>
+<li>
+<p>Create  <strong>user assigned managed identity</strong>. Refer <a href="https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal#create-a-user-assigned-managed-identity">here</a> to know more.</p>
+</li>
+<li>
+<p>Permission should be set up for the managed identity for Gen2 storage account. Refer <a href="https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2#set-up-permissions-for-the-managed-identity-on-the-data-lake-storage-gen2-account">here</a> for more details.</p>
+</li>
+<li>
+<p>Additional blob storage should be created for Gen1 to support HDInsight linked service in ADF. Refer <a href="https://docs.microsoft.com/azure/storage/blobs/storage-blob-create-account-block-blob?tabs=azure-portal">here</a> for more details.</p>
+</li>
+</ul>
+<blockquote>
+<p>Note: To set up the data pipeline in ADF, two separate HDInsight clusters should be created each for Gen1 and Gen2.</p>
+</blockquote>
+<p>Here ADF is used for orchestrating data-processing pipelines supporting data ingestion, copying data from and to different storage types (Gen1 and Gen2) in azure, loading the processed data to datawarehouse and executing transformation logic.</p>
+<p><img src="../images/83435632-6b3fa380-a3f1-11ea-8639-dba1e217e044.png" alt="image" /></p>
+<h3 id="creation-of-linked-service-for-gen1-and-gen2-in-adf">
+  Creation of linked service for Gen1 and Gen2 in ADF
+  <a class="anchor" href="#creation-of-linked-service-for-gen1-and-gen2-in-adf">#</a>
+</h3>
+<p>As part of this pipeline set up, below linked services needs to be created as first step in ADF:</p>
+<p>Go to ADF &ndash;&gt; Manage &ndash;&gt; Linked service &ndash;&gt; Click on <strong>+ New</strong></p>
+<p><img src="../images/84070157-875abc00-a980-11ea-9d27-9764b577e2d0.png" alt="image" /></p>
+<ol>
+<li>
+<p>Create <strong><a href="https://docs.microsoft.com/azure/data-factory/transform-data-using-databricks-notebook#create-an-azure-databricks-linked-service">ADB linked service</a></strong>.</p>
+</li>
+<li>
+<p>Create <strong><a href="https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-create-linux-clusters-adf#create-an-azure-storage-linked-service">HDInsight linked service</a></strong>.</p>
+</li>
+<li>
+<p>Create <strong><a href="https://docs.microsoft.comazure/data-factory/load-azure-sql-data-warehouse#load-data-into-azure-synapse-analytics">Stored procedure linked service</a></strong>.</p>
+</li>
+</ol>
+<p><strong>How to create HDInsight linked service for Gen1(Blob storage)</strong></p>
+<ol>
+<li>
+<p>Go to <strong>Linked Services</strong> &ndash;&gt; <strong>click</strong> on <strong>+ New</strong> &ndash;&gt; <strong>New linked service</strong> &ndash;&gt; <strong>Compute</strong> &ndash;&gt; <strong>Azure HDInsight</strong> &ndash;&gt; <strong>Continue</strong></p>
+<p><img src="../images/83468627-356edf00-a432-11ea-9375-0594ab25b975.png" alt="image" /></p>
+</li>
+<li>
+<p>Provide the details from Azure subscription with respect to each field and choose <strong>Blob Storage</strong> under <strong>Azure Storage linked service</strong></p>
+<p><img src="../images/83469679-335a4f80-a435-11ea-91c3-2d844be17cbe.png" alt="image" /></p>
+</li>
+<li>
+<p>Provide the user name and password details.</p>
+</li>
+<li>
+<p>Click on <strong>Create</strong> button.</p>
+</li>
+</ol>
+<p><strong>How to create HDInsight linked service for Gen2</strong></p>
+<ol>
+<li>
+<p>Go to <strong>Linked Services</strong> &ndash;&gt; <strong>click</strong> on <strong>+ New</strong> &ndash;&gt; <strong>New linked service</strong> &ndash;&gt; <strong>Compute</strong> &ndash;&gt; <strong>Azure HDInsight</strong> &ndash;&gt; <strong>Continue</strong></p>
+<p><img src="../images/83468627-356edf00-a432-11ea-9375-0594ab25b975.png" alt="image" /></p>
+</li>
+<li>
+<p>Provide the details from Azure subscription with respect to each field and choose <strong>ADLS Gen 2</strong> under <strong>Azure Storage linked service</strong></p>
+<p><img src="../images/83479945-d79cc000-a44e-11ea-8940-3884606cec7b.png" alt="image" /></p>
+</li>
+<li>
+<p>Provide the storage container name in the <strong>File system</strong> field. Give the user name and password.</p>
+</li>
+<li>
+<p>Click on <strong>Create</strong> button.</p>
+</li>
+</ol>
+<h3 id="how-to-set-up-gen1-data-pipeline">
+  How to set up Gen1 data pipeline
+  <a class="anchor" href="#how-to-set-up-gen1-data-pipeline">#</a>
+</h3>
+<p>Create a master pipeline in ADF for Gen1 and invoke all activities listed below:</p>
+<p><img src="../images/83823632-48c7b780-a689-11ea-903f-068b26ca3741.png" alt="image" /></p>
+<ol>
+<li>
+<p><strong>Raw data ingestion using ADB script</strong></p>
+<p>Create a pipeline for data ingestion process using ADB activity. Refer <a href="https://docs.microsoft.com/azure/data-factory/transform-data-using-databricks-notebook#create-a-pipeline">here</a> for more details.</p>
+<p><img src="../images/83448158-63d6c500-a406-11ea-8a29-a1cdd514509c.png" alt="image" /></p>
+<p><strong>Mount path configured to Gen1 endpoint</strong></p>
+<p><img src="../images/83800138-cecd0980-a65b-11ea-93de-17b9fc016e90.png" alt="image" /></p>
+</li>
+<li>
+<p><strong>Data processing using HDInsight</strong></p>
+<p>Create a pipeline for data processing using HDInsight activity. Refer <a href="https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-create-linux-clusters-adf#create-a-pipeline">here</a> for more details.</p>
+<p><img src="../images/83450714-a6020580-a40a-11ea-8c99-55c2c9a96104.png" alt="image" /></p>
+<p><strong>Mount path configured to Gen1 endpoint</strong></p>
+<p><img src="../images/83800757-da6d0000-a65c-11ea-9060-bbc0ac30a3fe.png" alt="image" /></p>
+<p><strong>Sample input path</strong>: adl://gen1storage.azuredatalakestore.net/AdventureWorks/Raw/FactFinance/</p>
+<p><strong>Sample output path</strong>: adl://gen1storage.azuredatalakestore.net/AdventureWorks/ProcessedHDI/FactFinance/</p>
+</li>
+<li>
+<p><strong>Loading to Azure synapse analytics (SQL DW) using stored procedure</strong></p>
+<p>Create a pipeline using Stored Procedure Activity to invoke a stored procedure in Azure SQL data warehouse.</p>
+<p><img src="../images/83453396-48bc8300-a40f-11ea-8c7d-886097bbc323.png" alt="image" /></p>
+<p><strong>Stored procedure Settings</strong>:</p>
+<p><img src="../images/83823216-3c8f2a80-a688-11ea-9a5e-c22097f05389.png" alt="image" /></p>
+</li>
+</ol>
+<h3 id="how-to-set-up-gen2-data-pipeline">
+  How to set up Gen2 data pipeline
+  <a class="anchor" href="#how-to-set-up-gen2-data-pipeline">#</a>
+</h3>
+<p>Create a master pipeline in ADF for Gen2 invoking all activities as listed below:</p>
+<p><img src="../images/83824400-3cdcf500-a68b-11ea-8622-1143e3691707.png" alt="image" /></p>
+<ol>
+<li>
+<p><strong>Raw data ingestion using ADB script</strong></p>
+<p>Create a pipeline for data ingestion process using ADB activity. Refer <a href="https://docs.microsoft.com/azure/data-factory/transform-data-using-databricks-notebook#create-a-pipeline">here</a> for more details.</p>
+<p><img src="../images/83466106-ebcec600-a42a-11ea-875a-120cb4e2a821.png" alt="image" /></p>
+<p>Mount path configured to Gen2 endpoint</p>
+<p><img src="../images/83802131-14d79c80-a65f-11ea-9dda-87240b9fec97.png" alt="image" /></p>
+</li>
+<li>
+<p><strong>Data processing using HDInsight</strong></p>
+<p>Create a pipeline for data processing using HDInsight activity. Refer <a href="https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-create-linux-clusters-adf#create-a-pipeline">here</a> for more details.</p>
+<p><img src="../images/83466207-39e3c980-a42b-11ea-9ed6-d056b1c1cf0f.png" alt="image" /></p>
+<p>Mount path configured to Gen2 endpoint</p>
+<p><img src="../images/83802269-47819500-a65f-11ea-8800-ab4290641beb.png" alt="image" /></p>
+<p><strong>Sample input path</strong>: abfs://gen2storage@g2hdistorage.dfs.core.windows.net/AdventureWorks/Raw/FactInternetSales/</p>
+<p><strong>Sample output path</strong>: abfs://gen2storage@g2hdistorage.dfs.core.windows.net/AdventureWorks/ProcessedHDI/FactInternetSales/</p>
+</li>
+<li>
+<p><strong>Loading to Azure synapse analytics (SQL DW) using stored procedure</strong></p>
+<p>Create a pipeline for loading the processed data to SQL DW using stored procedure activity.</p>
+<p><img src="../images/83466549-43216600-a42c-11ea-9306-e62ad0d6fc67.png" alt="image" /></p>
+<p><strong>Stored procedure Settings</strong>:</p>
+<p><img src="../images/83824637-e7edae80-a68b-11ea-887b-db853a4a8600.png" alt="image" /></p>
+<p><strong>Stored procedures created to load processed data to main tables</strong>:</p>
+<p><img src="../images/83895821-13ae7a00-a708-11ea-8566-1683a20579b2.png" alt="image" /></p>
+<p><strong>External Table structure in SQL DW</strong>:</p>
+<p><img src="../images/83895724-f37ebb00-a707-11ea-9292-4e80b45a0da8.png" alt="image" /></p>
+</li>
+</ol>
+<h2 id="steps-to-be-followed">
+  Steps to be followed
+  <a class="anchor" href="#steps-to-be-followed">#</a>
+</h2>
+<p>This section will talk about the approach and steps to move ahead with this pattern once the data pipelines are set up for both Gen1 and Gen2.</p>
+<h3 id="migrate-data-from-gen1-to-gen2">
+  Migrate data from Gen1 to Gen2
+  <a class="anchor" href="#migrate-data-from-gen1-to-gen2">#</a>
+</h3>
+<p>To migrate the existing data from Gen1 to Gen2, please refer to <a href="../lift-and-shift/">lift and shift</a> pattern.</p>
+<h3 id="data-ingestion-to-gen1-and-gen2">
+  Data ingestion to Gen1 and Gen2
+  <a class="anchor" href="#data-ingestion-to-gen1-and-gen2">#</a>
+</h3>
+<p>This step will ingest new data to both Gen1 and Gen2.</p>
+<ol>
+<li>
+<p>Create a pipeline in ADF to execute both data ingestion acitvity for Gen1 and Gen2.</p>
+<p><img src="../images/83543532-63473880-a4b1-11ea-8267-ee267f4845a9.png" alt="image" /></p>
+<p>Setting of the Base parameter:</p>
+<p><img src="../images/84072859-b70bc300-a984-11ea-870b-db59c59584ac.png" alt="image" /></p>
+</li>
+<li>
+<p>Check the storage path at Gen1 and Gen2 end points. New data should be ingested simultaneously at both paths.</p>
+<p><img src="../images/84086549-fe05b280-a99c-11ea-8c89-f574d9ce9d2d.png" alt="image" /></p>
+</li>
+</ol>
+<h3 id="run-workloads-at-gen2">
+  Run workloads at Gen2
+  <a class="anchor" href="#run-workloads-at-gen2">#</a>
+</h3>
+<p>This step make sure that the workloads are run at Gen2 endpoint only.</p>
+<ol>
+<li>
+<p>Create a pipeline in ADF to execute the workloads for Gen2. Run the pipeline.</p>
+<p><img src="../images/83572596-b8e60a00-a4de-11ea-84ff-a4a178fa7575.png" alt="image" /></p>
+</li>
+<li>
+<p>Check the Gen2 storage path for the new files. The SQL DW should be loading with new processed data.</p>
+</li>
+</ol>
+<h3 id="cutover-from-gen1-to-gen2">
+  Cutover from Gen1 to Gen2
+  <a class="anchor" href="#cutover-from-gen1-to-gen2">#</a>
+</h3>
+<p>After you&rsquo;re confident that your applications and workloads are stable on Gen2, you can begin using Gen2 to satisfy your business scenarios. Turn off any remaining pipelines that are running on Gen1 and decommission your Gen1 account.</p>
+<h2 id="references">
+  References
+  <a class="anchor" href="#references">#</a>
+</h2>
+<ul>
+<li><a href="https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-migrate-gen1-to-gen2">Migrate Azure Data Lake Storage from Gen1 to Gen2 </a></li>
+</ul>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+ 
+        <hr />
+Azure Storage &copy;2021 <br />
+Visit the <a href="https://azure.microsoft.com/services/storage/">Azure Storage homepage</a> or read our <a href="https://docs.microsoft.com/azure/storage/">getting started guide</a> or the <a href="https://azure.microsoft.com/blog/topics/storage-backup-and-recovery/">Azure Storage Blog</a>. <br />
+Contact us: <a href="mailto:azurestoragefeedback@microsoft.com?subject=AzureStorage.com%20Feedback">azurestoragefeedback@microsoft.com</a>.<br />
+Generated on Mon, Feb 08 2021 23:18:57 UTC
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#overview">Overview</a></li>
+    <li><a href="#prerequisites">Prerequisites</a></li>
+    <li><a href="#data-pipeline-set-up-for-gen1-and-gen2">Data pipeline set up for Gen1 and Gen2</a>
+      <ul>
+        <li><a href="#creation-of-linked-service-for-gen1-and-gen2-in-adf">Creation of linked service for Gen1 and Gen2 in ADF</a></li>
+        <li><a href="#how-to-set-up-gen1-data-pipeline">How to set up Gen1 data pipeline</a></li>
+        <li><a href="#how-to-set-up-gen2-data-pipeline">How to set up Gen2 data pipeline</a></li>
+      </ul>
+    </li>
+    <li><a href="#steps-to-be-followed">Steps to be followed</a>
+      <ul>
+        <li><a href="#migrate-data-from-gen1-to-gen2">Migrate data from Gen1 to Gen2</a></li>
+        <li><a href="#data-ingestion-to-gen1-and-gen2">Data ingestion to Gen1 and Gen2</a></li>
+        <li><a href="#run-workloads-at-gen2">Run workloads at Gen2</a></li>
+        <li><a href="#cutover-from-gen1-to-gen2">Cutover from Gen1 to Gen2</a></li>
+      </ul>
+    </li>
+    <li><a href="#references">References</a></li>
+  </ul>
+</nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
+
+<script>
+    $('a[href^="http://"], a[href^="https://"]').not('a[href*="'+location.hostname+'"]').attr('target','_blank');
+</script>
+
+<script type="text/javascript">
+    !function(T,l,y){var S=T.location,u="script",k="instrumentationKey",D="ingestionendpoint",C="disableExceptionTracking",E="ai.device.",I="toLowerCase",b="crossOrigin",w="POST",e="appInsightsSDK",t=y.name||"appInsights";(y.name||T[e])&&(T[e]=t);var n=T[t]||function(d){var g=!1,f=!1,m={initialize:!0,queue:[],sv:"4",version:2,config:d};function v(e,t){var n={},a="Browser";return n[E+"id"]=a[I](),n[E+"type"]=a,n["ai.operation.name"]=S&&S.pathname||"_unknown_",n["ai.internal.sdkVersion"]="javascript:snippet_"+(m.sv||m.version),{time:function(){var e=new Date;function t(e){var t=""+e;return 1===t.length&&(t="0"+t),t}return e.getUTCFullYear()+"-"+t(1+e.getUTCMonth())+"-"+t(e.getUTCDate())+"T"+t(e.getUTCHours())+":"+t(e.getUTCMinutes())+":"+t(e.getUTCSeconds())+"."+((e.getUTCMilliseconds()/1e3).toFixed(3)+"").slice(2,5)+"Z"}(),iKey:e,name:"Microsoft.ApplicationInsights."+e.replace(/-/g,"")+"."+t,sampleRate:100,tags:n,data:{baseData:{ver:2}}}}var h=d.url||y.src;if(h){function a(e){var t,n,a,i,r,o,s,c,p,l,u;g=!0,m.queue=[],f||(f=!0,t=h,s=function(){var e={},t=d.connectionString;if(t)for(var n=t.split(";"),a=0;a<n.length;a++){var i=n[a].split("=");2===i.length&&(e[i[0][I]()]=i[1])}if(!e[D]){var r=e.endpointsuffix,o=r?e.location:null;e[D]="https://"+(o?o+".":"")+"dc."+(r||"services.visualstudio.com")}return e}(),c=s[k]||d[k]||"",p=s[D],l=p?p+"/v2/track":config.endpointUrl,(u=[]).push((n="SDK LOAD Failure: Failed to load Application Insights SDK script (See stack for details)",a=t,i=l,(o=(r=v(c,"Exception")).data).baseType="ExceptionData",o.baseData.exceptions=[{typeName:"SDKLoadFailed",message:n.replace(/\./g,"-"),hasFullStack:!1,stack:n+"\nSnippet failed to load ["+a+"] -- Telemetry is disabled\nHelp Link: https://go.microsoft.com/fwlink/?linkid=2128109\nHost: "+(S&&S.pathname||"_unknown_")+"\nEndpoint: "+i,parsedStack:[]}],r)),u.push(function(e,t,n,a){var i=v(c,"Message"),r=i.data;r.baseType="MessageData";var o=r.baseData;return o.message='AI (Internal): 99 message:"'+("SDK LOAD Failure: Failed to load Application Insights SDK script (See stack for details) ("+n+")").replace(/\"/g,"")+'"',o.properties={endpoint:a},i}(0,0,t,l)),function(e,t){if(JSON){var n=T.fetch;if(n&&!y.useXhr)n(t,{method:w,body:JSON.stringify(e),mode:"cors"});else if(XMLHttpRequest){var a=new XMLHttpRequest;a.open(w,t),a.setRequestHeader("Content-type","application/json"),a.send(JSON.stringify(e))}}}(u,l))}function i(e,t){f||setTimeout(function(){!t&&m.core||a()},500)}var e=function(){var n=l.createElement(u);n.src=h;var e=y[b];return!e&&""!==e||"undefined"==n[b]||(n[b]=e),n.onload=i,n.onerror=a,n.onreadystatechange=function(e,t){"loaded"!==n.readyState&&"complete"!==n.readyState||i(0,t)},n}();y.ld<0?l.getElementsByTagName("head")[0].appendChild(e):setTimeout(function(){l.getElementsByTagName(u)[0].parentNode.appendChild(e)},y.ld||0)}try{m.cookie=l.cookie}catch(p){}function t(e){for(;e.length;)!function(t){m[t]=function(){var e=arguments;g||m.queue.push(function(){m[t].apply(m,e)})}}(e.pop())}var n="track",r="TrackPage",o="TrackEvent";t([n+"Event",n+"PageView",n+"Exception",n+"Trace",n+"DependencyData",n+"Metric",n+"PageViewPerformance","start"+r,"stop"+r,"start"+o,"stop"+o,"addTelemetryInitializer","setAuthenticatedUserContext","clearAuthenticatedUserContext","flush"]),m.SeverityLevel={Verbose:0,Information:1,Warning:2,Error:3,Critical:4};var s=(d.extensionConfig||{}).ApplicationInsightsAnalytics||{};if(!0!==d[C]&&!0!==s[C]){method="onerror",t(["_"+method]);var c=T[method];T[method]=function(e,t,n,a,i){var r=c&&c(e,t,n,a,i);return!0!==r&&m["_"+method]({message:e,url:t,lineNumber:n,columnNumber:a,error:i}),r},d.autoExceptionInstrumented=!0}return m}(y.cfg);(T[t]=n).queue&&0===n.queue.length&&n.trackPageView({})}(window,document,{
+    src: "https://az416426.vo.msecnd.net/scripts/b/ai.2.min.js", 
+    
+    
+    
+    
+    cfg: { 
+        instrumentationKey: "0600b273-5440-42cc-9fe4-51924c721ce0"
+         
+    }});
+</script>
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
