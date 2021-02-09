@@ -6,10 +6,10 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Azure Blob Storage Upload API&rsquo;s #  Customers typically use existing applications such as AzCopy, Azure Storage Explorer, etc. or the Azure Storage SDK&rsquo;s when building custom apps to access the Azure Storage API&rsquo;s. However, a good understanding of the API&rsquo;s is critical when tuning your uploads for high performance. This document provides an overview of the different upload API&rsquo;s to help you compare the differences between them.
-Put Blob #   Source: You provide the bytes Size: Blob must be smaller than 256 MiB.">
+ NOTE: There are some nuances with how the APIs are used based on what version of the API you are using.">
 <meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Azure Blob Storage Upload API&#39;s" />
 <meta property="og:description" content="Azure Blob Storage Upload API&rsquo;s #  Customers typically use existing applications such as AzCopy, Azure Storage Explorer, etc. or the Azure Storage SDK&rsquo;s when building custom apps to access the Azure Storage API&rsquo;s. However, a good understanding of the API&rsquo;s is critical when tuning your uploads for high performance. This document provides an overview of the different upload API&rsquo;s to help you compare the differences between them.
-Put Blob #   Source: You provide the bytes Size: Blob must be smaller than 256 MiB." />
+ NOTE: There are some nuances with how the APIs are used based on what version of the API you are using." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://azurestorage.com/docs/application-and-user-data/basics/azure-blob-storage-upload-apis/" />
 
@@ -17,7 +17,7 @@ Put Blob #   Source: You provide the bytes Size: Blob must be smaller than 256 M
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.6c7c6446dfdee7c8c933e9bbc6e80ee3ed6c913b2a59519f2092c3c6a9d63e55.css" integrity="sha256-bHxkRt/e58jJM&#43;m7xugO4&#43;1skTsqWVGfIJLDxqnWPlU=">
-<script defer src="/en.search.min.a092390ed9ca69153376eaacab4624d67749500866440e4365296f3fa207eb56.js" integrity="sha256-oJI5DtnKaRUzduqsq0Yk1ndJUAhmRA5DZSlvP6IH61Y="></script>
+<script defer src="/en.search.min.4d9c6ad54f9ecf91999e5a7966a11f040040d0a0b393b0332770fc727a7f3f10.js" integrity="sha256-TZxq1U&#43;ez5GZnlp5ZqEfBABA0KCzk7AzJ3D8cnp/PxA="></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -220,68 +220,77 @@ https://github.com/alex-shpak/hugo-book
   <a class="anchor" href="#azure-blob-storage-upload-apis">#</a>
 </h1>
 <p>Customers typically use existing applications such as <a href="http://aka.ms/azcopy">AzCopy</a>, <a href="https://azure.microsoft.com/features/storage-explorer/">Azure Storage Explorer</a>, etc. or the Azure Storage SDK&rsquo;s when building custom apps to access the <a href="https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction#about-blob-storage">Azure Storage API&rsquo;s</a>. However, a good understanding of the API&rsquo;s is critical when tuning your uploads for high performance. This document provides an overview of the different upload API&rsquo;s to help you compare the differences between them.</p>
+<blockquote>
+<p>NOTE: There are some nuances with how the APIs are used based on what version of the API you are using. See the API documentation for full details.</p>
+</blockquote>
 <h2 id="put-blob">
   Put Blob
   <a class="anchor" href="#put-blob">#</a>
 </h2>
 <ul>
-<li>Source: You provide the bytes</li>
-<li>Size: Blob must be smaller than 256 MiB. (Limit increasing to 5 GiB, currently in preview)</li>
-<li><a href="https://docs.microsoft.com/rest/api/storageservices/put-blob">Official Docs</a></li>
+<li><strong>Source</strong>: You provide the bytes</li>
+<li><strong>Size</strong>: Blob must be smaller than 256 MiB. (Limit increasing to 5 GiB, currently in preview)</li>
+<li><strong>Official Docs</strong>: <a href="https://docs.microsoft.com/rest/api/storageservices/put-blob">here</a></li>
+<li><strong>.NET SDK Methods</strong>: <a href="https://docs.microsoft.com/dotnet/api/azure.storage.blobs.specialized.blockblobclient.upload?view=azure-dotnet">Upload</a> &amp; <a href="https://docs.microsoft.com/dotnet/api/azure.storage.blobs.specialized.blockblobclient.uploadasync?view=azure-dotnet">UploadAsync</a>. NOTE: Upload/UploadAsync will default to using PutBlob if the file to upload is small, however will use PutBlock/PutBlockList for larger uploads.</li>
 </ul>
 <h2 id="put-blob-from-url">
   Put Blob From URL
   <a class="anchor" href="#put-blob-from-url">#</a>
 </h2>
 <ul>
-<li>Source: Any object retrievable via a standard GET HTTP request on the given URL (e.g. public access or pre-signed URL) can be used. This includes any accessible object, inside or outside of Azure.</li>
-<li>Destination: A block blob</li>
-<li>Size: Blob must be smaller than 256 MiB. (Limit increasing to 5 GiB, currently in preview)</li>
-<li>Performance: Completes synchronously.</li>
+<li><strong>Source</strong>: Any object retrievable via a standard GET HTTP request on the given URL (e.g. public access or pre-signed URL) can be used. This includes any accessible object, inside or outside of Azure.</li>
+<li><strong>Destination</strong>: A block blob</li>
+<li><strong>Size</strong>: Blob must be smaller than 256 MiB. (Limit increasing to 5 GiB, currently in preview)</li>
+<li><strong>Performance</strong>: Completes synchronously.</li>
 <li>Prefer this API when ingesting Block Blobs to a storage account from any external source. Choose this over Copy Blob from URL when you have larger objects, when you don&rsquo;t care about preserving the block list if the source is an Azure Blob, want to set HTTP Content Properties, or want to take advantage of advance features like <a href="https://docs.microsoft.com/azure/storage/blobs/encryption-scope-overview">Encryption Scopes</a>, or <a href="https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers#blob-level-tiering">Put to Tier</a>, etc.</li>
-<li><a href="https://docs.microsoft.com/rest/api/storageservices/put-blob-from-url">Official Docs</a></li>
+<li><strong>Official Docs</strong>: <a href="https://docs.microsoft.com/rest/api/storageservices/put-blob-from-url">here</a></li>
+<li><strong>.NET SDK Methods</strong>: <a href="https://docs.microsoft.com/dotnet/api/azure.storage.blobs.specialized.blockblobclient.syncuploadfromuri?view=azure-dotnet">SyncUploadFromUri</a> &amp; <a href="https://docs.microsoft.com/dotnet/api/azure.storage.blobs.specialized.blockblobclient.syncuploadfromuriasync?view=azure-dotnet">SyncUploadFromUriAsync</a></li>
 </ul>
 <h2 id="copy-blob">
   Copy Blob
   <a class="anchor" href="#copy-blob">#</a>
 </h2>
 <ul>
-<li>Source: The source blob for a copy operation may be a block blob, an append blob, or a page blob, a snapshot, or a file in the Azure File service.</li>
-<li>Destination: The same object type as the source</li>
-<li>Size: Each blob must be smaller than 4.75 TiB. (Limit increasing to 190.7 TiB, currently in preview). More Info: <a href="https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-blob-storage-limits">Maximum size of a block blob</a></li>
-<li>Performance: Completes asynchronously.</li>
-<li><a href="https://docs.microsoft.com/rest/api/storageservices/copy-blob">Official Docs</a></li>
+<li><strong>Source</strong>: The source blob for a copy operation may be a block blob, an append blob, or a page blob, a snapshot, or a file in the Azure File service.</li>
+<li><strong>Destination</strong>: The same object type as the source</li>
+<li><strong>Size</strong>: Each blob must be smaller than 4.75 TiB. (Limit increasing to 190.7 TiB, currently in preview). More Info: <a href="https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-blob-storage-limits">Maximum size of a block blob</a></li>
+<li><strong>Performance</strong>: Completes asynchronously.</li>
+<li><strong>Official Docs</strong>: <a href="https://docs.microsoft.com/rest/api/storageservices/copy-blob">here</a></li>
+<li><strong>.NET SDK Methods</strong>: <a href="https://docs.microsoft.com/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.startcopyfromuri?view=azure-dotnet">StartCopyFromUri</a> &amp; <a href="https://docs.microsoft.com/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.startcopyfromuriasync?view=azure-dotnet">StartCopyFromUriAsync</a></li>
 </ul>
 <h2 id="copy-blob-from-url">
   Copy Blob From URL
   <a class="anchor" href="#copy-blob-from-url">#</a>
 </h2>
 <ul>
-<li>Source: Any object retrievable via a standard GET HTTP request on the given URL (e.g. public access or pre-signed URL) can be used. This includes any accessible object, inside or outside of Azure.  If the object is an Azure source, it must be a block blob (i.e. Page Blobs are not supported).</li>
-<li>Destination: A block blob</li>
-<li>Size: Blob must be smaller than 256 MiB.</li>
-<li>Performance: Completes synchronously.</li>
+<li><strong>Source</strong>: Any object retrievable via a standard GET HTTP request on the given URL (e.g. public access or pre-signed URL) can be used. This includes any accessible object, inside or outside of Azure.  If the object is an Azure source, it must be a block blob (i.e. Page Blobs are not supported).</li>
+<li><strong>Destination</strong>: A block blob</li>
+<li><strong>Size</strong>: Blob must be smaller than 256 MiB.</li>
+<li><strong>Performance</strong>: Completes synchronously.</li>
 <li>Choose this over Put Blob from URL when compatibility with the Copy Blob API is required or when you want the committed block list to be preserved during the copy.</li>
-<li><a href="https://docs.microsoft.com/rest/api/storageservices/copy-blob-from-url">Official Docs</a></li>
+<li><strong>Official Docs</strong>: <a href="https://docs.microsoft.com/rest/api/storageservices/copy-blob-from-url">here</a></li>
+<li><strong>.NET SDK Methods</strong>: <a href="https://docs.microsoft.com/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.synccopyfromuri?view=azure-dotnet">SyncCopyFromUri</a> &amp; <a href="https://docs.microsoft.com/en-us/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.synccopyfromuriasync?view=azure-dotnet">SyncCopyFromUriAsync</a></li>
 </ul>
 <h2 id="put-block">
   Put Block
   <a class="anchor" href="#put-block">#</a>
 </h2>
 <ul>
-<li>Source: You provide the bytes</li>
-<li>Size: Each block must be smaller than 100 MiB. (Limit increasing to 4 GiB, currently in preview). More Info: <a href="https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-blob-storage-limits">Maximum size of a block in a block blob</a></li>
-<li><a href="https://docs.microsoft.com/rest/api/storageservices/put-block">Official Docs</a></li>
+<li><strong>Source</strong>: You provide the bytes</li>
+<li><strong>Size</strong>: Each block must be smaller than 100 MiB. (Limit increasing to 4 GiB, currently in preview). More Info: <a href="https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-blob-storage-limits">Maximum size of a block in a block blob</a></li>
+<li><strong>Official Docs</strong>: <a href="https://docs.microsoft.com/rest/api/storageservices/put-block">here</a></li>
+<li><strong>.NET SDK Methods</strong>: <a href="https://docs.microsoft.com/dotnet/api/azure.storage.blobs.specialized.blockblobclient.stageblock?view=azure-dotnet">StageBlock</a> &amp; <a href="https://docs.microsoft.com/dotnet/api/azure.storage.blobs.specialized.blockblobclient.stageblockasync?view=azure-dotnet">StageBlockAsync</a></li>
 </ul>
 <h2 id="put-block-from-url">
   Put Block From URL
   <a class="anchor" href="#put-block-from-url">#</a>
 </h2>
 <ul>
-<li>Source: Any object range retrievable via a standard GET HTTP request on the given URL (e.g. public access or pre-signed URL) can be used. This includes any accessible object, inside or outside of Azure.</li>
-<li>Size: Each block must be smaller than 100 MiB. (Limit increasing to 4 GiB, currently in preview). More Info: <a href="https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-blob-storage-limits">Maximum size of a block in a block blob</a></li>
-<li>Performance: Completes synchronously.</li>
-<li><a href="https://docs.microsoft.com/rest/api/storageservices/put-block-from-url">Official Docs</a></li>
+<li><strong>Source</strong>: Any object range retrievable via a standard GET HTTP request on the given URL (e.g. public access or pre-signed URL) can be used. This includes any accessible object, inside or outside of Azure.</li>
+<li><strong>Size</strong>: Each block must be smaller than 100 MiB. (Limit increasing to 4 GiB, currently in preview). More Info: <a href="https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-blob-storage-limits">Maximum size of a block in a block blob</a></li>
+<li><strong>Performance</strong>: Completes synchronously.</li>
+<li><strong>Official Docs</strong>: <a href="https://docs.microsoft.com/rest/api/storageservices/put-block-from-url">here</a></li>
+<li><strong>.NET SDK Methods</strong>: <a href="https://docs.microsoft.com/dotnet/api/azure.storage.blobs.specialized.blockblobclient.stageblockfromuri?view=azure-dotnet">StageBlockFromUri</a> &amp; <a href="https://docs.microsoft.com/dotnet/api/azure.storage.blobs.specialized.blockblobclient.stageblockfromuriasync?view=azure-dotnet">StageBlockFromUriAsync</a></li>
 </ul>
 <h2 id="put-block-list">
   Put Block List
@@ -289,7 +298,8 @@ https://github.com/alex-shpak/hugo-book
 </h2>
 <ul>
 <li>Called after all the blocks are written. This API commits a blob by specifying the list of block IDs that make up the blob.</li>
-<li><a href="https://docs.microsoft.com/rest/api/storageservices/put-block-list">Official Docs</a></li>
+<li><strong>Official Docs</strong>: <a href="https://docs.microsoft.com/rest/api/storageservices/put-block-list">here</a></li>
+<li><strong>.NET SDK Methods</strong>: <a href="https://docs.microsoft.com/dotnet/api/azure.storage.blobs.specialized.blockblobclient.commitblocklist?view=azure-dotnet">CommitBlockList</a> &amp; <a href="https://docs.microsoft.com/dotnet/api/azure.storage.blobs.specialized.blockblobclient.commitblocklistasync?view=azure-dotnet">CommitBlockListAsync</a></li>
 </ul>
 </article>
  
@@ -310,7 +320,7 @@ https://github.com/alex-shpak/hugo-book
 Azure Storage &copy;2021 <br />
 Visit the <a href="https://azure.microsoft.com/services/storage/">Azure Storage homepage</a> or read our <a href="https://docs.microsoft.com/azure/storage/">getting started guide</a> or the <a href="https://azure.microsoft.com/blog/topics/storage-backup-and-recovery/">Azure Storage Blog</a>. <br />
 Contact us: <a href="mailto:azurestoragefeedback@microsoft.com?subject=AzureStorage.com%20Feedback">azurestoragefeedback@microsoft.com</a>.<br />
-Generated on Mon, Feb 08 2021 23:18:57 UTC
+Generated on Tue, Feb 09 2021 20:39:17 UTC
       </footer>
 
       

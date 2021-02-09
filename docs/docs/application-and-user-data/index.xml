@@ -23,7 +23,7 @@
       
       <guid>https://azurestorage.com/docs/application-and-user-data/basics/azure-blob-storage-upload-apis/</guid>
       <description>Azure Blob Storage Upload API&amp;rsquo;s #  Customers typically use existing applications such as AzCopy, Azure Storage Explorer, etc. or the Azure Storage SDK&amp;rsquo;s when building custom apps to access the Azure Storage API&amp;rsquo;s. However, a good understanding of the API&amp;rsquo;s is critical when tuning your uploads for high performance. This document provides an overview of the different upload API&amp;rsquo;s to help you compare the differences between them.
-Put Blob #   Source: You provide the bytes Size: Blob must be smaller than 256 MiB.</description>
+ NOTE: There are some nuances with how the APIs are used based on what version of the API you are using.</description>
     </item>
     
     <item>
