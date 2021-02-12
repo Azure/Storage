@@ -224,5 +224,14 @@ Azure Data Lake Storage Gen2 is built on Azure Blob storage and provides a set o
   Azure Data Lake Storage Gen1</description>
     </item>
     
+    <item>
+      <title>What&#39;s New</title>
+      <link>https://azurestorage.com/docs/whats-new/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://azurestorage.com/docs/whats-new/</guid>
+      <description>What&amp;rsquo;s New #   What are the differences between the Azure Blob Storage Upload API’s and when should I use each? (02/09/2021) ADLS Gen 1 to Gen 2 Migration Guide (02/08/2021) Managing concurrent uploads with versioning (01/25/2021) AzReplicate (08/30/2020) AzDataMaker (08/26/2020)  </description>
+    </item>
+    
   </channel>
 </rss>

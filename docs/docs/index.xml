@@ -33,5 +33,14 @@
       <description>Tools and Utilities #   AzCopy is a command-line utility that you can use to copy blobs or files to or from a storage account. AzReplicate is a sample application designed to help Azure Storage customers perform very large, multi-petabyte data migrations to Azure Blob Storage. AzDataMaker is a sample .NET Core app that runs in a Linux Azure Container Instance that generates files and uploads them to Azure Blob Storage.</description>
     </item>
     
+    <item>
+      <title>What&#39;s New</title>
+      <link>https://azurestorage.com/docs/whats-new/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://azurestorage.com/docs/whats-new/</guid>
+      <description>What&amp;rsquo;s New #   What are the differences between the Azure Blob Storage Upload API’s and when should I use each? (02/09/2021) ADLS Gen 1 to Gen 2 Migration Guide (02/08/2021) Managing concurrent uploads with versioning (01/25/2021) AzReplicate (08/30/2020) AzDataMaker (08/26/2020)  </description>
+    </item>
+    
   </channel>
 </rss>
