@@ -8,7 +8,7 @@ We have several tools to help you price Azure Block Blob Storage, however figuri
 
 > Note: The goal of this template is to give you a starting point to build an estimate. The template will provide some general estimations you can use to put into the pricing calculator. However, it makes many assumptions for simplicity. You can tweak the formulas in Excel to alter the assumptions to meet your requirements. It is not intended to be a replacement for a good architect.
 
-[Click here to download the template](EstimatingPricingForAzureBlockBlobDeployments.xlsx)
+[Click here to download the template](estimating-pricing-for-azure-block-blob-deployments.xlsx)
 
 Helpful Links:
 
