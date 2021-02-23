@@ -6,7 +6,7 @@ title: Backup and Archive
 
 Backup and Archive Partners
 
-- [Comvault](<./commvault>)
+- [Commvault](<./commvault>)
 - [Rubrik](<./rubrik>)
 - [Veeam](<./veeam>)
 - [Veritas](<./veritas>)
