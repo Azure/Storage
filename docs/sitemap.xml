@@ -1,141 +1,73 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  
   <url>
     <loc>https://azurestorage.com/docs/analytics/adls-gen1-to-gen2-migration/utilities/ageing-analysis/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://azurestorage.com/docs/analytics/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://azurestorage.com/docs/application-and-user-data/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://azurestorage.com/docs/application-and-user-data/code-samples/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://azurestorage.com/docs/analytics/adls-gen1-to-gen2-migration/application-update/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://azurestorage.com/docs/application-and-user-data/code-samples/data-retention/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://azurestorage.com/docs/application-and-user-data/basics/azure-blob-storage-data-protection-features/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://azurestorage.com/docs/application-and-user-data/basics/azure-blob-storage-upload-apis/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://azurestorage.com/docs/analytics/adls-gen1-to-gen2-migration/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://azurestorage.com/docs/backup-and-archive/commvault/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://azurestorage.com/docs/backup-and-archive/veritas/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://azurestorage.com/docs/backup-and-archive/rubrik/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://azurestorage.com/docs/backup-and-archive/veeam/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://azurestorage.com/docs/application-and-user-data/code-samples/supported-character-scrubber/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://azurestorage.com/docs/backup-and-archive/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://azurestorage.com/docs/analytics/adls-gen1-to-gen2-migration/bi-directional/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://azurestorage.com/categories/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://azurestorage.com/docs/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://azurestorage.com/docs/analytics/adls-gen1-to-gen2-migration/dual-pipeline/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://azurestorage.com/docs/application-and-user-data/code-samples/estimate-block-blob/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://azurestorage.com/docs/analytics/adls-gen1-to-gen2-migration/adls-gen1-and-gen2-acl-behavior/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://azurestorage.com/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://azurestorage.com/docs/hpc-iot-and-ai/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://azurestorage.com/docs/analytics/adls-gen1-to-gen2-migration/incremental/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://azurestorage.com/docs/analytics/adls-gen1-to-gen2-migration/lift-and-shift/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://azurestorage.com/docs/application-and-user-data/code-samples/concurrent-uploads-with-versioning/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://azurestorage.com/docs/application-and-user-data/basics/nfs-3-support-for-azure-blob-storage/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://azurestorage.com/docs/application-and-user-data/basics/optimize-your-costs-with-azure-blob-storage/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://azurestorage.com/docs/storage-partners/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://azurestorage.com/tags/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://azurestorage.com/docs/analytics/hitchhikers-guide-to-the-datalake/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://azurestorage.com/docs/tools-and-utilities/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://azurestorage.com/docs/analytics/adls-gen1-to-gen2-migration/bi-directional/wandisco-set-up-and-installation/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://azurestorage.com/docs/whats-new/</loc>
   </url>
-  
 </urlset>

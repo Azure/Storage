@@ -21,6 +21,7 @@ Massively-scalable object storage for unstructured data
 
 {{< button href="https://azure.microsoft.com/services/storage/blobs/" >}}Learn More{{< /button >}}
 {{< button href="https://azure.microsoft.com/pricing/details/storage/blobs/" >}}Pricing{{< /button >}}
+{{< button href="https://docs.microsoft.com/azure/storage/blobs/" >}}Docs{{< /button >}}
 
 ### Azure Disks
 
@@ -32,6 +33,7 @@ Persistent, high-performance disk storage for every workload
 
 {{< button href="https://azure.microsoft.com/services/storage/disks/" >}}Learn More{{< /button >}}
 {{< button href="https://azure.microsoft.com/pricing/details/managed-disks/" >}}Pricing{{< /button >}}
+{{< button href="https://docs.microsoft.com/azure/virtual-machines/managed-disks-overview" >}}Docs{{< /button >}}
 
 ### Azure Files
 
@@ -43,6 +45,7 @@ Simple, distributed, cross-platform file system
 
 {{< button href="https://azure.microsoft.com/services/storage/files/" >}}Learn More{{< /button >}}
 {{< button href="https://azure.microsoft.com/pricing/details/storage/files/" >}}Pricing{{< /button >}}
+{{< button href="https://docs.microsoft.com/azure/storage/files/" >}}Docs{{< /button >}}
 
 ### Data Lake Storage
 
@@ -54,6 +57,7 @@ Secure, massively scalable data lake storage.
 
 {{< button href="https://azure.microsoft.com/services/storage/data-lake-storage/" >}}Learn More{{< /button >}}
 {{< button href="https://azure.microsoft.com/pricing/details/storage/data-lake/" >}}Pricing{{< /button >}}
+{{< button href="https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction" >}}Docs{{< /button >}}
 
 ### Azure Backup
 
@@ -65,6 +69,7 @@ Secure and cost effective cloud backup
 
 {{< button href="https://azure.microsoft.com/services/backup/" >}}Learn More{{< /button >}}
 {{< button href="https://azure.microsoft.com/pricing/details/backup/" >}}Pricing{{< /button >}}
+{{< button href="https://docs.microsoft.com/azure/backup/" >}}Docs{{< /button >}}
 
 ### Azure Data Box
 
@@ -76,6 +81,7 @@ Multiple offline and online solutions to move your data to Azure
 
 {{< button href="https://azure.microsoft.com/services/storage/databox/" >}}Learn More{{< /button >}}
 {{< button href="https://azure.microsoft.com/pricing/details/storage/databox/" >}}Pricing{{< /button >}}
+{{< button href="https://docs.microsoft.com/azure/databox/" >}}Docs{{< /button >}}
 
 ### Azure Queues
 
@@ -87,6 +93,7 @@ Durably store messages for asynchronous processing
 
 {{< button href="https://azure.microsoft.com/services/storage/queues/" >}}Learn More{{< /button >}}
 {{< button href="https://azure.microsoft.com/pricing/details/storage/queues/" >}}Pricing{{< /button >}}
+{{< button href="https://docs.microsoft.com/azure/storage/queues" >}}Docs{{< /button >}}
 
 ### Azure NetApp Files
 
@@ -98,6 +105,7 @@ Powerful, hybrid Azure file shares powered by NetApp
 
 {{< button href="https://azure.microsoft.com/services/storage/netapp/" >}}Learn More{{< /button >}}
 {{< button href="https://azure.microsoft.com/pricing/details/storage/netapp/" >}}Pricing{{< /button >}}
+{{< button href="https://docs.microsoft.com/azure/azure-netapp-files" >}}Docs{{< /button >}}
 
 ### Azure HPC Cache
 
@@ -109,6 +117,7 @@ Run high-performance computing (HPC) workloads in the cloud
 
 {{< button href="https://azure.microsoft.com/services/hpc-cache/" >}}Learn More{{< /button >}}
 {{< button href="https://azure.microsoft.com/pricing/details/hpc-cache/" >}}Pricing{{< /button >}}
+{{< button href="https://docs.microsoft.com/azure/hpc-cache/" >}}Docs{{< /button >}}
 
 ## Storage Pillars
 
