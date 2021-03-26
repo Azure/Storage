@@ -43,7 +43,7 @@ Here we are going to focus on deploying Object Replication with ARM. You will se
       
       <guid>https://azurestorage.com/docs/application-and-user-data/basics/nfs-3-support-for-azure-blob-storage/</guid>
       <description>NFS 3.0 support for Azure Blob Storage #   In this video, we introduce Azure Blob NFS 3.0 support, the only public cloud object storage offering native file system compatibility. Learn about NFS support and how to accelerate your workload migration from on premise datacenters to Azure.
- Learn more Step by step guide Contact us: BlobNFSFeedback@microsoft.com  </description>
+ Learn more Step by step guide NFSv3 performance considerations Contact us: BlobNFSFeedback@microsoft.com  </description>
     </item>
     
     <item>

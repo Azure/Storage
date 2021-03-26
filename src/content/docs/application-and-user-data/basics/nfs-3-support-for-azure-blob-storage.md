@@ -10,4 +10,5 @@ In this video, we introduce Azure Blob NFS 3.0 support, the only public cloud ob
 
 - [Learn more](https://aka.ms/AzureNFSv3Preview​)
 - [Step by step guide](https://docs.microsoft.com/azure/storage/blobs/network-file-system-protocol-support-how-to)
+- [NFSv3 performance considerations](https://docs.microsoft.com/en-us/azure/storage/blobs/network-file-system-protocol-support-performance)
 - Contact us: BlobNFSFeedback@microsoft.com
