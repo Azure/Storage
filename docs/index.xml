@@ -21,6 +21,17 @@ This can be applicable for below migration patterns:
     </item>
     
     <item>
+      <title>Azure Blob Storage - Setup Object Replication with ARM Templates</title>
+      <link>https://azurestorage.com/docs/application-and-user-data/basics/azure-blob-storage-object-replication-arm/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://azurestorage.com/docs/application-and-user-data/basics/azure-blob-storage-object-replication-arm/</guid>
+      <description>Azure Blob Storage - Setup Object Replication with ARM Templates #  Object replication asynchronously copies block blobs between a source storage account and a destination account.
+You can find a good overview of the service here, and instructions on how to deploy it via the portal here.
+Here we are going to focus on deploying Object Replication with ARM. You will see we are doing this in 3 steps with three templates orchestrated with some CLI code.</description>
+    </item>
+    
+    <item>
       <title>Azure blob storage data management and retention</title>
       <link>https://azurestorage.com/docs/application-and-user-data/code-samples/data-retention/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

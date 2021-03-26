@@ -1,0 +1,100 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+      "storageNameSrc": {
+        "type": "string",
+        "metadata": {
+          "description": "The source storage account name."
+        }
+      },
+      "storageNameDest": {
+        "type": "string",
+        "metadata": {
+          "description": "The source storage account name."
+        }
+      },
+      "containerName": {
+        "type": "string",
+        "metadata": {
+          "description": "The container name to use in the source/dest accounts."
+        }
+      }
+    },
+    "variables": {
+      "location": "[resourceGroup().location]"      
+    },
+    "resources": [
+      {
+        "type": "Microsoft.Storage/storageAccounts",
+        "apiVersion": "2019-06-01",
+        "name": "[parameters('storageNameSrc')]",
+        "location": "[variables('location')]",
+        "sku": {
+          "name": "Standard_LRS"
+        },
+        "kind": "StorageV2",
+        "properties": { },
+        "resources": [
+          {
+            "type": "blobServices/containers",
+            "apiVersion": "2019-06-01",
+            "name": "[concat('default/', parameters('containerName'))]",
+            "dependsOn": [
+              "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageNameSrc'))]"
+            ]
+          },
+          {
+            "type": "Microsoft.Storage/storageAccounts/blobServices",
+            "apiVersion": "2020-08-01-preview",
+            "name": "[concat(parameters('storageNameSrc'), '/default')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageNameSrc'))]"
+            ],
+            "properties": {
+                "changeFeed": {
+                  "enabled": "true"
+                },
+                "isVersioningEnabled": "true"
+            }
+          }
+        ]
+      },
+      {
+        "type": "Microsoft.Storage/storageAccounts",
+        "apiVersion": "2019-06-01",
+        "name": "[parameters('storageNameDest')]",
+        "location": "[variables('location')]",
+        "sku": {
+          "name": "Standard_LRS"
+        },
+        "kind": "StorageV2",
+        "properties": { },
+        "resources": [
+          {
+            "type": "blobServices/containers",
+            "apiVersion": "2019-06-01",
+            "name": "[concat('default/', parameters('containerName'))]",
+            "dependsOn": [
+              "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageNameDest'))]"
+            ]
+          },
+          {
+            "type": "Microsoft.Storage/storageAccounts/blobServices",
+            "apiVersion": "2020-08-01-preview",
+            "name": "[concat(parameters('storageNameDest'), '/default')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageNameDest'))]"
+            ],
+            "properties": {
+                "changeFeed": {
+                  "enabled": "true"
+                },
+                "isVersioningEnabled": "true"
+            }
+          }
+        ]
+      }
+    ],
+      "outputs": {}
+  }

@@ -1,0 +1,44 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "storageNameSrc": {
+            "type": "string",
+            "metadata": {
+                "description": "The source storage account name."
+            }
+        },
+        "storageNameDest": {
+            "type": "string",
+            "metadata": {
+                "description": "The dest storage account name."
+            }
+        },
+        "containerName": {
+            "type": "string",
+            "metadata": {
+                "description": "The container name to use in the source/dest accounts."
+            }
+        }
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Storage/storageAccounts/ObjectReplicationPolicies",
+            "apiVersion": "2019-06-01",
+            "name" : "[concat(parameters('storageNameDest'), '/default')]",
+            "properties": {
+                "sourceAccount": "[parameters('storageNameSrc')]",
+                "destinationAccount": "[parameters('storageNameDest')]",
+                "rules": [
+                    {
+                        "sourceContainer": "[parameters('containerName')]",
+                        "destinationContainer": "[parameters('containerName')]",
+                        "filters": {
+                            //Any prefixMatch filters here
+                        }
+                    }
+                ]
+            }
+        }
+    ]
+}
