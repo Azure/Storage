@@ -5,9 +5,9 @@
   <meta name="generator" content="Hugo 0.82.0" />
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="What&rsquo;s New #   How do you deploy Object Replication with ARM? (03/26/2021) What are the differences between the Azure Blob Storage Upload API’s and when should I use each? (02/09/2021) ADLS Gen 1 to Gen 2 Migration Guide (02/08/2021) NFS 3.0 support for Azure Blob Storage (02/03/2021) Optimize your costs with Azure Blob Storage (02/01/2021) Azure Blob Storage data protection features (01/28/2021) Managing concurrent uploads with versioning (01/25/2021) Azure Storage Supported Character Scrubber PowerShell Script (01/05/2021) Estimating Pricing for Azure Block Blob Deployments (01/01/2021) Data management and retention (12/16/2020) Hitchhiker&rsquo;s Guide to the Datalake (10/27/2020) AzReplicate (08/30/2020) AzDataMaker (08/26/2020)  ">
+<meta name="description" content="What&rsquo;s New #   Load, Parse and Summarize Classic Azure Storage Logs in Azure Data Explorer (03/30/2021) How do you deploy Object Replication with ARM? (03/26/2021) What are the differences between the Azure Blob Storage Upload API’s and when should I use each? (02/09/2021) ADLS Gen 1 to Gen 2 Migration Guide (02/08/2021) NFS 3.0 support for Azure Blob Storage (02/03/2021) Optimize your costs with Azure Blob Storage (02/01/2021) Azure Blob Storage data protection features (01/28/2021) Managing concurrent uploads with versioning (01/25/2021) Azure Storage Supported Character Scrubber PowerShell Script (01/05/2021) Estimating Pricing for Azure Block Blob Deployments (01/01/2021) Data management and retention (12/16/2020) Hitchhiker&rsquo;s Guide to the Datalake (10/27/2020) AzReplicate (08/30/2020) AzDataMaker (08/26/2020)  ">
 <meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="What&#39;s New" />
-<meta property="og:description" content="What&rsquo;s New #   How do you deploy Object Replication with ARM? (03/26/2021) What are the differences between the Azure Blob Storage Upload API’s and when should I use each? (02/09/2021) ADLS Gen 1 to Gen 2 Migration Guide (02/08/2021) NFS 3.0 support for Azure Blob Storage (02/03/2021) Optimize your costs with Azure Blob Storage (02/01/2021) Azure Blob Storage data protection features (01/28/2021) Managing concurrent uploads with versioning (01/25/2021) Azure Storage Supported Character Scrubber PowerShell Script (01/05/2021) Estimating Pricing for Azure Block Blob Deployments (01/01/2021) Data management and retention (12/16/2020) Hitchhiker&rsquo;s Guide to the Datalake (10/27/2020) AzReplicate (08/30/2020) AzDataMaker (08/26/2020)  " />
+<meta property="og:description" content="What&rsquo;s New #   Load, Parse and Summarize Classic Azure Storage Logs in Azure Data Explorer (03/30/2021) How do you deploy Object Replication with ARM? (03/26/2021) What are the differences between the Azure Blob Storage Upload API’s and when should I use each? (02/09/2021) ADLS Gen 1 to Gen 2 Migration Guide (02/08/2021) NFS 3.0 support for Azure Blob Storage (02/03/2021) Optimize your costs with Azure Blob Storage (02/01/2021) Azure Blob Storage data protection features (01/28/2021) Managing concurrent uploads with versioning (01/25/2021) Azure Storage Supported Character Scrubber PowerShell Script (01/05/2021) Estimating Pricing for Azure Block Blob Deployments (01/01/2021) Data management and retention (12/16/2020) Hitchhiker&rsquo;s Guide to the Datalake (10/27/2020) AzReplicate (08/30/2020) AzDataMaker (08/26/2020)  " />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://azurestorage.com/docs/whats-new/" /><meta property="article:section" content="docs" />
 
@@ -17,7 +17,7 @@
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.2bc2364a4a4b31f0ec1debecf0a8f90a840821f143dfe1ac6a0f7cbcbdcf64ac.css" integrity="sha256-K8I2SkpLMfDsHevs8Kj5CoQIIfFD3&#43;Gsag98vL3PZKw=">
-<script defer src="/en.search.min.b095b35c099cfdf160846aa244ff921e46c3b34ca9c3b00ee19d439503b0d9a0.js" integrity="sha256-sJWzXAmc/fFghGqiRP&#43;SHkbDs0ypw7AO4Z1DlQOw2aA="></script>
+<script defer src="/en.search.min.7e0f4238446c6acc23c78986122299b13e090738b4903e0ef333f6db5088f521.js" integrity="sha256-fg9COERsaswjx4mGEiKZsT4JBzi0kD4O8zP221CI9SE="></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -223,6 +223,7 @@ https://github.com/alex-shpak/hugo-book
   <a class="anchor" href="#whats-new">#</a>
 </h1>
 <ul>
+<li><a href="https://azurestorage.com/docs/application-and-user-data/basics/azure-storage-classic-logs-to-data-explorer/">Load, Parse and Summarize Classic Azure Storage Logs in Azure Data Explorer</a> (03/30/2021)</li>
 <li><a href="https://azurestorage.com/docs/application-and-user-data/basics/azure-blob-storage-object-replication-arm">How do you deploy Object Replication with ARM?</a> (03/26/2021)</li>
 <li><a href="https://azurestorage.com/docs/application-and-user-data/basics/azure-blob-storage-upload-apis/">What are the differences between the Azure Blob Storage Upload API’s and when should I use each?</a> (02/09/2021)</li>
 <li><a href="https://azurestorage.com/docs/analytics/adls-gen1-to-gen2-migration/">ADLS Gen 1 to Gen 2 Migration Guide</a> (02/08/2021)</li>
@@ -256,7 +257,7 @@ https://github.com/alex-shpak/hugo-book
 Azure Storage &copy;2021 <br />
 Visit the <a href="https://azure.microsoft.com/services/storage/">Azure Storage homepage</a> or read our <a href="https://docs.microsoft.com/azure/storage/">getting started guide</a> or the <a href="https://azure.microsoft.com/blog/topics/storage-backup-and-recovery/">Azure Storage Blog</a>. <br />
 Contact us: <a href="mailto:azurestoragefeedback@microsoft.com?subject=AzureStorage.com%20Feedback">azurestoragefeedback@microsoft.com</a>.<br />
-Generated on Tue, Mar 30 2021 17:11:49 UTC
+Generated on Tue, Mar 30 2021 17:17:57 UTC
       </footer>
 
       

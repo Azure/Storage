@@ -4,6 +4,7 @@ title: "What's New"
 
 # What's New
 
+- [Load, Parse and Summarize Classic Azure Storage Logs in Azure Data Explorer](https://azurestorage.com/docs/application-and-user-data/basics/azure-storage-classic-logs-to-data-explorer/) (03/30/2021)
 - [How do you deploy Object Replication with ARM?](https://azurestorage.com/docs/application-and-user-data/basics/azure-blob-storage-object-replication-arm) (03/26/2021)
 - [What are the differences between the Azure Blob Storage Upload API’s and when should I use each?](https://azurestorage.com/docs/application-and-user-data/basics/azure-blob-storage-upload-apis/) (02/09/2021)
 - [ADLS Gen 1 to Gen 2 Migration Guide](https://azurestorage.com/docs/analytics/adls-gen1-to-gen2-migration/) (02/08/2021)
