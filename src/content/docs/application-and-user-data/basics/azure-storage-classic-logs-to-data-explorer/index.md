@@ -28,7 +28,7 @@ Read about both those technologies here:
 
 1. You can now create a table to store the logs, this is the script that I used.
 
-    ``` json
+    ``` text
     .create table storagelogs (
         VersionNumber: string, 
         RequestStartTime: datetime, 

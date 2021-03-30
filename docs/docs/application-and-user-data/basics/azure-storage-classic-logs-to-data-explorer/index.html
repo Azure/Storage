@@ -21,7 +21,7 @@
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.2bc2364a4a4b31f0ec1debecf0a8f90a840821f143dfe1ac6a0f7cbcbdcf64ac.css" integrity="sha256-K8I2SkpLMfDsHevs8Kj5CoQIIfFD3&#43;Gsag98vL3PZKw=">
-<script defer src="/en.search.min.02d7d4b220fc2e8504cee9d639c92ddd273bb777d8cb990477c5f853e7210dc6.js" integrity="sha256-AtfUsiD8LoUEzunWOckt3Sc7t3fYy5kEd8X4U&#43;chDcY="></script>
+<script defer src="/en.search.min.3ab0e99b255aa5f05ad4cf3939b9d0262b9fff62d9742be4a628d74c2f8a31b7.js" integrity="sha256-OrDpmyVapfBa1M85ObnQJiuf/2LZdCvkpijXTC&#43;KMbc="></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -256,37 +256,37 @@ https://github.com/alex-shpak/hugo-book
 </li>
 <li>
 <p>You can now create a table to store the logs, this is the script that I used.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#960050;background-color:#1e0010">.create</span> <span style="color:#960050;background-color:#1e0010">table</span> <span style="color:#960050;background-color:#1e0010">storagelogs</span> <span style="color:#960050;background-color:#1e0010">(</span>
-    <span style="color:#960050;background-color:#1e0010">VersionNumber:</span> <span style="color:#960050;background-color:#1e0010">string,</span> 
-    <span style="color:#960050;background-color:#1e0010">RequestStartTime:</span> <span style="color:#960050;background-color:#1e0010">datetime,</span> 
-    <span style="color:#960050;background-color:#1e0010">OperationType:</span> <span style="color:#960050;background-color:#1e0010">string,</span> 
-    <span style="color:#960050;background-color:#1e0010">RequestStatus:</span> <span style="color:#960050;background-color:#1e0010">string,</span> 
-    <span style="color:#960050;background-color:#1e0010">HttpStatusCode:</span> <span style="color:#960050;background-color:#1e0010">string,</span> 
-    <span style="color:#960050;background-color:#1e0010">EndToEndLatencyInMS:</span> <span style="color:#960050;background-color:#1e0010">long,</span> 
-    <span style="color:#960050;background-color:#1e0010">ServerLatencyInMs:</span> <span style="color:#960050;background-color:#1e0010">long,</span> 
-    <span style="color:#960050;background-color:#1e0010">AuthenticationType:</span> <span style="color:#960050;background-color:#1e0010">string,</span> 
-    <span style="color:#960050;background-color:#1e0010">RequesterAcountName:</span> <span style="color:#960050;background-color:#1e0010">string,</span> 
-    <span style="color:#960050;background-color:#1e0010">OwnerAccountName:</span> <span style="color:#960050;background-color:#1e0010">string,</span> 
-    <span style="color:#960050;background-color:#1e0010">ServiceType:</span> <span style="color:#960050;background-color:#1e0010">string,</span> 
-    <span style="color:#960050;background-color:#1e0010">RequestUrl:</span> <span style="color:#960050;background-color:#1e0010">string,</span> 
-    <span style="color:#960050;background-color:#1e0010">RequestedObjectKey:</span> <span style="color:#960050;background-color:#1e0010">string,</span> 
-    <span style="color:#960050;background-color:#1e0010">RequestIdHeader:</span> <span style="color:#960050;background-color:#1e0010">guid,</span> 
-    <span style="color:#960050;background-color:#1e0010">OperationCount:</span> <span style="color:#960050;background-color:#1e0010">int,</span> 
-    <span style="color:#960050;background-color:#1e0010">RequesterIpAddress:</span> <span style="color:#960050;background-color:#1e0010">string,</span> 
-    <span style="color:#960050;background-color:#1e0010">RequestVersionHeader:</span> <span style="color:#960050;background-color:#1e0010">string,</span> 
-    <span style="color:#960050;background-color:#1e0010">RequestHeaderSize:</span> <span style="color:#960050;background-color:#1e0010">long,</span> 
-    <span style="color:#960050;background-color:#1e0010">RequestPacketSize:</span> <span style="color:#960050;background-color:#1e0010">long,</span> 
-    <span style="color:#960050;background-color:#1e0010">ResponseHeaderSize:</span> <span style="color:#960050;background-color:#1e0010">long,</span> 
-    <span style="color:#960050;background-color:#1e0010">ResponsePacketSize:</span> <span style="color:#960050;background-color:#1e0010">long,</span> 
-    <span style="color:#960050;background-color:#1e0010">RequestContentLength:</span> <span style="color:#960050;background-color:#1e0010">long,</span> 
-    <span style="color:#960050;background-color:#1e0010">RequestMd</span><span style="color:#ae81ff">5</span><span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#960050;background-color:#1e0010">string,</span> 
-    <span style="color:#960050;background-color:#1e0010">ServerMd</span><span style="color:#ae81ff">5</span><span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#960050;background-color:#1e0010">string,</span> 
-    <span style="color:#960050;background-color:#1e0010">EtagIdentifier:</span> <span style="color:#960050;background-color:#1e0010">string,</span> 
-    <span style="color:#960050;background-color:#1e0010">LastModifiedTime:</span> <span style="color:#960050;background-color:#1e0010">datetime,</span> 
-    <span style="color:#960050;background-color:#1e0010">ConditionsUsed:</span> <span style="color:#960050;background-color:#1e0010">string,</span> 
-    <span style="color:#960050;background-color:#1e0010">UserAgentHeader:</span> <span style="color:#960050;background-color:#1e0010">string,</span> 
-    <span style="color:#960050;background-color:#1e0010">ReferrerHeader:</span> <span style="color:#960050;background-color:#1e0010">string,</span> 
-    <span style="color:#960050;background-color:#1e0010">LogSource:</span> <span style="color:#960050;background-color:#1e0010">string)</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">.create table storagelogs (
+    VersionNumber: string, 
+    RequestStartTime: datetime, 
+    OperationType: string, 
+    RequestStatus: string, 
+    HttpStatusCode: string, 
+    EndToEndLatencyInMS: long, 
+    ServerLatencyInMs: long, 
+    AuthenticationType: string, 
+    RequesterAcountName: string, 
+    OwnerAccountName: string, 
+    ServiceType: string, 
+    RequestUrl: string, 
+    RequestedObjectKey: string, 
+    RequestIdHeader: guid, 
+    OperationCount: int, 
+    RequesterIpAddress: string, 
+    RequestVersionHeader: string, 
+    RequestHeaderSize: long, 
+    RequestPacketSize: long, 
+    ResponseHeaderSize: long, 
+    ResponsePacketSize: long, 
+    RequestContentLength: long, 
+    RequestMd5: string, 
+    ServerMd5: string, 
+    EtagIdentifier: string, 
+    LastModifiedTime: datetime, 
+    ConditionsUsed: string, 
+    UserAgentHeader: string, 
+    ReferrerHeader: string, 
+    LogSource: string)
 </code></pre></div><p>See log format details <a href="https://docs.microsoft.com/rest/api/storageservices/storage-analytics-log-format">here</a></p>
 <p><img src="pic01.png" alt="Pic 01" /></p>
 </li>
@@ -365,7 +365,7 @@ https://github.com/alex-shpak/hugo-book
 Azure Storage &copy;2021 <br />
 Visit the <a href="https://azure.microsoft.com/services/storage/">Azure Storage homepage</a> or read our <a href="https://docs.microsoft.com/azure/storage/">getting started guide</a> or the <a href="https://azure.microsoft.com/blog/topics/storage-backup-and-recovery/">Azure Storage Blog</a>. <br />
 Contact us: <a href="mailto:azurestoragefeedback@microsoft.com?subject=AzureStorage.com%20Feedback">azurestoragefeedback@microsoft.com</a>.<br />
-Generated on Tue, Mar 30 2021 16:53:51 UTC
+Generated on Tue, Mar 30 2021 17:00:32 UTC
       </footer>
 
       

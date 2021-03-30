@@ -26,3 +26,4 @@ Coming soon . . .
 - [NFS 3.0 support for Azure Blob Storage](./basics/nfs-3-support-for-azure-blob-storage) In this video, we introduce Azure Blob NFS 3.0 support, the only public cloud object storage offering native file system compatibility. Learn about NFS support and how to accelerate your workload migration from on premise datacenters to Azure.
 - [Azure Blob Storage Upload API's](./basics/azure-blob-storage-upload-apis)
 - [Azure Blob Storage - Setup Object Replication with ARM Templates](./basics/azure-blob-storage-object-replication-arm)
+- [Load, Parse and Summarize Classic Azure Storage Logs in Azure Data Explorer](./basics/azure-storage-classic-logs-to-data-explorer)
