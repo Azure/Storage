@@ -37,6 +37,17 @@ Here we are going to focus on deploying Object Replication with ARM. You will se
     </item>
     
     <item>
+      <title>Load, Parse and Summarize Classic Azure Storage Logs in Azure Data Explorer</title>
+      <link>https://azurestorage.com/docs/application-and-user-data/basics/azure-storage-classic-logs-to-data-explorer/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://azurestorage.com/docs/application-and-user-data/basics/azure-storage-classic-logs-to-data-explorer/</guid>
+      <description>Load, Parse and Summarize Classic Azure Storage Logs in Azure Data Explorer #  Azure Storage is moving to use Azure Monitor for logging. This is great because querying logs with Kusto is super easy. More info
+ If you can use Azure Monitor, use it, and don’t read the rest of this article.
+ However, some customers might need to use the Classic Storage logging, but our classic logging goes to text files stored in the $logs container in your storage account.</description>
+    </item>
+    
+    <item>
       <title>NFS 3.0 support for Azure Blob Storage</title>
       <link>https://azurestorage.com/docs/application-and-user-data/basics/nfs-3-support-for-azure-blob-storage/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

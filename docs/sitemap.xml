@@ -54,6 +54,8 @@
   </url><url>
     <loc>https://azurestorage.com/docs/analytics/adls-gen1-to-gen2-migration/lift-and-shift/</loc>
   </url><url>
+    <loc>https://azurestorage.com/docs/application-and-user-data/basics/azure-storage-classic-logs-to-data-explorer/</loc>
+  </url><url>
     <loc>https://azurestorage.com/docs/application-and-user-data/code-samples/concurrent-uploads-with-versioning/</loc>
   </url><url>
     <loc>https://azurestorage.com/docs/application-and-user-data/basics/nfs-3-support-for-azure-blob-storage/</loc>

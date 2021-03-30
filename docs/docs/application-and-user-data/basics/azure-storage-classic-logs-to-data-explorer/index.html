@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en" dir=>
+
+<head>
+  <meta name="generator" content="Hugo 0.82.0" />
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Load, Parse and Summarize Classic Azure Storage Logs in Azure Data Explorer #  Azure Storage is moving to use Azure Monitor for logging. This is great because querying logs with Kusto is super easy. More info
+ If you can use Azure Monitor, use it, and don’t read the rest of this article.
+ However, some customers might need to use the Classic Storage logging, but our classic logging goes to text files stored in the $logs container in your storage account.">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Load, Parse and Summarize Classic Azure Storage Logs in Azure Data Explorer" />
+<meta property="og:description" content="Load, Parse and Summarize Classic Azure Storage Logs in Azure Data Explorer #  Azure Storage is moving to use Azure Monitor for logging. This is great because querying logs with Kusto is super easy. More info
+ If you can use Azure Monitor, use it, and don’t read the rest of this article.
+ However, some customers might need to use the Classic Storage logging, but our classic logging goes to text files stored in the $logs container in your storage account." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://azurestorage.com/docs/application-and-user-data/basics/azure-storage-classic-logs-to-data-explorer/" /><meta property="article:section" content="docs" />
+
+
+
+<title>Load, Parse and Summarize Classic Azure Storage Logs in Azure Data Explorer | Azure Storage</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.2bc2364a4a4b31f0ec1debecf0a8f90a840821f143dfe1ac6a0f7cbcbdcf64ac.css" integrity="sha256-K8I2SkpLMfDsHevs8Kj5CoQIIfFD3&#43;Gsag98vL3PZKw=">
+<script defer src="/en.search.min.02d7d4b220fc2e8504cee9d639c92ddd273bb777d8cb990477c5f853e7210dc6.js" integrity="sha256-AtfUsiD8LoUEzunWOckt3Sc7t3fYy5kEd8X4U&#43;chDcY="></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body dir=>
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a href="/"><img src="/images/azure-icon.png" alt="Logo" /><span>Azure Storage</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://azurestorage.com/docs/analytics/" class="">Analytics</a>
+  
+
+          
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://azurestorage.com/docs/application-and-user-data/" class="">Application and User Data</a>
+  
+
+          
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://azurestorage.com/docs/backup-and-archive/" class="">Backup and Archive</a>
+  
+
+          
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://azurestorage.com/docs/hpc-iot-and-ai/" class="">HPC IoT and AI</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://azurestorage.com/docs/storage-partners/" class="">Storage Partners</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://azurestorage.com/docs/tools-and-utilities/" class="">Tools and Utilities</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://azurestorage.com/docs/whats-new/" class="">What&#39;s New</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var a=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Load, Parse and Summarize Classic Azure Storage Logs in Azure Data Explorer</strong>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#step-by-step">Step by Step</a></li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h1 id="load-parse-and-summarize-classic-azure-storage-logs-in-azure-data-explorer">
+  Load, Parse and Summarize Classic Azure Storage Logs in Azure Data Explorer
+  <a class="anchor" href="#load-parse-and-summarize-classic-azure-storage-logs-in-azure-data-explorer">#</a>
+</h1>
+<p>Azure Storage is moving to use Azure Monitor for logging. This is great because querying logs with Kusto is super easy. <a href="https://docs.microsoft.com/azure/storage/blobs/monitor-blob-storage">More info</a></p>
+<blockquote>
+<p><strong>If you can use Azure Monitor, use it, and don’t read the rest of this article.</strong></p>
+</blockquote>
+<p>However, some customers might need to use the Classic Storage logging, but our classic logging goes to text files stored in the <code>$logs</code> container in your storage account. <a href="https://docs.microsoft.com/azure/storage/common/storage-analytics-logging">More info</a></p>
+<p>What if you wanted the convince of Kusto queries but had a requirement to use the classic storage logging.</p>
+<p>You can achieve this using Data Explorer. This is the same datastore technology that Azure Monitor uses. Additionally you can automate the ingestion of the text logs into Data Explorer with Data Factory.</p>
+<p>Read about both those technologies here:
+<a href="https://docs.microsoft.com/azure/data-factory/introduction">Data Factory (ADF)</a>
+<a href="https://docs.microsoft.com/azure/data-explorer/data-explorer-overview">Data Explorer (ADX)</a></p>
+<h2 id="step-by-step">
+  Step by Step
+  <a class="anchor" href="#step-by-step">#</a>
+</h2>
+<ol>
+<li>
+<p>Create your storage account (if not already done) <a href="https://docs.microsoft.com/azure/storage/common/storage-account-create">More Info</a></p>
+</li>
+<li>
+<p>Enable Storage logs (if not already done) <a href="https://docs.microsoft.com/azure/storage/common/manage-storage-analytics-logs">More Info</a></p>
+</li>
+<li>
+<p>Create a Data Explorer Cluster &amp; Database <a href="https://docs.microsoft.com/azure/data-explorer/create-cluster-database-portal">More Info</a></p>
+</li>
+<li>
+<p>You can now create a table to store the logs, this is the script that I used.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#960050;background-color:#1e0010">.create</span> <span style="color:#960050;background-color:#1e0010">table</span> <span style="color:#960050;background-color:#1e0010">storagelogs</span> <span style="color:#960050;background-color:#1e0010">(</span>
+    <span style="color:#960050;background-color:#1e0010">VersionNumber:</span> <span style="color:#960050;background-color:#1e0010">string,</span> 
+    <span style="color:#960050;background-color:#1e0010">RequestStartTime:</span> <span style="color:#960050;background-color:#1e0010">datetime,</span> 
+    <span style="color:#960050;background-color:#1e0010">OperationType:</span> <span style="color:#960050;background-color:#1e0010">string,</span> 
+    <span style="color:#960050;background-color:#1e0010">RequestStatus:</span> <span style="color:#960050;background-color:#1e0010">string,</span> 
+    <span style="color:#960050;background-color:#1e0010">HttpStatusCode:</span> <span style="color:#960050;background-color:#1e0010">string,</span> 
+    <span style="color:#960050;background-color:#1e0010">EndToEndLatencyInMS:</span> <span style="color:#960050;background-color:#1e0010">long,</span> 
+    <span style="color:#960050;background-color:#1e0010">ServerLatencyInMs:</span> <span style="color:#960050;background-color:#1e0010">long,</span> 
+    <span style="color:#960050;background-color:#1e0010">AuthenticationType:</span> <span style="color:#960050;background-color:#1e0010">string,</span> 
+    <span style="color:#960050;background-color:#1e0010">RequesterAcountName:</span> <span style="color:#960050;background-color:#1e0010">string,</span> 
+    <span style="color:#960050;background-color:#1e0010">OwnerAccountName:</span> <span style="color:#960050;background-color:#1e0010">string,</span> 
+    <span style="color:#960050;background-color:#1e0010">ServiceType:</span> <span style="color:#960050;background-color:#1e0010">string,</span> 
+    <span style="color:#960050;background-color:#1e0010">RequestUrl:</span> <span style="color:#960050;background-color:#1e0010">string,</span> 
+    <span style="color:#960050;background-color:#1e0010">RequestedObjectKey:</span> <span style="color:#960050;background-color:#1e0010">string,</span> 
+    <span style="color:#960050;background-color:#1e0010">RequestIdHeader:</span> <span style="color:#960050;background-color:#1e0010">guid,</span> 
+    <span style="color:#960050;background-color:#1e0010">OperationCount:</span> <span style="color:#960050;background-color:#1e0010">int,</span> 
+    <span style="color:#960050;background-color:#1e0010">RequesterIpAddress:</span> <span style="color:#960050;background-color:#1e0010">string,</span> 
+    <span style="color:#960050;background-color:#1e0010">RequestVersionHeader:</span> <span style="color:#960050;background-color:#1e0010">string,</span> 
+    <span style="color:#960050;background-color:#1e0010">RequestHeaderSize:</span> <span style="color:#960050;background-color:#1e0010">long,</span> 
+    <span style="color:#960050;background-color:#1e0010">RequestPacketSize:</span> <span style="color:#960050;background-color:#1e0010">long,</span> 
+    <span style="color:#960050;background-color:#1e0010">ResponseHeaderSize:</span> <span style="color:#960050;background-color:#1e0010">long,</span> 
+    <span style="color:#960050;background-color:#1e0010">ResponsePacketSize:</span> <span style="color:#960050;background-color:#1e0010">long,</span> 
+    <span style="color:#960050;background-color:#1e0010">RequestContentLength:</span> <span style="color:#960050;background-color:#1e0010">long,</span> 
+    <span style="color:#960050;background-color:#1e0010">RequestMd</span><span style="color:#ae81ff">5</span><span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#960050;background-color:#1e0010">string,</span> 
+    <span style="color:#960050;background-color:#1e0010">ServerMd</span><span style="color:#ae81ff">5</span><span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#960050;background-color:#1e0010">string,</span> 
+    <span style="color:#960050;background-color:#1e0010">EtagIdentifier:</span> <span style="color:#960050;background-color:#1e0010">string,</span> 
+    <span style="color:#960050;background-color:#1e0010">LastModifiedTime:</span> <span style="color:#960050;background-color:#1e0010">datetime,</span> 
+    <span style="color:#960050;background-color:#1e0010">ConditionsUsed:</span> <span style="color:#960050;background-color:#1e0010">string,</span> 
+    <span style="color:#960050;background-color:#1e0010">UserAgentHeader:</span> <span style="color:#960050;background-color:#1e0010">string,</span> 
+    <span style="color:#960050;background-color:#1e0010">ReferrerHeader:</span> <span style="color:#960050;background-color:#1e0010">string,</span> 
+    <span style="color:#960050;background-color:#1e0010">LogSource:</span> <span style="color:#960050;background-color:#1e0010">string)</span>
+</code></pre></div><p>See log format details <a href="https://docs.microsoft.com/rest/api/storageservices/storage-analytics-log-format">here</a></p>
+<p><img src="pic01.png" alt="Pic 01" /></p>
+</li>
+<li>
+<p>Create the Azure Data Factory <a href="https://docs.microsoft.com/azure/data-factory/quickstart-create-data-factory-portal#create-a-data-factory">here</a> (just this section, not the entire lab)</p>
+<p>The last step should be to launch the &ldquo;Author &amp; Monitor&rdquo; tool</p>
+<p><img src="pic02.png" alt="Pic 02" /></p>
+</li>
+<li>
+<p>When the tool is launched select &ldquo;Copy Data&rdquo;</p>
+<p><img src="pic03.png" alt="Pic 03" /></p>
+</li>
+<li>
+<p>Give your task a name/description, select Tumbling Window, and set the recurrence to the period you want. Press Next.</p>
+<blockquote>
+<p>Shorter windows will reduce delay between when something is logged and when it appears in Data Explorer, however it will increase your Data Factory costs.</p>
+</blockquote>
+<p><img src="pic04.png" alt="Pic 04" /></p>
+</li>
+<li>
+<p>Select create a new connection and &ldquo;Azure Blob Storage&rdquo; as the linked service. Populate the configuration for the linked service. Select the options that are appropriate for your environment, test the connection, then create the linked service. And press next to select the source dataset.</p>
+<p><img src="pic05.png" alt="Pic 05" /></p>
+<p>I am using a managed identity here, I have given this managed identity &ldquo;Storage Blob Data Reader&rdquo; permissions on the storage account.</p>
+<p><img src="pic06.png" alt="Pic 06" /></p>
+</li>
+<li>
+<p>Choose the input file or folder, type in <code>$logs/</code> in the file or folder box. NOTE: you cannot use the browse feature. Select <code>Incremental Load: LastModifiedDate</code>, and press next</p>
+<p><img src="pic07.png" alt="Pic 07" /></p>
+</li>
+<li>
+<p>This should now go and pull some data from the container for you to tell ADF how to parse the log files. Here I leave the defaults, but ADD an additional column to record what log file the record came from. Press Next.</p>
+<p><img src="pic08.png" alt="Pic 08" /></p>
+</li>
+<li>
+<p>Pick your destination, select &ldquo;create new connection&rdquo;, select Azure Data Explorer, populate the configuration for the linked service. Select the options that are appropriate for your environment, test the connection, then create the linked service. And press next to select the destination dataset.</p>
+<p><img src="pic09.png" alt="Pic 09" /></p>
+<p>I am using a managed identity here, I have given this managed identity &ldquo;Admin&rdquo; permissions on the database (NOT the Data Explorer server) You need admin to do the mapping in the next step.</p>
+<p><img src="pic10.png" alt="Pic 10" /></p>
+</li>
+<li>
+<p>You should now be prompted to select a table in data explorer to load the data into., do so then select next.</p>
+<p><img src="pic11.png" alt="Pic 11" /></p>
+</li>
+<li>
+<p>You should now see that ADF has mapped over our source to destination columns 1 by 1 for us, all these defaults should be good, press next.</p>
+<p><img src="pic12.png" alt="Pic 12" /></p>
+</li>
+<li>
+<p>Adjust the settings per your needs, I am just going to leave the defaults and press next.</p>
+<p><img src="pic13.png" alt="Pic 13" /></p>
+</li>
+<li>
+<p>Review the summary and press next, it should validate, and set everything up for you, now your ADF job is all setup. When new logs arrive, they will be parsed and inserted into ADX.</p>
+</li>
+<li>
+<p>You should now be able to query your ADX database to review the logs.</p>
+<p><img src="pic14.png" alt="Pic 14" /></p>
+</li>
+</ol>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+ 
+        <hr />
+Azure Storage &copy;2021 <br />
+Visit the <a href="https://azure.microsoft.com/services/storage/">Azure Storage homepage</a> or read our <a href="https://docs.microsoft.com/azure/storage/">getting started guide</a> or the <a href="https://azure.microsoft.com/blog/topics/storage-backup-and-recovery/">Azure Storage Blog</a>. <br />
+Contact us: <a href="mailto:azurestoragefeedback@microsoft.com?subject=AzureStorage.com%20Feedback">azurestoragefeedback@microsoft.com</a>.<br />
+Generated on Tue, Mar 30 2021 16:53:51 UTC
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#step-by-step">Step by Step</a></li>
+  </ul>
+</nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
+
+<script>
+    $('a[href^="http://"], a[href^="https://"]').not('a[href*="'+location.hostname+'"]').attr('target','_blank');
+</script>
+
+<script type="text/javascript">
+    !function(T,l,y){var S=T.location,u="script",k="instrumentationKey",D="ingestionendpoint",C="disableExceptionTracking",E="ai.device.",I="toLowerCase",b="crossOrigin",w="POST",e="appInsightsSDK",t=y.name||"appInsights";(y.name||T[e])&&(T[e]=t);var n=T[t]||function(d){var g=!1,f=!1,m={initialize:!0,queue:[],sv:"4",version:2,config:d};function v(e,t){var n={},a="Browser";return n[E+"id"]=a[I](),n[E+"type"]=a,n["ai.operation.name"]=S&&S.pathname||"_unknown_",n["ai.internal.sdkVersion"]="javascript:snippet_"+(m.sv||m.version),{time:function(){var e=new Date;function t(e){var t=""+e;return 1===t.length&&(t="0"+t),t}return e.getUTCFullYear()+"-"+t(1+e.getUTCMonth())+"-"+t(e.getUTCDate())+"T"+t(e.getUTCHours())+":"+t(e.getUTCMinutes())+":"+t(e.getUTCSeconds())+"."+((e.getUTCMilliseconds()/1e3).toFixed(3)+"").slice(2,5)+"Z"}(),iKey:e,name:"Microsoft.ApplicationInsights."+e.replace(/-/g,"")+"."+t,sampleRate:100,tags:n,data:{baseData:{ver:2}}}}var h=d.url||y.src;if(h){function a(e){var t,n,a,i,r,o,s,c,p,l,u;g=!0,m.queue=[],f||(f=!0,t=h,s=function(){var e={},t=d.connectionString;if(t)for(var n=t.split(";"),a=0;a<n.length;a++){var i=n[a].split("=");2===i.length&&(e[i[0][I]()]=i[1])}if(!e[D]){var r=e.endpointsuffix,o=r?e.location:null;e[D]="https://"+(o?o+".":"")+"dc."+(r||"services.visualstudio.com")}return e}(),c=s[k]||d[k]||"",p=s[D],l=p?p+"/v2/track":config.endpointUrl,(u=[]).push((n="SDK LOAD Failure: Failed to load Application Insights SDK script (See stack for details)",a=t,i=l,(o=(r=v(c,"Exception")).data).baseType="ExceptionData",o.baseData.exceptions=[{typeName:"SDKLoadFailed",message:n.replace(/\./g,"-"),hasFullStack:!1,stack:n+"\nSnippet failed to load ["+a+"] -- Telemetry is disabled\nHelp Link: https://go.microsoft.com/fwlink/?linkid=2128109\nHost: "+(S&&S.pathname||"_unknown_")+"\nEndpoint: "+i,parsedStack:[]}],r)),u.push(function(e,t,n,a){var i=v(c,"Message"),r=i.data;r.baseType="MessageData";var o=r.baseData;return o.message='AI (Internal): 99 message:"'+("SDK LOAD Failure: Failed to load Application Insights SDK script (See stack for details) ("+n+")").replace(/\"/g,"")+'"',o.properties={endpoint:a},i}(0,0,t,l)),function(e,t){if(JSON){var n=T.fetch;if(n&&!y.useXhr)n(t,{method:w,body:JSON.stringify(e),mode:"cors"});else if(XMLHttpRequest){var a=new XMLHttpRequest;a.open(w,t),a.setRequestHeader("Content-type","application/json"),a.send(JSON.stringify(e))}}}(u,l))}function i(e,t){f||setTimeout(function(){!t&&m.core||a()},500)}var e=function(){var n=l.createElement(u);n.src=h;var e=y[b];return!e&&""!==e||"undefined"==n[b]||(n[b]=e),n.onload=i,n.onerror=a,n.onreadystatechange=function(e,t){"loaded"!==n.readyState&&"complete"!==n.readyState||i(0,t)},n}();y.ld<0?l.getElementsByTagName("head")[0].appendChild(e):setTimeout(function(){l.getElementsByTagName(u)[0].parentNode.appendChild(e)},y.ld||0)}try{m.cookie=l.cookie}catch(p){}function t(e){for(;e.length;)!function(t){m[t]=function(){var e=arguments;g||m.queue.push(function(){m[t].apply(m,e)})}}(e.pop())}var n="track",r="TrackPage",o="TrackEvent";t([n+"Event",n+"PageView",n+"Exception",n+"Trace",n+"DependencyData",n+"Metric",n+"PageViewPerformance","start"+r,"stop"+r,"start"+o,"stop"+o,"addTelemetryInitializer","setAuthenticatedUserContext","clearAuthenticatedUserContext","flush"]),m.SeverityLevel={Verbose:0,Information:1,Warning:2,Error:3,Critical:4};var s=(d.extensionConfig||{}).ApplicationInsightsAnalytics||{};if(!0!==d[C]&&!0!==s[C]){method="onerror",t(["_"+method]);var c=T[method];T[method]=function(e,t,n,a,i){var r=c&&c(e,t,n,a,i);return!0!==r&&m["_"+method]({message:e,url:t,lineNumber:n,columnNumber:a,error:i}),r},d.autoExceptionInstrumented=!0}return m}(y.cfg);(T[t]=n).queue&&0===n.queue.length&&n.trackPageView({})}(window,document,{
+    src: "https://az416426.vo.msecnd.net/scripts/b/ai.2.min.js", 
+    
+    
+    
+    
+    cfg: { 
+        instrumentationKey: "0600b273-5440-42cc-9fe4-51924c721ce0"
+         
+    }});
+</script>
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
