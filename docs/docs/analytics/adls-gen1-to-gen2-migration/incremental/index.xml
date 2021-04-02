@@ -2,9 +2,9 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Incremental Copy Pattern Guide: A quick start template on Azure Storage</title>
-    <link>https://azurestorage.com/docs/analytics/adls-gen1-to-gen2-migration/incremental/</link>
+    <link>https://azure.github.io/Storage/docs/analytics/adls-gen1-to-gen2-migration/incremental/</link>
     <description>Recent content in Incremental Copy Pattern Guide: A quick start template on Azure Storage</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="https://azurestorage.com/docs/analytics/adls-gen1-to-gen2-migration/incremental/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language><atom:link href="https://azure.github.io/Storage/docs/analytics/adls-gen1-to-gen2-migration/incremental/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

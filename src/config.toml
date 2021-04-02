@@ -1,4 +1,4 @@
-baseURL = 'https://azurestorage.com/'
+baseURL = 'https://azure.github.io/Storage/'
 languageCode = "en-us"
 title = "Azure Storage"
 theme = "book"

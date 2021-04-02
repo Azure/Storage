@@ -2,16 +2,16 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Home on Azure Storage</title>
-    <link>https://azurestorage.com/</link>
+    <link>https://azure.github.io/Storage/</link>
     <description>Recent content in Home on Azure Storage</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="https://azurestorage.com/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language><atom:link href="https://azure.github.io/Storage/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Application and Workload Update</title>
-      <link>https://azurestorage.com/docs/analytics/adls-gen1-to-gen2-migration/application-update/</link>
+      <link>https://azure.github.io/Storage/docs/analytics/adls-gen1-to-gen2-migration/application-update/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://azurestorage.com/docs/analytics/adls-gen1-to-gen2-migration/application-update/</guid>
+      <guid>https://azure.github.io/Storage/docs/analytics/adls-gen1-to-gen2-migration/application-update/</guid>
       <description>Application and Workload Update #  Overview #  The purpose of this document is to provide steps and ways to migrate the workloads and applications from Gen1 to Gen2 after data migration is completed.
 This can be applicable for below migration patterns:
   Incremental Copy pattern
@@ -22,10 +22,10 @@ This can be applicable for below migration patterns:
     
     <item>
       <title>Azure Blob Storage - Setup Object Replication with ARM Templates</title>
-      <link>https://azurestorage.com/docs/application-and-user-data/basics/azure-blob-storage-object-replication-arm/</link>
+      <link>https://azure.github.io/Storage/docs/application-and-user-data/basics/azure-blob-storage-object-replication-arm/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://azurestorage.com/docs/application-and-user-data/basics/azure-blob-storage-object-replication-arm/</guid>
+      <guid>https://azure.github.io/Storage/docs/application-and-user-data/basics/azure-blob-storage-object-replication-arm/</guid>
       <description>Azure Blob Storage - Setup Object Replication with ARM Templates #  Object replication asynchronously copies block blobs between a source storage account and a destination account.
 You can find a good overview of the service here, and instructions on how to deploy it via the portal here.
 Here we are going to focus on deploying Object Replication with ARM. You will see we are doing this in 3 steps with three templates orchestrated with some CLI code.</description>
@@ -33,47 +33,47 @@ Here we are going to focus on deploying Object Replication with ARM. You will se
     
     <item>
       <title>Azure blob storage data management and retention</title>
-      <link>https://azurestorage.com/docs/application-and-user-data/code-samples/data-retention/</link>
+      <link>https://azure.github.io/Storage/docs/application-and-user-data/code-samples/data-retention/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://azurestorage.com/docs/application-and-user-data/code-samples/data-retention/</guid>
+      <guid>https://azure.github.io/Storage/docs/application-and-user-data/code-samples/data-retention/</guid>
       <description>Azure blob storage data management and retention #  When you store your data in blob storage, there are a number of policies which govern how your data is managed and retained in the event of deletion. Data management is strictly governed and Microsoft® is committed to ensuring that your data remains your data, without exception. When you delete your data - either through an API or due to a subscription being removed - there are varying policies which dictate the length of time for which your data may be retained in the event you would need to recover it.</description>
     </item>
     
     <item>
       <title>Azure Blob Storage data protection features</title>
-      <link>https://azurestorage.com/docs/application-and-user-data/basics/azure-blob-storage-data-protection-features/</link>
+      <link>https://azure.github.io/Storage/docs/application-and-user-data/basics/azure-blob-storage-data-protection-features/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://azurestorage.com/docs/application-and-user-data/basics/azure-blob-storage-data-protection-features/</guid>
+      <guid>https://azure.github.io/Storage/docs/application-and-user-data/basics/azure-blob-storage-data-protection-features/</guid>
       <description>Azure Blob Storage data protection features #   Enterprises, partners, and IT professionals store business-critical data in Azure Blob Storage. We are committed to providing the best-in-class data protection and recovery capabilities to keep your applications running. In this video, learn more about the Azure Blob Storage data protection features.
  Learn more about Data Protection &amp;amp; Security Azure Defender for Storage Immutable Blob storage  </description>
     </item>
     
     <item>
       <title>Azure Blob Storage Upload API&#39;s</title>
-      <link>https://azurestorage.com/docs/application-and-user-data/basics/azure-blob-storage-upload-apis/</link>
+      <link>https://azure.github.io/Storage/docs/application-and-user-data/basics/azure-blob-storage-upload-apis/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://azurestorage.com/docs/application-and-user-data/basics/azure-blob-storage-upload-apis/</guid>
+      <guid>https://azure.github.io/Storage/docs/application-and-user-data/basics/azure-blob-storage-upload-apis/</guid>
       <description>Azure Blob Storage Upload API&amp;rsquo;s #  Customers typically use existing applications such as AzCopy, Azure Storage Explorer, etc. or the Azure Storage SDK&amp;rsquo;s (.NET, Java, Node.js, Python, Go, PHP, Ruby) when building custom apps to access the Azure Storage API&amp;rsquo;s. However, a good understanding of the API&amp;rsquo;s is critical when tuning your uploads for high performance. This document provides an overview of the different upload API&amp;rsquo;s to help you compare the differences between them.</description>
     </item>
     
     <item>
       <title>Azure Partner Backup Documentation</title>
-      <link>https://azurestorage.com/docs/backup-and-archive/commvault/</link>
+      <link>https://azure.github.io/Storage/docs/backup-and-archive/commvault/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://azurestorage.com/docs/backup-and-archive/commvault/</guid>
+      <guid>https://azure.github.io/Storage/docs/backup-and-archive/commvault/</guid>
       <description>Microsoft Partner Documentation for Commvault for Azure #  https://documentation.commvault.com/commvault/v11/article?p=31252.htm</description>
     </item>
     
     <item>
       <title>Azure Partner Backup Documentation</title>
-      <link>https://azurestorage.com/docs/backup-and-archive/veritas/</link>
+      <link>https://azure.github.io/Storage/docs/backup-and-archive/veritas/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://azurestorage.com/docs/backup-and-archive/veritas/</guid>
+      <guid>https://azure.github.io/Storage/docs/backup-and-archive/veritas/</guid>
       <description>Microsoft Partner Documentation for Partner X #  This article describes the storage options for partners.
 Support Matrix #     GPv2
 Storage Cool
@@ -90,10 +90,10 @@ Azure Blob     X X  X X X X X X    Links to Marketplace Offerings #  Information
     
     <item>
       <title>Azure Partner Backup Documentation - title</title>
-      <link>https://azurestorage.com/docs/backup-and-archive/rubrik/</link>
+      <link>https://azure.github.io/Storage/docs/backup-and-archive/rubrik/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://azurestorage.com/docs/backup-and-archive/rubrik/</guid>
+      <guid>https://azure.github.io/Storage/docs/backup-and-archive/rubrik/</guid>
       <description>Microsoft Partner Documentation for Partner X #  This article describes the storage options for partners.
 Support Matrix #     GPv2
 Storage Cool
@@ -110,66 +110,66 @@ Azure Blob     X X  X X X X X X    Links to Marketplace Offerings #  Information
     
     <item>
       <title>Azure Partner Backup Documentation - title</title>
-      <link>https://azurestorage.com/docs/backup-and-archive/veeam/</link>
+      <link>https://azure.github.io/Storage/docs/backup-and-archive/veeam/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://azurestorage.com/docs/backup-and-archive/veeam/</guid>
+      <guid>https://azure.github.io/Storage/docs/backup-and-archive/veeam/</guid>
       <description>Links to relevant documentation #   https://www.veeam.com/documentation-guides-datasheets.html  </description>
     </item>
     
     <item>
       <title>Azure Storage Supported Character Scrubber</title>
-      <link>https://azurestorage.com/docs/application-and-user-data/code-samples/supported-character-scrubber/</link>
+      <link>https://azure.github.io/Storage/docs/application-and-user-data/code-samples/supported-character-scrubber/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://azurestorage.com/docs/application-and-user-data/code-samples/supported-character-scrubber/</guid>
+      <guid>https://azure.github.io/Storage/docs/application-and-user-data/code-samples/supported-character-scrubber/</guid>
       <description>Azure Storage Supported Character Scrubber #  Azure Storage supports a wide variety of Unicode characters across containers, blobs, metadata, and snapshots. When you are migrating from another storage system to Azure, you may find that some characters supported in your source system (e.g., AWS S3) are not supported by Azure and will require an object to be renamed.
 The PowerShell script AzureStorageSupportedCharacterScrubber.ps1 provides a turnkey solution to discovering unsupported characters in your file names with a simple CSV input.</description>
     </item>
     
     <item>
       <title>Dual Pipeline Pattern Guide: A quick start template</title>
-      <link>https://azurestorage.com/docs/analytics/adls-gen1-to-gen2-migration/dual-pipeline/</link>
+      <link>https://azure.github.io/Storage/docs/analytics/adls-gen1-to-gen2-migration/dual-pipeline/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://azurestorage.com/docs/analytics/adls-gen1-to-gen2-migration/dual-pipeline/</guid>
+      <guid>https://azure.github.io/Storage/docs/analytics/adls-gen1-to-gen2-migration/dual-pipeline/</guid>
       <description>Dual Pipeline Pattern Guide: A quick start template #  Overview #  The purpose of this document is to provide a manual for the use of Dual pipeline pattern for migration of data from Gen1 to Gen2. This provides the directions, references and approach how to set up the Dual pipeline, do migration of existing data from Gen1 to Gen2 and set up the workloads to run at Gen2 endpoint.</description>
     </item>
     
     <item>
       <title>Estimating Pricing for Azure Block Blob Deployments</title>
-      <link>https://azurestorage.com/docs/application-and-user-data/code-samples/estimate-block-blob/</link>
+      <link>https://azure.github.io/Storage/docs/application-and-user-data/code-samples/estimate-block-blob/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://azurestorage.com/docs/application-and-user-data/code-samples/estimate-block-blob/</guid>
+      <guid>https://azure.github.io/Storage/docs/application-and-user-data/code-samples/estimate-block-blob/</guid>
       <description>Estimating Pricing for Azure Block Blob Deployments #  We have several tools to help you price Azure Block Blob Storage, however figuring out what questions you need to answer to produce an estimate can sometimes be overwhelming. To that end we have put together this simple template. You can use the template as-is or modify it to fit your workload. Once you have the template populated you will have some estimates you can input into the Azure Pricing Calculator to get a cost estimate.</description>
     </item>
     
     <item>
       <title>Gen1 and Gen2 ACL Behavior Analysis</title>
-      <link>https://azurestorage.com/docs/analytics/adls-gen1-to-gen2-migration/adls-gen1-and-gen2-acl-behavior/</link>
+      <link>https://azure.github.io/Storage/docs/analytics/adls-gen1-to-gen2-migration/adls-gen1-and-gen2-acl-behavior/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://azurestorage.com/docs/analytics/adls-gen1-to-gen2-migration/adls-gen1-and-gen2-acl-behavior/</guid>
+      <guid>https://azure.github.io/Storage/docs/analytics/adls-gen1-to-gen2-migration/adls-gen1-and-gen2-acl-behavior/</guid>
       <description>Gen1 and Gen2 ACL Behavior Analysis #  Overview #  Azure Data Lake Storage is Microsoft&amp;rsquo;s optimized storage solution for big data analytics workloads. ADLS Gen2 is the combination of the current ADLS Gen1 and Blob storage.
 Azure Data Lake Storage Gen2 is built on Azure Blob storage and provides a set of capabilities dedicated to big data analytics. Data Lake Storage Gen2 combines features from Azure Data Lake Storage Gen1, such as file system semantics, directory, and file level security and low cost scalability, tiered storage, high availability/disaster recovery capabilities from Azure Blob storage.</description>
     </item>
     
     <item>
       <title>HPC IoT and AI</title>
-      <link>https://azurestorage.com/docs/hpc-iot-and-ai/</link>
+      <link>https://azure.github.io/Storage/docs/hpc-iot-and-ai/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://azurestorage.com/docs/hpc-iot-and-ai/</guid>
+      <guid>https://azure.github.io/Storage/docs/hpc-iot-and-ai/</guid>
       <description>HPC IoT and AI #  Coming Soon. . .</description>
     </item>
     
     <item>
       <title>Load, Parse and Summarize Classic Azure Storage Logs in Azure Data Explorer</title>
-      <link>https://azurestorage.com/docs/application-and-user-data/basics/azure-storage-classic-logs-to-data-explorer/</link>
+      <link>https://azure.github.io/Storage/docs/application-and-user-data/basics/azure-storage-classic-logs-to-data-explorer/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://azurestorage.com/docs/application-and-user-data/basics/azure-storage-classic-logs-to-data-explorer/</guid>
+      <guid>https://azure.github.io/Storage/docs/application-and-user-data/basics/azure-storage-classic-logs-to-data-explorer/</guid>
       <description>Load, Parse and Summarize Classic Azure Storage Logs in Azure Data Explorer #  Azure Storage is moving to use Azure Monitor for logging. This is great because querying logs with Kusto is super easy. More info
  If you can use Azure Monitor, use it, and don’t read the rest of this article.
  However, some customers might need to use the Classic Storage logging, but our classic logging goes to text files stored in the $logs container in your storage account.</description>
@@ -177,68 +177,68 @@ Azure Data Lake Storage Gen2 is built on Azure Blob storage and provides a set o
     
     <item>
       <title>Managing concurrent uploads in Azure blob storage with blob versioning</title>
-      <link>https://azurestorage.com/docs/application-and-user-data/code-samples/concurrent-uploads-with-versioning/</link>
+      <link>https://azure.github.io/Storage/docs/application-and-user-data/code-samples/concurrent-uploads-with-versioning/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://azurestorage.com/docs/application-and-user-data/code-samples/concurrent-uploads-with-versioning/</guid>
+      <guid>https://azure.github.io/Storage/docs/application-and-user-data/code-samples/concurrent-uploads-with-versioning/</guid>
       <description>Managing concurrent uploads in Azure blob storage with blob versioning #  When you are building applications that need to have multiple clients uploading to the same object in Azure blob storage, there are several options to help you manage concurrency depending on your strategy. Concurrency strategies include:
  Optimistic concurrency: An application performing an update will, as part of its update, determine whether the data has changed since the application last read that data.</description>
     </item>
     
     <item>
       <title>NFS 3.0 support for Azure Blob Storage</title>
-      <link>https://azurestorage.com/docs/application-and-user-data/basics/nfs-3-support-for-azure-blob-storage/</link>
+      <link>https://azure.github.io/Storage/docs/application-and-user-data/basics/nfs-3-support-for-azure-blob-storage/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://azurestorage.com/docs/application-and-user-data/basics/nfs-3-support-for-azure-blob-storage/</guid>
+      <guid>https://azure.github.io/Storage/docs/application-and-user-data/basics/nfs-3-support-for-azure-blob-storage/</guid>
       <description>NFS 3.0 support for Azure Blob Storage #   In this video, we introduce Azure Blob NFS 3.0 support, the only public cloud object storage offering native file system compatibility. Learn about NFS support and how to accelerate your workload migration from on premise datacenters to Azure.
  Learn more Step by step guide NFSv3 performance considerations Contact us: BlobNFSFeedback@microsoft.com  </description>
     </item>
     
     <item>
       <title>Optimize your costs with Azure Blob Storage</title>
-      <link>https://azurestorage.com/docs/application-and-user-data/basics/optimize-your-costs-with-azure-blob-storage/</link>
+      <link>https://azure.github.io/Storage/docs/application-and-user-data/basics/optimize-your-costs-with-azure-blob-storage/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://azurestorage.com/docs/application-and-user-data/basics/optimize-your-costs-with-azure-blob-storage/</guid>
+      <guid>https://azure.github.io/Storage/docs/application-and-user-data/basics/optimize-your-costs-with-azure-blob-storage/</guid>
       <description>Optimize your costs with Azure Blob Storage #   In this video, learn about the Azure Blob Storage features that help you save cost and keep your Total Cost of Ownership (TCO) low.
  Learn more about Azure Storage redundancy Tiers and lifecycle Reservations Network routing preference  </description>
     </item>
     
     <item>
       <title>Storage Partners</title>
-      <link>https://azurestorage.com/docs/storage-partners/</link>
+      <link>https://azure.github.io/Storage/docs/storage-partners/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://azurestorage.com/docs/storage-partners/</guid>
+      <guid>https://azure.github.io/Storage/docs/storage-partners/</guid>
       <description>Storage Partners #  Archive #   Acronis Archive360 Commvault HubStor Igneous Veeam Veritas  Backup #   Acronis Actifio Carbonite Cloudberry Cohesity Commvault Igneous Rubrik Veeam Veritas  Disaster Recovery #   Portworx StorageOS Zerto  MultiProtocol #   Caringo Cloudian Minio Scality  MultiSite collaboration #   Nasuni Panzura Talon  Tiering #   Komprise Moonwalk Peer Software Pure Storage Quantum  Tools #   Cloudberry Komprise  Verticals #  Automotive #   Cognata Elektrobit Linker Networks  Financial Services #   Archive360 Data Parser HubStor XenData  Healthcare #   DNA Nexus Nucleus Health  Oil &amp;amp; Gas #   Cegal Interica PixStor Tiger Tech Xen Data  </description>
     </item>
     
     <item>
       <title>The Hitchhiker&#39;s Guide to the Data Lake</title>
-      <link>https://azurestorage.com/docs/analytics/hitchhikers-guide-to-the-datalake/</link>
+      <link>https://azure.github.io/Storage/docs/analytics/hitchhikers-guide-to-the-datalake/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://azurestorage.com/docs/analytics/hitchhikers-guide-to-the-datalake/</guid>
+      <guid>https://azure.github.io/Storage/docs/analytics/hitchhikers-guide-to-the-datalake/</guid>
       <description>The Hitchhiker&#39;s Guide to the Data Lake #  A comprehensive guide on key considerations involved in building your enterprise data lake
  The Hitchhiker&#39;s Guide to the Data Lake  When is ADLS Gen2 the right choice for your data lake? Key considerations in designing your data lake Terminology Organizing and managing data in your data lake  Do I want a centralized or a federated data lake implementation? How do I organize my data?</description>
     </item>
     
     <item>
       <title>Tools and Utilities</title>
-      <link>https://azurestorage.com/docs/tools-and-utilities/</link>
+      <link>https://azure.github.io/Storage/docs/tools-and-utilities/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://azurestorage.com/docs/tools-and-utilities/</guid>
+      <guid>https://azure.github.io/Storage/docs/tools-and-utilities/</guid>
       <description>Tools and Utilities #   AzCopy is a command-line utility that you can use to copy blobs or files to or from a storage account. AzReplicate is a sample application designed to help Azure Storage customers perform very large, multi-petabyte data migrations to Azure Blob Storage. AzDataMaker is a sample .NET Core app that runs in a Linux Azure Container Instance that generates files and uploads them to Azure Blob Storage.</description>
     </item>
     
     <item>
       <title>WANdisco Fusion Set up and Installation Guide</title>
-      <link>https://azurestorage.com/docs/analytics/adls-gen1-to-gen2-migration/bi-directional/wandisco-set-up-and-installation/</link>
+      <link>https://azure.github.io/Storage/docs/analytics/adls-gen1-to-gen2-migration/bi-directional/wandisco-set-up-and-installation/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://azurestorage.com/docs/analytics/adls-gen1-to-gen2-migration/bi-directional/wandisco-set-up-and-installation/</guid>
+      <guid>https://azure.github.io/Storage/docs/analytics/adls-gen1-to-gen2-migration/bi-directional/wandisco-set-up-and-installation/</guid>
       <description>WANdisco Fusion Set up and Installation Guide #  Overview #  This quickstart will help in setting up the Azure Linux Virtual Machine (VM) suitable for the WANdisco Fusion installation. Below will be covered:
   Azure Linux Virtual Machine (VM) creation using Azure Portal
   Configuration set up and Installation guide for WANdisco Fusion
@@ -248,10 +248,10 @@ Azure Data Lake Storage Gen2 is built on Azure Blob storage and provides a set o
     
     <item>
       <title>What&#39;s New</title>
-      <link>https://azurestorage.com/docs/whats-new/</link>
+      <link>https://azure.github.io/Storage/docs/whats-new/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://azurestorage.com/docs/whats-new/</guid>
+      <guid>https://azure.github.io/Storage/docs/whats-new/</guid>
       <description>What&amp;rsquo;s New #   Load, Parse and Summarize Classic Azure Storage Logs in Azure Data Explorer (03/30/2021) How do you deploy Object Replication with ARM? (03/26/2021) What are the differences between the Azure Blob Storage Upload API’s and when should I use each? (02/09/2021) ADLS Gen 1 to Gen 2 Migration Guide (02/08/2021) NFS 3.0 support for Azure Blob Storage (02/03/2021) Optimize your costs with Azure Blob Storage (02/01/2021) Azure Blob Storage data protection features (01/28/2021) Managing concurrent uploads with versioning (01/25/2021) Azure Storage Supported Character Scrubber PowerShell Script (01/05/2021) Estimating Pricing for Azure Block Blob Deployments (01/01/2021) Data management and retention (12/16/2020) Hitchhiker&amp;rsquo;s Guide to the Datalake (10/27/2020) AzReplicate (08/30/2020) AzDataMaker (08/26/2020)  </description>
     </item>
     
