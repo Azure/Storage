@@ -1,3 +1,3 @@
 # Azure Storage Content Repository
 
-Please view the site at [http://azurestorage.com/](http://azurestorage.com/)
+Please view the site at [https://azure.github.io/Storage/](https://azure.github.io/Storage/)
