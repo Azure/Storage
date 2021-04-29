@@ -9,18 +9,6 @@ Welcome to the Azure Storage Content Repository. In this repository we have comp
 
 This repository is intended to be a supplement to the official [Azure Storage documentation](https://docs.microsoft.com/azure/storage/) with additional specialized content and links to non-Microsoft generated content. We encourage you to review the official documentation also.
 
-## Azure Storage Day - Free digital event on April 29
-
-![Azure Storage Day 2021](./images/azure-storage-day-2021.png)
-
-The Azure Storage Day digital event kicks off on April 29 at 9:00 AM PDT. This event will focus on Azure Storage services and how they help you run all your workloads. In this event, you will be able to:
-
-1. Watch demos and see how customers are using Azure Storage.
-2. Connect with Microsoft product experts and get answers to your storage questions.
-3. Map comprehensive Azure Storage services to your enterprise workloads.
-
-Register at [https://aka.ms/AzureStorageDay](https://aka.ms/AzureStorageDay)
-
 ## Storage Services
 
 ### Blob Storage
