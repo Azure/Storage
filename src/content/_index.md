@@ -9,6 +9,10 @@ Welcome to the Azure Storage Content Repository. In this repository we have comp
 
 This repository is intended to be a supplement to the official [Azure Storage documentation](https://docs.microsoft.com/azure/storage/) with additional specialized content and links to non-Microsoft generated content. We encourage you to review the official documentation also.
 
+### Azure Storage Day 2021
+
+Did you miss Azure Storage Day? Check out all the sessions on demand [here](https://aka.ms/AzureStorageDay).
+
 ## Storage Services
 
 ### Blob Storage
