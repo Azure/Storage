@@ -6,6 +6,8 @@ title: Azure Data Lake Storage Gen1 to Gen2 Migration Sample
 
 Welcome to the documentation on migration from Gen1 to Gen2. Please review the [Gen1-Gen2 Migration Approach guide](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-migrate-gen1-to-gen2) to understand the patterns and approach. You can choose one of these patterns, combine them together, or design a custom pattern of your own.
 
+> NOTE: On July 14 2021 we released a Limited preview of a feature to Migrate your Azure Data Lake Storage from Gen1 to Gen2 using the Azure Portal. Check it out [here](https://azure.microsoft.com/updates/limited-preview-migrate-your-azure-data-lake-storage-from-gen1-to-gen2-using-the-azure-portal/)
+
 ## Migration Patterns
 
 You will find here the resources to help with below patterns:
