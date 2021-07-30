@@ -2,7 +2,7 @@
 <html lang="en" dir=>
 
 <head>
-  <meta name="generator" content="Hugo 0.85.0" />
+  <meta name="generator" content="Hugo 0.86.1" />
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Azure Blob Storage - Setup Object Replication with ARM Templates #  Object replication asynchronously copies block blobs between a source storage account and a destination account.
@@ -21,7 +21,7 @@ Here we are going to focus on deploying Object Replication with ARM. You will se
 <link rel="manifest" href="/Storage/manifest.json">
 <link rel="icon" href="/Storage/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/Storage/book.min.e935e20bd0d469378cb482f0958edf258c731a4f895dccd55799c6fbc8043f23.css" integrity="sha256-6TXiC9DUaTeMtILwlY7fJYxzGk&#43;JXczVV5nG&#43;8gEPyM=">
-<script defer src="/Storage/en.search.min.45c951e7129d605d0bc1a6d32ba3c5d6d92df0ee9e3b40305ea2b1c6fb190b55.js" integrity="sha256-RclR5xKdYF0LwabTK6PF1tkt8O6eO0AwXqKxxvsZC1U="></script>
+<script defer src="/Storage/en.search.min.582bca250ee819e0fc5227ee4160341f7af3d4b2b8bad710fbef0b314566a175.js" integrity="sha256-WCvKJQ7oGeD8UifuQWA0H3rz1LK4utcQ&#43;&#43;8LMUVmoXU="></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -245,7 +245,7 @@ https://github.com/alex-shpak/hugo-book
 <li>In this sample we are using the same region for source and destination this is not required</li>
 <li>In this sample we are using the same durability (i.e. LRS) for source and destination this is not required</li>
 </ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">RG<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&lt;resource group name&gt;&#34;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">RG<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&lt;resource group name&gt;&#34;</span>
 LOCATION<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&lt;region name i.e. westus&gt;&#34;</span>
 SRCACCT<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&lt;name of source storage account&gt;&#34;</span>
 DESTACCT<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&lt;name of destination storage account&gt;&#34;</span>
@@ -260,7 +260,7 @@ az group create --name $RG --location $LOCATION
 <ul>
 <li>Make sure that your accounts have Change Feed and Versioning features enabled</li>
 </ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">az deployment group create <span style="color:#ae81ff">\
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">az deployment group create <span style="color:#ae81ff">\
 </span><span style="color:#ae81ff"></span>    --name TestDeployment <span style="color:#ae81ff">\
 </span><span style="color:#ae81ff"></span>    --resource-group $RG  <span style="color:#ae81ff">\
 </span><span style="color:#ae81ff"></span>    --template-file step01.json <span style="color:#ae81ff">\
@@ -275,7 +275,7 @@ az group create --name $RG --location $LOCATION
 <ul>
 <li>You might need to wait a bit for the features you enabled in the last step to turn on before doing this</li>
 </ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">az deployment group create <span style="color:#ae81ff">\
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">az deployment group create <span style="color:#ae81ff">\
 </span><span style="color:#ae81ff"></span>    --name TestDeployment <span style="color:#ae81ff">\
 </span><span style="color:#ae81ff"></span>    --resource-group $RG  <span style="color:#ae81ff">\
 </span><span style="color:#ae81ff"></span>    --template-file step02.json <span style="color:#ae81ff">\
@@ -290,7 +290,7 @@ az group create --name $RG --location $LOCATION
 <blockquote>
 <p>NOTE: Here I am just pulling the first policy and rule, since I only have 1, if you have more than 1 you will need to change the &ndash;query</p>
 </blockquote>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">POLICY<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>az storage account or-policy list --account-name $DESTACCT --query <span style="color:#e6db74">&#39;[0].policyId&#39;</span> --output tsv<span style="color:#66d9ef">)</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">POLICY<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>az storage account or-policy list --account-name $DESTACCT --query <span style="color:#e6db74">&#39;[0].policyId&#39;</span> --output tsv<span style="color:#66d9ef">)</span>
 RULE<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>az storage account or-policy list --account-name $DESTACCT --query <span style="color:#e6db74">&#39;[0].rules[0].ruleId&#39;</span> --output tsv<span style="color:#66d9ef">)</span>
 
 az deployment group create <span style="color:#ae81ff">\
@@ -321,7 +321,7 @@ az deployment group create <span style="color:#ae81ff">\
 Azure Storage &copy;2021 <br />
 Visit the <a href="https://azure.microsoft.com/services/storage/">Azure Storage homepage</a> or read our <a href="https://docs.microsoft.com/azure/storage/">getting started guide</a> or the <a href="https://azure.microsoft.com/blog/topics/storage-backup-and-recovery/">Azure Storage Blog</a>. <br />
 Contact us: <a href="mailto:azurestoragefeedback@microsoft.com?subject=AzureStorage.com%20Feedback">azurestoragefeedback@microsoft.com</a>.<br />
-Generated on Wed, Jul 21 2021 15:45:38 UTC
+Generated on Fri, Jul 30 2021 14:46:00 UTC
       </footer>
 
       

@@ -6,6 +6,8 @@ title: The Hitchhiker's Guide to the Data Lake
 
 *A comprehensive guide on key considerations involved in building your enterprise data lake*
 
+> Share this page using [https://aka.ms/adls/hitchhikersguide](https://aka.ms/adls/hitchhikersguide)
+
 - [The Hitchhiker&#39;s Guide to the Data Lake](#the-hitchhikers-guide-to-the-data-lake)
   - [When is ADLS Gen2 the right choice for your data lake?](#when-is-adls-gen2-the-right-choice-for-your-data-lake)
   - [Key considerations in designing your data lake](#key-considerations-in-designing-your-data-lake)

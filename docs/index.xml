@@ -221,7 +221,8 @@ Azure Data Lake Storage Gen2 is built on Azure Blob storage and provides a set o
       
       <guid>https://azure.github.io/Storage/docs/analytics/hitchhikers-guide-to-the-datalake/</guid>
       <description>The Hitchhiker&#39;s Guide to the Data Lake #  A comprehensive guide on key considerations involved in building your enterprise data lake
- The Hitchhiker&#39;s Guide to the Data Lake  When is ADLS Gen2 the right choice for your data lake? Key considerations in designing your data lake Terminology Organizing and managing data in your data lake  Do I want a centralized or a federated data lake implementation? How do I organize my data?</description>
+ Share this page using https://aka.ms/adls/hitchhikersguide
+  The Hitchhiker&#39;s Guide to the Data Lake  When is ADLS Gen2 the right choice for your data lake? Key considerations in designing your data lake Terminology Organizing and managing data in your data lake  Do I want a centralized or a federated data lake implementation?</description>
     </item>
     
     <item>

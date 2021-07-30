@@ -2,7 +2,7 @@
 <html lang="en" dir=>
 
 <head>
-  <meta name="generator" content="Hugo 0.85.0" />
+  <meta name="generator" content="Hugo 0.86.1" />
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Managing concurrent uploads in Azure blob storage with blob versioning #  When you are building applications that need to have multiple clients uploading to the same object in Azure blob storage, there are several options to help you manage concurrency depending on your strategy. Concurrency strategies include:
@@ -19,7 +19,7 @@
 <link rel="manifest" href="/Storage/manifest.json">
 <link rel="icon" href="/Storage/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/Storage/book.min.e935e20bd0d469378cb482f0958edf258c731a4f895dccd55799c6fbc8043f23.css" integrity="sha256-6TXiC9DUaTeMtILwlY7fJYxzGk&#43;JXczVV5nG&#43;8gEPyM=">
-<script defer src="/Storage/en.search.min.45c951e7129d605d0bc1a6d32ba3c5d6d92df0ee9e3b40305ea2b1c6fb190b55.js" integrity="sha256-RclR5xKdYF0LwabTK6PF1tkt8O6eO0AwXqKxxvsZC1U="></script>
+<script defer src="/Storage/en.search.min.582bca250ee819e0fc5227ee4160341f7af3d4b2b8bad710fbef0b314566a175.js" integrity="sha256-WCvKJQ7oGeD8UifuQWA0H3rz1LK4utcQ&#43;&#43;8LMUVmoXU="></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -245,13 +245,13 @@ https://github.com/alex-shpak/hugo-book
 <ol>
 <li>
 <p>Client 1 and Client 2 (BlockId QkJC) upload <code>awesomestmemeever.gif</code> simultaneously.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rest" data-lang="rest">PUT https://prosewarememestorage.blob.core.windows.netbackups/awesomestmemeever.gif?comp=block&amp;blockid=QkJC&amp;sv=2019-12-12&amp;ss=bfqt&amp;srt=sco&amp;sp=rwdlacuptfx&amp;se=2021-01-16T04:18:47Z&amp;st=2021-01-08T20:18:47Z&amp;spr=https&amp;sig=XXXXXXXXXXXX<span style="color:#960050;background-color:#1e0010">
-</span></code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rest" data-lang="rest">PUT https://prosewarememestorage.blob.core.windows.netbackups/awesomestmemeever.gif?comp=block&amp;blockid=QUFB&amp;sv=2019-12-12&amp;ss=bfqt&amp;srt=sco&amp;sp=rwdlacuptfx&amp;se=2021-01-16T04:18:47Z&amp;st=2021-01-08T20:18:47Z&amp;spr=https&amp;sig=XXXXXXXXXXXX<span style="color:#960050;background-color:#1e0010">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rest" data-lang="rest">PUT https://prosewarememestorage.blob.core.windows.netbackups/awesomestmemeever.gif?comp=block&amp;blockid=QkJC&amp;sv=2019-12-12&amp;ss=bfqt&amp;srt=sco&amp;sp=rwdlacuptfx&amp;se=2021-01-16T04:18:47Z&amp;st=2021-01-08T20:18:47Z&amp;spr=https&amp;sig=XXXXXXXXXXXX<span style="color:#960050;background-color:#1e0010">
+</span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rest" data-lang="rest">PUT https://prosewarememestorage.blob.core.windows.netbackups/awesomestmemeever.gif?comp=block&amp;blockid=QUFB&amp;sv=2019-12-12&amp;ss=bfqt&amp;srt=sco&amp;sp=rwdlacuptfx&amp;se=2021-01-16T04:18:47Z&amp;st=2021-01-08T20:18:47Z&amp;spr=https&amp;sig=XXXXXXXXXXXX<span style="color:#960050;background-color:#1e0010">
 </span></code></pre></div></li>
 <li>
 <p>Client 2’s upload finishes with a successful call to Put Block List before Client 1. <code>awesomestmemeever.gif</code> is saved with VersionId 2021-01-08T20:38:09.3842765Z. The committed block list can be retrieved.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rest" data-lang="rest">GET https://prosewarememestorage.blob.core.windows.netbackups/awesomestmemeever.gif?comp=blocklist&amp;blocklisttype=all&amp;sv=2019-12-12&amp;ss=bfqt&amp;srt=sco&amp;sp=rwdlacuptfx&amp;se=2021-01-16T04:18:47Z&amp;st=2021-01-08T20:18:47Z&amp;spr=https&amp;sig=XXXXXXXXXXXX <span style="color:#960050;background-color:#1e0010">
-</span></code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; encoding=&#34;utf-8&#34;?&gt;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rest" data-lang="rest">GET https://prosewarememestorage.blob.core.windows.netbackups/awesomestmemeever.gif?comp=blocklist&amp;blocklisttype=all&amp;sv=2019-12-12&amp;ss=bfqt&amp;srt=sco&amp;sp=rwdlacuptfx&amp;se=2021-01-16T04:18:47Z&amp;st=2021-01-08T20:18:47Z&amp;spr=https&amp;sig=XXXXXXXXXXXX <span style="color:#960050;background-color:#1e0010">
+</span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; encoding=&#34;utf-8&#34;?&gt;</span>
 <span style="color:#f92672">&lt;BlockList&gt;</span>
     <span style="color:#f92672">&lt;CommittedBlocks&gt;</span>
         <span style="color:#f92672">&lt;Block&gt;</span>
@@ -264,13 +264,13 @@ https://github.com/alex-shpak/hugo-book
 </code></pre></div></li>
 <li>
 <p>Client 1’s upload finishes but cannot be committed as the block list has been purged when Client 2 saved. Client 1 will receive a <code>HTTP 400 InvalidBlockList</code> exception. Client 1 issues a <code>HEAD</code> request to see if the file exists as it may have been uploaded by another client.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rest" data-lang="rest">HEAD https://prosewarememestorage.blob.core.windows.netbackups/awesomestmemeever.gif?sv=2019-12-12&amp;ss=bfqt&amp;srt=sco&amp;sp=rwdlacuptfx&amp;se=2021-01-16T04:18:47Z&amp;st=2021-01-08T20:18:47Z&amp;spr=https&amp;sig=XXXXXXXXXXXX<span style="color:#960050;background-color:#1e0010">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rest" data-lang="rest">HEAD https://prosewarememestorage.blob.core.windows.netbackups/awesomestmemeever.gif?sv=2019-12-12&amp;ss=bfqt&amp;srt=sco&amp;sp=rwdlacuptfx&amp;se=2021-01-16T04:18:47Z&amp;st=2021-01-08T20:18:47Z&amp;spr=https&amp;sig=XXXXXXXXXXXX<span style="color:#960050;background-color:#1e0010">
 </span></code></pre></div><p>If the blob has been successfully committed by another client, Client 1 can disregard the error or if the blob was not present for any other reason, the upload can be repeated.</p>
 </li>
 <li>
 <p>Client 3 attempts to upload the same file but experiences a transient network error, leaving uncommitted blocks as Put Block List is not called successfully due to missing blocks in the uncommitted block list. The uncommitted blocks are retained in the current version (last successful upload from Client 2).</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rest" data-lang="rest">GET https://prosewarememestorage.blob.core.windows.netbackups/awesomestmemeever.gif?comp=blocklist&amp;blocklisttype=all&amp;sv=2019-12-12&amp;ss=bfqt&amp;srt=sco&amp;sp=rwdlacuptfx&amp;se=2021-01-16T04:18:47Z&amp;st=2021-01-08T20:18:47Z&amp;spr=https&amp;sig=XXXXXXXXXXXX <span style="color:#960050;background-color:#1e0010">
-</span></code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; encoding=&#34;utf-8&#34;?&gt;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rest" data-lang="rest">GET https://prosewarememestorage.blob.core.windows.netbackups/awesomestmemeever.gif?comp=blocklist&amp;blocklisttype=all&amp;sv=2019-12-12&amp;ss=bfqt&amp;srt=sco&amp;sp=rwdlacuptfx&amp;se=2021-01-16T04:18:47Z&amp;st=2021-01-08T20:18:47Z&amp;spr=https&amp;sig=XXXXXXXXXXXX <span style="color:#960050;background-color:#1e0010">
+</span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; encoding=&#34;utf-8&#34;?&gt;</span>
 <span style="color:#f92672">&lt;BlockList&gt;</span>
     <span style="color:#f92672">&lt;CommittedBlocks&gt;</span>
         <span style="color:#f92672">&lt;Block&gt;</span>
@@ -288,8 +288,8 @@ https://github.com/alex-shpak/hugo-book
 </code></pre></div></li>
 <li>
 <p>Client 4 uploads the same file and is successful. The uncommitted blocks from Client 3’s request are purged, and a new version is created, VersionId 2021-01-08T20:54:36.7150246Z.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rest" data-lang="rest">GET https://prosewarememestorage.blob.core.windows.netbackups/awesomestmemeever.gif?comp=blocklist&amp;blocklisttype=all&amp;sv=2019-12-12&amp;ss=bfqt&amp;srt=sco&amp;sp=rwdlacuptfx&amp;se=2021-01-16T04:18:47Z&amp;st=2021-01-08T20:18:47Z&amp;spr=https&amp;sig=XXXXXXXXXXXX <span style="color:#960050;background-color:#1e0010">
-</span></code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; encoding=&#34;utf-8&#34;?&gt;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rest" data-lang="rest">GET https://prosewarememestorage.blob.core.windows.netbackups/awesomestmemeever.gif?comp=blocklist&amp;blocklisttype=all&amp;sv=2019-12-12&amp;ss=bfqt&amp;srt=sco&amp;sp=rwdlacuptfx&amp;se=2021-01-16T04:18:47Z&amp;st=2021-01-08T20:18:47Z&amp;spr=https&amp;sig=XXXXXXXXXXXX <span style="color:#960050;background-color:#1e0010">
+</span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; encoding=&#34;utf-8&#34;?&gt;</span>
 <span style="color:#f92672">&lt;BlockList&gt;</span>
     <span style="color:#f92672">&lt;CommittedBlocks&gt;</span>
         <span style="color:#f92672">&lt;Block&gt;</span>
@@ -302,14 +302,14 @@ https://github.com/alex-shpak/hugo-book
 </code></pre></div></li>
 <li>
 <p>After one day, the versions from the previous day are deleted and only the base blob remains.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rest" data-lang="rest">HEAD https://prosewarememestorage.blob.core.windows.netbackups/awesomestmemeever.gif?sv=2019-12-12&amp;ss=bfqt&amp;srt=sco&amp;sp=rwdlacuptfx&amp;se=2021-01-16T04:18:47Z&amp;st=2021-01-08T20:18:47Z&amp;spr=https&amp;sig=XXXXXXXXXXXX<span style="color:#960050;background-color:#1e0010">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rest" data-lang="rest">HEAD https://prosewarememestorage.blob.core.windows.netbackups/awesomestmemeever.gif?sv=2019-12-12&amp;ss=bfqt&amp;srt=sco&amp;sp=rwdlacuptfx&amp;se=2021-01-16T04:18:47Z&amp;st=2021-01-08T20:18:47Z&amp;spr=https&amp;sig=XXXXXXXXXXXX<span style="color:#960050;background-color:#1e0010">
 </span></code></pre></div><p><img src="blobproperties.png" alt="A screenshot of blob properties from the Azure portal." /></p>
 </li>
 </ol>
 <p>Note that in this approach, there is no need for the <code>If-None-Match:*</code> conditional header. Clients can simultaneously upload to the same blob and a new version will be created for each successful call to Put Block List or Put Blob. For Get Blob requests, if a <code>versionid</code> is not specified in the parameters, the latest version of the blob will be retrieved, or the calling application can also provide a valid <code>versionid</code> to retrieve a previous version before it is deleted through the lifecycle management rule. If needed, the current versions can be retrieved using List Blobs.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rest" data-lang="rest">GET https://prosewarememestorage.blob.core.windows.net/test?restype=container&amp;comp=list&amp;include=versions&amp;sv=2019-12-12&amp;ss=bfqt&amp;srt=sco&amp;sp=rwdlacuptfx&amp;se=2021-01-16T04:18:47Z&amp;st=2021-01-08T20:18:47Z&amp;spr=https&amp;sig=XXXXXXXXXXXX&amp;prefix=awesomestmemeever.gif <span style="color:#960050;background-color:#1e0010">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rest" data-lang="rest">GET https://prosewarememestorage.blob.core.windows.net/test?restype=container&amp;comp=list&amp;include=versions&amp;sv=2019-12-12&amp;ss=bfqt&amp;srt=sco&amp;sp=rwdlacuptfx&amp;se=2021-01-16T04:18:47Z&amp;st=2021-01-08T20:18:47Z&amp;spr=https&amp;sig=XXXXXXXXXXXX&amp;prefix=awesomestmemeever.gif <span style="color:#960050;background-color:#1e0010">
 </span></code></pre></div><p>The following is a sample lifecycle management rule which is filtered to only blob versions and deletes versions older than 1 day:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
   <span style="color:#f92672">&#34;rules&#34;</span>: [
     {
       <span style="color:#f92672">&#34;enabled&#34;</span>: <span style="color:#66d9ef">true</span>,
@@ -369,7 +369,7 @@ https://github.com/alex-shpak/hugo-book
 Azure Storage &copy;2021 <br />
 Visit the <a href="https://azure.microsoft.com/services/storage/">Azure Storage homepage</a> or read our <a href="https://docs.microsoft.com/azure/storage/">getting started guide</a> or the <a href="https://azure.microsoft.com/blog/topics/storage-backup-and-recovery/">Azure Storage Blog</a>. <br />
 Contact us: <a href="mailto:azurestoragefeedback@microsoft.com?subject=AzureStorage.com%20Feedback">azurestoragefeedback@microsoft.com</a>.<br />
-Generated on Wed, Jul 21 2021 15:45:38 UTC
+Generated on Fri, Jul 30 2021 14:46:00 UTC
       </footer>
 
       
