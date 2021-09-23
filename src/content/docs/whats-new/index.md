@@ -4,6 +4,8 @@ title: "What's New"
 
 # What's New
 
+- [ADLS Billing FAQ](https://azure.github.io/Storage/docs/analytics/azure-storage-data-lake-gen2-billing-faq/) (09/23/2021)
+- [AzBulkSetBlobTier](https://aka.ms/AzBulkSetBlobTier) (08/24/2021)
 - [Load, Parse and Summarize Classic Azure Storage Logs in Azure Data Explorer](https://azure.github.io/Storage/docs/application-and-user-data/basics/azure-storage-classic-logs-to-data-explorer/) (03/30/2021)
 - [How do you deploy Object Replication with ARM?](https://azure.github.io/Storage/docs/application-and-user-data/basics/azure-blob-storage-object-replication-arm/) (03/26/2021)
 - [What are the differences between the Azure Blob Storage Upload API’s and when should I use each?](https://azure.github.io/Storage/docs/application-and-user-data/basics/azure-blob-storage-upload-apis/) (02/09/2021)
