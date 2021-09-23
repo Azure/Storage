@@ -60,6 +60,16 @@ Here we are going to focus on deploying Object Replication with ARM. You will se
     </item>
     
     <item>
+      <title>Azure Data Lake Storage Gen2 Billing FAQs</title>
+      <link>https://azure.github.io/Storage/docs/analytics/azure-storage-data-lake-gen2-billing-faq/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://azure.github.io/Storage/docs/analytics/azure-storage-data-lake-gen2-billing-faq/</guid>
+      <description>Azure Data Lake Storage Gen2 Billing FAQs #  *The pricing page for ADLS Gen2 can be found here This resource provides more detailed answers to frequently asked questions from ADLS Gen2 users *
+ Azure Data Lake Storage Gen2 Billing FAQs  Terminology  Do I want a centralized or a federated data lake implementation? How do I organize my data? How do I manage access to my data? What data format do I choose?</description>
+    </item>
+    
+    <item>
       <title>Azure Partner Backup Documentation</title>
       <link>https://azure.github.io/Storage/docs/backup-and-archive/commvault/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

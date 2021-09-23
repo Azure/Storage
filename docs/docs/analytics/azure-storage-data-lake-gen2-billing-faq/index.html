@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en" dir=>
+
+<head>
+  <meta name="generator" content="Hugo 0.88.1" />
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Azure Data Lake Storage Gen2 Billing FAQs #  *The pricing page for ADLS Gen2 can be found here This resource provides more detailed answers to frequently asked questions from ADLS Gen2 users *
+ Azure Data Lake Storage Gen2 Billing FAQs  Terminology  Do I want a centralized or a federated data lake implementation? How do I organize my data? How do I manage access to my data? What data format do I choose?">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Azure Data Lake Storage Gen2 Billing FAQs" />
+<meta property="og:description" content="Azure Data Lake Storage Gen2 Billing FAQs #  *The pricing page for ADLS Gen2 can be found here This resource provides more detailed answers to frequently asked questions from ADLS Gen2 users *
+ Azure Data Lake Storage Gen2 Billing FAQs  Terminology  Do I want a centralized or a federated data lake implementation? How do I organize my data? How do I manage access to my data? What data format do I choose?" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://azure.github.io/Storage/docs/analytics/azure-storage-data-lake-gen2-billing-faq/" /><meta property="article:section" content="docs" />
+
+
+
+<title>Azure Data Lake Storage Gen2 Billing FAQs | Azure Storage</title>
+<link rel="manifest" href="/Storage/manifest.json">
+<link rel="icon" href="/Storage/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/Storage/book.min.e935e20bd0d469378cb482f0958edf258c731a4f895dccd55799c6fbc8043f23.css" integrity="sha256-6TXiC9DUaTeMtILwlY7fJYxzGk&#43;JXczVV5nG&#43;8gEPyM=">
+<script defer src="/Storage/en.search.min.cd7b6f00387110d6fcc607bcd8aa24df05b166466cc5e358520a03c12d0e8e90.js" integrity="sha256-zXtvADhxENb8xge82Kok3wWxZkZsxeNYUgoDwS0OjpA="></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body dir=>
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a href="/Storage"><img src="/Storage/images/azure-icon.png" alt="Logo" /><span>Azure Storage</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://azure.github.io/Storage/docs/analytics/" class="">Analytics</a>
+  
+
+          
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://azure.github.io/Storage/docs/application-and-user-data/" class="">Application and User Data</a>
+  
+
+          
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://azure.github.io/Storage/docs/backup-and-archive/" class="">Backup and Archive</a>
+  
+
+          
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://azure.github.io/Storage/docs/hpc-iot-and-ai/" class="">HPC IoT and AI</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://azure.github.io/Storage/docs/storage-partners/" class="">Storage Partners</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://azure.github.io/Storage/docs/tools-and-utilities/" class="">Tools and Utilities</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://azure.github.io/Storage/docs/whats-new/" class="">What&#39;s New</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var a=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/Storage/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Azure Data Lake Storage Gen2 Billing FAQs</strong>
+
+  <label for="toc-control">
+    
+    <img src="/Storage/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#terminology">Terminology</a></li>
+    <li><a href="#faqs">FAQs</a>
+      <ul>
+        <li><a href="#how-do-calls-to-certain-apis-translate-into-the-number-of-4mb-transactions-that-will-be-billed">How do calls to certain API&rsquo;s translate into the number of 4MB transactions that will be billed?</a></li>
+        <li><a href="#how-can-i-figure-out-the-metadata-size-for-my-account">How can I figure out the metadata size for my account?</a></li>
+        <li><a href="#what-apis-are-considered-iterative-read-operations">What APIs are considered Iterative read operations?</a></li>
+        <li><a href="#if-i-were-to-store-parquet-files-into-adls-would-that-be-a-write-transaction-based-on-size-or-just-a-storage-cost">If I were to store parquet files into ADLS, would that be a write transaction based on size or just a storage cost?</a></li>
+        <li><a href="#what-is-the-difference-between-how-transactions-are-billed-in-a-flat-namespace-account-fns-and-a-hierarchical-namespace-account">What is the difference between how transactions are billed in a flat namespace account (FNS) and a Hierarchical Namespace account?</a></li>
+        <li><a href="#how-are-iterative-operations-billed">How are iterative operations billed?</a></li>
+      </ul>
+    </li>
+    <li><a href="#recommended-reading">Recommended reading</a></li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h1 id="azure-data-lake-storage-gen2-billing-faqs">
+  Azure Data Lake Storage Gen2 Billing FAQs
+  <a class="anchor" href="#azure-data-lake-storage-gen2-billing-faqs">#</a>
+</h1>
+<p>*The pricing page for ADLS Gen2 can be found <a href="https://azure.microsoft.com/pricing/details/storage/data-lake">here</a> This resource provides more detailed answers to frequently asked questions from ADLS Gen2 users *</p>
+<ul>
+<li><a href="#azure-data-lake-storage-gen2-billing-faqs">Azure Data Lake Storage Gen2 Billing FAQs</a>
+<ul>
+<li><a href="#terminology">Terminology</a>
+<ul>
+<li><a href="#do-i-want-a-centralized-or-a-federated-data-lake-implementation">Do I want a centralized or a federated data lake implementation?</a></li>
+<li><a href="#how-do-i-organize-my-data">How do I organize my data?</a></li>
+<li><a href="#how-do-i-manage-access-to-my-data">How do I manage access to my data?</a></li>
+<li><a href="#what-data-format-do-i-choose">What data format do I choose?</a></li>
+<li><a href="#use-query-acceleration">Use Query Acceleration</a></li>
+</ul>
+</li>
+<li><a href="#recommended-reading">Recommended reading</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="terminology">
+  Terminology
+  <a class="anchor" href="#terminology">#</a>
+</h2>
+<p>Here are some terms that are key to understanding ADLS Gen2 billing concepts.</p>
+<p><strong>Flat namespace (FNS)</strong>: A mode of organization in a storage account on Azure where objects are organized using a flat structure - aka a flat list of objects. This is the default configuration for a storage account.</p>
+<p><strong>Hierarchical namespace (HNS)</strong>:  With hierarchical namespaces, you can organize data into structured folders and directories.  A hierarchical namespace allows operations like folder renames and deletes to be performed in a single atomic operation, which with a flat namespace requires a number of operations proportionate to the number of objects in the structure. Hierarchical namespaces store additional meta-data for your directory and folder structure, and allows Filesystem ACLs. However, as your data volume grows, hierarchical namespaces keeps your data organized and more importantly yields better storage performance on your analytic jobs – thus lowering your overall TCO to run analytic jobs.</p>
+<p><img src="images/adls_hns.png" alt="ADLS HNS" /></p>
+<p><strong>HNS enabled account</strong>: A Storage Account with the Hierarchical Namespace enabled.</p>
+<p><strong>Query Acceleration</strong>: Query acceleration enables applications and analytics frameworks to dramatically optimize data processing by retrieving only the data that they require to perform a given operation. This reduces the time and processing power that is required to gain critical insights into stored data.</p>
+<p><strong>Data</strong>: Data is the content and is the stored information. Example: Files in a folder.</p>
+<p><strong>Metadata</strong>: Meta Data is the context for the data and consists of one or more name-value pairs that you specify for a Blob storage resource. You can use metadata to store additional values with the resource. Metadata values are for your own purposes only, and don&rsquo;t affect how the resource behaves. Metadata also includes the size used by Path / Name of the object.</p>
+<h2 id="faqs">
+  FAQs
+  <a class="anchor" href="#faqs">#</a>
+</h2>
+<h3 id="how-do-calls-to-certain-apis-translate-into-the-number-of-4mb-transactions-that-will-be-billed">
+  How do calls to certain API&rsquo;s translate into the number of 4MB transactions that will be billed?
+  <a class="anchor" href="#how-do-calls-to-certain-apis-translate-into-the-number-of-4mb-transactions-that-will-be-billed">#</a>
+</h3>
+<ul>
+<li>When uploading or appending data to existing files, or when reading data from a file, the operation gets chunked into 4MB pieces. You will then be billed for each 4MB chunk.</li>
+<li>The Copy File, Rename, Set Properties, etc. would not be charged using the “per 4 MB” rule. They are not free operations but would be charged as a single transaction.</li>
+<li>For files &lt; 4MB, a full transaction will be charged for each file. It is recommended to write larger files as they will yield better analytics performance and are more cost effective.</li>
+</ul>
+<h3 id="how-can-i-figure-out-the-metadata-size-for-my-account">
+  How can I figure out the metadata size for my account?
+  <a class="anchor" href="#how-can-i-figure-out-the-metadata-size-for-my-account">#</a>
+</h3>
+<ul>
+<li>The metadata size is calculated for every file by the following: 512 bytes + size of file name + size of file properties</li>
+</ul>
+<h3 id="what-apis-are-considered-iterative-read-operations">
+  What APIs are considered Iterative read operations?
+  <a class="anchor" href="#what-apis-are-considered-iterative-read-operations">#</a>
+</h3>
+<ul>
+<li>Iterative read operations are operations performed on a folder that requires the system to iterate through all the subfolders and files in that folder to complete. Examples: ListFileSystem, ListFileSystemDir,ListPath and all List* operations</li>
+</ul>
+<h3 id="if-i-were-to-store-parquet-files-into-adls-would-that-be-a-write-transaction-based-on-size-or-just-a-storage-cost">
+  If I were to store parquet files into ADLS, would that be a write transaction based on size or just a storage cost?
+  <a class="anchor" href="#if-i-were-to-store-parquet-files-into-adls-would-that-be-a-write-transaction-based-on-size-or-just-a-storage-cost">#</a>
+</h3>
+<ul>
+<li>Write transactions apply whenever you ingest or update any type of file. However, you do pay for the data at rest.</li>
+</ul>
+<h3 id="what-is-the-difference-between-how-transactions-are-billed-in-a-flat-namespace-account-fns-and-a-hierarchical-namespace-account">
+  What is the difference between how transactions are billed in a flat namespace account (FNS) and a Hierarchical Namespace account?
+  <a class="anchor" href="#what-is-the-difference-between-how-transactions-are-billed-in-a-flat-namespace-account-fns-and-a-hierarchical-namespace-account">#</a>
+</h3>
+<ul>
+<li>Customers can access the storage account using either an FNS account or a HNS account. The API&rsquo;s can also be regular API&rsquo;s or ADLS API&rsquo;s. The following table shows you when data operations get split into 4MB chunks for billing and when the 30% uplift is applied.<br>
+<img src="images/billing_uplift_chart.png" alt="Billing Chart" /></li>
+<li>Renames/moves as part of analytics job commit activities will end up with a lot of operations (proportional to object count) with FNS while this would be a single transaction in HNS.</li>
+</ul>
+<h3 id="how-are-iterative-operations-billed">
+  How are iterative operations billed?
+  <a class="anchor" href="#how-are-iterative-operations-billed">#</a>
+</h3>
+<ul>
+<li>An example would be a rename of a folder containing 10K files. The rename would be charged as a single metadata operation (iterative writes).</li>
+</ul>
+<h2 id="recommended-reading">
+  Recommended reading
+  <a class="anchor" href="#recommended-reading">#</a>
+</h2>
+<ul>
+<li><a href="https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction">Overview for Azure Data Lake Storage Gen2</a></li>
+</ul>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+ 
+        <hr />
+Azure Storage &copy;2021 <br />
+Visit the <a href="https://azure.microsoft.com/services/storage/">Azure Storage homepage</a> or read our <a href="https://docs.microsoft.com/azure/storage/">getting started guide</a> or the <a href="https://azure.microsoft.com/blog/topics/storage-backup-and-recovery/">Azure Storage Blog</a>. <br />
+Contact us: <a href="mailto:azurestoragefeedback@microsoft.com?subject=AzureStorage.com%20Feedback">azurestoragefeedback@microsoft.com</a>.<br />
+Generated on Thu, Sep 23 2021 17:05:55 UTC
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#terminology">Terminology</a></li>
+    <li><a href="#faqs">FAQs</a>
+      <ul>
+        <li><a href="#how-do-calls-to-certain-apis-translate-into-the-number-of-4mb-transactions-that-will-be-billed">How do calls to certain API&rsquo;s translate into the number of 4MB transactions that will be billed?</a></li>
+        <li><a href="#how-can-i-figure-out-the-metadata-size-for-my-account">How can I figure out the metadata size for my account?</a></li>
+        <li><a href="#what-apis-are-considered-iterative-read-operations">What APIs are considered Iterative read operations?</a></li>
+        <li><a href="#if-i-were-to-store-parquet-files-into-adls-would-that-be-a-write-transaction-based-on-size-or-just-a-storage-cost">If I were to store parquet files into ADLS, would that be a write transaction based on size or just a storage cost?</a></li>
+        <li><a href="#what-is-the-difference-between-how-transactions-are-billed-in-a-flat-namespace-account-fns-and-a-hierarchical-namespace-account">What is the difference between how transactions are billed in a flat namespace account (FNS) and a Hierarchical Namespace account?</a></li>
+        <li><a href="#how-are-iterative-operations-billed">How are iterative operations billed?</a></li>
+      </ul>
+    </li>
+    <li><a href="#recommended-reading">Recommended reading</a></li>
+  </ul>
+</nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
+
+<script>
+    $('a[href^="http://"], a[href^="https://"]').not('a[href*="'+location.hostname+'"]').attr('target','_blank');
+</script>
+
+<script type="text/javascript">
+    !function(T,l,y){var S=T.location,u="script",k="instrumentationKey",D="ingestionendpoint",C="disableExceptionTracking",E="ai.device.",I="toLowerCase",b="crossOrigin",w="POST",e="appInsightsSDK",t=y.name||"appInsights";(y.name||T[e])&&(T[e]=t);var n=T[t]||function(d){var g=!1,f=!1,m={initialize:!0,queue:[],sv:"4",version:2,config:d};function v(e,t){var n={},a="Browser";return n[E+"id"]=a[I](),n[E+"type"]=a,n["ai.operation.name"]=S&&S.pathname||"_unknown_",n["ai.internal.sdkVersion"]="javascript:snippet_"+(m.sv||m.version),{time:function(){var e=new Date;function t(e){var t=""+e;return 1===t.length&&(t="0"+t),t}return e.getUTCFullYear()+"-"+t(1+e.getUTCMonth())+"-"+t(e.getUTCDate())+"T"+t(e.getUTCHours())+":"+t(e.getUTCMinutes())+":"+t(e.getUTCSeconds())+"."+((e.getUTCMilliseconds()/1e3).toFixed(3)+"").slice(2,5)+"Z"}(),iKey:e,name:"Microsoft.ApplicationInsights."+e.replace(/-/g,"")+"."+t,sampleRate:100,tags:n,data:{baseData:{ver:2}}}}var h=d.url||y.src;if(h){function a(e){var t,n,a,i,r,o,s,c,p,l,u;g=!0,m.queue=[],f||(f=!0,t=h,s=function(){var e={},t=d.connectionString;if(t)for(var n=t.split(";"),a=0;a<n.length;a++){var i=n[a].split("=");2===i.length&&(e[i[0][I]()]=i[1])}if(!e[D]){var r=e.endpointsuffix,o=r?e.location:null;e[D]="https://"+(o?o+".":"")+"dc."+(r||"services.visualstudio.com")}return e}(),c=s[k]||d[k]||"",p=s[D],l=p?p+"/v2/track":config.endpointUrl,(u=[]).push((n="SDK LOAD Failure: Failed to load Application Insights SDK script (See stack for details)",a=t,i=l,(o=(r=v(c,"Exception")).data).baseType="ExceptionData",o.baseData.exceptions=[{typeName:"SDKLoadFailed",message:n.replace(/\./g,"-"),hasFullStack:!1,stack:n+"\nSnippet failed to load ["+a+"] -- Telemetry is disabled\nHelp Link: https://go.microsoft.com/fwlink/?linkid=2128109\nHost: "+(S&&S.pathname||"_unknown_")+"\nEndpoint: "+i,parsedStack:[]}],r)),u.push(function(e,t,n,a){var i=v(c,"Message"),r=i.data;r.baseType="MessageData";var o=r.baseData;return o.message='AI (Internal): 99 message:"'+("SDK LOAD Failure: Failed to load Application Insights SDK script (See stack for details) ("+n+")").replace(/\"/g,"")+'"',o.properties={endpoint:a},i}(0,0,t,l)),function(e,t){if(JSON){var n=T.fetch;if(n&&!y.useXhr)n(t,{method:w,body:JSON.stringify(e),mode:"cors"});else if(XMLHttpRequest){var a=new XMLHttpRequest;a.open(w,t),a.setRequestHeader("Content-type","application/json"),a.send(JSON.stringify(e))}}}(u,l))}function i(e,t){f||setTimeout(function(){!t&&m.core||a()},500)}var e=function(){var n=l.createElement(u);n.src=h;var e=y[b];return!e&&""!==e||"undefined"==n[b]||(n[b]=e),n.onload=i,n.onerror=a,n.onreadystatechange=function(e,t){"loaded"!==n.readyState&&"complete"!==n.readyState||i(0,t)},n}();y.ld<0?l.getElementsByTagName("head")[0].appendChild(e):setTimeout(function(){l.getElementsByTagName(u)[0].parentNode.appendChild(e)},y.ld||0)}try{m.cookie=l.cookie}catch(p){}function t(e){for(;e.length;)!function(t){m[t]=function(){var e=arguments;g||m.queue.push(function(){m[t].apply(m,e)})}}(e.pop())}var n="track",r="TrackPage",o="TrackEvent";t([n+"Event",n+"PageView",n+"Exception",n+"Trace",n+"DependencyData",n+"Metric",n+"PageViewPerformance","start"+r,"stop"+r,"start"+o,"stop"+o,"addTelemetryInitializer","setAuthenticatedUserContext","clearAuthenticatedUserContext","flush"]),m.SeverityLevel={Verbose:0,Information:1,Warning:2,Error:3,Critical:4};var s=(d.extensionConfig||{}).ApplicationInsightsAnalytics||{};if(!0!==d[C]&&!0!==s[C]){method="onerror",t(["_"+method]);var c=T[method];T[method]=function(e,t,n,a,i){var r=c&&c(e,t,n,a,i);return!0!==r&&m["_"+method]({message:e,url:t,lineNumber:n,columnNumber:a,error:i}),r},d.autoExceptionInstrumented=!0}return m}(y.cfg);(T[t]=n).queue&&0===n.queue.length&&n.trackPageView({})}(window,document,{
+    src: "https://az416426.vo.msecnd.net/scripts/b/ai.2.min.js", 
+    
+    
+    
+    
+    cfg: { 
+        instrumentationKey: "0600b273-5440-42cc-9fe4-51924c721ce0"
+         
+    }});
+</script>
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
