@@ -4,18 +4,7 @@ title: Azure Data Lake Storage Gen2 Billing FAQs
 
 # Azure Data Lake Storage Gen2 Billing FAQs
 
-*The pricing page for ADLS Gen2 can be found [here](https://azure.microsoft.com/pricing/details/storage/data-lake) This resource provides more detailed answers to frequently asked questions from ADLS Gen2 users *
-
-
-- [Azure Data Lake Storage Gen2 Billing FAQs](#azure-data-lake-storage-gen2-billing-faqs)
-  - [Terminology](#terminology)
-    - [Do I want a centralized or a federated data lake implementation?](#do-i-want-a-centralized-or-a-federated-data-lake-implementation)
-    - [How do I organize my data?](#how-do-i-organize-my-data)
-    - [How do I manage access to my data?](#how-do-i-manage-access-to-my-data)
-    - [What data format do I choose?](#what-data-format-do-i-choose)
-    - [Use Query Acceleration](#use-query-acceleration)
-  - [Recommended reading](#recommended-reading)
-
+> The pricing page for ADLS Gen2 can be found [here](https://azure.microsoft.com/pricing/details/storage/data-lake). This resource provides more detailed answers to frequently asked questions from ADLS Gen2 users.
 
 ## Terminology
 Here are some terms that are key to understanding ADLS Gen2 billing concepts. 

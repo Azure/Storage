@@ -12,8 +12,9 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://azure.github.io/Storage/docs/analytics/azure-storage-data-lake-gen2-billing-faq/</guid>
-      <description>Azure Data Lake Storage Gen2 Billing FAQs #  *The pricing page for ADLS Gen2 can be found here This resource provides more detailed answers to frequently asked questions from ADLS Gen2 users *
- Azure Data Lake Storage Gen2 Billing FAQs  Terminology  Do I want a centralized or a federated data lake implementation? How do I organize my data? How do I manage access to my data? What data format do I choose?</description>
+      <description>Azure Data Lake Storage Gen2 Billing FAQs #   The pricing page for ADLS Gen2 can be found here. This resource provides more detailed answers to frequently asked questions from ADLS Gen2 users.
+ Terminology #  Here are some terms that are key to understanding ADLS Gen2 billing concepts.
+Flat namespace (FNS): A mode of organization in a storage account on Azure where objects are organized using a flat structure - aka a flat list of objects.</description>
     </item>
     
     <item>
