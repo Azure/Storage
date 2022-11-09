@@ -5,7 +5,7 @@ theme = "book"
 publishdir = "../docs/"
 
 [params]
-  BookLogo = "/images/azure-icon.png"
+  BookLogo = "/Storage/images/azure-icon.png"
 
 [markup.goldmark.renderer]
   unsafe = true
