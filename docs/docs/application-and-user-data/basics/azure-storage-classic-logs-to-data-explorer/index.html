@@ -2,16 +2,16 @@
 <html lang="en" dir=>
 
 <head>
-  <meta name="generator" content="Hugo 0.88.1" />
+  <meta name="generator" content="Hugo 0.105.0">
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Load, Parse and Summarize Classic Azure Storage Logs in Azure Data Explorer #  Azure Storage is moving to use Azure Monitor for logging. This is great because querying logs with Kusto is super easy. More info
- If you can use Azure Monitor, use it, and don’t read the rest of this article.
- However, some customers might need to use the Classic Storage logging, but our classic logging goes to text files stored in the $logs container in your storage account.">
+<meta name="description" content="Load, Parse and Summarize Classic Azure Storage Logs in Azure Data Explorer # Azure Storage is moving to use Azure Monitor for logging. This is great because querying logs with Kusto is super easy. More info
+If you can use Azure Monitor, use it, and don’t read the rest of this article.
+However, some customers might need to use the Classic Storage logging, but our classic logging goes to text files stored in the $logs container in your storage account.">
 <meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Load, Parse and Summarize Classic Azure Storage Logs in Azure Data Explorer" />
-<meta property="og:description" content="Load, Parse and Summarize Classic Azure Storage Logs in Azure Data Explorer #  Azure Storage is moving to use Azure Monitor for logging. This is great because querying logs with Kusto is super easy. More info
- If you can use Azure Monitor, use it, and don’t read the rest of this article.
- However, some customers might need to use the Classic Storage logging, but our classic logging goes to text files stored in the $logs container in your storage account." />
+<meta property="og:description" content="Load, Parse and Summarize Classic Azure Storage Logs in Azure Data Explorer # Azure Storage is moving to use Azure Monitor for logging. This is great because querying logs with Kusto is super easy. More info
+If you can use Azure Monitor, use it, and don’t read the rest of this article.
+However, some customers might need to use the Classic Storage logging, but our classic logging goes to text files stored in the $logs container in your storage account." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://azure.github.io/Storage/docs/application-and-user-data/basics/azure-storage-classic-logs-to-data-explorer/" /><meta property="article:section" content="docs" />
 
@@ -21,7 +21,7 @@
 <link rel="manifest" href="/Storage/manifest.json">
 <link rel="icon" href="/Storage/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/Storage/book.min.e935e20bd0d469378cb482f0958edf258c731a4f895dccd55799c6fbc8043f23.css" integrity="sha256-6TXiC9DUaTeMtILwlY7fJYxzGk&#43;JXczVV5nG&#43;8gEPyM=">
-<script defer src="/Storage/en.search.min.f9dc316b682362e907b9d54060ecda5e6ae9c979e4306a6c9887393766a69511.js" integrity="sha256-&#43;dwxa2gjYukHudVAYOzaXmrpyXnkMGpsmIc5N2amlRE="></script>
+<script defer src="/Storage/en.search.min.63fdb55cd2e04f8a9f17757914d9129a2b2aaff34673d2d1e6755837978a1e31.js" integrity="sha256-Y/21XNLgT4qfF3V5FNkSmisqr/NGc9LR5nVYN5eKHjE="></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -39,7 +39,7 @@ https://github.com/alex-shpak/hugo-book
         
   <nav>
 <h2 class="book-brand">
-  <a href="/Storage"><img src="/Storage/images/azure-icon.png" alt="Logo" /><span>Azure Storage</span>
+  <a href="/Storage"><img src="/images/azure-icon.png" alt="Logo" /><span>Azure Storage</span>
   </a>
 </h2>
 
@@ -182,7 +182,7 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-  <script>(function(){var a=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+  <script>(function(){var e=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
 
 
  
@@ -256,38 +256,38 @@ https://github.com/alex-shpak/hugo-book
 </li>
 <li>
 <p>You can now create a table to store the logs, this is the script that I used.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">.create table storagelogs (
-    VersionNumber: string, 
-    RequestStartTime: datetime, 
-    OperationType: string, 
-    RequestStatus: string, 
-    HttpStatusCode: string, 
-    EndToEndLatencyInMS: long, 
-    ServerLatencyInMs: long, 
-    AuthenticationType: string, 
-    RequesterAcountName: string, 
-    OwnerAccountName: string, 
-    ServiceType: string, 
-    RequestUrl: string, 
-    RequestedObjectKey: string, 
-    RequestIdHeader: guid, 
-    OperationCount: int, 
-    RequesterIpAddress: string, 
-    RequestVersionHeader: string, 
-    RequestHeaderSize: long, 
-    RequestPacketSize: long, 
-    ResponseHeaderSize: long, 
-    ResponsePacketSize: long, 
-    RequestContentLength: long, 
-    RequestMd5: string, 
-    ServerMd5: string, 
-    EtagIdentifier: string, 
-    LastModifiedTime: datetime, 
-    ConditionsUsed: string, 
-    UserAgentHeader: string, 
-    ReferrerHeader: string, 
-    LogSource: string)
-</code></pre></div><p>See log format details <a href="https://docs.microsoft.com/rest/api/storageservices/storage-analytics-log-format">here</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>.create table storagelogs (
+</span></span><span style="display:flex;"><span>    VersionNumber: string, 
+</span></span><span style="display:flex;"><span>    RequestStartTime: datetime, 
+</span></span><span style="display:flex;"><span>    OperationType: string, 
+</span></span><span style="display:flex;"><span>    RequestStatus: string, 
+</span></span><span style="display:flex;"><span>    HttpStatusCode: string, 
+</span></span><span style="display:flex;"><span>    EndToEndLatencyInMS: long, 
+</span></span><span style="display:flex;"><span>    ServerLatencyInMs: long, 
+</span></span><span style="display:flex;"><span>    AuthenticationType: string, 
+</span></span><span style="display:flex;"><span>    RequesterAcountName: string, 
+</span></span><span style="display:flex;"><span>    OwnerAccountName: string, 
+</span></span><span style="display:flex;"><span>    ServiceType: string, 
+</span></span><span style="display:flex;"><span>    RequestUrl: string, 
+</span></span><span style="display:flex;"><span>    RequestedObjectKey: string, 
+</span></span><span style="display:flex;"><span>    RequestIdHeader: guid, 
+</span></span><span style="display:flex;"><span>    OperationCount: int, 
+</span></span><span style="display:flex;"><span>    RequesterIpAddress: string, 
+</span></span><span style="display:flex;"><span>    RequestVersionHeader: string, 
+</span></span><span style="display:flex;"><span>    RequestHeaderSize: long, 
+</span></span><span style="display:flex;"><span>    RequestPacketSize: long, 
+</span></span><span style="display:flex;"><span>    ResponseHeaderSize: long, 
+</span></span><span style="display:flex;"><span>    ResponsePacketSize: long, 
+</span></span><span style="display:flex;"><span>    RequestContentLength: long, 
+</span></span><span style="display:flex;"><span>    RequestMd5: string, 
+</span></span><span style="display:flex;"><span>    ServerMd5: string, 
+</span></span><span style="display:flex;"><span>    EtagIdentifier: string, 
+</span></span><span style="display:flex;"><span>    LastModifiedTime: datetime, 
+</span></span><span style="display:flex;"><span>    ConditionsUsed: string, 
+</span></span><span style="display:flex;"><span>    UserAgentHeader: string, 
+</span></span><span style="display:flex;"><span>    ReferrerHeader: string, 
+</span></span><span style="display:flex;"><span>    LogSource: string)
+</span></span></code></pre></div><p>See log format details <a href="https://docs.microsoft.com/rest/api/storageservices/storage-analytics-log-format">here</a></p>
 <p><img src="pic01.png" alt="Pic 01" /></p>
 </li>
 <li>
@@ -362,10 +362,10 @@ https://github.com/alex-shpak/hugo-book
 
  
         <hr />
-Azure Storage &copy;2021 <br />
+Azure Storage &copy;2022 <br />
 Visit the <a href="https://azure.microsoft.com/services/storage/">Azure Storage homepage</a> or read our <a href="https://docs.microsoft.com/azure/storage/">getting started guide</a> or the <a href="https://azure.microsoft.com/blog/topics/storage-backup-and-recovery/">Azure Storage Blog</a>. <br />
 Contact us: <a href="mailto:azurestoragefeedback@microsoft.com?subject=AzureStorage.com%20Feedback">azurestoragefeedback@microsoft.com</a>.<br />
-Generated on Fri, Sep 24 2021 17:07:45 UTC
+Generated on Wed, Nov 09 2022 01:23:51 UTC
       </footer>
 
       

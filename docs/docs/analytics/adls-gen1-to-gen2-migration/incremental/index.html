@@ -2,10 +2,10 @@
 <html lang="en" dir=>
 
 <head>
-  <meta name="generator" content="Hugo 0.88.1" />
+  <meta name="generator" content="Hugo 0.105.0">
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Incremental Copy Pattern Guide: A quick start template #  Overview #  The purpose of this document is to provide a manual for the Incremental copy pattern from Azure Data Lake Storage 1 (Gen1) to Azure Data Lake Storage 2 (Gen2) using Azure Data Factory and PowerShell. As such it provides the directions, references, sample code examples of the PowerShell functions been used. It is intended to be used in form of steps to follow to implement the solution from local machine.">
+<meta name="description" content="Incremental Copy Pattern Guide: A quick start template # Overview # The purpose of this document is to provide a manual for the Incremental copy pattern from Azure Data Lake Storage 1 (Gen1) to Azure Data Lake Storage 2 (Gen2) using Azure Data Factory and PowerShell. As such it provides the directions, references, sample code examples of the PowerShell functions been used. It is intended to be used in form of steps to follow to implement the solution from local machine.">
 <meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Incremental Copy Pattern Guide: A quick start template" />
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
@@ -15,7 +15,7 @@
 <link rel="manifest" href="/Storage/manifest.json">
 <link rel="icon" href="/Storage/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/Storage/book.min.e935e20bd0d469378cb482f0958edf258c731a4f895dccd55799c6fbc8043f23.css" integrity="sha256-6TXiC9DUaTeMtILwlY7fJYxzGk&#43;JXczVV5nG&#43;8gEPyM=">
-<script defer src="/Storage/en.search.min.f9dc316b682362e907b9d54060ecda5e6ae9c979e4306a6c9887393766a69511.js" integrity="sha256-&#43;dwxa2gjYukHudVAYOzaXmrpyXnkMGpsmIc5N2amlRE="></script>
+<script defer src="/Storage/en.search.min.63fdb55cd2e04f8a9f17757914d9129a2b2aaff34673d2d1e6755837978a1e31.js" integrity="sha256-Y/21XNLgT4qfF3V5FNkSmisqr/NGc9LR5nVYN5eKHjE="></script>
 <link rel="alternate" type="application/rss+xml" href="https://azure.github.io/Storage/docs/analytics/adls-gen1-to-gen2-migration/incremental/index.xml" title="Azure Storage" />
 <!--
 Made with Book Theme
@@ -34,7 +34,7 @@ https://github.com/alex-shpak/hugo-book
         
   <nav>
 <h2 class="book-brand">
-  <a href="/Storage"><img src="/Storage/images/azure-icon.png" alt="Logo" /><span>Azure Storage</span>
+  <a href="/Storage"><img src="/images/azure-icon.png" alt="Logo" /><span>Azure Storage</span>
   </a>
 </h2>
 
@@ -177,7 +177,7 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-  <script>(function(){var a=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+  <script>(function(){var e=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
 
 
  
@@ -274,19 +274,19 @@ This guide covers the following tasks:</p>
 <blockquote>
 <p>Note: Run as administrator</p>
 </blockquote>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">// Run below code to enable running PS files
-Set-ExecutionPolicy Unrestricted
-
-// Check <span style="color:#66d9ef">for</span> the below modules <span style="color:#66d9ef">in</span> PowerShell . <span style="color:#66d9ef">If</span> not existing, install one by one<span style="color:#960050;background-color:#1e0010">:</span>
-Install-Module Az.Accounts -AllowClobber -Force 
-Install-Module Az.DataFactory -AllowClobber -Force
-Install-Module Az.KeyVault -AllowClobber -Force    
-Install-Module Az.DataLakeStore -AllowClobber -Force
-Install-Module PowerShellGet <span style="color:#960050;background-color:#1e0010">–</span>Repository PSGallery <span style="color:#960050;background-color:#1e0010">–</span>Force
-
-// Close the PowerShell ISE and Reopen as administrator. Run the below module       
-Install-Module az.storage -RequiredVersion 1.13.3-preview -Repository PSGallery -AllowClobber -AllowPrerelease -Force
-</code></pre></div></li>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>// Run below code to enable running PS files
+</span></span><span style="display:flex;"><span>Set-ExecutionPolicy Unrestricted
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>// Check <span style="color:#66d9ef">for</span> the below modules <span style="color:#66d9ef">in</span> PowerShell . <span style="color:#66d9ef">If</span> not existing, install one by one<span style="color:#960050;background-color:#1e0010">:</span>
+</span></span><span style="display:flex;"><span>Install-Module Az.Accounts -AllowClobber -Force 
+</span></span><span style="display:flex;"><span>Install-Module Az.DataFactory -AllowClobber -Force
+</span></span><span style="display:flex;"><span>Install-Module Az.KeyVault -AllowClobber -Force    
+</span></span><span style="display:flex;"><span>Install-Module Az.DataLakeStore -AllowClobber -Force
+</span></span><span style="display:flex;"><span>Install-Module PowerShellGet <span style="color:#960050;background-color:#1e0010">–</span>Repository PSGallery <span style="color:#960050;background-color:#1e0010">–</span>Force
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>// Close the PowerShell ISE and Reopen as administrator. Run the below module       
+</span></span><span style="display:flex;"><span>Install-Module az.storage -RequiredVersion 1.13.3-preview -Repository PSGallery -AllowClobber -AllowPrerelease -Force
+</span></span></code></pre></div></li>
 </ul>
 <h2 id="limitations">
   Limitations
@@ -342,43 +342,43 @@ Install-Module az.storage -RequiredVersion 1.13.3-preview -Repository PSGallery 
 <li>Make an entry of Gen2 connection string in the key vault as shown below :</li>
 </ul>
 <p><img src="../images/78953831-f1dda180-7a8e-11ea-82e9-07aa66fd2856.png" alt="image" /></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">// Below is the code snapshot <span style="color:#66d9ef">for</span> setting the configuration file 
-// to connect to azure data factory<span style="color:#960050;background-color:#1e0010">:</span>
-
-<span style="color:#e6db74">&#34;gen1SourceRootPath&#34;</span> <span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#e6db74">&#34;https://&lt;&lt;Enter the Gen1 source root path&gt;&gt;.azuredatalakestore.net/webhdfs/v1&#34;</span>, 
-<span style="color:#e6db74">&#34;gen2DestinationRootPath&#34;</span> <span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#e6db74">&#34;https://&lt;&lt;Enter the Gen2 destination root path&gt;&gt;.dfs.core.windows.net&#34;</span>, 
-<span style="color:#e6db74">&#34;tenantId&#34;</span> <span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#e6db74">&#34;&lt;&lt;Enter the tenantId&gt;&gt;&#34;</span>, 
-<span style="color:#e6db74">&#34;subscriptionId&#34;</span> <span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#e6db74">&#34;&lt;&lt;Enter the subscriptionId&gt;&gt;&#34;</span>, 
-<span style="color:#e6db74">&#34;servicePrincipleId&#34;</span> <span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#e6db74">&#34;&lt;&lt;Enter the servicePrincipleId&gt;&gt;&#34;</span>, 
-<span style="color:#e6db74">&#34;servicePrincipleSecret&#34;</span> <span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#e6db74">&#34;&lt;&lt;Enter the servicePrincipleSecret Key&gt;&gt;&#34;</span>, 
-<span style="color:#e6db74">&#34;keyVaultName&#34;</span> <span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#e6db74">&#34;&lt;&lt;Enter the keyVaultName&gt;&gt;&#34;</span>,
-<span style="color:#e6db74">&#34;factoryName&#34;</span> <span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#e6db74">&#34;&lt;&lt;Enter the factoryName&gt;&gt;&#34;</span>, 
-<span style="color:#e6db74">&#34;resourceGroupName&#34;</span> <span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#e6db74">&#34;&lt;&lt;Enter the resourceGroupName under which the azure data factory pipeline will be created&gt;&gt;&#34;</span>,
-<span style="color:#e6db74">&#34;location&#34;</span> <span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#e6db74">&#34;&lt;&lt;Enter the location&gt;&gt;&#34;</span>, 
-<span style="color:#e6db74">&#34;overwrite&#34;</span> <span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#e6db74">&#34;Enter the value&#34;</span> //  True = It will overwrite the existing data factory ,False = It will skip creating data factory
-</code></pre></div></li>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>// Below is the code snapshot <span style="color:#66d9ef">for</span> setting the configuration file 
+</span></span><span style="display:flex;"><span>// to connect to azure data factory<span style="color:#960050;background-color:#1e0010">:</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;gen1SourceRootPath&#34;</span> <span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#e6db74">&#34;https://&lt;&lt;Enter the Gen1 source root path&gt;&gt;.azuredatalakestore.net/webhdfs/v1&#34;</span>, 
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;gen2DestinationRootPath&#34;</span> <span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#e6db74">&#34;https://&lt;&lt;Enter the Gen2 destination root path&gt;&gt;.dfs.core.windows.net&#34;</span>, 
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;tenantId&#34;</span> <span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#e6db74">&#34;&lt;&lt;Enter the tenantId&gt;&gt;&#34;</span>, 
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;subscriptionId&#34;</span> <span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#e6db74">&#34;&lt;&lt;Enter the subscriptionId&gt;&gt;&#34;</span>, 
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;servicePrincipleId&#34;</span> <span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#e6db74">&#34;&lt;&lt;Enter the servicePrincipleId&gt;&gt;&#34;</span>, 
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;servicePrincipleSecret&#34;</span> <span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#e6db74">&#34;&lt;&lt;Enter the servicePrincipleSecret Key&gt;&gt;&#34;</span>, 
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;keyVaultName&#34;</span> <span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#e6db74">&#34;&lt;&lt;Enter the keyVaultName&gt;&gt;&#34;</span>,
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;factoryName&#34;</span> <span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#e6db74">&#34;&lt;&lt;Enter the factoryName&gt;&gt;&#34;</span>, 
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;resourceGroupName&#34;</span> <span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#e6db74">&#34;&lt;&lt;Enter the resourceGroupName under which the azure data factory pipeline will be created&gt;&gt;&#34;</span>,
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;location&#34;</span> <span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#e6db74">&#34;&lt;&lt;Enter the location&gt;&gt;&#34;</span>, 
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;overwrite&#34;</span> <span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#e6db74">&#34;Enter the value&#34;</span> //  True = It will overwrite the existing data factory ,False = It will skip creating data factory
+</span></span></code></pre></div></li>
 <li>
 <p><strong>Scheduling the factory pipeline for incremental copy pattern</strong></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#e6db74">&#34;pipelineId&#34;</span> <span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#e6db74">&#34;Enter distinct pipeline id eg 1,2,3,..40&#34;</span>, 
-<span style="color:#e6db74">&#34;isChurningOrIsIncremental&#34;</span> <span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#e6db74">&#34;true&#34;</span>, 
-<span style="color:#e6db74">&#34;triggerFrequency&#34;</span> <span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#e6db74">&#34;Provide the frequency in Minute or Hour&#34;</span>,
-<span style="color:#e6db74">&#34;triggerInterval&#34;</span> <span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#e6db74">&#34;Enter the time interval for scheduling (Minimum trigger interval time = 15 minute)&#34;</span>,
-<span style="color:#e6db74">&#34;triggerUTCStartTime&#34;</span> <span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#e6db74">&#34;Enter UTC time to start the factory for Incremental copy pattern .Eg 2020-04-09T18:00:00Z&#34;</span>,
-<span style="color:#e6db74">&#34;triggerUTCEndTime&#34;</span> <span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#e6db74">&#34;Enter the UTC time to end the factory for Incremental copy pattern. Eg 2020-04-10T13:00:00Z&#34;</span>,
-<span style="color:#e6db74">&#34;pipelineDetails&#34;</span><span style="color:#960050;background-color:#1e0010">:</span>[
-
-   // Activity 1 //
-   <span style="color:#e6db74">&#34;sourcePath&#34;</span> <span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#e6db74">&#34;Enter the Gen1 full path. Eg: /path-name&#34;</span>,
-   <span style="color:#e6db74">&#34;destinationPath&#34;</span> <span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#e6db74">&#34;Enter the Gen2 full path.Eg: path-name&#34;</span>,
-   <span style="color:#e6db74">&#34;destinationContainer&#34;</span> <span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#e6db74">&#34;Enter the Gen2 container name&#34;</span>
-
-   // Activity 2 //
-   <span style="color:#e6db74">&#34;sourcePath&#34;</span> <span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#e6db74">&#34;Enter the Gen1 full path. Eg: /path-name&#34;</span>,
-   <span style="color:#e6db74">&#34;destinationPath&#34;</span> <span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#e6db74">&#34;Enter the Gen2 full path.Eg: path-name&#34;</span>,
-   <span style="color:#e6db74">&#34;destinationContainer&#34;</span> <span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#e6db74">&#34;Enter the Gen2 container name&#34;</span>
-
-// Note <span style="color:#960050;background-color:#1e0010">:</span> Maximum activities per pipeline is 40
-</code></pre></div><blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span><span style="color:#e6db74">&#34;pipelineId&#34;</span> <span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#e6db74">&#34;Enter distinct pipeline id eg 1,2,3,..40&#34;</span>, 
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;isChurningOrIsIncremental&#34;</span> <span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#e6db74">&#34;true&#34;</span>, 
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;triggerFrequency&#34;</span> <span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#e6db74">&#34;Provide the frequency in Minute or Hour&#34;</span>,
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;triggerInterval&#34;</span> <span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#e6db74">&#34;Enter the time interval for scheduling (Minimum trigger interval time = 15 minute)&#34;</span>,
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;triggerUTCStartTime&#34;</span> <span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#e6db74">&#34;Enter UTC time to start the factory for Incremental copy pattern .Eg 2020-04-09T18:00:00Z&#34;</span>,
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;triggerUTCEndTime&#34;</span> <span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#e6db74">&#34;Enter the UTC time to end the factory for Incremental copy pattern. Eg 2020-04-10T13:00:00Z&#34;</span>,
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;pipelineDetails&#34;</span><span style="color:#960050;background-color:#1e0010">:</span>[
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>   // Activity 1 //
+</span></span><span style="display:flex;"><span>   <span style="color:#e6db74">&#34;sourcePath&#34;</span> <span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#e6db74">&#34;Enter the Gen1 full path. Eg: /path-name&#34;</span>,
+</span></span><span style="display:flex;"><span>   <span style="color:#e6db74">&#34;destinationPath&#34;</span> <span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#e6db74">&#34;Enter the Gen2 full path.Eg: path-name&#34;</span>,
+</span></span><span style="display:flex;"><span>   <span style="color:#e6db74">&#34;destinationContainer&#34;</span> <span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#e6db74">&#34;Enter the Gen2 container name&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>   // Activity 2 //
+</span></span><span style="display:flex;"><span>   <span style="color:#e6db74">&#34;sourcePath&#34;</span> <span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#e6db74">&#34;Enter the Gen1 full path. Eg: /path-name&#34;</span>,
+</span></span><span style="display:flex;"><span>   <span style="color:#e6db74">&#34;destinationPath&#34;</span> <span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#e6db74">&#34;Enter the Gen2 full path.Eg: path-name&#34;</span>,
+</span></span><span style="display:flex;"><span>   <span style="color:#e6db74">&#34;destinationContainer&#34;</span> <span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#e6db74">&#34;Enter the Gen2 container name&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>// Note <span style="color:#960050;background-color:#1e0010">:</span> Maximum activities per pipeline is 40
+</span></span></code></pre></div><blockquote>
 <p>Note: Please note the <strong>destinationPath</strong> string will not be having Gen2 container name. It will have the file path same as Gen1. Review the <code>Configuration/IncrementalLoadConfig.json</code> script for more reference.</p>
 </blockquote>
 </li>
@@ -451,10 +451,10 @@ Install-Module az.storage -RequiredVersion 1.13.3-preview -Repository PSGallery 
 
  
         <hr />
-Azure Storage &copy;2021 <br />
+Azure Storage &copy;2022 <br />
 Visit the <a href="https://azure.microsoft.com/services/storage/">Azure Storage homepage</a> or read our <a href="https://docs.microsoft.com/azure/storage/">getting started guide</a> or the <a href="https://azure.microsoft.com/blog/topics/storage-backup-and-recovery/">Azure Storage Blog</a>. <br />
 Contact us: <a href="mailto:azurestoragefeedback@microsoft.com?subject=AzureStorage.com%20Feedback">azurestoragefeedback@microsoft.com</a>.<br />
-Generated on Fri, Sep 24 2021 17:07:45 UTC
+Generated on Wed, Nov 09 2022 01:23:51 UTC
       </footer>
 
       

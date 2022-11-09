@@ -12,7 +12,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://azure.github.io/Storage/docs/hpc-iot-and-ai/</guid>
-      <description>HPC IoT and AI #  Coming Soon. . .</description>
+      <description>HPC IoT and AI # Coming Soon. . .</description>
     </item>
     
     <item>
@@ -21,7 +21,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://azure.github.io/Storage/docs/storage-partners/</guid>
-      <description>Storage Partners #  Archive #   Acronis Archive360 Commvault HubStor Igneous Veeam Veritas  Backup #   Acronis Actifio Carbonite Cloudberry Cohesity Commvault Igneous Rubrik Veeam Veritas  Disaster Recovery #   Portworx StorageOS Zerto  MultiProtocol #   Caringo Cloudian Minio Scality  MultiSite collaboration #   Nasuni Panzura Talon  Tiering #   Komprise Moonwalk Peer Software Pure Storage Quantum  Tools #   Cloudberry Komprise  Verticals #  Automotive #   Cognata Elektrobit Linker Networks  Financial Services #   Archive360 Data Parser HubStor XenData  Healthcare #   DNA Nexus Nucleus Health  Oil &amp;amp; Gas #   Cegal Interica PixStor Tiger Tech Xen Data  </description>
+      <description> Storage Partners # Archive # Acronis Archive360 Commvault HubStor Igneous Veeam Veritas Backup # Acronis Actifio Carbonite Cloudberry Cohesity Commvault Igneous Rubrik Veeam Veritas Disaster Recovery # Portworx StorageOS Zerto MultiProtocol # Caringo Cloudian Minio Scality MultiSite collaboration # Nasuni Panzura Talon Tiering # Komprise Moonwalk Peer Software Pure Storage Quantum Tools # Cloudberry Komprise Verticals # Automotive # Cognata Elektrobit Linker Networks Financial Services # Archive360 Data Parser HubStor XenData Healthcare # DNA Nexus Nucleus Health Oil &amp;amp; Gas # Cegal Interica PixStor Tiger Tech Xen Data </description>
     </item>
     
     <item>
@@ -30,7 +30,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://azure.github.io/Storage/docs/tools-and-utilities/</guid>
-      <description>Tools and Utilities #   AzCopy is a command-line utility that you can use to copy blobs or files to or from a storage account. AzReplicate is a sample application designed to help Azure Storage customers perform very large, multi-petabyte data migrations to Azure Blob Storage. AzDataMaker is a sample .NET Core app that runs in a Linux Azure Container Instance that generates files and uploads them to Azure Blob Storage.</description>
+      <description>Tools and Utilities # AzCopy is a command-line utility that you can use to copy blobs or files to or from a storage account. AzReplicate is a sample application designed to help Azure Storage customers perform very large, multi-petabyte data migrations to Azure Blob Storage. AzDataMaker is a sample .NET Core app that runs in a Linux Azure Container Instance that generates files and uploads them to Azure Blob Storage.</description>
     </item>
     
     <item>
@@ -39,7 +39,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://azure.github.io/Storage/docs/whats-new/</guid>
-      <description>What&amp;rsquo;s New #   ADLS Billing FAQ (09/23/2021) AzBulkSetBlobTier (08/24/2021) Load, Parse and Summarize Classic Azure Storage Logs in Azure Data Explorer (03/30/2021) How do you deploy Object Replication with ARM? (03/26/2021) What are the differences between the Azure Blob Storage Upload API’s and when should I use each? (02/09/2021) ADLS Gen 1 to Gen 2 Migration Guide (02/08/2021) NFS 3.0 support for Azure Blob Storage (02/03/2021) Optimize your costs with Azure Blob Storage (02/01/2021) Azure Blob Storage data protection features (01/28/2021) Managing concurrent uploads with versioning (01/25/2021) Azure Storage Supported Character Scrubber PowerShell Script (01/05/2021) Estimating Pricing for Azure Block Blob Deployments (01/01/2021) Data management and retention (12/16/2020) Hitchhiker&amp;rsquo;s Guide to the Datalake (10/27/2020) AzReplicate (08/30/2020) AzDataMaker (08/26/2020)  </description>
+      <description> What&amp;rsquo;s New # ADLS Billing FAQ (09/23/2021) AzBulkSetBlobTier (08/24/2021) Load, Parse and Summarize Classic Azure Storage Logs in Azure Data Explorer (03/30/2021) How do you deploy Object Replication with ARM? (03/26/2021) What are the differences between the Azure Blob Storage Upload API’s and when should I use each? (02/09/2021) ADLS Gen 1 to Gen 2 Migration Guide (02/08/2021) NFS 3.0 support for Azure Blob Storage (02/03/2021) Optimize your costs with Azure Blob Storage (02/01/2021) Azure Blob Storage data protection features (01/28/2021) Managing concurrent uploads with versioning (01/25/2021) Azure Storage Supported Character Scrubber PowerShell Script (01/05/2021) Estimating Pricing for Azure Block Blob Deployments (01/01/2021) Data management and retention (12/16/2020) Hitchhiker&amp;rsquo;s Guide to the Datalake (10/27/2020) AzReplicate (08/30/2020) AzDataMaker (08/26/2020) </description>
     </item>
     
   </channel>

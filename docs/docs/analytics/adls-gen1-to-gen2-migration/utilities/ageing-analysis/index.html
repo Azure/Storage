@@ -2,10 +2,10 @@
 <html lang="en" dir=>
 
 <head>
-  <meta name="generator" content="Hugo 0.88.1" />
+  <meta name="generator" content="Hugo 0.105.0">
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Ageing Analysis Guide: A quick start template #  Overview #  The inventory Ageing analysis for any application determines the storage duration of a file, folder or data inside that. The main purpose is to find out which files, folders stay in inventory for a long time or are perhaps becoming obsolete. This also identifies the active and inactive folders in the applications from Gen1 Data Lake using directory details such as recent child modification date and size.">
+<meta name="description" content="Ageing Analysis Guide: A quick start template # Overview # The inventory Ageing analysis for any application determines the storage duration of a file, folder or data inside that. The main purpose is to find out which files, folders stay in inventory for a long time or are perhaps becoming obsolete. This also identifies the active and inactive folders in the applications from Gen1 Data Lake using directory details such as recent child modification date and size.">
 <meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Ageing Analysis Guide: A quick start template" />
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
@@ -15,7 +15,7 @@
 <link rel="manifest" href="/Storage/manifest.json">
 <link rel="icon" href="/Storage/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/Storage/book.min.e935e20bd0d469378cb482f0958edf258c731a4f895dccd55799c6fbc8043f23.css" integrity="sha256-6TXiC9DUaTeMtILwlY7fJYxzGk&#43;JXczVV5nG&#43;8gEPyM=">
-<script defer src="/Storage/en.search.min.f9dc316b682362e907b9d54060ecda5e6ae9c979e4306a6c9887393766a69511.js" integrity="sha256-&#43;dwxa2gjYukHudVAYOzaXmrpyXnkMGpsmIc5N2amlRE="></script>
+<script defer src="/Storage/en.search.min.63fdb55cd2e04f8a9f17757914d9129a2b2aaff34673d2d1e6755837978a1e31.js" integrity="sha256-Y/21XNLgT4qfF3V5FNkSmisqr/NGc9LR5nVYN5eKHjE="></script>
 <link rel="alternate" type="application/rss+xml" href="https://azure.github.io/Storage/docs/analytics/adls-gen1-to-gen2-migration/utilities/ageing-analysis/index.xml" title="Azure Storage" />
 <!--
 Made with Book Theme
@@ -34,7 +34,7 @@ https://github.com/alex-shpak/hugo-book
         
   <nav>
 <h2 class="book-brand">
-  <a href="/Storage"><img src="/Storage/images/azure-icon.png" alt="Logo" /><span>Azure Storage</span>
+  <a href="/Storage"><img src="/images/azure-icon.png" alt="Logo" /><span>Azure Storage</span>
   </a>
 </h2>
 
@@ -177,7 +177,7 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-  <script>(function(){var a=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+  <script>(function(){var e=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
 
 
  
@@ -281,19 +281,19 @@ https://github.com/alex-shpak/hugo-book
 <blockquote>
 <p>Note: Run as administrator</p>
 </blockquote>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">//Run below code to enable running PS files
-Set-ExecutionPolicy Unrestricted
-
-//Check <span style="color:#66d9ef">for</span> the below modules <span style="color:#66d9ef">in</span> PowerShell . <span style="color:#66d9ef">If</span> not existing, install one by one<span style="color:#960050;background-color:#1e0010">:</span>
-Install-Module Az.Accounts -AllowClobber -Force 
-Install-Module Az.DataFactory -AllowClobber -Force
-Install-Module Az.KeyVault -AllowClobber -Force    
-Install-Module Az.DataLakeStore -AllowClobber -Force
-Install-Module PowerShellGet <span style="color:#960050;background-color:#1e0010">–</span>Repository PSGallery <span style="color:#960050;background-color:#1e0010">–</span>Force
-
-//Close the PowerShell ISE and Reopen as administrator. Run the below module       
-Install-Module az.storage -RequiredVersion 1.13.3-preview -Repository PSGallery -AllowClobber -AllowPrerelease -Force
-</code></pre></div></li>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>//Run below code to enable running PS files
+</span></span><span style="display:flex;"><span>Set-ExecutionPolicy Unrestricted
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>//Check <span style="color:#66d9ef">for</span> the below modules <span style="color:#66d9ef">in</span> PowerShell . <span style="color:#66d9ef">If</span> not existing, install one by one<span style="color:#960050;background-color:#1e0010">:</span>
+</span></span><span style="display:flex;"><span>Install-Module Az.Accounts -AllowClobber -Force 
+</span></span><span style="display:flex;"><span>Install-Module Az.DataFactory -AllowClobber -Force
+</span></span><span style="display:flex;"><span>Install-Module Az.KeyVault -AllowClobber -Force    
+</span></span><span style="display:flex;"><span>Install-Module Az.DataLakeStore -AllowClobber -Force
+</span></span><span style="display:flex;"><span>Install-Module PowerShellGet <span style="color:#960050;background-color:#1e0010">–</span>Repository PSGallery <span style="color:#960050;background-color:#1e0010">–</span>Force
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>//Close the PowerShell ISE and Reopen as administrator. Run the below module       
+</span></span><span style="display:flex;"><span>Install-Module az.storage -RequiredVersion 1.13.3-preview -Repository PSGallery -AllowClobber -AllowPrerelease -Force
+</span></span></code></pre></div></li>
 </ul>
 <h2 id="limitations">
   Limitations
@@ -331,18 +331,18 @@ Install-Module az.storage -RequiredVersion 1.13.3-preview -Repository PSGallery 
 </h3>
 <p><strong>Important Prerequisite</strong>:</p>
 <p><strong>Below is the code snapshot of ADLS connection</strong>:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#e6db74">&#34;gen1SourceRootPath&#34;</span> <span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#e6db74">&#34;&lt;&lt;Enter the Gen1 source root path&gt;&gt;&#34;</span>, 
-<span style="color:#e6db74">&#34;outPutPath&#34;</span> <span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#e6db74">&#34;&lt;&lt;Enter the path where the results needs to store&gt;&gt;&#34;</span>,
-<span style="color:#e6db74">&#34;tenantId&#34;</span> <span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#e6db74">&#34;&lt;&lt;Enter the tenantId&gt;&gt;&#34;</span>, 
-<span style="color:#e6db74">&#34;subscriptionId&#34;</span> <span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#e6db74">&#34;&lt;&lt;Enter the subscriptionId&gt;&gt;&#34;</span>, 
-<span style="color:#e6db74">&#34;servicePrincipleId&#34;</span> <span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#e6db74">&#34;&lt;&lt;Enter the servicePrincipleId&gt;&gt;&#34;</span>, 
-<span style="color:#e6db74">&#34;servicePrincipleSecret&#34;</span> <span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#e6db74">&#34;&lt;&lt;Enter the servicePrincipleSecret Key&gt;&gt;&#34;</span>, 
-<span style="color:#e6db74">&#34;dataLakeStore&#34;</span> <span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#e6db74">&#34;&lt;&lt;Enter the dataLakeStore name&gt;&gt;&#34;</span>
-</code></pre></div><p><strong>Setting up the connection to azure for inventory collection</strong>:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">$SecurePassword = ConvertTo-SecureString $ServicePrincipalKey -AsPlainText -Force
-$Credential = New-Object System.Management.Automation.PSCredential ( $ServicePrincipalId, $SecurePassword)
-Login-AzAccount -ServicePrincipal  -TenantId $TenantId -Credential $Credential
-</code></pre></div><h2 id="inventory-collection-using-powershell">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span><span style="color:#e6db74">&#34;gen1SourceRootPath&#34;</span> <span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#e6db74">&#34;&lt;&lt;Enter the Gen1 source root path&gt;&gt;&#34;</span>, 
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;outPutPath&#34;</span> <span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#e6db74">&#34;&lt;&lt;Enter the path where the results needs to store&gt;&gt;&#34;</span>,
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;tenantId&#34;</span> <span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#e6db74">&#34;&lt;&lt;Enter the tenantId&gt;&gt;&#34;</span>, 
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;subscriptionId&#34;</span> <span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#e6db74">&#34;&lt;&lt;Enter the subscriptionId&gt;&gt;&#34;</span>, 
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;servicePrincipleId&#34;</span> <span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#e6db74">&#34;&lt;&lt;Enter the servicePrincipleId&gt;&gt;&#34;</span>, 
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;servicePrincipleSecret&#34;</span> <span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#e6db74">&#34;&lt;&lt;Enter the servicePrincipleSecret Key&gt;&gt;&#34;</span>, 
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;dataLakeStore&#34;</span> <span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#e6db74">&#34;&lt;&lt;Enter the dataLakeStore name&gt;&gt;&#34;</span>
+</span></span></code></pre></div><p><strong>Setting up the connection to azure for inventory collection</strong>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>$SecurePassword = ConvertTo-SecureString $ServicePrincipalKey -AsPlainText -Force
+</span></span><span style="display:flex;"><span>$Credential = New-Object System.Management.Automation.PSCredential ( $ServicePrincipalId, $SecurePassword)
+</span></span><span style="display:flex;"><span>Login-AzAccount -ServicePrincipal  -TenantId $TenantId -Credential $Credential
+</span></span></code></pre></div><h2 id="inventory-collection-using-powershell">
   Inventory Collection using PowerShell
   <a class="anchor" href="#inventory-collection-using-powershell">#</a>
 </h2>
@@ -414,10 +414,10 @@ Login-AzAccount -ServicePrincipal  -TenantId $TenantId -Credential $Credential
 
  
         <hr />
-Azure Storage &copy;2021 <br />
+Azure Storage &copy;2022 <br />
 Visit the <a href="https://azure.microsoft.com/services/storage/">Azure Storage homepage</a> or read our <a href="https://docs.microsoft.com/azure/storage/">getting started guide</a> or the <a href="https://azure.microsoft.com/blog/topics/storage-backup-and-recovery/">Azure Storage Blog</a>. <br />
 Contact us: <a href="mailto:azurestoragefeedback@microsoft.com?subject=AzureStorage.com%20Feedback">azurestoragefeedback@microsoft.com</a>.<br />
-Generated on Fri, Sep 24 2021 17:07:45 UTC
+Generated on Wed, Nov 09 2022 01:23:51 UTC
       </footer>
 
       

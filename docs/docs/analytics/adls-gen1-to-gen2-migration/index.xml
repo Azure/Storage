@@ -12,12 +12,12 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://azure.github.io/Storage/docs/analytics/adls-gen1-to-gen2-migration/application-update/</guid>
-      <description>Application and Workload Update #  Overview #  The purpose of this document is to provide steps and ways to migrate the workloads and applications from Gen1 to Gen2 after data migration is completed.
+      <description>Application and Workload Update # Overview # The purpose of this document is to provide steps and ways to migrate the workloads and applications from Gen1 to Gen2 after data migration is completed.
 This can be applicable for below migration patterns:
-  Incremental Copy pattern
-  Lift and Shift copy pattern
-  Dual Pipeline pattern
-  As part of this, we will configure services in workloads used and update the applications to point to Gen2 mount.</description>
+Incremental Copy pattern
+Lift and Shift copy pattern
+Dual Pipeline pattern
+As part of this, we will configure services in workloads used and update the applications to point to Gen2 mount.</description>
     </item>
     
     <item>
@@ -26,7 +26,7 @@ This can be applicable for below migration patterns:
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://azure.github.io/Storage/docs/analytics/adls-gen1-to-gen2-migration/dual-pipeline/</guid>
-      <description>Dual Pipeline Pattern Guide: A quick start template #  Overview #  The purpose of this document is to provide a manual for the use of Dual pipeline pattern for migration of data from Gen1 to Gen2. This provides the directions, references and approach how to set up the Dual pipeline, do migration of existing data from Gen1 to Gen2 and set up the workloads to run at Gen2 endpoint.</description>
+      <description>Dual Pipeline Pattern Guide: A quick start template # Overview # The purpose of this document is to provide a manual for the use of Dual pipeline pattern for migration of data from Gen1 to Gen2. This provides the directions, references and approach how to set up the Dual pipeline, do migration of existing data from Gen1 to Gen2 and set up the workloads to run at Gen2 endpoint.</description>
     </item>
     
     <item>
@@ -35,7 +35,7 @@ This can be applicable for below migration patterns:
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://azure.github.io/Storage/docs/analytics/adls-gen1-to-gen2-migration/adls-gen1-and-gen2-acl-behavior/</guid>
-      <description>Gen1 and Gen2 ACL Behavior Analysis #  Overview #  Azure Data Lake Storage is Microsoft&amp;rsquo;s optimized storage solution for big data analytics workloads. ADLS Gen2 is the combination of the current ADLS Gen1 and Blob storage.
+      <description>Gen1 and Gen2 ACL Behavior Analysis # Overview # Azure Data Lake Storage is Microsoft&amp;rsquo;s optimized storage solution for big data analytics workloads. ADLS Gen2 is the combination of the current ADLS Gen1 and Blob storage.
 Azure Data Lake Storage Gen2 is built on Azure Blob storage and provides a set of capabilities dedicated to big data analytics. Data Lake Storage Gen2 combines features from Azure Data Lake Storage Gen1, such as file system semantics, directory, and file level security and low cost scalability, tiered storage, high availability/disaster recovery capabilities from Azure Blob storage.</description>
     </item>
     

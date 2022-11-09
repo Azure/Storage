@@ -1,14 +1,14 @@
 {
   "name": "Azure Storage",
   "short_name": "Azure Storage",
-  "start_url": "/Storage/",
-  "scope": "/Storage/",
+  "start_url": "/",
+  "scope": "/",
   "display": "standalone",
   "background_color": "#000000",
   "theme_color": "#000000",
   "icons": [
     {
-      "src": "/Storage/favicon.svg",
+      "src": "/favicon.svg",
       "sizes": "512x512"
     }
   ]

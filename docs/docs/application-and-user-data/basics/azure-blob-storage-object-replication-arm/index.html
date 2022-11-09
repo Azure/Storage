@@ -2,14 +2,14 @@
 <html lang="en" dir=>
 
 <head>
-  <meta name="generator" content="Hugo 0.88.1" />
+  <meta name="generator" content="Hugo 0.105.0">
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Azure Blob Storage - Setup Object Replication with ARM Templates #  Object replication asynchronously copies block blobs between a source storage account and a destination account.
+<meta name="description" content="Azure Blob Storage - Setup Object Replication with ARM Templates # Object replication asynchronously copies block blobs between a source storage account and a destination account.
 You can find a good overview of the service here, and instructions on how to deploy it via the portal here.
 Here we are going to focus on deploying Object Replication with ARM. You will see we are doing this in 3 steps with three templates orchestrated with some CLI code.">
 <meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Azure Blob Storage - Setup Object Replication with ARM Templates" />
-<meta property="og:description" content="Azure Blob Storage - Setup Object Replication with ARM Templates #  Object replication asynchronously copies block blobs between a source storage account and a destination account.
+<meta property="og:description" content="Azure Blob Storage - Setup Object Replication with ARM Templates # Object replication asynchronously copies block blobs between a source storage account and a destination account.
 You can find a good overview of the service here, and instructions on how to deploy it via the portal here.
 Here we are going to focus on deploying Object Replication with ARM. You will see we are doing this in 3 steps with three templates orchestrated with some CLI code." />
 <meta property="og:type" content="article" />
@@ -21,7 +21,7 @@ Here we are going to focus on deploying Object Replication with ARM. You will se
 <link rel="manifest" href="/Storage/manifest.json">
 <link rel="icon" href="/Storage/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/Storage/book.min.e935e20bd0d469378cb482f0958edf258c731a4f895dccd55799c6fbc8043f23.css" integrity="sha256-6TXiC9DUaTeMtILwlY7fJYxzGk&#43;JXczVV5nG&#43;8gEPyM=">
-<script defer src="/Storage/en.search.min.f9dc316b682362e907b9d54060ecda5e6ae9c979e4306a6c9887393766a69511.js" integrity="sha256-&#43;dwxa2gjYukHudVAYOzaXmrpyXnkMGpsmIc5N2amlRE="></script>
+<script defer src="/Storage/en.search.min.63fdb55cd2e04f8a9f17757914d9129a2b2aaff34673d2d1e6755837978a1e31.js" integrity="sha256-Y/21XNLgT4qfF3V5FNkSmisqr/NGc9LR5nVYN5eKHjE="></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -39,7 +39,7 @@ https://github.com/alex-shpak/hugo-book
         
   <nav>
 <h2 class="book-brand">
-  <a href="/Storage"><img src="/Storage/images/azure-icon.png" alt="Logo" /><span>Azure Storage</span>
+  <a href="/Storage"><img src="/images/azure-icon.png" alt="Logo" /><span>Azure Storage</span>
   </a>
 </h2>
 
@@ -182,7 +182,7 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-  <script>(function(){var a=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+  <script>(function(){var e=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
 
 
  
@@ -245,14 +245,14 @@ https://github.com/alex-shpak/hugo-book
 <li>In this sample we are using the same region for source and destination this is not required</li>
 <li>In this sample we are using the same durability (i.e. LRS) for source and destination this is not required</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">RG<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&lt;resource group name&gt;&#34;</span>
-LOCATION<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&lt;region name i.e. westus&gt;&#34;</span>
-SRCACCT<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&lt;name of source storage account&gt;&#34;</span>
-DESTACCT<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&lt;name of destination storage account&gt;&#34;</span>
-CONTAINER<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&lt;name of container&gt;&#34;</span>
-
-az group create --name $RG --location $LOCATION 
-</code></pre></div><h2 id="create-the-source--destination-storage-accounts">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>RG<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&lt;resource group name&gt;&#34;</span>
+</span></span><span style="display:flex;"><span>LOCATION<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&lt;region name i.e. westus&gt;&#34;</span>
+</span></span><span style="display:flex;"><span>SRCACCT<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&lt;name of source storage account&gt;&#34;</span>
+</span></span><span style="display:flex;"><span>DESTACCT<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&lt;name of destination storage account&gt;&#34;</span>
+</span></span><span style="display:flex;"><span>CONTAINER<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&lt;name of container&gt;&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>az group create --name $RG --location $LOCATION 
+</span></span></code></pre></div><h2 id="create-the-source--destination-storage-accounts">
   Create the source &amp; destination storage accounts
   <a class="anchor" href="#create-the-source--destination-storage-accounts">#</a>
 </h2>
@@ -260,14 +260,14 @@ az group create --name $RG --location $LOCATION
 <ul>
 <li>Make sure that your accounts have Change Feed and Versioning features enabled</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">az deployment group create <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>    --name TestDeployment <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>    --resource-group $RG  <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>    --template-file step01.json <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>    --parameters <span style="color:#e6db74">&#34;storageNameSrc=</span>$SRCACCT<span style="color:#e6db74">&#34;</span> <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>        <span style="color:#e6db74">&#34;storageNameDest=</span>$DESTACCT<span style="color:#e6db74">&#34;</span> <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>        <span style="color:#e6db74">&#34;containerName=</span>$CONTAINER<span style="color:#e6db74">&#34;</span>
-</code></pre></div><h2 id="create-the-destination-object-replication-endpoint">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>az deployment group create <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --name TestDeployment <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --resource-group $RG  <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --template-file step01.json <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --parameters <span style="color:#e6db74">&#34;storageNameSrc=</span>$SRCACCT<span style="color:#e6db74">&#34;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>        <span style="color:#e6db74">&#34;storageNameDest=</span>$DESTACCT<span style="color:#e6db74">&#34;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>        <span style="color:#e6db74">&#34;containerName=</span>$CONTAINER<span style="color:#e6db74">&#34;</span>
+</span></span></code></pre></div><h2 id="create-the-destination-object-replication-endpoint">
   Create the destination Object Replication endpoint
   <a class="anchor" href="#create-the-destination-object-replication-endpoint">#</a>
 </h2>
@@ -275,14 +275,14 @@ az group create --name $RG --location $LOCATION
 <ul>
 <li>You might need to wait a bit for the features you enabled in the last step to turn on before doing this</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">az deployment group create <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>    --name TestDeployment <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>    --resource-group $RG  <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>    --template-file step02.json <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>    --parameters <span style="color:#e6db74">&#34;storageNameSrc=</span>$SRCACCT<span style="color:#e6db74">&#34;</span> <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>        <span style="color:#e6db74">&#34;storageNameDest=</span>$DESTACCT<span style="color:#e6db74">&#34;</span> <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>        <span style="color:#e6db74">&#34;containerName=</span>$CONTAINER<span style="color:#e6db74">&#34;</span>
-</code></pre></div><h2 id="create-the-source-object-replication-endpoint">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>az deployment group create <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --name TestDeployment <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --resource-group $RG  <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --template-file step02.json <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --parameters <span style="color:#e6db74">&#34;storageNameSrc=</span>$SRCACCT<span style="color:#e6db74">&#34;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>        <span style="color:#e6db74">&#34;storageNameDest=</span>$DESTACCT<span style="color:#e6db74">&#34;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>        <span style="color:#e6db74">&#34;containerName=</span>$CONTAINER<span style="color:#e6db74">&#34;</span>
+</span></span></code></pre></div><h2 id="create-the-source-object-replication-endpoint">
   Create the source Object Replication endpoint
   <a class="anchor" href="#create-the-source-object-replication-endpoint">#</a>
 </h2>
@@ -290,19 +290,19 @@ az group create --name $RG --location $LOCATION
 <blockquote>
 <p>NOTE: Here I am just pulling the first policy and rule, since I only have 1, if you have more than 1 you will need to change the &ndash;query</p>
 </blockquote>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">POLICY<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>az storage account or-policy list --account-name $DESTACCT --query <span style="color:#e6db74">&#39;[0].policyId&#39;</span> --output tsv<span style="color:#66d9ef">)</span>
-RULE<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>az storage account or-policy list --account-name $DESTACCT --query <span style="color:#e6db74">&#39;[0].rules[0].ruleId&#39;</span> --output tsv<span style="color:#66d9ef">)</span>
-
-az deployment group create <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>    --name TestDeployment <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>    --resource-group $RG  <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>    --template-file step03.json <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>    --parameters <span style="color:#e6db74">&#34;storageNameSrc=</span>$SRCACCT<span style="color:#e6db74">&#34;</span> <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>        <span style="color:#e6db74">&#34;storageNameDest=</span>$DESTACCT<span style="color:#e6db74">&#34;</span> <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>        <span style="color:#e6db74">&#34;containerName=</span>$CONTAINER<span style="color:#e6db74">&#34;</span> <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>        <span style="color:#e6db74">&#34;policyId=</span>$POLICY<span style="color:#e6db74">&#34;</span> <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>        <span style="color:#e6db74">&#34;ruleId=</span>$RULE<span style="color:#e6db74">&#34;</span> 
-</code></pre></div></article>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>POLICY<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>az storage account or-policy list --account-name $DESTACCT --query <span style="color:#e6db74">&#39;[0].policyId&#39;</span> --output tsv<span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>RULE<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>az storage account or-policy list --account-name $DESTACCT --query <span style="color:#e6db74">&#39;[0].rules[0].ruleId&#39;</span> --output tsv<span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>az deployment group create <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --name TestDeployment <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --resource-group $RG  <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --template-file step03.json <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --parameters <span style="color:#e6db74">&#34;storageNameSrc=</span>$SRCACCT<span style="color:#e6db74">&#34;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>        <span style="color:#e6db74">&#34;storageNameDest=</span>$DESTACCT<span style="color:#e6db74">&#34;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>        <span style="color:#e6db74">&#34;containerName=</span>$CONTAINER<span style="color:#e6db74">&#34;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>        <span style="color:#e6db74">&#34;policyId=</span>$POLICY<span style="color:#e6db74">&#34;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>        <span style="color:#e6db74">&#34;ruleId=</span>$RULE<span style="color:#e6db74">&#34;</span> 
+</span></span></code></pre></div></article>
  
       
 
@@ -318,10 +318,10 @@ az deployment group create <span style="color:#ae81ff">\
 
  
         <hr />
-Azure Storage &copy;2021 <br />
+Azure Storage &copy;2022 <br />
 Visit the <a href="https://azure.microsoft.com/services/storage/">Azure Storage homepage</a> or read our <a href="https://docs.microsoft.com/azure/storage/">getting started guide</a> or the <a href="https://azure.microsoft.com/blog/topics/storage-backup-and-recovery/">Azure Storage Blog</a>. <br />
 Contact us: <a href="mailto:azurestoragefeedback@microsoft.com?subject=AzureStorage.com%20Feedback">azurestoragefeedback@microsoft.com</a>.<br />
-Generated on Fri, Sep 24 2021 17:07:45 UTC
+Generated on Wed, Nov 09 2022 01:23:51 UTC
       </footer>
 
       

@@ -12,8 +12,8 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://azure.github.io/Storage/docs/analytics/azure-storage-data-lake-gen2-billing-faq/</guid>
-      <description>Azure Data Lake Storage Gen2 Billing FAQs #   The pricing page for ADLS Gen2 can be found here. This resource provides more detailed answers to frequently asked questions from ADLS Gen2 users.
- Terminology #  Here are some terms that are key to understanding ADLS Gen2 billing concepts.
+      <description>Azure Data Lake Storage Gen2 Billing FAQs # The pricing page for ADLS Gen2 can be found here. This resource provides more detailed answers to frequently asked questions from ADLS Gen2 users.
+Terminology # Here are some terms that are key to understanding ADLS Gen2 billing concepts.
 Flat namespace (FNS): A mode of organization in a storage account on Azure where objects are organized using a flat structure - aka a flat list of objects.</description>
     </item>
     
@@ -23,9 +23,9 @@ Flat namespace (FNS): A mode of organization in a storage account on Azure where
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://azure.github.io/Storage/docs/analytics/hitchhikers-guide-to-the-datalake/</guid>
-      <description>The Hitchhiker&#39;s Guide to the Data Lake #  A comprehensive guide on key considerations involved in building your enterprise data lake
- Share this page using https://aka.ms/adls/hitchhikersguide
-  The Hitchhiker&#39;s Guide to the Data Lake  When is ADLS Gen2 the right choice for your data lake? Key considerations in designing your data lake Terminology Organizing and managing data in your data lake  Do I want a centralized or a federated data lake implementation?</description>
+      <description>The Hitchhiker&#39;s Guide to the Data Lake # A comprehensive guide on key considerations involved in building your enterprise data lake
+Share this page using https://aka.ms/adls/hitchhikersguide
+The Hitchhiker&#39;s Guide to the Data Lake When is ADLS Gen2 the right choice for your data lake? Key considerations in designing your data lake Terminology Organizing and managing data in your data lake Do I want a centralized or a federated data lake implementation?</description>
     </item>
     
   </channel>

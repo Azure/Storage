@@ -2,13 +2,13 @@
 <html lang="en" dir=>
 
 <head>
-  <meta name="generator" content="Hugo 0.88.1" />
+  <meta name="generator" content="Hugo 0.105.0">
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Azure Storage Supported Character Scrubber #  Azure Storage supports a wide variety of Unicode characters across containers, blobs, metadata, and snapshots. When you are migrating from another storage system to Azure, you may find that some characters supported in your source system (e.g., AWS S3) are not supported by Azure and will require an object to be renamed.
+<meta name="description" content="Azure Storage Supported Character Scrubber # Azure Storage supports a wide variety of Unicode characters across containers, blobs, metadata, and snapshots. When you are migrating from another storage system to Azure, you may find that some characters supported in your source system (e.g., AWS S3) are not supported by Azure and will require an object to be renamed.
 The PowerShell script AzureStorageSupportedCharacterScrubber.ps1 provides a turnkey solution to discovering unsupported characters in your file names with a simple CSV input.">
 <meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Azure Storage Supported Character Scrubber" />
-<meta property="og:description" content="Azure Storage Supported Character Scrubber #  Azure Storage supports a wide variety of Unicode characters across containers, blobs, metadata, and snapshots. When you are migrating from another storage system to Azure, you may find that some characters supported in your source system (e.g., AWS S3) are not supported by Azure and will require an object to be renamed.
+<meta property="og:description" content="Azure Storage Supported Character Scrubber # Azure Storage supports a wide variety of Unicode characters across containers, blobs, metadata, and snapshots. When you are migrating from another storage system to Azure, you may find that some characters supported in your source system (e.g., AWS S3) are not supported by Azure and will require an object to be renamed.
 The PowerShell script AzureStorageSupportedCharacterScrubber.ps1 provides a turnkey solution to discovering unsupported characters in your file names with a simple CSV input." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://azure.github.io/Storage/docs/application-and-user-data/code-samples/supported-character-scrubber/" /><meta property="article:section" content="docs" />
@@ -19,7 +19,7 @@ The PowerShell script AzureStorageSupportedCharacterScrubber.ps1 provides a turn
 <link rel="manifest" href="/Storage/manifest.json">
 <link rel="icon" href="/Storage/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/Storage/book.min.e935e20bd0d469378cb482f0958edf258c731a4f895dccd55799c6fbc8043f23.css" integrity="sha256-6TXiC9DUaTeMtILwlY7fJYxzGk&#43;JXczVV5nG&#43;8gEPyM=">
-<script defer src="/Storage/en.search.min.f9dc316b682362e907b9d54060ecda5e6ae9c979e4306a6c9887393766a69511.js" integrity="sha256-&#43;dwxa2gjYukHudVAYOzaXmrpyXnkMGpsmIc5N2amlRE="></script>
+<script defer src="/Storage/en.search.min.63fdb55cd2e04f8a9f17757914d9129a2b2aaff34673d2d1e6755837978a1e31.js" integrity="sha256-Y/21XNLgT4qfF3V5FNkSmisqr/NGc9LR5nVYN5eKHjE="></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -37,7 +37,7 @@ https://github.com/alex-shpak/hugo-book
         
   <nav>
 <h2 class="book-brand">
-  <a href="/Storage"><img src="/Storage/images/azure-icon.png" alt="Logo" /><span>Azure Storage</span>
+  <a href="/Storage"><img src="/images/azure-icon.png" alt="Logo" /><span>Azure Storage</span>
   </a>
 </h2>
 
@@ -180,7 +180,7 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-  <script>(function(){var a=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+  <script>(function(){var e=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
 
 
  
@@ -244,8 +244,8 @@ https://github.com/alex-shpak/hugo-book
   Usage
   <a class="anchor" href="#usage">#</a>
 </h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">.\AzureStorageSupportedCharacterScrubber.ps1 -CsvInputPath .\SourceFileNames.csv -RenameItems
-</code></pre></div><h2 id="sample-input">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>.\AzureStorageSupportedCharacterScrubber.ps1 -CsvInputPath .\SourceFileNames.csv -RenameItems
+</span></span></code></pre></div><h2 id="sample-input">
   Sample input
   <a class="anchor" href="#sample-input">#</a>
 </h2>
@@ -269,41 +269,41 @@ https://github.com/alex-shpak/hugo-book
   Shell
   <a class="anchor" href="#shell">#</a>
 </h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">ReplacementString not provided, using <span style="color:#66d9ef">default</span> as <span style="color:#e6db74">&#39;&#39;</span>
-Testing character B (CodePoint<span style="color:#960050;background-color:#1e0010">:</span> 66)
-Testing character a (CodePoint<span style="color:#960050;background-color:#1e0010">:</span> 97)
-Testing character d (CodePoint<span style="color:#960050;background-color:#1e0010">:</span> 100)
-Testing character C (CodePoint<span style="color:#960050;background-color:#1e0010">:</span> 67)
-Testing character h (CodePoint<span style="color:#960050;background-color:#1e0010">:</span> 104)
-Testing character a (CodePoint<span style="color:#960050;background-color:#1e0010">:</span> 97)
-Testing character Ä (CodePoint<span style="color:#960050;background-color:#1e0010">:</span> 196)
-Testing character  (CodePoint<span style="color:#960050;background-color:#1e0010">:</span> 141)
-Unsupported char code point<span style="color:#960050;background-color:#1e0010">:</span> 141
-Testing character r (CodePoint<span style="color:#960050;background-color:#1e0010">:</span> 114)
-Testing character a (CodePoint<span style="color:#960050;background-color:#1e0010">:</span> 97)
-Testing character c (CodePoint<span style="color:#960050;background-color:#1e0010">:</span> 99)
-Testing character t (CodePoint<span style="color:#960050;background-color:#1e0010">:</span> 116)
-Testing character e (CodePoint<span style="color:#960050;background-color:#1e0010">:</span> 101)
-Testing character r (CodePoint<span style="color:#960050;background-color:#1e0010">:</span> 114)
-Testing character   (CodePoint<span style="color:#960050;background-color:#1e0010">:</span> 32)
-Testing character i (CodePoint<span style="color:#960050;background-color:#1e0010">:</span> 105)
-Testing character n (CodePoint<span style="color:#960050;background-color:#1e0010">:</span> 110)
-Testing character   (CodePoint<span style="color:#960050;background-color:#1e0010">:</span> 32)
-Testing character t (CodePoint<span style="color:#960050;background-color:#1e0010">:</span> 116)
-Testing character h (CodePoint<span style="color:#960050;background-color:#1e0010">:</span> 104)
-Testing character e (CodePoint<span style="color:#960050;background-color:#1e0010">:</span> 101)
-Testing character   (CodePoint<span style="color:#960050;background-color:#1e0010">:</span> 32)
-Testing character n (CodePoint<span style="color:#960050;background-color:#1e0010">:</span> 110)
-Testing character a (CodePoint<span style="color:#960050;background-color:#1e0010">:</span> 97)
-Testing character m (CodePoint<span style="color:#960050;background-color:#1e0010">:</span> 109)
-Testing character e (CodePoint<span style="color:#960050;background-color:#1e0010">:</span> 101)
-Testing character . (CodePoint<span style="color:#960050;background-color:#1e0010">:</span> 46)
-Testing character p (CodePoint<span style="color:#960050;background-color:#1e0010">:</span> 112)
-Testing character d (CodePoint<span style="color:#960050;background-color:#1e0010">:</span> 100)
-Testing character f (CodePoint<span style="color:#960050;background-color:#1e0010">:</span> 102)
-Source name<span style="color:#960050;background-color:#1e0010">:</span>      BadChaÄracter <span style="color:#66d9ef">in</span> the name.pdf
-Destination name<span style="color:#960050;background-color:#1e0010">:</span> BadCharacter <span style="color:#66d9ef">in</span> the name.pdf
-</code></pre></div><h3 id="csv">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>ReplacementString not provided, using <span style="color:#66d9ef">default</span> as <span style="color:#e6db74">&#39;&#39;</span>
+</span></span><span style="display:flex;"><span>Testing character B (CodePoint<span style="color:#960050;background-color:#1e0010">:</span> 66)
+</span></span><span style="display:flex;"><span>Testing character a (CodePoint<span style="color:#960050;background-color:#1e0010">:</span> 97)
+</span></span><span style="display:flex;"><span>Testing character d (CodePoint<span style="color:#960050;background-color:#1e0010">:</span> 100)
+</span></span><span style="display:flex;"><span>Testing character C (CodePoint<span style="color:#960050;background-color:#1e0010">:</span> 67)
+</span></span><span style="display:flex;"><span>Testing character h (CodePoint<span style="color:#960050;background-color:#1e0010">:</span> 104)
+</span></span><span style="display:flex;"><span>Testing character a (CodePoint<span style="color:#960050;background-color:#1e0010">:</span> 97)
+</span></span><span style="display:flex;"><span>Testing character Ä (CodePoint<span style="color:#960050;background-color:#1e0010">:</span> 196)
+</span></span><span style="display:flex;"><span>Testing character  (CodePoint<span style="color:#960050;background-color:#1e0010">:</span> 141)
+</span></span><span style="display:flex;"><span>Unsupported char code point<span style="color:#960050;background-color:#1e0010">:</span> 141
+</span></span><span style="display:flex;"><span>Testing character r (CodePoint<span style="color:#960050;background-color:#1e0010">:</span> 114)
+</span></span><span style="display:flex;"><span>Testing character a (CodePoint<span style="color:#960050;background-color:#1e0010">:</span> 97)
+</span></span><span style="display:flex;"><span>Testing character c (CodePoint<span style="color:#960050;background-color:#1e0010">:</span> 99)
+</span></span><span style="display:flex;"><span>Testing character t (CodePoint<span style="color:#960050;background-color:#1e0010">:</span> 116)
+</span></span><span style="display:flex;"><span>Testing character e (CodePoint<span style="color:#960050;background-color:#1e0010">:</span> 101)
+</span></span><span style="display:flex;"><span>Testing character r (CodePoint<span style="color:#960050;background-color:#1e0010">:</span> 114)
+</span></span><span style="display:flex;"><span>Testing character   (CodePoint<span style="color:#960050;background-color:#1e0010">:</span> 32)
+</span></span><span style="display:flex;"><span>Testing character i (CodePoint<span style="color:#960050;background-color:#1e0010">:</span> 105)
+</span></span><span style="display:flex;"><span>Testing character n (CodePoint<span style="color:#960050;background-color:#1e0010">:</span> 110)
+</span></span><span style="display:flex;"><span>Testing character   (CodePoint<span style="color:#960050;background-color:#1e0010">:</span> 32)
+</span></span><span style="display:flex;"><span>Testing character t (CodePoint<span style="color:#960050;background-color:#1e0010">:</span> 116)
+</span></span><span style="display:flex;"><span>Testing character h (CodePoint<span style="color:#960050;background-color:#1e0010">:</span> 104)
+</span></span><span style="display:flex;"><span>Testing character e (CodePoint<span style="color:#960050;background-color:#1e0010">:</span> 101)
+</span></span><span style="display:flex;"><span>Testing character   (CodePoint<span style="color:#960050;background-color:#1e0010">:</span> 32)
+</span></span><span style="display:flex;"><span>Testing character n (CodePoint<span style="color:#960050;background-color:#1e0010">:</span> 110)
+</span></span><span style="display:flex;"><span>Testing character a (CodePoint<span style="color:#960050;background-color:#1e0010">:</span> 97)
+</span></span><span style="display:flex;"><span>Testing character m (CodePoint<span style="color:#960050;background-color:#1e0010">:</span> 109)
+</span></span><span style="display:flex;"><span>Testing character e (CodePoint<span style="color:#960050;background-color:#1e0010">:</span> 101)
+</span></span><span style="display:flex;"><span>Testing character . (CodePoint<span style="color:#960050;background-color:#1e0010">:</span> 46)
+</span></span><span style="display:flex;"><span>Testing character p (CodePoint<span style="color:#960050;background-color:#1e0010">:</span> 112)
+</span></span><span style="display:flex;"><span>Testing character d (CodePoint<span style="color:#960050;background-color:#1e0010">:</span> 100)
+</span></span><span style="display:flex;"><span>Testing character f (CodePoint<span style="color:#960050;background-color:#1e0010">:</span> 102)
+</span></span><span style="display:flex;"><span>Source name<span style="color:#960050;background-color:#1e0010">:</span>      BadChaÄracter <span style="color:#66d9ef">in</span> the name.pdf
+</span></span><span style="display:flex;"><span>Destination name<span style="color:#960050;background-color:#1e0010">:</span> BadCharacter <span style="color:#66d9ef">in</span> the name.pdf
+</span></span></code></pre></div><h3 id="csv">
   CSV
   <a class="anchor" href="#csv">#</a>
 </h3>
@@ -438,10 +438,10 @@ Destination name<span style="color:#960050;background-color:#1e0010">:</span> Ba
 
  
         <hr />
-Azure Storage &copy;2021 <br />
+Azure Storage &copy;2022 <br />
 Visit the <a href="https://azure.microsoft.com/services/storage/">Azure Storage homepage</a> or read our <a href="https://docs.microsoft.com/azure/storage/">getting started guide</a> or the <a href="https://azure.microsoft.com/blog/topics/storage-backup-and-recovery/">Azure Storage Blog</a>. <br />
 Contact us: <a href="mailto:azurestoragefeedback@microsoft.com?subject=AzureStorage.com%20Feedback">azurestoragefeedback@microsoft.com</a>.<br />
-Generated on Fri, Sep 24 2021 17:07:45 UTC
+Generated on Wed, Nov 09 2022 01:23:51 UTC
       </footer>
 
       

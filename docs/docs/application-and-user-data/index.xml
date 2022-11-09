@@ -12,7 +12,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://azure.github.io/Storage/docs/application-and-user-data/basics/azure-blob-storage-object-replication-arm/</guid>
-      <description>Azure Blob Storage - Setup Object Replication with ARM Templates #  Object replication asynchronously copies block blobs between a source storage account and a destination account.
+      <description>Azure Blob Storage - Setup Object Replication with ARM Templates # Object replication asynchronously copies block blobs between a source storage account and a destination account.
 You can find a good overview of the service here, and instructions on how to deploy it via the portal here.
 Here we are going to focus on deploying Object Replication with ARM. You will see we are doing this in 3 steps with three templates orchestrated with some CLI code.</description>
     </item>
@@ -23,8 +23,8 @@ Here we are going to focus on deploying Object Replication with ARM. You will se
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://azure.github.io/Storage/docs/application-and-user-data/basics/azure-blob-storage-data-protection-features/</guid>
-      <description>Azure Blob Storage data protection features #   Enterprises, partners, and IT professionals store business-critical data in Azure Blob Storage. We are committed to providing the best-in-class data protection and recovery capabilities to keep your applications running. In this video, learn more about the Azure Blob Storage data protection features.
- Learn more about Data Protection &amp;amp; Security Azure Defender for Storage Immutable Blob storage  </description>
+      <description> Azure Blob Storage data protection features # Enterprises, partners, and IT professionals store business-critical data in Azure Blob Storage. We are committed to providing the best-in-class data protection and recovery capabilities to keep your applications running. In this video, learn more about the Azure Blob Storage data protection features.
+Learn more about Data Protection &amp;amp; Security Azure Defender for Storage Immutable Blob storage </description>
     </item>
     
     <item>
@@ -33,7 +33,7 @@ Here we are going to focus on deploying Object Replication with ARM. You will se
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://azure.github.io/Storage/docs/application-and-user-data/basics/azure-blob-storage-upload-apis/</guid>
-      <description>Azure Blob Storage Upload API&amp;rsquo;s #  Customers typically use existing applications such as AzCopy, Azure Storage Explorer, etc. or the Azure Storage SDK&amp;rsquo;s (.NET, Java, Node.js, Python, Go, PHP, Ruby) when building custom apps to access the Azure Storage API&amp;rsquo;s. However, a good understanding of the API&amp;rsquo;s is critical when tuning your uploads for high performance. This document provides an overview of the different upload API&amp;rsquo;s to help you compare the differences between them.</description>
+      <description>Azure Blob Storage Upload API&amp;rsquo;s # Customers typically use existing applications such as AzCopy, Azure Storage Explorer, etc. or the Azure Storage SDK&amp;rsquo;s (.NET, Java, Node.js, Python, Go, PHP, Ruby) when building custom apps to access the Azure Storage API&amp;rsquo;s. However, a good understanding of the API&amp;rsquo;s is critical when tuning your uploads for high performance. This document provides an overview of the different upload API&amp;rsquo;s to help you compare the differences between them.</description>
     </item>
     
     <item>
@@ -42,9 +42,9 @@ Here we are going to focus on deploying Object Replication with ARM. You will se
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://azure.github.io/Storage/docs/application-and-user-data/basics/azure-storage-classic-logs-to-data-explorer/</guid>
-      <description>Load, Parse and Summarize Classic Azure Storage Logs in Azure Data Explorer #  Azure Storage is moving to use Azure Monitor for logging. This is great because querying logs with Kusto is super easy. More info
- If you can use Azure Monitor, use it, and don’t read the rest of this article.
- However, some customers might need to use the Classic Storage logging, but our classic logging goes to text files stored in the $logs container in your storage account.</description>
+      <description>Load, Parse and Summarize Classic Azure Storage Logs in Azure Data Explorer # Azure Storage is moving to use Azure Monitor for logging. This is great because querying logs with Kusto is super easy. More info
+If you can use Azure Monitor, use it, and don’t read the rest of this article.
+However, some customers might need to use the Classic Storage logging, but our classic logging goes to text files stored in the $logs container in your storage account.</description>
     </item>
     
     <item>
@@ -53,8 +53,8 @@ Here we are going to focus on deploying Object Replication with ARM. You will se
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://azure.github.io/Storage/docs/application-and-user-data/basics/nfs-3-support-for-azure-blob-storage/</guid>
-      <description>NFS 3.0 support for Azure Blob Storage #   In this video, we introduce Azure Blob NFS 3.0 support, the only public cloud object storage offering native file system compatibility. Learn about NFS support and how to accelerate your workload migration from on premise datacenters to Azure.
- Learn more Step by step guide NFSv3 performance considerations Contact us: BlobNFSFeedback@microsoft.com  </description>
+      <description> NFS 3.0 support for Azure Blob Storage # In this video, we introduce Azure Blob NFS 3.0 support, the only public cloud object storage offering native file system compatibility. Learn about NFS support and how to accelerate your workload migration from on premise datacenters to Azure.
+Learn more Step by step guide NFSv3 performance considerations Contact us: BlobNFSFeedback@microsoft.com </description>
     </item>
     
     <item>
@@ -63,8 +63,8 @@ Here we are going to focus on deploying Object Replication with ARM. You will se
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://azure.github.io/Storage/docs/application-and-user-data/basics/optimize-your-costs-with-azure-blob-storage/</guid>
-      <description>Optimize your costs with Azure Blob Storage #   In this video, learn about the Azure Blob Storage features that help you save cost and keep your Total Cost of Ownership (TCO) low.
- Learn more about Azure Storage redundancy Tiers and lifecycle Reservations Network routing preference  </description>
+      <description> Optimize your costs with Azure Blob Storage # In this video, learn about the Azure Blob Storage features that help you save cost and keep your Total Cost of Ownership (TCO) low.
+Learn more about Azure Storage redundancy Tiers and lifecycle Reservations Network routing preference </description>
     </item>
     
   </channel>
