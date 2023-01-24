@@ -2,7 +2,7 @@
 <html lang="en" dir=>
 
 <head>
-  <meta name="generator" content="Hugo 0.105.0">
+  <meta name="generator" content="Hugo 0.110.0">
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Lift and Shift Copy Pattern Guide: A quick start template # Overview # The purpose of this document is to provide a manual in form of step by step guide for the lift and shift copy pattern from Gen1 to Gen2 storage using Azure Data Factory and PowerShell. As such it provides the directions, references, sample code examples of the PowerShell functions been used.
@@ -11,7 +11,6 @@ This guide covers the following tasks:">
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://azure.github.io/Storage/docs/analytics/adls-gen1-to-gen2-migration/lift-and-shift/" />
-
 <title>Lift and Shift Copy Pattern Guide: A quick start template | Azure Storage</title>
 <link rel="manifest" href="/Storage/manifest.json">
 <link rel="icon" href="/Storage/favicon.png" type="image/x-icon">
@@ -294,7 +293,7 @@ https://github.com/alex-shpak/hugo-book
 </span></span><span style="display:flex;"><span>Install-Module PowerShellGet <span style="color:#960050;background-color:#1e0010">–</span>Repository PSGallery <span style="color:#960050;background-color:#1e0010">–</span>Force
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>//Close the PowerShell ISE and Reopen as administrator. Run the below module
-</span></span><span style="display:flex;"><span>Install-Module az.storage -RequiredVersion 1.13.3-preview -Repository PSGallery -AllowClobber -AllowPrerelease -Force
+</span></span><span style="display:flex;"><span>Install-Module az.storage -RequiredVersion <span style="color:#ae81ff">1.13</span>.<span style="color:#ae81ff">3</span>-preview -Repository PSGallery -AllowClobber -AllowPrerelease -Force
 </span></span></code></pre></div></li>
 </ul>
 <h2 id="limitations">
@@ -367,12 +366,12 @@ https://github.com/alex-shpak/hugo-book
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span><span style="color:#e6db74">&#34;pipelineId&#34;</span><span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#e6db74">&#34;&lt;&lt;Enter the pipeline number. For example: 1,2&#34;</span>
 </span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;fullLoad&#34;</span><span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#e6db74">&#34;true&#34;</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>// Activity 1
+</span></span><span style="display:flex;"><span>// Activity <span style="color:#ae81ff">1</span>
 </span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;sourcePath&#34;</span> <span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#e6db74">&#34;Enter the Gen1 full path. For example: /path-name&#34;</span>,
 </span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;destinationPath&#34;</span> <span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#e6db74">&#34;Enter the Gen2 full path. For example: path-name&#34;</span>,
 </span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;destinationContainer&#34;</span> <span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#e6db74">&#34;Enter the Gen2 container name&#34;</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>// Activity 2
+</span></span><span style="display:flex;"><span>// Activity <span style="color:#ae81ff">2</span>
 </span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;sourcePath&#34;</span> <span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#e6db74">&#34;Enter the Gen1 full path. For example: /path-name&#34;</span>,
 </span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;destinationPath&#34;</span> <span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#e6db74">&#34;Enter the Gen2 full path. For example: path-name&#34;</span>,
 </span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;destinationContainer&#34;</span> <span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#e6db74">&#34;Enter the Gen2 container name&#34;</span>
@@ -441,10 +440,10 @@ https://github.com/alex-shpak/hugo-book
 
  
         <hr />
-Azure Storage &copy;2022 <br />
+Azure Storage &copy;2023 <br />
 Visit the <a href="https://azure.microsoft.com/services/storage/">Azure Storage homepage</a> or read our <a href="https://docs.microsoft.com/azure/storage/">getting started guide</a> or the <a href="https://azure.microsoft.com/blog/topics/storage-backup-and-recovery/">Azure Storage Blog</a>. <br />
 Contact us: <a href="mailto:azurestoragefeedback@microsoft.com?subject=AzureStorage.com%20Feedback">azurestoragefeedback@microsoft.com</a>.<br />
-Generated on Wed, Nov 09 2022 01:46:30 UTC
+Generated on Tue, Jan 24 2023 00:10:40 UTC
       </footer>
 
       

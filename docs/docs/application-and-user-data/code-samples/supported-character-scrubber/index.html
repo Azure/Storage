@@ -2,7 +2,7 @@
 <html lang="en" dir=>
 
 <head>
-  <meta name="generator" content="Hugo 0.105.0">
+  <meta name="generator" content="Hugo 0.110.0">
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Azure Storage Supported Character Scrubber # Azure Storage supports a wide variety of Unicode characters across containers, blobs, metadata, and snapshots. When you are migrating from another storage system to Azure, you may find that some characters supported in your source system (e.g., AWS S3) are not supported by Azure and will require an object to be renamed.
@@ -12,7 +12,6 @@ The PowerShell script AzureStorageSupportedCharacterScrubber.ps1 provides a turn
 The PowerShell script AzureStorageSupportedCharacterScrubber.ps1 provides a turnkey solution to discovering unsupported characters in your file names with a simple CSV input." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://azure.github.io/Storage/docs/application-and-user-data/code-samples/supported-character-scrubber/" /><meta property="article:section" content="docs" />
-
 
 
 <title>Azure Storage Supported Character Scrubber | Azure Storage</title>
@@ -270,38 +269,38 @@ https://github.com/alex-shpak/hugo-book
   <a class="anchor" href="#shell">#</a>
 </h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>ReplacementString not provided, using <span style="color:#66d9ef">default</span> as <span style="color:#e6db74">&#39;&#39;</span>
-</span></span><span style="display:flex;"><span>Testing character B (CodePoint<span style="color:#960050;background-color:#1e0010">:</span> 66)
-</span></span><span style="display:flex;"><span>Testing character a (CodePoint<span style="color:#960050;background-color:#1e0010">:</span> 97)
-</span></span><span style="display:flex;"><span>Testing character d (CodePoint<span style="color:#960050;background-color:#1e0010">:</span> 100)
-</span></span><span style="display:flex;"><span>Testing character C (CodePoint<span style="color:#960050;background-color:#1e0010">:</span> 67)
-</span></span><span style="display:flex;"><span>Testing character h (CodePoint<span style="color:#960050;background-color:#1e0010">:</span> 104)
-</span></span><span style="display:flex;"><span>Testing character a (CodePoint<span style="color:#960050;background-color:#1e0010">:</span> 97)
-</span></span><span style="display:flex;"><span>Testing character Ä (CodePoint<span style="color:#960050;background-color:#1e0010">:</span> 196)
-</span></span><span style="display:flex;"><span>Testing character  (CodePoint<span style="color:#960050;background-color:#1e0010">:</span> 141)
-</span></span><span style="display:flex;"><span>Unsupported char code point<span style="color:#960050;background-color:#1e0010">:</span> 141
-</span></span><span style="display:flex;"><span>Testing character r (CodePoint<span style="color:#960050;background-color:#1e0010">:</span> 114)
-</span></span><span style="display:flex;"><span>Testing character a (CodePoint<span style="color:#960050;background-color:#1e0010">:</span> 97)
-</span></span><span style="display:flex;"><span>Testing character c (CodePoint<span style="color:#960050;background-color:#1e0010">:</span> 99)
-</span></span><span style="display:flex;"><span>Testing character t (CodePoint<span style="color:#960050;background-color:#1e0010">:</span> 116)
-</span></span><span style="display:flex;"><span>Testing character e (CodePoint<span style="color:#960050;background-color:#1e0010">:</span> 101)
-</span></span><span style="display:flex;"><span>Testing character r (CodePoint<span style="color:#960050;background-color:#1e0010">:</span> 114)
-</span></span><span style="display:flex;"><span>Testing character   (CodePoint<span style="color:#960050;background-color:#1e0010">:</span> 32)
-</span></span><span style="display:flex;"><span>Testing character i (CodePoint<span style="color:#960050;background-color:#1e0010">:</span> 105)
-</span></span><span style="display:flex;"><span>Testing character n (CodePoint<span style="color:#960050;background-color:#1e0010">:</span> 110)
-</span></span><span style="display:flex;"><span>Testing character   (CodePoint<span style="color:#960050;background-color:#1e0010">:</span> 32)
-</span></span><span style="display:flex;"><span>Testing character t (CodePoint<span style="color:#960050;background-color:#1e0010">:</span> 116)
-</span></span><span style="display:flex;"><span>Testing character h (CodePoint<span style="color:#960050;background-color:#1e0010">:</span> 104)
-</span></span><span style="display:flex;"><span>Testing character e (CodePoint<span style="color:#960050;background-color:#1e0010">:</span> 101)
-</span></span><span style="display:flex;"><span>Testing character   (CodePoint<span style="color:#960050;background-color:#1e0010">:</span> 32)
-</span></span><span style="display:flex;"><span>Testing character n (CodePoint<span style="color:#960050;background-color:#1e0010">:</span> 110)
-</span></span><span style="display:flex;"><span>Testing character a (CodePoint<span style="color:#960050;background-color:#1e0010">:</span> 97)
-</span></span><span style="display:flex;"><span>Testing character m (CodePoint<span style="color:#960050;background-color:#1e0010">:</span> 109)
-</span></span><span style="display:flex;"><span>Testing character e (CodePoint<span style="color:#960050;background-color:#1e0010">:</span> 101)
-</span></span><span style="display:flex;"><span>Testing character . (CodePoint<span style="color:#960050;background-color:#1e0010">:</span> 46)
-</span></span><span style="display:flex;"><span>Testing character p (CodePoint<span style="color:#960050;background-color:#1e0010">:</span> 112)
-</span></span><span style="display:flex;"><span>Testing character d (CodePoint<span style="color:#960050;background-color:#1e0010">:</span> 100)
-</span></span><span style="display:flex;"><span>Testing character f (CodePoint<span style="color:#960050;background-color:#1e0010">:</span> 102)
-</span></span><span style="display:flex;"><span>Source name<span style="color:#960050;background-color:#1e0010">:</span>      BadChaÄracter <span style="color:#66d9ef">in</span> the name.pdf
+</span></span><span style="display:flex;"><span>Testing character B (CodePoint<span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#ae81ff">66</span>)
+</span></span><span style="display:flex;"><span>Testing character a (CodePoint<span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#ae81ff">97</span>)
+</span></span><span style="display:flex;"><span>Testing character d (CodePoint<span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#ae81ff">100</span>)
+</span></span><span style="display:flex;"><span>Testing character C (CodePoint<span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#ae81ff">67</span>)
+</span></span><span style="display:flex;"><span>Testing character h (CodePoint<span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#ae81ff">104</span>)
+</span></span><span style="display:flex;"><span>Testing character a (CodePoint<span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#ae81ff">97</span>)
+</span></span><span style="display:flex;"><span>Testing character <span style="color:#960050;background-color:#1e0010">Ä</span> (CodePoint<span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#ae81ff">196</span>)
+</span></span><span style="display:flex;"><span>Testing character  (CodePoint<span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#ae81ff">141</span>)
+</span></span><span style="display:flex;"><span>Unsupported char code point<span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#ae81ff">141</span>
+</span></span><span style="display:flex;"><span>Testing character r (CodePoint<span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#ae81ff">114</span>)
+</span></span><span style="display:flex;"><span>Testing character a (CodePoint<span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#ae81ff">97</span>)
+</span></span><span style="display:flex;"><span>Testing character c (CodePoint<span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#ae81ff">99</span>)
+</span></span><span style="display:flex;"><span>Testing character t (CodePoint<span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#ae81ff">116</span>)
+</span></span><span style="display:flex;"><span>Testing character e (CodePoint<span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#ae81ff">101</span>)
+</span></span><span style="display:flex;"><span>Testing character r (CodePoint<span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#ae81ff">114</span>)
+</span></span><span style="display:flex;"><span>Testing character   (CodePoint<span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#ae81ff">32</span>)
+</span></span><span style="display:flex;"><span>Testing character i (CodePoint<span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#ae81ff">105</span>)
+</span></span><span style="display:flex;"><span>Testing character n (CodePoint<span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#ae81ff">110</span>)
+</span></span><span style="display:flex;"><span>Testing character   (CodePoint<span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#ae81ff">32</span>)
+</span></span><span style="display:flex;"><span>Testing character t (CodePoint<span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#ae81ff">116</span>)
+</span></span><span style="display:flex;"><span>Testing character h (CodePoint<span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#ae81ff">104</span>)
+</span></span><span style="display:flex;"><span>Testing character e (CodePoint<span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#ae81ff">101</span>)
+</span></span><span style="display:flex;"><span>Testing character   (CodePoint<span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#ae81ff">32</span>)
+</span></span><span style="display:flex;"><span>Testing character n (CodePoint<span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#ae81ff">110</span>)
+</span></span><span style="display:flex;"><span>Testing character a (CodePoint<span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#ae81ff">97</span>)
+</span></span><span style="display:flex;"><span>Testing character m (CodePoint<span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#ae81ff">109</span>)
+</span></span><span style="display:flex;"><span>Testing character e (CodePoint<span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#ae81ff">101</span>)
+</span></span><span style="display:flex;"><span>Testing character . (CodePoint<span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#ae81ff">46</span>)
+</span></span><span style="display:flex;"><span>Testing character p (CodePoint<span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#ae81ff">112</span>)
+</span></span><span style="display:flex;"><span>Testing character d (CodePoint<span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#ae81ff">100</span>)
+</span></span><span style="display:flex;"><span>Testing character f (CodePoint<span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#ae81ff">102</span>)
+</span></span><span style="display:flex;"><span>Source name<span style="color:#960050;background-color:#1e0010">:</span>      BadCha<span style="color:#960050;background-color:#1e0010">Ä</span>racter <span style="color:#66d9ef">in</span> the name.pdf
 </span></span><span style="display:flex;"><span>Destination name<span style="color:#960050;background-color:#1e0010">:</span> BadCharacter <span style="color:#66d9ef">in</span> the name.pdf
 </span></span></code></pre></div><h3 id="csv">
   CSV
@@ -438,10 +437,10 @@ https://github.com/alex-shpak/hugo-book
 
  
         <hr />
-Azure Storage &copy;2022 <br />
+Azure Storage &copy;2023 <br />
 Visit the <a href="https://azure.microsoft.com/services/storage/">Azure Storage homepage</a> or read our <a href="https://docs.microsoft.com/azure/storage/">getting started guide</a> or the <a href="https://azure.microsoft.com/blog/topics/storage-backup-and-recovery/">Azure Storage Blog</a>. <br />
 Contact us: <a href="mailto:azurestoragefeedback@microsoft.com?subject=AzureStorage.com%20Feedback">azurestoragefeedback@microsoft.com</a>.<br />
-Generated on Wed, Nov 09 2022 01:46:30 UTC
+Generated on Tue, Jan 24 2023 00:10:40 UTC
       </footer>
 
       
