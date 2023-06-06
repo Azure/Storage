@@ -2,16 +2,16 @@
 <html lang="en" dir=>
 
 <head>
-  <meta name="generator" content="Hugo 0.111.3">
+  <meta name="generator" content="Hugo 0.113.0">
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="The Hitchhiker&#39;s Guide to the Data Lake # A comprehensive guide on key considerations involved in building your enterprise data lake
 Share this page using https://aka.ms/adls/hitchhikersguide
-The Hitchhiker&#39;s Guide to the Data Lake When is ADLS Gen2 the right choice for your data lake? Key considerations in designing your data lake Terminology Organizing and managing data in your data lake Do I want a centralized or a federated data lake implementation?">
+The Hitchhiker&rsquo;s Guide to the Data Lake When is ADLS Gen2 the right choice for your data lake? Key considerations in designing your data lake Terminology Organizing and managing data in your data lake Do I want a centralized or a federated data lake implementation?">
 <meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="The Hitchhiker&#39;s Guide to the Data Lake" />
 <meta property="og:description" content="The Hitchhiker&#39;s Guide to the Data Lake # A comprehensive guide on key considerations involved in building your enterprise data lake
 Share this page using https://aka.ms/adls/hitchhikersguide
-The Hitchhiker&#39;s Guide to the Data Lake When is ADLS Gen2 the right choice for your data lake? Key considerations in designing your data lake Terminology Organizing and managing data in your data lake Do I want a centralized or a federated data lake implementation?" />
+The Hitchhiker&rsquo;s Guide to the Data Lake When is ADLS Gen2 the right choice for your data lake? Key considerations in designing your data lake Terminology Organizing and managing data in your data lake Do I want a centralized or a federated data lake implementation?" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://azure.github.io/Storage/docs/analytics/hitchhikers-guide-to-the-datalake/" /><meta property="article:section" content="docs" />
 
@@ -255,7 +255,7 @@ https://github.com/alex-shpak/hugo-book
 <p>Share this page using <a href="https://aka.ms/adls/hitchhikersguide">https://aka.ms/adls/hitchhikersguide</a></p>
 </blockquote>
 <ul>
-<li><a href="#the-hitchhikers-guide-to-the-data-lake">The Hitchhiker's Guide to the Data Lake</a>
+<li><a href="#the-hitchhikers-guide-to-the-data-lake">The Hitchhiker&rsquo;s Guide to the Data Lake</a>
 <ul>
 <li><a href="#when-is-adls-gen2-the-right-choice-for-your-data-lake">When is ADLS Gen2 the right choice for your data lake?</a></li>
 <li><a href="#key-considerations-in-designing-your-data-lake">Key considerations in designing your data lake</a></li>
@@ -279,13 +279,12 @@ https://github.com/alex-shpak/hugo-book
 </ul>
 </li>
 <li><a href="#recommended-reading">Recommended reading</a></li>
-<li><a href="#questions-comments-or-feedback">Questions, comments or feedback?</a></li>
 </ul>
 </li>
 </ul>
 <p><a href="https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction">Azure Data Lake Storage Gen2 (ADLS Gen2)</a> is a highly scalable and cost-effective data lake solution for big data analytics. As we continue to work with our customers to unlock key insights out of their data using ADLS Gen2, we have identified a few key patterns and considerations that help them effectively utilize ADLS Gen2 in large scale Big Data platform architectures.</p>
 <p>This document captures these considerations and best practices that we have learnt based on working with our customers. For the purposes of this document, we will focus on the Modern Data Warehouse pattern used prolifically by our large-scale enterprise customers on Azure , including our solutions such as Azure Synapse Analytics.</p>
-<p><img src="images/end_to_end_analytics.png" alt="" /></p>
+<p><img src="images/end_to_end_analytics.png" alt="A diagram showing the lifecycle from ingestion through to model &amp;amp; serve" /></p>
 <p>We will improve this document to include more analytics patterns in future iterations.</p>
 <blockquote>
 <p>Important: Please consider the content of this document as guidance and best practices to help you make your architectural and implementation decisions. This is not an official HOW-TO documentation.</p>
@@ -363,14 +362,14 @@ https://github.com/alex-shpak/hugo-book
 <li>Data that needs to be isolated to a region – E.g. Contoso wants to provide a personalized buyer experience based on their profile and buying patterns. Given this is customer data, there are sovereignty requirements that need to be met, so the data cannot leave the region.</li>
 </ul>
 <p>In this scenario, the customer would provision region-specific storage accounts to store data for a particular region and allow sharing of specific data with other regions. There is still one centralized logical data lake with a central set of infrastructure management, data governance and other operations that comprises of multiple storage accounts here.</p>
-<p><img src="images/global_distributed_datalake.png" alt="" /></p>
+<p><img src="images/global_distributed_datalake.png" alt="A diagram depicting multiple workloads, each in their own region that then map separate data lakes" /></p>
 <h4 id="customer-or-data-specific-isolation----omit-in-toc---">
   Customer or data specific isolation <!-- omit in toc -->
   <a class="anchor" href="#customer-or-data-specific-isolation----omit-in-toc---">#</a>
 </h4>
 <p>There are scenarios where enterprise data lakes serve multiple customer (internal/external) scenarios that may be subject to different requirements – different query patterns and different access requirements. Let us take our Contoso.com example where they have analytics scenarios to manage the company operations. In this case, they have various data sources – employee data, customers/campaign data and financial data that are subject to different governance and access rules and are also possibly managed by different organizations within the company. In this case, they could choose to create different data lakes for the various data sources.</p>
 <p>In another scenario, enterprises that serve as a multi-tenant analytics platform serving multiple customers could end up provisioning individual data lakes for their customers in different subscriptions to help ensure that the customer data and their associated analytics workloads are isolated from other customers to help manage their cost and billing models.</p>
-<p><img src="images/isolation_requirements_data_lake.png" alt="" /></p>
+<p><img src="images/isolation_requirements_data_lake.png" alt="A diagram depicting an organizational hierarchy and mapping to separate data lakes" /></p>
 <h4 id="recommendations----omit-in-toc---">
   Recommendations <!-- omit in toc -->
   <a class="anchor" href="#recommendations----omit-in-toc---">#</a>
@@ -406,24 +405,14 @@ https://github.com/alex-shpak/hugo-book
 </h3>
 <p>Data organization in a an ADLS Gen2 account can be done in the hierarchy of containers, folders and files in that order, as we saw above. A very common point of discussion as we work with our customers to build their data lake strategy is how they can best organize their data. There are multiple approaches to organizing the data in a data lake, this section documents a common approach that has been adopted by many customers building a data platform.</p>
 <p>This organization follows the lifecycle of the data as it flows through the source systems all the way to the end consumers – the BI analysts or Data Scientists. As an example, let us follow the journey of sales data as it travels through the data analytics platform of Contoso.com.</p>
-<p><img src="images/data_lake_zones.png" alt="" /></p>
+<p><img src="images/data_lake_zones.png" alt="A diagram showing multiple zones in a data lake" /></p>
 <p>As an example , think of the raw data as a lake/pond with water in its natural state, the data is ingested and stored as is without transformations, the enriched data is water in a reservoir that is cleaned and stored in a predictable state (schematized in the case of our data), the curated data is like bottled water that is ready for consumption. Workspace data is like a laboratory where scientists can bring their own for testing. Its worth noting that while all this data layers are present in a single logical data lake, they could be spread across different physical storage accounts. In these cases, having a metastore is helpful for discovery.</p>
 <ul>
-<li>
-<p><strong>Raw data</strong>: This is data as it comes from the source systems. This data is stored as is in the data lake and is consumed by an analytics engine such as Spark to perform cleansing and enrichment operations to generate the curated data. The data in the raw zone is sometimes also stored as an aggregated data set, e.g. in the case of streaming scenarios, data is ingested via message bus such as Event Hub, and then aggregated via a real time processing engine such as Azure Stream analytics or Spark Streaming before storing in the data lake. Depending on what your business needs, you can choose to leave the data as is (E.g. log messages from servers) or aggregate it (E.g. real time streaming data). This layer of data is highly controlled by the central data engineering team and is rarely given access to other consumers. Depending on the retention policies of your enterprise, this data is either stored as is for the period required by the retention policy or it can be deleted when you think the data is of no more use. E.g. this would be raw sales data that is ingested from Contoso’s sales management tool that is running in their on-prem systems.</p>
-</li>
-<li>
-<p><strong>Enriched data</strong>: This layer of data is the version where raw data (as is or aggregated) has a defined schema and also, the data is cleansed, enriched (with other sources) and is available to analytics engines to extract high value data. Data engineers generate these datasets and also proceed to extract high value/curated data from these datasets. E.g. this would be enriched sales data – ensuring that the sales data is schematized, enriched with other product or inventory information and also separated into multiple datasets for the different business units inside Contoso.</p>
-</li>
-<li>
-<p><strong>Curated data</strong>: This layer of data contains the high value information that is served to the consumers of the data – the BI analysts and the data scientists. This data has structure and can be served to the consumers either as is (E.g. data science notebooks) or through a data warehouse. Data assets in this layer is usually highly governed and well documented. E.g. high-quality sales data (that is data in the enriched data zone correlated with other demand forecasting signals such as social media trending patterns) for a business unit that is used for predictive analytics on determining the sales projections for the next fiscal year.</p>
-</li>
-<li>
-<p><strong>Workspace data</strong>: In addition to the data that is ingested by the data engineering team from the source, the consumers of the data can also choose to bring other data sets that could be valuable. In this case, the data platform can allocate a workspace for these consumers so they can use the curated data along with the other data sets they bring to generate valuable insights. E.g. a Data Science team is trying to determine the product placement strategy for a new region, they could bring other data sets such as customer demographics and data on usage of other similar products from that region and use the high value sales insights data to analyze the product market fit and the offering strategy.</p>
-</li>
-<li>
-<p><strong>Archive data</strong>: This is your organization’s data ‘vault’ - that has data stored to primarily comply with retention policies and has very restrictive usage, such as supporting audits. You can use the Cool and Archive tiers in ADLS Gen2 to store this data. You can read more about our <a href="https://docs.microsoft.com/azure/storage/blobs/storage-lifecycle-management-concepts?tabs=azure-portal">data lifecycle management policies</a> to identify a plan that works for you.</p>
-</li>
+<li><strong>Raw data</strong>: This is data as it comes from the source systems. This data is stored as is in the data lake and is consumed by an analytics engine such as Spark to perform cleansing and enrichment operations to generate the curated data. The data in the raw zone is sometimes also stored as an aggregated data set, e.g. in the case of streaming scenarios, data is ingested via message bus such as Event Hub, and then aggregated via a real time processing engine such as Azure Stream analytics or Spark Streaming before storing in the data lake. Depending on what your business needs, you can choose to leave the data as is (E.g. log messages from servers) or aggregate it (E.g. real time streaming data). This layer of data is highly controlled by the central data engineering team and is rarely given access to other consumers. Depending on the retention policies of your enterprise, this data is either stored as is for the period required by the retention policy or it can be deleted when you think the data is of no more use. E.g. this would be raw sales data that is ingested from Contoso’s sales management tool that is running in their on-prem systems.</li>
+<li><strong>Enriched data</strong>: This layer of data is the version where raw data (as is or aggregated) has a defined schema and also, the data is cleansed, enriched (with other sources) and is available to analytics engines to extract high value data. Data engineers generate these datasets and also proceed to extract high value/curated data from these datasets. E.g. this would be enriched sales data – ensuring that the sales data is schematized, enriched with other product or inventory information and also separated into multiple datasets for the different business units inside Contoso.</li>
+<li><strong>Curated data</strong>: This layer of data contains the high value information that is served to the consumers of the data – the BI analysts and the data scientists. This data has structure and can be served to the consumers either as is (E.g. data science notebooks) or through a data warehouse. Data assets in this layer is usually highly governed and well documented. E.g. high-quality sales data (that is data in the enriched data zone correlated with other demand forecasting signals such as social media trending patterns) for a business unit that is used for predictive analytics on determining the sales projections for the next fiscal year.</li>
+<li><strong>Workspace data</strong>: In addition to the data that is ingested by the data engineering team from the source, the consumers of the data can also choose to bring other data sets that could be valuable. In this case, the data platform can allocate a workspace for these consumers so they can use the curated data along with the other data sets they bring to generate valuable insights. E.g. a Data Science team is trying to determine the product placement strategy for a new region, they could bring other data sets such as customer demographics and data on usage of other similar products from that region and use the high value sales insights data to analyze the product market fit and the offering strategy.</li>
+<li><strong>Archive data</strong>: This is your organization’s data ‘vault’ - that has data stored to primarily comply with retention policies and has very restrictive usage, such as supporting audits. You can use the Cool and Archive tiers in ADLS Gen2 to store this data. You can read more about our <a href="https://docs.microsoft.com/azure/storage/blobs/storage-lifecycle-management-concepts?tabs=azure-portal">data lifecycle management policies</a> to identify a plan that works for you.</li>
 </ul>
 <h4 id="key-considerations----omit-in-toc----1">
   Key considerations <!-- omit in toc -->
@@ -485,10 +474,10 @@ https://github.com/alex-shpak/hugo-book
 </tr>
 <tr>
 <td style="text-align:left"><strong>Example</strong></td>
-<td style="text-align:left">/raw/sensordata /raw/lobappdata /raw/userclickdata</td>
-<td style="text-align:left">/enriched/sales /enriched/manufacturing</td>
-<td style="text-align:left">/curated/sales /curated/manufacturing</td>
-<td style="text-align:left">/workspace/salesBI /workspace/manufacturindatascience</td>
+<td style="text-align:left"><code>/raw/sensordata</code><br /><code>/raw/lobappdata</code><br /><code>/raw/userclickdata</code></td>
+<td style="text-align:left"><code>/enriched/sales</code><br /><code>/enriched/manufacturing</code></td>
+<td style="text-align:left"><code>/curated/sales</code><br /><code>/curated/manufacturing</code></td>
+<td style="text-align:left"><code>/workspace/salesBI</code><br /><code>/workspace/manufacturindatascience</code></td>
 </tr>
 </tbody>
 </table>
@@ -512,7 +501,7 @@ https://github.com/alex-shpak/hugo-book
 <tr>
 <td style="text-align:left"><strong>Access control using AAD</strong></td>
 <td style="text-align:left">At the container level, you can set coarse grained access controls using RBACs. These RBACs apply to all data inside the container.</td>
-<td style="text-align:left">At the folder level, you can set fine grained access controls using ACLs. The ACLs apply to the folder only (unless you use default ACLs, in which case, they are snapshotted when new files/folders are created under the folder).</td>
+<td style="text-align:left">At the folder level, you can set fine grained access controls using ACLs. The ACLs apply to the folder only (unless you use default ACLs, in which case, a snapshot is taken when new files/folders are created under the folder).</td>
 </tr>
 <tr>
 <td style="text-align:left"><strong>Non-AAD access control</strong></td>
@@ -529,7 +518,7 @@ https://github.com/alex-shpak/hugo-book
   Indefinite growth of irrelevant data <!-- omit in toc -->
   <a class="anchor" href="#indefinite-growth-of-irrelevant-data----omit-in-toc---">#</a>
 </h5>
-<p>While ADLS Gen2  storage is not very expensive and lets you store a large amount of data in your storage accounts, lack of lifecycle management policies could end up growing the data in the storage very quickly even if you don’t require the entire corpus of data for your scenarios. Two common patterns where we see this kind of data growth is :-</p>
+<p>While ADLS Gen2  storage is not very expensive and lets you store a large amount of data in your storage accounts, lack of lifecycle management policies could end up growing the data in the storage very quickly even if you don’t require the entire corpus of data for your scenarios. Two common patterns where we see this kind of data growth is:</p>
 <ul>
 <li><strong>Data refresh with a newer version of data</strong> – Customers typically keep a few older versions of the data for analysis when there is a period refresh of the same data, e.g. when customer engagement data over the last month is refreshed daily over a rolling window of 30 days, you get 30 days engagement data everyday and when you don’t have a clean up process in place, your data could grow exponentially.</li>
 <li><strong>Workspace data accumulation</strong> – In the workspace data zone, the customers of your data platform, i.e. the BI analysts or data scientists can bring their own data sets Typically, we have seen that this data could also accumulate just as easily when the data not used is left lying around in the storage spaces.</li>
@@ -572,7 +561,7 @@ https://github.com/alex-shpak/hugo-book
 </tr>
 </tbody>
 </table>
-<p>When using RBAC at the container level as the only mechanism for data access control, be cautious of the <a href="https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#role-based-access-control-limits">2000 limit</a>, particularly if you are likely to have a large number of containers. You can view the number of role assigments per subscription in any of the access control (IAM) blades in the portal.</p>
+<p>When using RBAC at the container level as the only mechanism for data access control, be cautious of the <a href="https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#role-based-access-control-limits">2000 limit</a>, particularly if you are likely to have a large number of containers. You can view the number of role assignments per subscription in any of the access control (IAM) blades in the portal.</p>
 <h4 id="recommendations----omit-in-toc----2">
   Recommendations <!-- omit in toc -->
   <a class="anchor" href="#recommendations----omit-in-toc----2">#</a>
@@ -591,8 +580,8 @@ https://github.com/alex-shpak/hugo-book
   What data format do I choose?
   <a class="anchor" href="#what-data-format-do-i-choose">#</a>
 </h3>
-<p>Data may arrive to your data lake account in a variety of formats – human readable formats such as JSON, CSV or XML files, compressed binary formats such as .tar.gz and a variety of sizes – huge files (a few TBs) such as an export of a SQL table from your on-premise systems or a large number of tiny files (a few KBs) such as real-time events from your IoT solution. While ADLS Gen2 supports storing all kinds of data without imposing any restrictions, it is better to think about data formats to maximize efficiency of your processing pipelines and optimize costs – you can achieve both of these by picking the right format and the right file sizes.
-Hadoop has a set of file formats it supports for optimized storage and processing of structured data. Let us look at some common file formats – <a href="https://avro.apache.org/docs/current/">Avro</a>, <a href="https://parquet.apache.org/documentation/latest/">Parquet</a> and <a href="https://orc.apache.org/docs/">ORC</a>. All of these are machine-readable binary file formats, offer compression to manage the file size and are self-describing in nature with a schema embedded in the file. The difference between the formats is in how data is stored – Avro stores data in a row-based format and Parquet and ORC formats store data in a columnar format.</p>
+<p>Data may arrive to your data lake account in a variety of formats – human readable formats such as JSON, CSV or XML files, compressed binary formats such as .tar.gz and a variety of sizes – huge files (a few TBs) such as an export of a SQL table from your on-premise systems or a large number of tiny files (a few KBs) such as real-time events from your IoT solution. While ADLS Gen2 supports storing all kinds of data without imposing any restrictions, it is better to think about data formats to maximize efficiency of your processing pipelines and optimize costs – you can achieve both of these by picking the right format and the right file sizes.</p>
+<p>Hadoop has a set of file formats it supports for optimized storage and processing of structured data. Let us look at some common file formats – <a href="https://avro.apache.org/docs/current/">Avro</a>, <a href="https://parquet.apache.org/docs/">Parquet</a> and <a href="https://orc.apache.org/docs/">ORC</a>. All of these are machine-readable binary file formats, offer compression to manage the file size and are self-describing in nature with a schema embedded in the file. The difference between the formats is in how data is stored – Avro stores data in a row-based format and Parquet and ORC formats store data in a columnar format.</p>
 <h4 id="key-considerations----omit-in-toc----3">
   Key considerations <!-- omit in toc -->
   <a class="anchor" href="#key-considerations----omit-in-toc----3">#</a>
@@ -613,7 +602,7 @@ Hadoop has a set of file formats it supports for optimized storage and processin
 <ul>
 <li>ADLS Gen2 provides policy management that you can use to leverage the lifecycle of data stored in your Gen2 account. You can read more about these policies <a href="https://docs.microsoft.com/azure/storage/blobs/storage-lifecycle-management-concepts?tabs=azure-portal">here</a>. E.g. if your organization has a retention policy requirement to keep the data for 5 years, you can set a policy to automatically delete the data if it has not been modified for 5 years. If your analytics scenarios primarily operate on data that is ingested in the past month, you can move the data older than the month to a lower tier (cool or archive) which have a lower cost for data stored. Please note that the lower tiers have a lower price for data at rest, but higher policies for transactions, so do not move data to lower tiers if you expect the data to be frequently transacted on.</li>
 </ul>
-<p><img src="images/dlm_pic.png" alt="" /></p>
+<p><img src="images/dlm_pic.png" alt="A screenshot of the Azure portal showing a data lifecycle management rule" /></p>
 <ul>
 <li>Ensure that you are choosing the right replication option for your accounts, you can read the <a href="https://docs.microsoft.com/azure/storage/common/storage-redundancy">data redundancy article</a> to learn more about your options. E.g. while GRS accounts ensure that your data is replicated across multiple regions, it also costs higher than an LRS account (where data is replicated on the same datacenter). When you have a production environment, replication options such as GRS are highly valuable to ensure business continuity with high availability and disaster recovery. However, an LRS account might just suffice for your development environment.</li>
 <li>As you can see from the <a href="https://azure.microsoft.com/pricing/details/storage/data-lake/">pricing page</a> of ADLS Gen2, your read and write transactions are billed in 4 MB increments. E.g. if you do 10,000 read operations and each file read is 16 MB in size, you will be charged for 40,000 transactions. When you have scenarios where you read a few KBs of data in a transaction, you will still be charged for the a 4 MB transaction. Optimizing for more data in a single transaction, i.e. optimizing for higher throughtput in your transactions does not just save cost, but also highly improves your performance.</li>
@@ -625,8 +614,8 @@ Hadoop has a set of file formats it supports for optimized storage and processin
 <p>Understanding how your data lake is used and how it performs is a key component of operationalizing your service and ensuring it is available for use by any workloads which consume the data contained within it. This includes:</p>
 <ul>
 <li>Being able to audit your data lake in terms of frequent operations</li>
-<li>Having visibiliy into key performace indicators such as operations with high latency</li>
-<li>Undestanding common errors, the operations that caused the error, and operations which cause service-side throttling</li>
+<li>Having visibility into key performance indicators such as operations with high latency</li>
+<li>Understanding common errors, the operations that caused the error, and operations which cause service-side throttling</li>
 </ul>
 <h4 id="key-considerations----omit-in-toc----5">
   Key considerations <!-- omit in toc -->
@@ -685,7 +674,7 @@ Hadoop has a set of file formats it supports for optimized storage and processin
 <blockquote>
 <p><strong>Under construction, looking for contributions</strong></p>
 </blockquote>
-<p>In this section, we will address how to optimize your data lake store for your performance in your analytics pipeline. in this section, we will focus on the basic principles that help you optimize the storage transactions. To ensure we have the right context, there is no silver bullet or a 12 step process to optimize your data lake since a lot of considerations depend on the specific usage and the business problems you are trying to solve. However, when we talk about optimizing your data lake for performance, scalability and even cost, it boils down to two key factors :-</p>
+<p>In this section, we will address how to optimize your data lake store for your performance in your analytics pipeline. in this section, we will focus on the basic principles that help you optimize the storage transactions. To ensure we have the right context, there is no silver bullet or a 12 step process to optimize your data lake since a lot of considerations depend on the specific usage and the business problems you are trying to solve. However, when we talk about optimizing your data lake for performance, scalability and even cost, it boils down to two key factors:</p>
 <ul>
 <li>Optimize for high throughput – target getting at least a few MBs (higher the better) per transaction.</li>
 <li>Optimize data access patterns – reduce unnecessary scanning of files, read only the data you need to read.</li>
@@ -710,28 +699,28 @@ Hadoop has a set of file formats it supports for optimized storage and processin
 </h3>
 <p>As we have already talked about, optimizing your storage I/O patterns can largely benefit the overall performance of your analytics pipeline. It is worth calling out that choosing the right file format can lower your data storage costs in addition to offering better performance. Parquet is one such prevalent data format that is worth exploring for your big data analytics pipeline.</p>
 <p>Apache Parquet is an open source file format that is optimized for read heavy analytics pipelines. The columnar storage structure of Parquet lets you skip over non-relevant data making your queries much more efficient. This ability to skip also results in only the data you want being sent from the storage to the analytics engine resulting in lower cost along with better performance. In addition, since the similar data types (for a column) are stored together, Parquet lends itself friendly to efficient data compression and encoding schemes lowering your data storage costs as well, compared to storing the same data in a text file format.</p>
-<p><img src="images/parquet_format.PNG" alt="" /></p>
+<p><img src="images/parquet_format.PNG" alt="Diagram showing the format of a parquet file" /></p>
 <p>Services such as <a href="https://docs.microsoft.com/azure/synapse-analytics/sql/query-parquet-files">Azure Synapse Analytics</a>, <a href="https://docs.microsoft.com/azure/databricks/delta/optimizations/delta-cache">Azure Databricks</a> and <a href="https://docs.microsoft.com/azure/data-factory/format-parquet">Azure Data Factory</a> have native functionality built in to take advantage of Parquet file formats as well.</p>
 <h3 id="partitioning-schemes">
   Partitioning schemes
   <a class="anchor" href="#partitioning-schemes">#</a>
 </h3>
-<p>An effective paritioning scheme for your data can imrpove the performance of your analytics pipeline and also reduce the overall transaction costs incurred with your query. In simplistic terms, partitioning is a way of organizing your data by grouping datasets with similar attributes together in a storage entity, such as a folder. When your data processing pipeline is querying for data with that similar attribute (E.g. all the data in the past 12 hours), the partitioning scheme (in this case, done by datetime) lets you skip over the irrelevant data and only seek the data that you want.</p>
-<p>Let us take an example of an IoT scenario at Contoso where data is ingested real time from various sensors into the data lake. Now, you have various options of storing the data, including (but not limited to) the ones listed below :</p>
+<p>An effective partitioning scheme for your data can improve the performance of your analytics pipeline and also reduce the overall transaction costs incurred with your query. In simplistic terms, partitioning is a way of organizing your data by grouping datasets with similar attributes together in a storage entity, such as a folder. When your data processing pipeline is querying for data with that similar attribute (E.g. all the data in the past 12 hours), the partitioning scheme (in this case, done by datetime) lets you skip over the irrelevant data and only seek the data that you want.</p>
+<p>Let us take an example of an IoT scenario at Contoso where data is ingested real time from various sensors into the data lake. Now, you have various options of storing the data, including (but not limited to) the ones listed below:</p>
 <ul>
 <li>Option 1 -  <code>/&lt;sensorid&gt;/&lt;datetime&gt;/&lt;temperature&gt;, &lt;sensorid&gt;/&lt;datetime&gt;/&lt;pressure&gt;, &lt;sensorid&gt;/&lt;datetime&gt;/&lt;humidity&gt;</code></li>
 <li>Option 2 - <code>/&lt;datetime&gt;/&lt;sensorid&gt;/&lt;temperature&gt;, /&lt;datetime&gt;/&lt;sensorid&gt;/&lt;pressure&gt;, /datetime&gt;/&lt;sensorid&gt;/&lt;humidity&gt;</code></li>
 <li>Option 3 - <code>&lt;temperature&gt;/&lt;datetime&gt;/&lt;sensorid&gt;, &lt;pressure&gt;/&lt;datetime&gt;/&lt;sensorid&gt;, &lt;humidity&gt;/&lt;datetime&gt;/&lt;sensorid&gt;</code></li>
 </ul>
-<p>If a high priority scenario is to understand the health of the sensors based on the values they send to ensure the sensors are working fine, then you would have analytics pipelines running every hour or so to triangulate data from a specific sensor with data from other sensors to ensure they are working fine. In this case, Option 2 would be the optimal way for organizing the data.
-If instead your high priority scenario is to understand the weather patterns in the area based on the sensor data to ensure what remedial action you need to take, you would have analytics pipelines running periodically to assess the weather based on the sensor data from the area. In this case, you would want to optimize for the organization by date and attribute over the sensorID.</p>
+<p>If a high priority scenario is to understand the health of the sensors based on the values they send to ensure the sensors are working fine, then you would have analytics pipelines running every hour or so to triangulate data from a specific sensor with data from other sensors to ensure they are working fine. In this case, Option 2 would be the optimal way for organizing the data.</p>
+<p>If instead your high priority scenario is to understand the weather patterns in the area based on the sensor data to ensure what remedial action you need to take, you would have analytics pipelines running periodically to assess the weather based on the sensor data from the area. In this case, you would want to optimize for the organization by date and attribute over the sensorID.</p>
 <p>Open source computing frameworks such as Apache Spark provide native support for partitioning schemes that you can leverage in your big data application.</p>
 <h3 id="use-query-acceleration">
   Use Query Acceleration
   <a class="anchor" href="#use-query-acceleration">#</a>
 </h3>
 <p>Azure Data Lake Storage has a capability called <a href="https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-query-acceleration#:~:text=Query%20acceleration%20%28preview%29%20is%20a,to%20perform%20a%20given%20operation">Query Acceleration</a> available in preview that is intended to optimize your performance while lowering the cost. Query acceleration lets you filter for the specific rows and columns of data that you want in your dataset by specifying one more predicates (think of these as similar to the conditions you would provide in your WHERE clause in a SQL query) and column projections (think of these as columns you would specify in the SELECT statement in your SQL query) on unstructured data.</p>
-<p><img src="images/query-acceleration.png" alt="" /></p>
+<p><img src="images/query-acceleration.png" alt="Diagram showing a client application sending queries to Azure Storage" /></p>
 <p>In addition to improving performance by filtering the specific data used by the query, Query Acceleration also lowers the overall cost of your analytics pipeline by optimizing the data transferred, and hence reducing the overall storage transaction costs, and also saving you the cost of compute resources you would have otherwise spun up to read the entire dataset and filter for the subset of data that you need.</p>
 <h2 id="recommended-reading">
   Recommended reading
@@ -761,7 +750,7 @@ If instead your high priority scenario is to understand the weather patterns in 
 Azure Storage &copy;2023 <br />
 Visit the <a href="https://azure.microsoft.com/services/storage/">Azure Storage homepage</a> or read our <a href="https://docs.microsoft.com/azure/storage/">getting started guide</a> or the <a href="https://azure.microsoft.com/blog/topics/storage-backup-and-recovery/">Azure Storage Blog</a>. <br />
 Contact us: <a href="mailto:azurestoragefeedback@microsoft.com?subject=AzureStorage.com%20Feedback">azurestoragefeedback@microsoft.com</a>.<br />
-Generated on Wed, May 10 2023 17:28:14 UTC
+Generated on Tue, Jun 06 2023 15:29:07 UTC
       </footer>
 
       
