@@ -244,7 +244,7 @@ The Hitchhiker&amp;rsquo;s Guide to the Data Lake When is ADLS Gen2 the right ch
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://azure.github.io/Storage/docs/tools-and-utilities/</guid>
-      <description>Tools and Utilities # AzCopy is a command-line utility that you can use to copy blobs or files to or from a storage account. AzReplicate is a sample application designed to help Azure Storage customers perform very large, multi-petabyte data migrations to Azure Blob Storage. AzDataMaker is a sample .NET Core app that runs in a Linux Azure Container Instance that generates files and uploads them to Azure Blob Storage.</description>
+      <description>Tools and Utilities # AzCopy is a command-line utility that you can use to copy blobs or files to or from a storage account. AzDataMaker is a sample .NET Core app that runs in a Linux Azure Container Instance that generates files and uploads them to Azure Blob Storage. AzMultiProtocolAccess is a sample application designed to showcase how to use multi-protocol access on Azure Data Lake Storage Gen2. AzReplicate is a sample application designed to help Azure Storage customers perform very large, multi-petabyte data migrations to Azure Blob Storage.</description>
     </item>
     
     <item>
